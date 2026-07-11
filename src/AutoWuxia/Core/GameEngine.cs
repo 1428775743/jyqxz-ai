@@ -1203,6 +1203,7 @@ public class GameEngine
         // 旧档 AllNPCs/AllScenes/AllFactions 是快照,缺后续新增内容;只补缺失、不覆盖已有(保留玩家进度)。
         // 加新 NPC/城镇/门派时无需 bump 版本,旧档加载自动兼容。
         bool added = false;
+        var newlyAddedNpcIds = new HashSet<string>();
         foreach (var (id, _) in Config.Characters)
         {
             if (id == "player_default" || state.AllNPCs.ContainsKey(id)) continue;
@@ -1211,6 +1212,7 @@ public class GameEngine
                 var npc = Config.CreateNPC(id);
                 if (npc == null) continue;
                 state.AllNPCs[id] = npc;
+                newlyAddedNpcIds.Add(id);
                 if (ShopSystem.IsMerchant(npc.NpcRole))
                     ShopSystem.InitShopItems(npc, Config);
                 added = true;
@@ -1278,6 +1280,20 @@ public class GameEngine
             }
             if (restoredItems > 0)
                 Log($"存档迁移 v2:补回已完成任务节点遗漏的物品 {restoredItems} 件");
+        }
+
+        if (state.SaveVersion < 3)
+        {
+            // v3 平衡调整：全体 NPC 气血提高 10%。同步提高当前气血，保持原有血量比例。
+            foreach (var npc in state.AllNPCs.Values)
+            {
+                // 本次加载刚补入的 NPC 已由 ConfigManager 使用新倍率创建，不能重复放大。
+                if (newlyAddedNpcIds.Contains(npc.Id)) continue;
+                npc.MaxHP = (int)Math.Round(npc.MaxHP * 1.10, MidpointRounding.AwayFromZero);
+                npc.CurrentHP = Math.Min(
+                    npc.MaxHP,
+                    (int)Math.Round(npc.CurrentHP * 1.10, MidpointRounding.AwayFromZero));
+            }
         }
 
         state.SaveVersion = GameState.CurrentSaveVersion;

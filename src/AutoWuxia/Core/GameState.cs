@@ -17,7 +17,7 @@ public class GameState
     public Dictionary<string, Faction> AllFactions { get; set; } = new();
 
     /// <summary>当前存档版本号。每次有破坏性存档改动(新增NPC/场景/门派、改数据结构)时 +1,并在 GameEngine.MigrateSave 加对应迁移块。</summary>
-    public const int CurrentSaveVersion = 2;
+    public const int CurrentSaveVersion = 3;
 
     /// <summary>存档创建时的版本号。旧档无此字段,反序列化为 0,加载时由 GameEngine.MigrateSave 逐步迁移到 CurrentSaveVersion。</summary>
     public int SaveVersion { get; set; } = 0;

@@ -160,10 +160,6 @@ public abstract class QuestBase
     public void GrantReward(Player player, AutoWuxia.Config.ConfigManager? config = null)
     {
         if (Reward == null) return;
-        player.MaxHP += Reward.HPBonus;
-        player.MaxMP += Reward.MPBonus;
-        player.BaseAttack += Reward.AttackBonus;
-        player.BaseDefense += Reward.DefenseBonus;
         if (Reward.KarmaBonus != 0)
             player.Karma = Math.Clamp(player.Karma + Reward.KarmaBonus, -100, 100);
         if (Reward.JianghuExp > 0)
@@ -315,10 +311,6 @@ public class QuestReward
         if (ReputationBonus > 0) parts.Add($"声望+{ReputationBonus}");
         if (FactionContributionBonus > 0) parts.Add($"门派贡献+{FactionContributionBonus}");
         if (JianghuExp > 0) parts.Add($"阅历+{JianghuExp}");
-        if (HPBonus > 0) parts.Add($"HP+{HPBonus}");
-        if (MPBonus > 0) parts.Add($"MP+{MPBonus}");
-        if (AttackBonus > 0) parts.Add($"攻击+{AttackBonus}");
-        if (DefenseBonus > 0) parts.Add($"防御+{DefenseBonus}");
         if (KarmaBonus != 0) parts.Add($"善恶{(KarmaBonus > 0 ? "+" : "")}{KarmaBonus}");
         if (!string.IsNullOrEmpty(MartialArtId))
         {
@@ -336,10 +328,6 @@ public class QuestReward
     /// <summary>直接发放奖励给玩家（节点奖励/不依赖config创建物品）</summary>
     public void GrantRewardDirect(Player player, AutoWuxia.Config.ConfigManager? config = null)
     {
-        player.MaxHP += HPBonus;
-        player.MaxMP += MPBonus;
-        player.BaseAttack += AttackBonus;
-        player.BaseDefense += DefenseBonus;
         if (KarmaBonus != 0)
             player.Karma = Math.Clamp(player.Karma + KarmaBonus, -100, 100);
         if (JianghuExp > 0)

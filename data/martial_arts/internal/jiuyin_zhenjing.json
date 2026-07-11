@@ -4,19 +4,32 @@
   "type": "internal",
   "description": "黄裳所著的绝世武功，内含深厚的内功心法。",
   "maxLevel": 10,
-  "rarity": "epic",
+  "rarity": "legendary",
   "cooldown": 3,
   "mpCost": 80,
   "hpBonusPerLevel": 200,
-  "mpBonusPerLevel": 300,
-  "attackBonusPerLevel": 40,
-  "defenseBonusPerLevel": 30,
+  "mpBonusPerLevel": 400,
+  "attackBonusPerLevel": 45,
+  "defenseBonusPerLevel": 40,
   "effects": [
     {
       "type": "MPRecover",
-      "value": 0.05,
+      "value": 0.10,
       "chance": 1.0,
-      "description": "每回合恢复5%内力"
+      "description": "每回合恢复10%内力"
+    },
+    {
+      "type": "HPRecover",
+      "value": 0.08,
+      "chance": 1.0,
+      "description": "九阴疗伤篇：每回合恢复8%最大气血"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁：九阴真气护体，受到伤害降低15%"
     }
   ],
   "levelBonuses": {}

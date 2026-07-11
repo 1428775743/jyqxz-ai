@@ -232,8 +232,9 @@ public class ConfigManager
         npc.Name = config.Name;
         npc.Description = config.Description;
         npc.Personality = config.Personality;
-        npc.MaxHP = config.MaxHP;
-        npc.CurrentHP = config.MaxHP;
+        // 全体 NPC 基础气血统一提高 10%；旧存档由 GameEngine 的版本迁移处理。
+        npc.MaxHP = (int)Math.Round(config.MaxHP * 1.10, MidpointRounding.AwayFromZero);
+        npc.CurrentHP = npc.MaxHP;
         npc.MaxMP = config.MaxMP;
         npc.CurrentMP = config.MaxMP;
         npc.BaseAttack = config.Attack;

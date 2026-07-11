@@ -9,7 +9,8 @@ public class InternalArt : MartialArtBase
     public int AttackBonusPerLevel { get; set; }
     public int DefenseBonusPerLevel { get; set; }
 
-    public int GetHPBonus() => HPBonusPerLevel * Level;
+    /// <summary>所有内功的气血收益统一提高约 10%。</summary>
+    public int GetHPBonus() => (int)Math.Round(HPBonusPerLevel * Level * 1.10, MidpointRounding.AwayFromZero);
     public int GetMPBonus() => MPBonusPerLevel * Level;
     public int GetAttackBonus() => AttackBonusPerLevel * Level;
     public int GetDefenseBonus() => DefenseBonusPerLevel * Level;

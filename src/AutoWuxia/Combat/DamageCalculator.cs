@@ -26,9 +26,11 @@ public class DamageResult
 
 public static class DamageCalculator
 {
+    // K 越低，防御转化为减伤的效率越高。防御=K 时减伤 50%。
+    private const double DefenseConstant = 700.0;
+
     public static DamageResult Calculate(CharacterBase attacker, CharacterBase defender, MartialArtBase? usedArt = null)
     {
-        const double DefConstant = 800.0;    // 防御收益常数K:防=K时减伤50%
         const double MaxReduction = 0.70;    // 减伤buff叠加上限70%
 
         var result = new DamageResult();
@@ -106,7 +108,7 @@ public static class DamageCalculator
         // 无视防御降低有效防御值;防=K减伤50%,防=2K减伤67%,低防几乎不减
         int defense = defender.GetTotalDefense();
         int effDef = (int)(defense * (1 - Math.Min(ignoreDef, 1.0)));
-        double normalDamage = result.RawDamage * DefConstant / (effDef + DefConstant);
+        double normalDamage = result.RawDamage * DefenseConstant / (effDef + DefenseConstant);
 
         // ── 真实伤害:绕过防御与后续百分比减伤,按 Raw 的比例全额附加 ──
         double trueDamage = result.RawDamage * Math.Min(trueDamageRate, 1.0);
@@ -267,9 +269,8 @@ public static class DamageCalculator
     /// <param name="defenseFactor">有效防御系数(默认1.0;反击0.5=只算一半防御)</param>
     public static int ComputeSecondaryDamage(int rawBase, int defense, double damageMultiplier = 1.0, double defenseFactor = 1.0)
     {
-        const double DefConstant = 800.0;
         int effDef = Math.Max(0, (int)(defense * defenseFactor));
-        double dmg = rawBase * damageMultiplier * DefConstant / (effDef + DefConstant);
+        double dmg = rawBase * damageMultiplier * DefenseConstant / (effDef + DefenseConstant);
         return Math.Max(1, (int)dmg);
     }
 }
