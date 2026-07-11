@@ -4,7 +4,7 @@
   "description": "通往重阳宫的山间小道,松柏掩映,云雾缭绕。山道上有全真弟子往来,杂役弟子常在此劈柴挑水。再往前便是活死人墓的所在。",
   "region": "终南山",
   "backgroundImagePath": "assets/scenes/quanzhen_mountain_path.jpg",
-  "connectedScenes": ["quanzhen_hall", "huashan_path", "gumu_entrance"],
+  "connectedScenes": ["quanzhen_hall", "gumu_entrance"],
   "defaultNPCs": ["zhao_zhijing"],
   "isSpecial": false
 }

@@ -414,8 +414,9 @@ public abstract class CharacterBase
 
     public int TakeDamage(int damage)
     {
+        int oldHP = CurrentHP;
         CurrentHP = Math.Max(0, CurrentHP - damage);
-        return damage;
+        return oldHP - CurrentHP;
     }
 
     public void Heal(int amount)

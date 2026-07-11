@@ -5,7 +5,8 @@
   "region": "嵩山",
   "backgroundImagePath": "assets/scenes/songshan_backhill.jpg",
   "connectedScenes": [
-    "songshan_town"
+    "songshan_town",
+    "shaoshishan"
   ],
   "defaultNPCs": [],
   "isSpecial": false,

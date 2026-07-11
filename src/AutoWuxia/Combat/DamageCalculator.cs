@@ -7,6 +7,8 @@ public class DamageResult
 {
     public int RawDamage { get; set; }
     public int ActualDamage { get; set; }
+    /// <summary>实际伤害中不受百分比减伤影响的真实伤害部分</summary>
+    public int TrueDamage { get; set; }
     public int MPCost { get; set; }
     public bool IsCrit { get; set; }
     public double ProficiencyMultiplier { get; set; } = 1.0;
@@ -104,10 +106,10 @@ public static class DamageCalculator
         // 无视防御降低有效防御值;防=K减伤50%,防=2K减伤67%,低防几乎不减
         int defense = defender.GetTotalDefense();
         int effDef = (int)(defense * (1 - Math.Min(ignoreDef, 1.0)));
-        double damage = result.RawDamage * DefConstant / (effDef + DefConstant);
+        double normalDamage = result.RawDamage * DefConstant / (effDef + DefConstant);
 
-        // ── 真实伤害:绕过百分比减伤,按 Raw 的比例全额附加 ──
-        damage += result.RawDamage * Math.Min(trueDamageRate, 1.0);
+        // ── 真实伤害:绕过防御与后续百分比减伤,按 Raw 的比例全额附加 ──
+        double trueDamage = result.RawDamage * Math.Min(trueDamageRate, 1.0);
 
         // ── 固定减伤(百分比后扣减,如坐忘功Lv8 -10) ──
         var defInternalArt = defender.ActiveInternalArt;
@@ -118,7 +120,7 @@ public static class DamageCalculator
                 if (effect.IsUnlocked(defInternalArt.Level))
                 {
                     int flatReduce = (int)effect.Value;
-                    damage -= flatReduce;
+                    normalDamage -= flatReduce;
                     result.TriggeredEffects.Add($"固定减伤 (-{flatReduce})");
                 }
             }
@@ -144,9 +146,9 @@ public static class DamageCalculator
             }
         }
         reductionPct = Math.Min(reductionPct, MaxReduction);
-        damage *= (1 - reductionPct);
-
-        result.ActualDamage = Math.Max(1, (int)damage);
+        normalDamage = Math.Max(0, normalDamage) * (1 - reductionPct);
+        result.TrueDamage = Math.Max(0, (int)trueDamage);
+        result.ActualDamage = Math.Max(1, (int)normalDamage + result.TrueDamage);
 
         // 反弹伤害 TimedBuff
         if (defender.HasTimedBuff("reflect_damage") && result.ActualDamage > 0)
@@ -259,7 +261,7 @@ public static class DamageCalculator
     /// 次要伤害(连击/反击/追击)的百分比减伤计算,与主伤害共用 dota 式减伤曲线。
     /// 次要伤害只过防御力减伤,不再叠减伤buff/固定减伤,保持简洁。
     /// </summary>
-    /// <param name="rawBase">基础伤害(已含武功系数与暴击,不含倍率)</param>
+    /// <param name="rawBase">基础伤害(已含武功系数与等级倍率)</param>
     /// <param name="defense">防御方总防御</param>
     /// <param name="damageMultiplier">伤害倍率(连击0.85/反击0.6/追击0.6)</param>
     /// <param name="defenseFactor">有效防御系数(默认1.0;反击0.5=只算一半防御)</param>

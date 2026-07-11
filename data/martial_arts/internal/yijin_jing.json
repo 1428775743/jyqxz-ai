@@ -2,7 +2,7 @@
   "id": "yijin_jing",
   "name": "易筋经",
   "type": "internal",
-  "description": "少林镇寺之宝，修炼后筋骨强健，内力浑厚。大成后身如金钟，刀枪不入。",
+  "description": "少林镇寺之宝，修炼后筋骨强健，内力浑厚。易筋洗髓可令气血自复，大成后身如金钟，刀枪不入。",
   "maxLevel": 10,
   "rarity": "legendary",
   "cooldown": 3,
@@ -12,6 +12,13 @@
   "attackBonusPerLevel": 30,
   "defenseBonusPerLevel": 50,
   "effects": [
+    {
+      "type": "HPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁：易筋洗髓，每回合恢复5%最大气血"
+    },
     {
       "type": "MPResist",
       "value": 0.3,

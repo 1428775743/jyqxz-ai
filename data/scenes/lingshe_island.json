@@ -4,7 +4,7 @@
   "description": "东海荒岛,毒蛇遍地,人迹罕至。明教金毛狮王谢逊携屠龙刀隐居于此,以毒蛇为伴,避世多年。岛上毒雾瘴气弥漫,寻常人难以靠近。",
   "region": "东海",
   "backgroundImagePath": "assets/scenes/lingshe_island.jpg",
-  "connectedScenes": ["taohua_scene"],
+  "connectedScenes": [],
   "defaultNPCs": ["xie_xun"],
   "isSpecial": true
 }

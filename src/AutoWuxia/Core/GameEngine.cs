@@ -1257,11 +1257,29 @@ public class GameEngine
 
         // ── 版本化迁移(破坏性数据结构改动,按版本号逐步执行) ──
         // 每次破坏性改动:GameState.CurrentSaveVersion +1,在此加 if (state.SaveVersion < N) { ... } 块。
-        // if (state.SaveVersion < 1)
-        // {
-        //     ... 一次性数据结构转换 ...
-        //     Log("存档迁移 v1: ...");
-        // }
+        if (state.SaveVersion < 2)
+        {
+            // 与遗漏武功同源：旧版节点奖励未传 ConfigManager，配置型物品也没有实际发放。
+            // 仅迁移一次，避免以后每次读档重复补偿。
+            int restoredItems = 0;
+            foreach (var quest in state.Player.QuestLog)
+            {
+                int completedSteps = Math.Min(quest.CurrentStepIndex, quest.Steps.Count);
+                for (int i = 0; i < completedSteps; i++)
+                {
+                    foreach (var rewardItem in quest.Steps[i].Reward?.Items ?? new List<Quests.RewardItem>())
+                    {
+                        var item = Config.CreateItem(rewardItem.ItemId);
+                        if (item == null) continue;
+                        item.Quantity = rewardItem.Quantity;
+                        state.Player.Inventory.AddItem(item);
+                        restoredItems += rewardItem.Quantity;
+                    }
+                }
+            }
+            if (restoredItems > 0)
+                Log($"存档迁移 v2:补回已完成任务节点遗漏的物品 {restoredItems} 件");
+        }
 
         state.SaveVersion = GameState.CurrentSaveVersion;
     }

@@ -4,7 +4,7 @@
       "id": "huashan",
       "name": "华山",
       "region": "华山",
-      "sceneIds": ["huashan_path", "huashan_backhill"],
+      "sceneIds": ["huashan_path", "huashan_backhill", "siguoyai"],
       "mapX": 300, "mapY": 370
     },
     {
@@ -32,7 +32,7 @@
       "id": "xiangyang",
       "name": "襄阳",
       "region": "襄阳",
-      "sceneIds": ["xiangyang_cheng", "xiangyang_wall", "xiangyang_inn"],
+      "sceneIds": ["xiangyang_cheng", "xiangyang_wall", "xiangyang_inn", "xiangyang_backhill", "jianzhong"],
       "mapX": 430, "mapY": 560
     },
     {
@@ -60,7 +60,7 @@
       "id": "taohua",
       "name": "桃花岛",
       "region": "东海",
-      "sceneIds": ["taohua_scene"],
+      "sceneIds": ["taohua_scene", "taohua_cave"],
       "mapX": 850, "mapY": 490
     },
     {
@@ -102,7 +102,7 @@
       "id": "liujiacun",
       "name": "刘家村",
       "region": "江南",
-      "sceneIds": ["liujiacun_scene", "liujiacun_house", "liujiacun_backhill"],
+      "sceneIds": ["liujiacun_scene", "liujiacun_house", "liujiacun_backhill", "huanggu_cave"],
       "mapX": 470, "mapY": 680
     },
     {

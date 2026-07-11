@@ -188,7 +188,7 @@ public abstract class QuestBase
             }
         }
 
-        // 奖励武功秘籍
+        // 奖励武功（直接学会，不生成秘籍物品）
         if (!string.IsNullOrEmpty(Reward.MartialArtId) && config != null)
         {
             if (!player.LearnedArts.Any(a => a.Id == Reward.MartialArtId))
@@ -323,7 +323,7 @@ public class QuestReward
         if (!string.IsNullOrEmpty(MartialArtId))
         {
             var artName = (config != null && config.MartialArts.TryGetValue(MartialArtId, out var ac)) ? ac.Name : MartialArtId;
-            parts.Add($"武功秘籍: {artName}");
+            parts.Add($"直接学会武功: {artName}");
         }
         foreach (var it in Items)
         {
@@ -362,7 +362,7 @@ public class QuestReward
                 player.Inventory.AddItem(item);
             }
         }
-        // 奖励武功秘籍
+        // 奖励武功（直接学会，不生成秘籍物品）
         if (!string.IsNullOrEmpty(MartialArtId) && config != null)
         {
             if (!player.LearnedArts.Any(a => a.Id == MartialArtId))

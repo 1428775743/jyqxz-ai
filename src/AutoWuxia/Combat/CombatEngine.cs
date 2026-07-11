@@ -393,23 +393,21 @@ public class CombatEngine
             double reduction = defender.ActiveLightArt.GetPassiveDamageReduction();
             if (reduction > 0)
             {
-                damageResult.ActualDamage = (int)(damageResult.ActualDamage * (1 - reduction));
-                damageResult.ActualDamage = Math.Max(1, damageResult.ActualDamage);
+                int reducibleDamage = Math.Max(0, damageResult.ActualDamage - damageResult.TrueDamage);
+                damageResult.ActualDamage = Math.Max(1,
+                    (int)(reducibleDamage * (1 - reduction)) + damageResult.TrueDamage);
             }
         }
 
-        if (IsSpar)
-            damageResult.ActualDamage = Math.Min(damageResult.ActualDamage, defender.CurrentHP - 1);
-
-        int actualDmg = defender.TakeDamage(damageResult.ActualDamage);
+        int actualDmg = DealCombatDamage(defender, damageResult.ActualDamage);
 
         if (attacker == Player)
-            Result.PlayerDamageDealt += damageResult.ActualDamage;
+            Result.PlayerDamageDealt += actualDmg;
         else
-            Result.PlayerDamageReceived += damageResult.ActualDamage;
+            Result.PlayerDamageReceived += actualDmg;
 
         var log = $"{attacker.Name}使出【{attackName}】攻击{defender.Name}，" +
-                  $"造成 {damageResult.ActualDamage} 点伤害";
+                  $"造成 {actualDmg} 点伤害";
 
         if (usedArt != null)
             log += $" (Lv.{usedArt.Level} {usedArt.GetLevelDamageMultiplier():P0})";
@@ -493,12 +491,12 @@ public class CombatEngine
                         if (!effect.TryActivate(artLv)) break;
                         if (defender.IsAlive && attacker.IsAlive)
                         {
-                            int baseDmg2 = usedArt != null ? usedArt.CalculateBaseDamage(attacker.GetTotalAttack()) : attacker.GetTotalAttack();
+                            int baseDmg2 = GetScaledAttackBase(attacker, usedArt);
                             int actualDouble = DamageCalculator.ComputeSecondaryDamage(baseDmg2, defender.GetTotalDefense(), 0.85);
-                            defender.TakeDamage(actualDouble);
-                            log += $"\n  ↳ {attacker.Name}连击!对{defender.Name}造成 {actualDouble} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
-                            if (attacker == Player) Result.PlayerDamageDealt += actualDouble;
-                            else Result.PlayerDamageReceived += actualDouble;
+                            int dealt = DealCombatDamage(defender, actualDouble);
+                            log += $"\n  ↳ {attacker.Name}连击!对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
+                            if (attacker == Player) Result.PlayerDamageDealt += dealt;
+                            else Result.PlayerDamageReceived += dealt;
                         }
                         break;
                     }
@@ -513,12 +511,12 @@ public class CombatEngine
             {
                 if (effect.Type == EffectType.DoubleStrike && effect.TryActivate(attacker.ActiveInternalArt.Level))
                 {
-                    int baseDmg2 = usedArt != null ? usedArt.CalculateBaseDamage(attacker.GetTotalAttack()) : attacker.GetTotalAttack();
+                    int baseDmg2 = GetScaledAttackBase(attacker, usedArt);
                     int actualDouble = DamageCalculator.ComputeSecondaryDamage(baseDmg2, defender.GetTotalDefense(), 0.85);
-                    defender.TakeDamage(actualDouble);
-                    log += $"\n  ↳ {attacker.Name}连击(内功)!对{defender.Name}造成 {actualDouble} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
-                    if (attacker == Player) Result.PlayerDamageDealt += actualDouble;
-                    else Result.PlayerDamageReceived += actualDouble;
+                    int dealt = DealCombatDamage(defender, actualDouble);
+                    log += $"\n  ↳ {attacker.Name}连击(内功)!对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
+                    if (attacker == Player) Result.PlayerDamageDealt += dealt;
+                    else Result.PlayerDamageReceived += dealt;
                     break;
                 }
             }
@@ -531,40 +529,40 @@ public class CombatEngine
         // 反弹伤害
         if (damageResult.ReflectedDamage > 0 && attacker.IsAlive)
         {
-            attacker.TakeDamage(damageResult.ReflectedDamage);
-            log += $"\n  ↳ 反弹伤害！{attacker.Name}受到 {damageResult.ReflectedDamage} 点反伤 | HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
+            int reflected = DealCombatDamage(attacker, damageResult.ReflectedDamage);
+            log += $"\n  ↳ 反弹伤害！{attacker.Name}受到 {reflected} 点反伤 | HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
             if (attacker == Player)
-                Result.PlayerDamageReceived += damageResult.ReflectedDamage;
+                Result.PlayerDamageReceived += reflected;
             else
-                Result.PlayerDamageDealt += damageResult.ReflectedDamage;
+                Result.PlayerDamageDealt += reflected;
         }
 
         // 反击（防御方自动攻击攻击者）
         if (damageResult.CounterAttackTriggered && defender.IsAlive && attacker.IsAlive)
         {
             var counterArt = defender.ActiveExternalArt;
-            int counterBase = counterArt != null ? counterArt.CalculateBaseDamage(defender.GetTotalAttack()) : defender.GetTotalAttack();
+            int counterBase = GetScaledAttackBase(defender, counterArt);
             int actualCounter = DamageCalculator.ComputeSecondaryDamage(counterBase, attacker.GetTotalDefense(), 0.6, 0.5);
-            attacker.TakeDamage(actualCounter);
-            log += $"\n  ↳ {defender.Name}反击！对{attacker.Name}造成 {actualCounter} 点伤害 | {attacker.Name} HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
+            int dealt = DealCombatDamage(attacker, actualCounter);
+            log += $"\n  ↳ {defender.Name}反击！对{attacker.Name}造成 {dealt} 点伤害 | {attacker.Name} HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
             if (defender == Player)
-                Result.PlayerDamageDealt += actualCounter;
+                Result.PlayerDamageDealt += dealt;
             else
-                Result.PlayerDamageReceived += actualCounter;
+                Result.PlayerDamageReceived += dealt;
         }
 
         // 追击（攻击方额外攻击一次，伤害60%）
         if (damageResult.ExtraAttackTriggered && attacker.IsAlive && defender.IsAlive)
         {
-            var extraArt = attacker.ActiveExternalArt;
-            int extraBase = extraArt != null ? extraArt.CalculateBaseDamage(attacker.GetTotalAttack()) : attacker.GetTotalAttack();
+            var extraArt = usedArt ?? attacker.ActiveExternalArt;
+            int extraBase = GetScaledAttackBase(attacker, extraArt);
             int actualExtra = DamageCalculator.ComputeSecondaryDamage(extraBase, defender.GetTotalDefense(), 0.6);
-            defender.TakeDamage(actualExtra);
-            log += $"\n  ↳ {attacker.Name}追击！对{defender.Name}造成 {actualExtra} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
+            int dealt = DealCombatDamage(defender, actualExtra);
+            log += $"\n  ↳ {attacker.Name}追击！对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
             if (attacker == Player)
-                Result.PlayerDamageDealt += actualExtra;
+                Result.PlayerDamageDealt += dealt;
             else
-                Result.PlayerDamageReceived += actualExtra;
+                Result.PlayerDamageReceived += dealt;
         }
 
         return log;
@@ -702,10 +700,26 @@ public class CombatEngine
         if (!character.HasTimedBuff("bleed")) return;
         int dmg = character.GetTimedBuffValue("bleed");
         if (dmg <= 0) return;
-        character.TakeDamage(dmg);
-        logs.Add($"  ↳ {character.Name}流血不止,损失 {dmg} HP | HP:{character.CurrentHP}/{character.GetTotalMaxHP()}");
-        if (character == Player) Result.PlayerDamageReceived += dmg;
-        else Result.PlayerDamageDealt += dmg;
+        int dealt = DealCombatDamage(character, dmg);
+        logs.Add($"  ↳ {character.Name}流血不止,损失 {dealt} HP | HP:{character.CurrentHP}/{character.GetTotalMaxHP()}");
+        if (character == Player) Result.PlayerDamageReceived += dealt;
+        else Result.PlayerDamageDealt += dealt;
+    }
+
+    /// <summary>外功基础伤害同时计入武功等级倍率，供连击/反击/追击等次要伤害使用。</summary>
+    private static int GetScaledAttackBase(CharacterBase attacker, ExternalArt? art)
+    {
+        if (art == null) return attacker.GetTotalAttack();
+        return (int)(art.CalculateBaseDamage(attacker.GetTotalAttack()) * art.GetProficiencyDamageMultiplier());
+    }
+
+    /// <summary>统一结算战斗伤害；切磋时任何伤害来源都只能将气血降至1。</summary>
+    private int DealCombatDamage(CharacterBase target, int damage)
+    {
+        int capped = Math.Max(0, damage);
+        if (IsSpar)
+            capped = Math.Min(capped, Math.Max(0, target.CurrentHP - 1));
+        return target.TakeDamage(capped);
     }
 
     private void TickAllCooldowns(CharacterBase character)
