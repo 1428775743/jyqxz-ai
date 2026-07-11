@@ -4,6 +4,14 @@ using AutoWuxia.Config.Models;
 
 namespace AutoWuxia.Quests;
 
+public enum FactionQuestAcceptResult
+{
+    Success,
+    NotFound,
+    WrongFaction,
+    AlreadyAccepted
+}
+
 /// <summary>
 /// 门派任务管理器
 /// 负责发布(添加)/取消(删除)门派任务,维护可领取任务池.
@@ -163,8 +171,11 @@ public class FactionQuestManager
     }
 
     /// <summary>玩家接受任务: 从可领取池移除并加到玩家任务日志</summary>
-    public bool AcceptQuest(Player player, string questId)
+    public FactionQuestAcceptResult AcceptQuest(Player player, string questId)
     {
+        if (player.QuestLog.Any(q => q.Id == questId))
+            return FactionQuestAcceptResult.AlreadyAccepted;
+
         foreach (var list in _byFaction.Values)
         {
             int idx = list.FindIndex(q => q.Id == questId);
@@ -172,11 +183,11 @@ public class FactionQuestManager
             var q = list[idx];
             // 门派任务仅限本门弟子接取(非本门弟子不可领取)
             if (!string.IsNullOrEmpty(q.FactionId) && q.FactionId != "free" && player.FactionId != q.FactionId)
-                return false;
+                return FactionQuestAcceptResult.WrongFaction;
             list.RemoveAt(idx);
             player.AddQuest(q);
-            return true;
+            return FactionQuestAcceptResult.Success;
         }
-        return false;
+        return FactionQuestAcceptResult.NotFound;
     }
 }

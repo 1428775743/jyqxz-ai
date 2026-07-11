@@ -195,10 +195,22 @@ public class FactionQuestBoardForm : Form
         if (q == null) return;
 
         var player = _engine.State.Player;
-        bool ok = _engine.FactionQuests.AcceptQuest(player, q.Id);
-        if (!ok)
+        var result = _engine.FactionQuests.AcceptQuest(player, q.Id);
+        if (result != FactionQuestAcceptResult.Success)
         {
-            MessageBox.Show(this, "接取失败，可能已被其他人接走。", "接取任务",
+            string reason = result switch
+            {
+                FactionQuestAcceptResult.WrongFaction =>
+                    $"此委托仅限{_engine.State.GetFactionName(q.FactionId)}弟子接取。",
+                FactionQuestAcceptResult.AlreadyAccepted => "你已经接取过此任务，可在「任务列表」中查看。",
+                _ => "此委托已失效，任务榜将自动刷新。"
+            };
+            if (result == FactionQuestAcceptResult.NotFound)
+            {
+                _quests.Remove(q);
+                RefreshList();
+            }
+            MessageBox.Show(this, reason, "接取任务",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }

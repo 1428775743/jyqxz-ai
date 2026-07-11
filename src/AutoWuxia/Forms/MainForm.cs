@@ -723,7 +723,12 @@ public class MainForm : Form
         }
 
         // 收集任务委托人：查看委托（按是否真有委托决定）
-        var npcCommissions = _engine.FactionQuests.GetIssuedByNpc(npc.Id);
+        var playerFactionId = _engine.State.Player.FactionId;
+        var npcCommissions = _engine.FactionQuests.GetIssuedByNpc(npc.Id)
+            .Where(q => string.IsNullOrEmpty(q.FactionId)
+                        || q.FactionId == "free"
+                        || q.FactionId == playerFactionId)
+            .ToList();
         if (npcCommissions.Count > 0)
         {
             var commissionBtn = MakeButton("查看委托", new Point(0, 0), WuxiaTheme.S(105, 35), WuxiaTheme.Accent);
