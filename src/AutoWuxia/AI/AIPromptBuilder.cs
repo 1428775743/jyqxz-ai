@@ -61,6 +61,7 @@ public class AIPromptBuilder
                "  5. NPC性格谨慎/保守的更难传授，性格豪爽/师者风范的较容易\n" +
                "  6. 如果teach_art_cooldown_active为true，绝对不能传授，但可以表达将来愿意教的意思\n" +
                "  7. 大多数对话中NPC不应该主动传授武功，除非关系已非常密切\n" +
+               "  8. 辟邪剑法(bixie_jianfa)和葵花宝典(kuihua_baodian)要求玩家已有eunuch标签；未自宫时绝对不能触发teach_art\n" +
                "- \"end_dialogue\": NPC想结束对话。条件：好感度低、有事在身、时间已晚想休息、或被冒犯\n" +
                "- \"heal\": NPC治疗玩家。仅限医者类NPC（medicine_merchant/imperial_doctor/wandering_doctor）\n" +
                "  治疗规则：\n" +
@@ -124,7 +125,7 @@ public class AIPromptBuilder
         // 可传授的武功（NPC会且玩家不会）
         var playerArtIdSet = new HashSet<string>(player.LearnedArts.Select(a => a.Id));
         var teachableArts = npc.LearnedArts
-            .Where(a => !playerArtIdSet.Contains(a.Id))
+            .Where(a => !playerArtIdSet.Contains(a.Id) && player.CanLearnArt(a.Id, out _))
             .Select(a => $"{a.Id}({a.Name})");
         var teachableArtsText = teachableArts.Any() ? string.Join(", ", teachableArts) : "无（玩家已学会NPC所有武功）";
 
@@ -194,6 +195,20 @@ public class AIPromptBuilder
                 sb.Append($"{n.Id} | {n.Name} | Lv{n.JianghuLevel}\n");
             }
             sb.Append("\n注意:actionTarget 必须从上面列表中选一个NPC的ID。\n");
+        }
+
+        // 司礼监净身师傅：玩家明确请求后立即交给后端弹出不可逆确认框。
+        if (npc.NpcRole == "eunuch_surgeon")
+        {
+            sb.Append("\n【你的特殊能力 - 司礼监净身师傅】\n");
+            if (player.HasTag("eunuch"))
+            {
+                sb.Append("玩家已经净身，不可再次执行手术。若玩家再问，应直接说明其已是净身之人，action必须为none。\n");
+            }
+            else
+            {
+                sb.Append("当玩家明确表示要净身、自宫，或为了修炼辟邪剑法/葵花宝典请求净身时，先简短警告不可逆，然后本次回复必须立即使用action=castrate。后端会再弹出最终确认框，不要要求玩家反复口头确认。\n");
+            }
         }
 
         // 任务上下文（发布者→全量进度；关联人→仅"发布者+任务名"）

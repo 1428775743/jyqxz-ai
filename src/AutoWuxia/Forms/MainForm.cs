@@ -1271,17 +1271,18 @@ public class MainForm : Form
         _engine.Config.MartialArts.TryGetValue(artId, out var artConfig);
         var artName = artConfig?.Name ?? artId;
 
+        // 所有NPC主动传授都必须先通过玩家武功前置条件，避免先弹“接受”再告知无法修炼。
+        if (!player.CanLearnArt(artId, out var blockReason))
+        {
+            _logBox.AppendWarning($"无法接受{npc.Name}传授的【{artName}】：{blockReason}。秘籍或传功均不能绕过此前置条件。");
+            return;
+        }
+
         var accept = WuxiaConfirmBox.Show(owner ?? this, "传授武功",
             $"{npc.Name}想传授你【{artName}】，是否接受？",
             "接受", "婉拒", WuxiaConfirmStyle.Success);
         if (accept)
         {
-            // 自宫前置条件检查
-            if (!player.CanLearnArt(artId, out var blockReason))
-            {
-                _logBox.AppendWarning($"无法修炼【{artName}】：{blockReason}。");
-                return;
-            }
             var art = _engine.Config.CreateMartialArt(artId);
             if (art != null)
             {
@@ -1405,6 +1406,12 @@ public class MainForm : Form
     private void HandleCastrateAction(NPC npc, IWin32Window? owner = null)
     {
         var player = _engine.State.Player;
+        if (npc.NpcRole != "eunuch_surgeon")
+        {
+            _logBox.AppendWarning($"{npc.Name}并不会净身之术。");
+            return;
+        }
+
         if (player.HasTag("eunuch"))
         {
             _logBox.AppendText($"{npc.Name}看了看你：“你已经是净身之人了，不必再来。”");

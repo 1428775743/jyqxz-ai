@@ -525,6 +525,22 @@ public class DialogueForm : Form
                 });
                 break;
 
+            case "heal":
+                NPCActionTriggered?.Invoke(this, new NPCActionEventArgs
+                {
+                    Action = "heal",
+                    ActionTarget = reply.ActionTarget
+                });
+                break;
+
+            case "castrate":
+                AppendSystem($"（{_npc.Name}取出净身器具，示意你三思。）");
+                NPCActionTriggered?.Invoke(this, new NPCActionEventArgs
+                {
+                    Action = "castrate"
+                });
+                break;
+
             case "query_location":
                 NPCActionTriggered?.Invoke(this, new NPCActionEventArgs
                 {
