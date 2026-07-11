@@ -3870,6 +3870,7 @@ public class MainForm : Form
                 MessageBox.Show("这本秘籍没有包含武功。", "提示");
                 return;
             }
+            bool learnedAnyArt = false;
             foreach (var artId in item.ContainedArtIds)
             {
                 var art = _config.CreateMartialArt(artId, 1);
@@ -3887,6 +3888,7 @@ public class MainForm : Form
                         continue;
                     }
                     p.LearnArt(art);
+                    learnedAnyArt = true;
                     _logBox.AppendSuccess($"你修炼了秘籍【{item.Name}】，学会了【{art.Name}】！");
                     p.AddHistory($"修炼秘籍【{item.Name}】，学会了【{art.Name}】");
                     int manualExp = 30;
@@ -3895,8 +3897,9 @@ public class MainForm : Form
                     if (manualLv > 0) _logBox.AppendSuccess($"阅历提升！等级达到 Lv.{p.JianghuLevel}！");
                 }
             }
-            // 使用后移除秘籍
-            p.Inventory.RemoveItem(item.Id, 1);
+            // 只有真正学会至少一门武功后才消耗秘籍。前置条件不满足或已学会时保留。
+            if (learnedAnyArt)
+                p.Inventory.RemoveItem(item.Id, 1);
             RefreshList();
         };
         btnPanel.Controls.Add(learnBtn);

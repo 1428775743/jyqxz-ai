@@ -64,6 +64,13 @@
       "mapX": 850, "mapY": 490
     },
     {
+      "id": "lingshe_island",
+      "name": "灵蛇岛",
+      "region": "东海",
+      "sceneIds": ["lingshe_island"],
+      "mapX": 930, "mapY": 470
+    },
+    {
       "id": "guangming",
       "name": "光明顶",
       "region": "昆仑",
@@ -276,6 +283,7 @@
     { "from": "taishan", "to": "jiaxing", "distance": 206, "travelTime": 4.0 },
     { "from": "hengshan_south", "to": "dali", "distance": 360, "travelTime": 7.5 },
     { "from": "taohua", "to": "jiaxing", "distance": 51, "travelTime": 1.0 },
+    { "from": "lingshe_island", "to": "taohua", "distance": 100, "travelTime": 2.0 },
     { "from": "taohua", "to": "guangming", "distance": 190, "travelTime": 4.0 },
     { "from": "guangming", "to": "jiaxing", "distance": 143, "travelTime": 3.0 },
     { "from": "guangming", "to": "hengshan_south", "distance": 197, "travelTime": 4.0 },

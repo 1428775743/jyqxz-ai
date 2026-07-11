@@ -373,7 +373,7 @@ public class QuestListForm : Form
         var confirm = MessageBox.Show(this, "确认提交当前步骤所需物品?", "提交步骤物品", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         if (confirm != DialogResult.OK) return;
 
-        if (cq.TrySubmitStepItems(player, out string msg))
+        if (cq.TrySubmitStepItems(player, _engine.Config, out string msg))
         {
             string extra = cq.Status == QuestStatus.Completed ? "\n任务已完成,可领取奖励!" : "";
             MessageBox.Show(this, msg + extra, "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);

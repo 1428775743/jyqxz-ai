@@ -80,7 +80,7 @@ public abstract class QuestBase
     public bool IsCompleted => Status == QuestStatus.Completed || Status == QuestStatus.Rewarded;
     public bool IsFailed => Status == QuestStatus.Failed;
 
-    public virtual bool TryAdvanceStep(Player player)
+    public virtual bool TryAdvanceStep(Player player, AutoWuxia.Config.ConfigManager? config = null)
     {
         if (Status != QuestStatus.InProgress) return false;
         if (CurrentStep == null) return false;
@@ -483,7 +483,7 @@ public class ChainQuest : QuestBase
     /// <summary>
     /// 重写步骤推进：每完成一步自动发放该步的节点奖励
     /// </summary>
-    public override bool TryAdvanceStep(Player player)
+    public override bool TryAdvanceStep(Player player, AutoWuxia.Config.ConfigManager? config = null)
     {
         if (Status != QuestStatus.InProgress) return false;
         if (CurrentStep == null) return false;
@@ -492,7 +492,7 @@ public class ChainQuest : QuestBase
         // 发放当前步骤的节点奖励
         if (CurrentStep.Reward != null)
         {
-            CurrentStep.Reward.GrantRewardDirect(player);
+            CurrentStep.Reward.GrantRewardDirect(player, config);
         }
 
         CurrentStepIndex++;
@@ -504,7 +504,7 @@ public class ChainQuest : QuestBase
     /// <summary>
     /// 提交当前步骤的物品（链式任务专用，检查当前步骤的RequiredItems）
     /// </summary>
-    public bool TrySubmitStepItems(Player player, out string message)
+    public bool TrySubmitStepItems(Player player, AutoWuxia.Config.ConfigManager? config, out string message)
     {
         message = "";
         if (Status != QuestStatus.InProgress)
@@ -543,7 +543,7 @@ public class ChainQuest : QuestBase
         if (step.RequiredItems.All(r => r.IsFulfilled))
         {
             // 物品全部提交，推进步骤
-            TryAdvanceStep(player);
+            TryAdvanceStep(player, config);
             message = "物品已提交，步骤完成！";
         }
         else

@@ -51,7 +51,7 @@ public static class QuestAutoAdvance
             if (!IsStepMatch(step, actionType, targetId)) continue;
 
             // 尝试推进
-            bool advanced = quest.TryAdvanceStep(player);
+            bool advanced = quest.TryAdvanceStep(player, config);
             if (advanced)
             {
                 // 节点奖励提示
