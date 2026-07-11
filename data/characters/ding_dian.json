@@ -1,0 +1,23 @@
+{
+  "id": "ding_dian",
+  "name": "丁典",
+  "type": "npc",
+  "personality": "豪迈重情,睥睨世俗,痴恋凌霜华至死不渝。身负神照经绝学,却甘愿自囚狱中以伴霜华。重诺轻死,恩怨分明。",
+  "description": "得梅念笙临终传授神照经与连城诀,性情豪迈。与荆州知府凌退思之女凌霜华相恋,凌退思为夺连城诀,以金波旬花之毒将其毒杀于狱中。丁典含冤受屈,临终将神照经与连城诀秘密托付于你。",
+  "maxHP": 3500,
+  "maxMP": 3200,
+  "attack": 480,
+  "defense": 380,
+  "speed": 75,
+  "karma": 50,
+  "gender": "男",
+  "defaultScene": "jingzhou_prison",
+  "jianghuLevel": 45,
+  "portraitPath": "ding_dian.png",
+  "learnedArts": [
+    { "artId": "shenzhao_jing", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "shenzhao_jing",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "jinshi_baoyi",
+  "name": "金丝宝衣",
+  "description": "以金丝软线织就之宝衣,刀枪不入,水火不侵。韦小宝赖以保命之物,贴身穿着,可挡致命一击。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 100,
+  "value": 5000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

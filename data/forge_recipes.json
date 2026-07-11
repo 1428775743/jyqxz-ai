@@ -1,0 +1,270 @@
+[
+  {
+    "id": "iron_sword",
+    "name": "铁剑",
+    "tier": "普通",
+    "resultItemId": "iron_sword",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 3 }
+    ],
+    "requiredForgingSkill": 30,
+    "minFavorability": 10,
+    "feeRange": [50, 100],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "copper_blade",
+    "name": "铜刀",
+    "tier": "普通",
+    "resultItemId": "copper_blade",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "copper_ore", "quantity": 3 }
+    ],
+    "requiredForgingSkill": 30,
+    "minFavorability": 10,
+    "feeRange": [50, 100],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "iron_gauntlet",
+    "name": "铁手套",
+    "tier": "普通",
+    "resultItemId": "iron_gauntlet",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 2 },
+      { "itemId": "leather", "quantity": 1 }
+    ],
+    "requiredForgingSkill": 35,
+    "minFavorability": 10,
+    "feeRange": [50, 100],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "iron_staff",
+    "name": "铁禅杖",
+    "tier": "普通",
+    "resultItemId": "iron_staff",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 2 },
+      { "itemId": "tin_ore", "quantity": 2 }
+    ],
+    "requiredForgingSkill": 35,
+    "minFavorability": 10,
+    "feeRange": [60, 120],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "iron_spear",
+    "name": "铁枪",
+    "tier": "普通",
+    "resultItemId": "iron_spear",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 3 },
+      { "itemId": "tin_ore", "quantity": 1 }
+    ],
+    "requiredForgingSkill": 40,
+    "minFavorability": 10,
+    "feeRange": [60, 120],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "leather_armor",
+    "name": "皮甲",
+    "tier": "普通",
+    "resultItemId": "leather_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "leather", "quantity": 3 },
+      { "itemId": "iron_ore", "quantity": 1 }
+    ],
+    "requiredForgingSkill": 35,
+    "minFavorability": 10,
+    "feeRange": [50, 100],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "iron_armor",
+    "name": "铁甲",
+    "tier": "普通",
+    "resultItemId": "iron_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 4 }
+    ],
+    "requiredForgingSkill": 45,
+    "minFavorability": 20,
+    "feeRange": [80, 150],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "copper_armor",
+    "name": "铜甲",
+    "tier": "普通",
+    "resultItemId": "copper_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "copper_ore", "quantity": 4 }
+    ],
+    "requiredForgingSkill": 45,
+    "minFavorability": 20,
+    "feeRange": [80, 150],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "silver_sword",
+    "name": "银剑",
+    "tier": "稀有",
+    "resultItemId": "silver_sword",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "silver_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 2 }
+    ],
+    "requiredForgingSkill": 60,
+    "minFavorability": 30,
+    "feeRange": [200, 400],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "silver_armor",
+    "name": "银丝甲",
+    "tier": "稀有",
+    "resultItemId": "silver_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "silver_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 3 }
+    ],
+    "requiredForgingSkill": 65,
+    "minFavorability": 30,
+    "feeRange": [250, 500],
+    "allowedBlacksmiths": ["wang_weapon"]
+  },
+  {
+    "id": "refined_steel_sword",
+    "name": "精钢剑",
+    "tier": "稀有",
+    "resultItemId": "refined_steel_sword",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 4 },
+      { "itemId": "tin_ore", "quantity": 3 }
+    ],
+    "requiredForgingSkill": 50,
+    "minFavorability": 20,
+    "feeRange": [150, 300],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "cold_iron_sword",
+    "name": "寒铁剑",
+    "tier": "稀有",
+    "resultItemId": "cold_iron_sword",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "cold_iron_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 4 }
+    ],
+    "requiredForgingSkill": 60,
+    "minFavorability": 30,
+    "feeRange": [400, 800],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "flame_blade",
+    "name": "烈焰刀",
+    "tier": "稀有",
+    "resultItemId": "flame_blade",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "fire_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 4 }
+    ],
+    "requiredForgingSkill": 70,
+    "minFavorability": 40,
+    "feeRange": [600, 1200],
+    "allowedBlacksmiths": ["wang_weapon"]
+  },
+  {
+    "id": "meteor_sword",
+    "name": "陨星剑",
+    "tier": "稀有",
+    "resultItemId": "meteor_sword",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "heavenly_ore", "quantity": 2 },
+      { "itemId": "cold_iron_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 4 }
+    ],
+    "requiredForgingSkill": 80,
+    "minFavorability": 50,
+    "feeRange": [1000, 2000],
+    "allowedBlacksmiths": ["wang_weapon"]
+  },
+  {
+    "id": "refined_steel_armor",
+    "name": "精钢甲",
+    "tier": "稀有",
+    "resultItemId": "refined_steel_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "iron_ore", "quantity": 5 },
+      { "itemId": "tin_ore", "quantity": 2 }
+    ],
+    "requiredForgingSkill": 50,
+    "minFavorability": 20,
+    "feeRange": [150, 300],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "cold_iron_armor",
+    "name": "寒铁甲",
+    "tier": "稀有",
+    "resultItemId": "cold_iron_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "cold_iron_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 5 }
+    ],
+    "requiredForgingSkill": 60,
+    "minFavorability": 30,
+    "feeRange": [400, 800],
+    "allowedBlacksmiths": ["liu_blacksmith", "sun_weapon", "wang_weapon"]
+  },
+  {
+    "id": "flame_armor",
+    "name": "烈焰甲",
+    "tier": "稀有",
+    "resultItemId": "flame_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "fire_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 5 }
+    ],
+    "requiredForgingSkill": 70,
+    "minFavorability": 40,
+    "feeRange": [600, 1200],
+    "allowedBlacksmiths": ["wang_weapon"]
+  },
+  {
+    "id": "meteor_armor",
+    "name": "陨铁甲",
+    "tier": "稀有",
+    "resultItemId": "meteor_armor",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "heavenly_ore", "quantity": 2 },
+      { "itemId": "cold_iron_ore", "quantity": 2 },
+      { "itemId": "iron_ore", "quantity": 5 }
+    ],
+    "requiredForgingSkill": 80,
+    "minFavorability": 50,
+    "feeRange": [1000, 2000],
+    "allowedBlacksmiths": ["wang_weapon"]
+  }
+]

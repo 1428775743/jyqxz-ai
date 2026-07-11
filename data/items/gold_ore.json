@@ -1,0 +1,9 @@
+{
+  "id": "gold_ore",
+  "name": "金矿石",
+  "description": "含金量丰富的矿石，金光闪闪，价值不菲。",
+  "type": "Material",
+  "value": 150,
+  "stackable": true,
+  "quantity": 1
+}

@@ -1,0 +1,14 @@
+{
+  "id": "iron_sword",
+  "name": "铁剑",
+  "description": "一把普通的铁剑，做工尚可。剑身三尺，初入江湖者常用的兵器。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 20,
+  "defenseBonus": 0,
+  "value": 100,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "wutai_shan",
+  "name": "五台山",
+  "description": "山西五台山,佛教圣地。传闻顺治帝出家于此,康熙数度上山寻父。清凉古刹,梵音阵阵,藏清宫秘辛。",
+  "region": "山西",
+  "backgroundImagePath": "assets/scenes/wutai_shan.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": [],
+  "isSpecial": true
+}

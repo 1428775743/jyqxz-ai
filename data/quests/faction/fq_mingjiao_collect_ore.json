@@ -1,0 +1,22 @@
+{
+  "id": "fq_mingjiao_collect_ore",
+  "name": "搜集火石矿",
+  "type": "faction",
+  "description": "明教铸兵炉近日缺矿，急需火石矿五块以炼精铁。教中弟子或江湖义士若能代为搜集，必有重谢。",
+  "factionId": "mingjiao",
+  "issuerNpcId": "mingjiao_warrior",
+  "difficulty": "normal",
+  "requiredItems": [
+    { "itemId": "fire_ore", "quantity": 5 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向明教护法提交火石矿 x5", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 60,
+    "reputationBonus": 20,
+    "factionContributionBonus": 18,
+    "factionIdForContribution": "mingjiao",
+    "jianghuExp": 8
+  }
+}

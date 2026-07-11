@@ -1,0 +1,48 @@
+{
+  "id": "taiji_quan",
+  "name": "太极拳",
+  "type": "external",
+  "description": "张三丰所创，以柔克刚，四两拨千斤。练至大成后，守势如山，反击如电。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 40,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.2,
+      "chance": 0.6,
+      "description": "以柔克刚"
+    },
+    {
+      "type": "MPRecover",
+      "value": 0.08,
+      "chance": 0.5,
+      "description": "50%概率恢复8%内力"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.50,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：使用后2回合减伤50%"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.40,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：使用后2回合反弹40%受到的伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 2.0
+    },
+    "10": {
+      "damageCoefficient": 2.8
+    }
+  }
+}

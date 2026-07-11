@@ -1,0 +1,28 @@
+{
+  "id": "shisan_taibao",
+  "name": "十三太保横练",
+  "type": "internal",
+  "description": "鳌拜所修硬功,横练周身,刀枪难入。修成后筋骨如铁,可挡刀剑,乃鹿鼎记一书中至强横练硬功。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "cooldown": 3,
+  "mpCost": 50,
+  "hpBonusPerLevel": 150,
+  "attackBonusPerLevel": 15,
+  "defenseBonusPerLevel": 30,
+  "effects": [
+    {
+      "type": "FlatDamageReduction",
+      "value": 100,
+      "chance": 1.0,
+      "description": "横练护体:受到攻击时固定减伤100"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.15,
+      "chance": 1.0,
+      "description": "铁骨横练:额外减免15%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

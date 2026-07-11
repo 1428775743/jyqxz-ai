@@ -1,0 +1,59 @@
+{
+  "id": "huashan_disciple",
+  "name": "华山弟子陆大有",
+  "type": "npc",
+  "personality": "性格豁达，爱开玩笑，剑法灵活多变",
+  "description": "华山派弟子，令狐冲的师弟，虽然天赋一般但十分努力。",
+  "maxHP": 1100,
+  "maxMP": 500,
+  "attack": 135,
+  "defense": 100,
+  "speed": 70,
+  "relations": {},
+  "factionId": null,
+  "karma": 55,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "huashan_path",
+  "schedule": {
+    "清晨": "huashan_path",
+    "白天": "huashan_path",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 10,
+  "craftSkills": {
+    "art": 20,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 15,
+    "medicine": 10
+  },
+  "portraitPath": "huashan_disciple.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "zuowang_gong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "dugu_jiujian",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeInternalArtId": "zuowang_gong",
+  "activeExternalArtId": "dugu_jiujian",
+  "activeLightArtId": "basic_qinggong"
+}

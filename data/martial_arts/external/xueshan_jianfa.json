@@ -1,0 +1,37 @@
+{
+  "id": "xueshan_jianfa",
+  "name": "雪山剑法",
+  "type": "external",
+  "description": "雪山派至高剑法,剑招寒冰凌厉,如雪山之巅凛冽寒风。出自凌霄城白自在一脉,剑气含冰,修至大成剑气透骨。乃西域雪山派镇派绝学。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.3,
+  "critChance": 0.25,
+  "cooldown": 2,
+  "mpCost": 78,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.3,
+      "chance": 1.0,
+      "description": "寒冰剑气:无视30%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.8,
+      "chance": 0.2,
+      "description": "剑招连绵:20%概率连击(80%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.12,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:寒冰剑气透骨,附带12%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.7 },
+    "10": { "damageCoefficient": 3.1 }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "tanzhi_shentong",
+  "name": "弹指神通",
+  "type": "external",
+  "description": "桃花岛主黄药师的成名绝技,以浑厚内力弹指发劲,势如破竹,可于数丈之外伤敌。指力所至,无坚不摧,更可弹指点穴制人。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.0,
+  "critChance": 0.35,
+  "cooldown": 2,
+  "mpCost": 45,
+  "effects": [
+    {
+      "type": "TrueDamage",
+      "value": 0.2,
+      "chance": 1.0,
+      "description": "指力穿甲:附带20%真实伤害(无视防御)"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.15,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:15%概率弹指点穴,使对方眩晕"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.3 },
+    "10": { "damageCoefficient": 2.8 }
+  }
+}

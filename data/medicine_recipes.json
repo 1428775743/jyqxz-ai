@@ -1,0 +1,88 @@
+[
+  {
+    "id": "qingxin_dan",
+    "name": "清心丹",
+    "tier": "普通",
+    "resultItemId": "qingxin_dan",
+    "resultQuantity": 2,
+    "materials": [
+      { "itemId": "herb_baizhu", "quantity": 2 },
+      { "itemId": "wild_mushroom", "quantity": 1 }
+    ],
+    "requiredMedicineSkill": 50,
+    "minFavorability": 20,
+    "feeRange": [50, 100]
+  },
+  {
+    "id": "julisan",
+    "name": "聚力散",
+    "tier": "普通",
+    "resultItemId": "julisan",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "herb_huangqin", "quantity": 2 },
+      { "itemId": "honey", "quantity": 1 }
+    ],
+    "requiredMedicineSkill": 55,
+    "minFavorability": 25,
+    "feeRange": [80, 150]
+  },
+  {
+    "id": "jiuzhuan_xiaohuan",
+    "name": "九转小还丹",
+    "tier": "稀有",
+    "resultItemId": "jiuzhuan_xiaohuan",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "wild_ginseng", "quantity": 2 },
+      { "itemId": "deer_antler", "quantity": 1 }
+    ],
+    "requiredMedicineSkill": 70,
+    "minFavorability": 40,
+    "feeRange": [200, 400]
+  },
+  {
+    "id": "heiyu_duanxu",
+    "name": "黑玉断续丹",
+    "tier": "珍贵",
+    "resultItemId": "heiyu_duanxu",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "bear_gallbladder", "quantity": 2 },
+      { "itemId": "wild_ginseng", "quantity": 3 }
+    ],
+    "requiredMedicineSkill": 85,
+    "minFavorability": 60,
+    "feeRange": [500, 1000]
+  },
+  {
+    "id": "jiuzhuan_huandan",
+    "name": "九转还魂丹",
+    "tier": "传说",
+    "resultItemId": "jiuzhuan_huandan",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "wild_ginseng", "quantity": 3 },
+      { "itemId": "bear_gallbladder", "quantity": 2 },
+      { "itemId": "herb_xuelian", "quantity": 1 }
+    ],
+    "requiredMedicineSkill": 95,
+    "minFavorability": 80,
+    "feeRange": [1000, 2000]
+  },
+  {
+    "id": "taiyi_shendan",
+    "name": "太乙神丹",
+    "tier": "传说",
+    "resultItemId": "taiyi_shendan",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "herb_xuelian", "quantity": 1 },
+      { "itemId": "herb_lingzhi", "quantity": 2 },
+      { "itemId": "bear_gallbladder", "quantity": 2 }
+    ],
+    "requiredMedicineSkill": 95,
+    "minFavorability": 80,
+    "feeRange": [1500, 2500]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "id": "iron_staff",
+  "name": "铁禅杖",
+  "description": "铁铸禅杖，沉重古朴，既可降魔亦能护身。僧家行脚常持之物。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "staff",
+  "attackBonus": 16,
+  "defenseBonus": 4,
+  "value": 95,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "baixiao_linan",
+  "name": "百晓阁门人·沈墨言",
+  "type": "npc",
+  "personality": "博闻强识,谈吐不凡,对江南武林人物了如指掌。表面是茶楼说书先生,实则百晓阁眼线。",
+  "description": "百晓阁驻临安的门人。百晓阁是江湖中专门收集武林人物行踪的隐秘组织,门人遍布各大主城。沈墨言表面在临安街头说书,实则记录往来武林人物行踪。付些银两,便可请他打听某人在何处。",
+  "portraitPath": "baixiao_linan.png",
+  "maxHP": 850,
+  "maxMP": 420,
+  "attack": 90,
+  "defense": 65,
+  "speed": 75,
+  "relations": {},
+  "factionId": null,
+  "karma": 55,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "baixiao_informer",
+  "defaultScene": "linan_street",
+  "schedule": {
+    "清晨": "linan_street",
+    "白天": "linan_street",
+    "黄昏": "linan_inn",
+    "夜晚": "linan_inn"
+  },
+  "jianghuLevel": 10,
+  "craftSkills": {
+    "art": 50,
+    "medicine": 15
+  },
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 4 },
+    { "artId": "basic_sword", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword"
+}

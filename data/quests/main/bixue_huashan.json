@@ -1,0 +1,69 @@
+{
+  "id": "bixue_huashan",
+  "name": "碧血剑·华山",
+  "type": "chain",
+  "triggerNpcId": "mu_renqing",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": ["mu_sang", "gui_xinshu"],
+  "description": "华山掌门穆人清,神剑仙猿,武功深不可测。你上华山拜师,习华山混元功根基。木桑道长传你神行百变轻功,师兄归辛树与你切磋试招。出师之时,穆人清传你破玉拳,望你行侠仗义。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "mu_renqing", "lines": ["少年人,你上华山何事?", "老夫穆人清,这华山一脉,正缺个衣钵传人。"] },
+      { "speaker": "玩家", "lines": ["晚辈仰慕华山武学,愿拜穆大侠为师。"] },
+      { "speaker": "mu_renqing", "lines": ["好!资质尚可,老夫便收你为徒。", "华山混元功乃我派根基,你且从基本功练起。", "师弟木桑在此,轻功暗器之道可向他请教。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "baishi",
+      "actionType": "talk",
+      "targetNPC": "mu_renqing",
+      "description": "拜师穆人清,习华山混元功根基。",
+      "aiHint": "玩家拜你为师,你收其为徒,传华山混元功根基。你严厉正直,言传身教,对玩家要求严格却亦关爱。你言华山武学博大精深,需循序渐进。对玩家以徒儿相称。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "musang_qinggong",
+      "actionType": "talk",
+      "targetNPC": "mu_sang",
+      "description": "木桑道长以棋相试,传你神行百变轻功。",
+      "aiHint": "你乃木桑道长,客居华山,嗜棋如命。你见玩家资质上佳,以棋局相试,后传其神行百变轻功。你风趣豁达,言此轻功乃铁剑门绝学,瞬息百变,望玩家善用。对玩家以小友相称。",
+      "reward": { "martialArtId": "shenxing_baibian", "jianghuExp": 300 }
+    },
+    {
+      "id": "spar_gui",
+      "actionType": "fight",
+      "targetNPC": "gui_xinshu",
+      "description": "师兄归辛树神拳无敌,与你切磋试招。",
+      "aiHint": "你乃归辛树,华山首徒,外号神拳无敌。穆人清命你与玩家切磋试招。你刚直护短,木讷寡言,出拳刚猛。你见玩家武功有进,虽败亦喜,言其根骨不错。对玩家以师弟相称。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 150 }
+    },
+    {
+      "id": "chushi",
+      "actionType": "talk",
+      "targetNPC": "mu_renqing",
+      "description": "出师之日,穆人清传你破玉拳,勉你行侠仗义。",
+      "aiHint": "玩家学有所成,你传其破玉拳,准其出师。你严厉中带欣慰,言华山弟子当行侠仗义、嫉恶如仇。你叮嘱玩家下山后谨言慎行,莫堕华山之名。对玩家以徒儿相称,语重心长。",
+      "reward": { "martialArtId": "poyu_quan", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "mu_renqing", "lines": ["徒儿,你武功已成,今日便可下山。", "这破玉拳乃我华山绝学,刚猛无匹,传与你。"] },
+          { "speaker": "mu_renqing", "lines": ["华山弟子,当行侠仗义,嫉恶如仇。", "莫堕我华山之名,去吧!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "martialArtId": "huashan_hunyuan",
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 10
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "mu_renqing", "lines": ["华山混元功,乃我派至上内功,今日全授与你。", "望你以此功行走江湖,扶危济困。"] },
+      { "speaker": "玩家", "lines": ["师父教诲,弟子铭记于心。", "华山之恩,后会有期!"] }
+    ]
+  }
+}

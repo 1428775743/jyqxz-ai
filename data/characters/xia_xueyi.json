@@ -1,0 +1,25 @@
+{
+  "id": "xia_xueyi",
+  "name": "夏雪宜",
+  "type": "npc",
+  "personality": "外号金蛇郎君,诡谲偏激,亦正亦邪。为报家仇不择手段,却对温仪一往情深。才华横溢,创金蛇剑法与游身掌。",
+  "description": "外号金蛇郎君,诡谲偏激,亦正亦邪。为报温家灭门之仇,潜入温家,却与温仪相恋。创金蛇剑法、金蛇游身掌,铸金蛇剑、金蛇锥。后遭温家五老暗算,含恨而终,留金蛇秘笈于世。乃碧血剑中第一奇男子。",
+  "maxHP": 3600,
+  "maxMP": 2600,
+  "attack": 520,
+  "defense": 380,
+  "speed": 85,
+  "karma": 0,
+  "gender": "男",
+  "defaultScene": "shiliang",
+  "jianghuLevel": 45,
+  "isHidden": true,
+  "portraitPath": "xia_xueyi.png",
+  "learnedArts": [
+    { "artId": "jinshe_jianfa", "proficiencyLevel": 8 },
+    { "artId": "jinshe_youshenzhang", "proficiencyLevel": 7 },
+    { "artId": "shenxing_baibian", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "jinshe_jianfa",
+  "activeLightArtId": "shenxing_baibian"
+}

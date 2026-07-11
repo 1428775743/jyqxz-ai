@@ -1,0 +1,11 @@
+{
+  "id": "bahuang_manual",
+  "name": "八荒六合唯我独尊功秘籍",
+  "description": "天山童姥所修霸道内功心法。修至大成可返老还童,内力刚猛无俦,出手唯我独尊。乃灵鹫宫镇宫之宝。",
+  "type": "Manual",
+  "value": 4000,
+  "stackable": false,
+  "containedArtIds": ["bahuang_liuhe"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

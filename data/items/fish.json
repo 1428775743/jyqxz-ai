@@ -1,0 +1,11 @@
+{
+  "id": "fish",
+  "name": "鲜鱼",
+  "description": "溪涧中捕获的活鱼，新鲜肥美。",
+  "type": "Consumable",
+  "value": 10,
+  "stackable": true,
+  "quantity": 1,
+  "hpRecovery": 30,
+  "rarity": "common"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "iron_ore",
+  "name": "铁矿石",
+  "description": "最常见的矿石，可用于锻造普通兵器。",
+  "type": "Material",
+  "value": 20,
+  "stackable": true,
+  "quantity": 1
+}

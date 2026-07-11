@@ -1,0 +1,79 @@
+{
+  "id": "tianlong_qiaofeng",
+  "name": "天龙·乔峰",
+  "type": "chain",
+  "triggerNpcId": "qiao_feng",
+  "minFavorabilityToOffer": 20,
+  "relatedNpcIds": ["duan_yanqing", "xiao_yuanshan"],
+  "description": "丐帮前帮主乔峰,豪迈磊落,降龙十八掌天下无双。其契丹身世之谜骤然败露,遭江湖唾弃。你于少室山下遇他,义气相投结为兄弟。助他查明身世、了断恩怨,他愿传你降龙十八掌与打狗棒法之精要。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "qiao_feng", "lines": ["哈哈!好汉子,见你这般气度,乔某便觉投缘。", "我乔峰,曾任丐帮帮主...如今,哼,落得个契丹胡虏之名。"] },
+      { "speaker": "玩家", "lines": ["乔大侠名震天下,何以此等小人言语挂怀?"] },
+      { "speaker": "qiao_feng", "lines": ["说得好!你我今日结为异姓兄弟,如何?", "此事了却,乔某这降龙十八掌与打狗棒法,便传与你!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "sworn_brothers",
+      "actionType": "talk",
+      "targetNPC": "qiao_feng",
+      "description": "少室山下遇乔峰,豪气相投,结为异姓兄弟。",
+      "aiHint": "玩家气度不凡,你与他义气相投,结为异姓兄弟。你豪迈磊落,虽遭身世之变,然胸中坦荡。你提及杏子林之变与雁门关旧事,欲查身世真相。对玩家以兄弟相称。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "xingzilin",
+      "actionType": "fight",
+      "targetNPC": "duan_yanqing",
+      "description": "段延庆率众来犯,助乔峰击退这天下第一恶人。",
+      "aiHint": "段延庆这恶人率众来犯,你与玩家联手迎敌。段延庆虽残废,然一阳指邪练,功力深厚。你以降龙十八掌抗之,亦需玩家相助。你豪气干云,纵强敌当前亦不退缩。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 150 }
+    },
+    {
+      "id": "yanmen_truth",
+      "actionType": "go",
+      "targetScene": "yanmenguan",
+      "description": "随乔峰赴雁门关,查三十年前血案真相,契丹屠村之秘浮出水面。",
+      "aiHint": "你随玩家赴雁门关,查三十年前血案真相。此处乃你身世之谜所在,当年契丹武士来袭、妻离子散之惨状历历在目。你心情激荡,誓要查清幕后主使。你对玩家言及当年之事,语气沉痛。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "confront_father",
+      "actionType": "fight",
+      "targetNPC": "xiao_yuanshan",
+      "description": "萧远山现身少室山,父子真相对质。萧远山欲试你成色,出手交锋。",
+      "aiHint": "你乃萧远山,乔峰之父,隐少林三十年苦修武功,誓报血仇。你见玩家与乔峰同行,欲试其成色,出手交锋。你武功深不可测,出手刚烈,然亦见玩家不凡,留有余地。你言及当年雁门关之变,语带恨意。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "dagou_inherit",
+      "actionType": "talk",
+      "targetNPC": "qiao_feng",
+      "description": "真相大白,乔峰感念你之义,传你打狗棒法精要。",
+      "aiHint": "身世真相大白,你感念玩家之义。你将丐帮历代单传之打狗棒法倾囊相授。此棒法三十六路天下无狗,非帮主不传,你破例相授,亦是托付之意。你言此棒法巧变无双,望玩家善用。",
+      "reward": { "martialArtId": "dagou_bangfa", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "qiao_feng", "lines": ["兄弟,此番多亏有你。", "这打狗棒法,乃丐帮历代帮主单传,今日乔某破例授你。"] },
+          { "speaker": "qiao_feng", "lines": ["三十六路天下无狗,巧变无双。", "你我兄弟,何分彼此?拿着!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "martialArtId": "xianglong_18",
+    "jianghuExp": 600,
+    "goldBonus": 2000,
+    "reputationBonus": 1000,
+    "karmaBonus": 15,
+    "items": [ { "itemId": "jinsi_gauntlet", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "qiao_feng", "lines": ["降龙十八掌,乃乔某毕生所悟,刚猛无匹。", "今日传你,望你以此掌法,行侠仗义,不堕乔某之名!"] },
+      { "speaker": "qiao_feng", "lines": ["兄弟,后会有期。", "乔某去也——哈哈!"] }
+    ]
+  }
+}

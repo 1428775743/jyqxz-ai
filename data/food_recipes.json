@@ -1,0 +1,144 @@
+[
+  {
+    "id": "kaorou_chuan",
+    "name": "烤肉串",
+    "tier": "普通",
+    "resultItemId": "kaorou_chuan",
+    "resultQuantity": 2,
+    "materials": [
+      { "itemId": "fresh_meat", "quantity": 2 },
+      { "itemId": "salt", "quantity": 1 }
+    ],
+    "requiredCookingSkill": 30,
+    "minFavorability": 10,
+    "feeRange": [30, 60],
+    "allowedChefs": ["linan_chef", "songshan_chef", "xiangyang_chef", "dali_chef", "wudang_chef", "yuchu"]
+  },
+  {
+    "id": "mogu_xianrou_tang",
+    "name": "蘑菇鲜肉汤",
+    "tier": "普通",
+    "resultItemId": "mogu_xianrou_tang",
+    "resultQuantity": 2,
+    "materials": [
+      { "itemId": "wild_mushroom", "quantity": 2 },
+      { "itemId": "fresh_meat", "quantity": 1 }
+    ],
+    "requiredCookingSkill": 30,
+    "minFavorability": 10,
+    "feeRange": [30, 60],
+    "allowedChefs": ["linan_chef", "songshan_chef", "xiangyang_chef", "dali_chef", "wudang_chef", "yuchu"]
+  },
+  {
+    "id": "larou_baofan",
+    "name": "腊肉煲饭",
+    "tier": "普通",
+    "resultItemId": "larou_baofan",
+    "resultQuantity": 2,
+    "materials": [
+      { "itemId": "dried_meat", "quantity": 1 },
+      { "itemId": "rice", "quantity": 2 }
+    ],
+    "requiredCookingSkill": 35,
+    "minFavorability": 10,
+    "feeRange": [40, 80],
+    "allowedChefs": ["linan_chef", "songshan_chef", "xiangyang_chef", "wudang_chef", "yuchu"]
+  },
+  {
+    "id": "hongshao_yewei",
+    "name": "红烧野味",
+    "tier": "稀有",
+    "resultItemId": "hongshao_yewei",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "fresh_meat", "quantity": 3 },
+      { "itemId": "honey", "quantity": 1 },
+      { "itemId": "salt", "quantity": 1 }
+    ],
+    "requiredCookingSkill": 50,
+    "minFavorability": 30,
+    "feeRange": [80, 150],
+    "allowedChefs": ["xiangyang_chef", "dali_chef", "wudang_chef", "yuchu"]
+  },
+  {
+    "id": "mizhi_kaoyu",
+    "name": "蜜汁烤鱼",
+    "tier": "稀有",
+    "resultItemId": "mizhi_kaoyu",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "fish", "quantity": 3 },
+      { "itemId": "honey", "quantity": 2 }
+    ],
+    "requiredCookingSkill": 55,
+    "minFavorability": 30,
+    "feeRange": [80, 150],
+    "allowedChefs": ["xiangyang_chef", "dali_chef", "yuchu"]
+  },
+  {
+    "id": "shanzhen_huifan",
+    "name": "山珍烩饭",
+    "tier": "稀有",
+    "resultItemId": "shanzhen_huifan",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "wild_mushroom", "quantity": 3 },
+      { "itemId": "rice", "quantity": 2 },
+      { "itemId": "fresh_meat", "quantity": 1 }
+    ],
+    "requiredCookingSkill": 60,
+    "minFavorability": 30,
+    "feeRange": [100, 200],
+    "allowedChefs": ["dali_chef", "wudang_chef", "yuchu"]
+  },
+  {
+    "id": "lurong_dunji",
+    "name": "鹿茸炖鸡",
+    "tier": "珍贵",
+    "resultItemId": "lurong_dunji",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "deer_antler", "quantity": 1 },
+      { "itemId": "fresh_meat", "quantity": 3 },
+      { "itemId": "salt", "quantity": 1 }
+    ],
+    "requiredCookingSkill": 70,
+    "minFavorability": 50,
+    "feeRange": [200, 400],
+    "allowedChefs": ["wudang_chef", "yuchu"]
+  },
+  {
+    "id": "fotiaoqiang",
+    "name": "佛跳墙",
+    "tier": "传说",
+    "resultItemId": "fotiaoqiang",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "deer_antler", "quantity": 2 },
+      { "itemId": "fish", "quantity": 3 },
+      { "itemId": "wild_mushroom", "quantity": 3 },
+      { "itemId": "honey", "quantity": 2 }
+    ],
+    "requiredCookingSkill": 95,
+    "minFavorability": 70,
+    "feeRange": [800, 1500],
+    "allowedChefs": ["yuchu"]
+  },
+  {
+    "id": "manhan_quanxi",
+    "name": "满汉全席",
+    "tier": "传说",
+    "resultItemId": "manhan_quanxi",
+    "resultQuantity": 1,
+    "materials": [
+      { "itemId": "fresh_meat", "quantity": 5 },
+      { "itemId": "fish", "quantity": 3 },
+      { "itemId": "deer_antler", "quantity": 2 },
+      { "itemId": "honey", "quantity": 3 }
+    ],
+    "requiredCookingSkill": 100,
+    "minFavorability": 70,
+    "feeRange": [1500, 3000],
+    "allowedChefs": ["yuchu"]
+  }
+]

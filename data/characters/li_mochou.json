@@ -1,0 +1,46 @@
+{
+  "id": "li_mochou",
+  "name": "李莫愁",
+  "type": "npc",
+  "personality": "因爱生恨,性情大变,心狠手辣。然偶有善念未泯,对婴孩尚存怜悯。号称赤练仙子,实则半生凄苦。",
+  "description": "古墓派弟子,小龙女师姐。因情场失意性情大变,人称赤练仙子。手持冰魄银针,赤练神掌阴毒无比,纵横江湖,杀人无数。觊觎古墓派玉女心经,屡次攻打古墓。",
+  "maxHP": 4000,
+  "maxMP": 3000,
+  "attack": 580,
+  "defense": 360,
+  "speed": 90,
+  "relations": {
+    "xiao_long_nv": "师妹"
+  },
+  "factionId": null,
+  "karma": -30,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "gumu_entrance",
+  "schedule": {
+    "清晨": "gumu_entrance",
+    "白天": "gumu_entrance",
+    "黄昏": "gumu_entrance",
+    "夜晚": "gumu_entrance"
+  },
+  "jianghuLevel": 42,
+  "craftSkills": {
+    "art": 30,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 40,
+    "medicine": 70
+  },
+  "portraitPath": "li_mochou.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "yunv_xinjing", "proficiencyLevel": 6 },
+    { "artId": "chilian_shenzhang", "proficiencyLevel": 9 },
+    { "artId": "wudu_zhang", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "yunv_xinjing",
+  "activeExternalArtId": "chilian_shenzhang",
+  "activeLightArtId": "basic_qinggong"
+}

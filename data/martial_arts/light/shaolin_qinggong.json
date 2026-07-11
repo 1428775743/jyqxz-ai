@@ -1,0 +1,11 @@
+{
+  "id": "shaolin_qinggong",
+  "name": "少林轻功",
+  "type": "light",
+  "description": "少林寺基础身法,佛门弟子修习,身轻如燕,脚下生根。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "speedBonusPerLevel": 2,
+  "defenseBonusPerLevel": 1,
+  "effects": []
+}

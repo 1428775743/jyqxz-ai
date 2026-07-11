@@ -1,0 +1,9 @@
+{
+  "id": "wendao_baotu",
+  "name": "温家藏宝图",
+  "description": "温家五老所藏之建文宝藏线索图,暗藏温家埋宝之地。图上字迹潦草,需细加参详。",
+  "type": "QuestItem",
+  "value": 100,
+  "stackable": false,
+  "rarity": "rare"
+}

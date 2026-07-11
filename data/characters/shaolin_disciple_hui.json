@@ -1,0 +1,47 @@
+{
+  "id": "shaolin_disciple_hui",
+  "name": "慧明小师弟",
+  "type": "npc",
+  "personality": "活泼好动，心地善良，武功尚浅",
+  "description": "少林寺最年轻的弟子，刚入门不久，正在学习基本功。",
+  "maxHP": 470,
+  "maxMP": 220,
+  "attack": 42,
+  "defense": 22,
+  "speed": 55,
+  "relations": {},
+  "factionId": "shaolin",
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "quest_giver",
+  "defaultScene": "shaolin_hall",
+  "schedule": {
+    "清晨": "shaolin_hall",
+    "白天": "shaolin_hall",
+    "黄昏": "shaolin_hall",
+    "夜晚": "shaolin_hall"
+  },
+  "jianghuLevel": 5,
+  "craftSkills": {
+    "art": 10,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 15,
+    "medicine": 20
+  },
+  "portraitPath": "shaolin_disciple_hui.png",
+  "learnedArts": [
+    {
+      "artId": "shaolin_luohan_internal",
+      "proficiencyLevel": 1
+    },
+    {
+      "artId": "shaolin_luohan_quan",
+      "proficiencyLevel": 1
+    }
+  ],
+  "activeInternalArtId": "shaolin_luohan_internal",
+  "activeExternalArtId": "shaolin_luohan_quan"
+}

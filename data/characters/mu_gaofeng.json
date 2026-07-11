@@ -1,0 +1,36 @@
+{
+  "id": "mu_gaofeng",
+  "name": "塞北明驼木高峰",
+  "type": "npc",
+  "personality": "性情阴狠贪婪,贪图辟邪剑谱,行事不择手段。江湖中以驼背独行闻名,武功阴毒诡异,行踪诡秘常游走西南、江南、中原各地。",
+  "description": "塞北明驼木高峰,行走江湖的怪客,贪婪好色。觊觎福威镖局家传辟邪剑谱,与青城派余沧海勾结血洗林家。此人行踪诡秘,每月所在之地皆不同,需要向江湖中人打听或偶遇。月度调度应随机安排其在西南、江南、中原各城镇间流窜,而非固定一处。",
+  "maxHP": 2200,
+  "maxMP": 800,
+  "attack": 280,
+  "defense": 180,
+  "speed": 65,
+  "relations": {},
+  "factionId": null,
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "dali_scene",
+  "schedule": {},
+  "jianghuLevel": 22,
+  "craftSkills": {
+    "art": 5,
+    "forging": 20,
+    "mining": 15,
+    "gathering": 5,
+    "medicine": 30
+  },
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 },
+    { "artId": "basic_kick", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm",
+  "portraitPath": "mu_gaofeng.png"
+}

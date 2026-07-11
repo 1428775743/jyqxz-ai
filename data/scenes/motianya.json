@@ -1,0 +1,10 @@
+{
+  "id": "motianya",
+  "name": "摩天崖",
+  "description": "孤悬海外之摩天崖,谢烟客隐居之所。崖顶云雾缭绕,人迹罕至。谢烟客于此参悟武学,玄铁令之约亦由此起。",
+  "region": "太行",
+  "backgroundImagePath": "assets/scenes/motianya.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["xie_yanke", "ding_dang", "ding_busan"],
+  "isSpecial": true
+}

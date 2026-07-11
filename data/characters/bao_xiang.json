@@ -1,0 +1,34 @@
+{
+  "id": "bao_xiang",
+  "name": "宝象",
+  "type": "npc",
+  "personality": "血刀门弟子,凶横残暴,嗜杀成性,头脑简单。唯血刀老祖之命是从。",
+  "description": "血刀老祖之徒,身材魁梧,凶横残暴。随血刀老祖掳掠水笙,于雪谷中为非作歹。武功不高却嗜杀成性,乃血刀门中一员悍将。",
+  "maxHP": 2100,
+  "maxMP": 1500,
+  "attack": 240,
+  "defense": 210,
+  "speed": 60,
+  "karma": -30,
+  "gender": "男",
+  "defaultScene": "xuegu",
+  "jianghuLevel": 25,
+  "portraitPath": "bao_xiang.png",
+  "learnedArts": [
+    {
+      "artId": "xuedao_dafa",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "xueying_bu",
+      "proficiencyLevel": 2
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeExternalArtId": "xuedao_dafa",
+  "activeLightArtId": "xueying_bu",
+  "activeInternalArtId": "basic_qigong"
+}

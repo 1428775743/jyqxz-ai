@@ -1,0 +1,16 @@
+{
+  "id": "mingjiao_basic_internal",
+  "name": "明教入门心法",
+  "type": "internal",
+  "description": "明教弟子入门修炼的心法，源自波斯，以火焰之意象修炼内心，刚猛热烈。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "cooldown": 3,
+  "mpCost": 25,
+  "hpBonusPerLevel": 55,
+  "mpBonusPerLevel": 90,
+  "attackBonusPerLevel": 7,
+  "defenseBonusPerLevel": 5,
+  "effects": [],
+  "levelBonuses": {}
+}

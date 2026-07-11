@@ -1,0 +1,50 @@
+{
+  "id": "jianghu_brawler",
+  "name": "江湖拳师铁柱",
+  "type": "npc",
+  "personality": "脾气火爆，好勇斗狠，但心地不坏",
+  "description": "行走江湖的野路子拳师，靠打擂台为生，拳脚功夫了得。",
+  "maxHP": 1400,
+  "maxMP": 350,
+  "attack": 160,
+  "defense": 90,
+  "speed": 55,
+  "relations": {},
+  "factionId": null,
+  "karma": 20,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "xiangyang_inn",
+  "schedule": {
+    "清晨": "xiangyang_inn",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_inn",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 5,
+    "forging": 35,
+    "mining": 20,
+    "gathering": 5,
+    "medicine": 15
+  },
+  "portraitPath": "jianghu_brawler.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_kick",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

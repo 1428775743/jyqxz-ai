@@ -1,0 +1,10 @@
+{
+  "id": "lingxiaocheng",
+  "name": "凌霄城",
+  "description": "西域雪山之巅的凌霄城,雪山派总坛。城在云霄之上,终年积雪。白自在于此称霸一方,自诩天下第一。寒冰剑气,凛冽刺骨。",
+  "region": "西域",
+  "backgroundImagePath": "assets/scenes/lingxiaocheng.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["bai_zizai", "bai_axiu"],
+  "isSpecial": true
+}

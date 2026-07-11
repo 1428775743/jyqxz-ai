@@ -1,0 +1,39 @@
+{
+  "id": "wu_sangui",
+  "name": "吴三桂",
+  "type": "npc",
+  "personality": "平西王,引清兵入关,反复无常,野心勃勃。为一己之私,冲冠一怒为红颜,后复叛清。老谋深算,阴狠毒辣。",
+  "description": "原明朝山海关总兵,引清兵入关,封平西王,镇守云南。为陈圆圆冲冠一怒,反复无常。后举兵叛清,建周朝,终败亡。老谋深算,阴狠毒辣,乃鹿鼎记一书中之权奸枭雄。",
+  "maxHP": 3800,
+  "maxMP": 2400,
+  "attack": 460,
+  "defense": 380,
+  "speed": 68,
+  "karma": -50,
+  "gender": "男",
+  "defaultScene": "pingxi_wangfu",
+  "jianghuLevel": 45,
+  "isSectLeader": true,
+  "portraitPath": "wu_sangui.png",
+  "learnedArts": [
+    {
+      "artId": "jingang_quan",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "ningxue_shenzhua",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeExternalArtId": "jingang_quan",
+  "activeLightArtId": "basic_qinggong",
+  "activeInternalArtId": "basic_qigong"
+}

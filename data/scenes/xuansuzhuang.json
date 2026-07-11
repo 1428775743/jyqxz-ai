@@ -1,0 +1,10 @@
+{
+  "id": "xuansuzhuang",
+  "name": "玄素庄",
+  "description": "中原一处庄园,石清闵柔夫妇所居。黑白双剑于此安家,因二子之事奔波劳碌。庄名玄素,取阴阳相济之意。",
+  "region": "中原",
+  "backgroundImagePath": "assets/scenes/xuansuzhuang.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["shi_qing", "min_rou"],
+  "isSpecial": false
+}

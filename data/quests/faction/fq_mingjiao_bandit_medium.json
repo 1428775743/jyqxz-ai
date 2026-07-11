@@ -1,0 +1,19 @@
+{
+  "id": "fq_mingjiao_bandit_medium",
+  "name": "扫荡黑风岭匪巢",
+  "type": "faction",
+  "description": "明教探子发现黑风岭山贼在秘密积蓄力量，恐对我教不利。需遣人前往其外围据点予以打击。",
+  "factionId": "mingjiao",
+  "dungeonId": "bandit_medium",
+  "difficulty": "medium",
+  "steps": [
+    { "id": "clear", "description": "扫荡黑风岭匪巢外围", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 100,
+    "reputationBonus": 50,
+    "factionContributionBonus": 35,
+    "factionIdForContribution": "mingjiao",
+    "jianghuExp": 25
+  }
+}

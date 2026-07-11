@@ -1,0 +1,56 @@
+{
+  "id": "liu_blacksmith",
+  "name": "刘铁匠",
+  "type": "npc",
+  "personality": "憨厚老实，手艺精湛，话不多但做事踏实",
+  "description": "刘家村的铁匠，打铁三十年，手艺在十里八村都出了名。他收购各种矿石和废旧物品，也出售自己打造的器具。",
+  "maxHP": 400,
+  "maxMP": 80,
+  "attack": 30,
+  "defense": 25,
+  "speed": 20,
+  "relations": {},
+  "factionId": null,
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_scene",
+    "白天": "liujiacun_scene",
+    "黄昏": "liujiacun_scene",
+    "夜晚": "liujiacun_scene"
+  },
+  "npcRole": "blacksmith",
+  "jianghuLevel": 3,
+  "shopFixedItems": [
+    "iron_sword",
+    "leather_armor"
+  ],
+  "shopRandomItems": [
+    "iron_sword",
+    "leather_armor",
+    "healing_pill_small"
+  ],
+  "craftSkills": {
+    "art": 5,
+    "forging": 60,
+    "mining": 40,
+    "gathering": 10,
+    "medicine": 5
+  },
+  "portraitPath": "liu_blacksmith.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 1
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 3
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

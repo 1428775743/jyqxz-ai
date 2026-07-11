@@ -1,0 +1,315 @@
+{
+  "locations": [
+    {
+      "id": "huashan",
+      "name": "华山",
+      "region": "华山",
+      "sceneIds": ["huashan_path", "huashan_backhill"],
+      "mapX": 300, "mapY": 370
+    },
+    {
+      "id": "quanzhen",
+      "name": "终南山",
+      "region": "终南山",
+      "sceneIds": ["quanzhen_hall", "quanzhen_mountain_path", "gumu_entrance", "gumu_shi", "gumu_deep", "gumu_exit"],
+      "mapX": 360, "mapY": 340
+    },
+    {
+      "id": "songshan",
+      "name": "嵩山",
+      "region": "嵩山",
+      "sceneIds": ["songshan_town", "songshan_inn", "shaolin_hall", "songshan_backhill", "shaoshishan"],
+      "mapX": 530, "mapY": 370
+    },
+    {
+      "id": "wudang",
+      "name": "武当山",
+      "region": "武当",
+      "sceneIds": ["wudang_town", "wudang_hall", "wudang_backhill"],
+      "mapX": 420, "mapY": 490
+    },
+    {
+      "id": "xiangyang",
+      "name": "襄阳",
+      "region": "襄阳",
+      "sceneIds": ["xiangyang_cheng", "xiangyang_wall", "xiangyang_inn"],
+      "mapX": 430, "mapY": 560
+    },
+    {
+      "id": "taishan",
+      "name": "泰山",
+      "region": "泰山",
+      "sceneIds": ["taishan_scene", "taishan_backhill"],
+      "mapX": 720, "mapY": 310
+    },
+    {
+      "id": "hengshan",
+      "name": "恒山",
+      "region": "恒山",
+      "sceneIds": ["hengshan_scene", "hengshan_backhill"],
+      "mapX": 560, "mapY": 220
+    },
+    {
+      "id": "hengshan_south",
+      "name": "衡山",
+      "region": "衡山",
+      "sceneIds": ["hengshan_south_scene", "hengshan_south_backhill"],
+      "mapX": 530, "mapY": 620
+    },
+    {
+      "id": "taohua",
+      "name": "桃花岛",
+      "region": "东海",
+      "sceneIds": ["taohua_scene"],
+      "mapX": 850, "mapY": 490
+    },
+    {
+      "id": "guangming",
+      "name": "光明顶",
+      "region": "昆仑",
+      "sceneIds": ["guangming_scene"],
+      "mapX": 660, "mapY": 470
+    },
+    {
+      "id": "heimuya",
+      "name": "黑木崖",
+      "region": "太行",
+      "sceneIds": ["heimuya_scene", "heimuya_backhill"],
+      "mapX": 550, "mapY": 260
+    },
+    {
+      "id": "dali",
+      "name": "大理",
+      "region": "大理",
+      "sceneIds": ["dali_scene", "tianlongsi"],
+      "mapX": 180, "mapY": 700
+    },
+    {
+      "id": "jiaxing",
+      "name": "嘉兴",
+      "region": "江南",
+      "sceneIds": ["jiaxing_scene"],
+      "mapX": 800, "mapY": 500
+    },
+    {
+      "id": "liujiacun",
+      "name": "刘家村",
+      "region": "江南",
+      "sceneIds": ["liujiacun_scene", "liujiacun_house", "liujiacun_backhill"],
+      "mapX": 470, "mapY": 680
+    },
+    {
+      "id": "linan",
+      "name": "临安",
+      "region": "临安",
+      "sceneIds": ["linan_street", "linan_palace", "linan_library", "linan_eunuch_office", "linan_inn"],
+      "mapX": 830, "mapY": 460
+    },
+    {
+      "id": "fujian",
+      "name": "福建",
+      "region": "福建",
+      "sceneIds": ["fujian_street", "fuwei_biaoju"],
+      "mapX": 720, "mapY": 720
+    },
+    {
+      "id": "qingcheng",
+      "name": "青城山",
+      "region": "青城",
+      "sceneIds": ["qingcheng_pai"],
+      "mapX": 240, "mapY": 480
+    },
+    {
+      "id": "tiezhang",
+      "name": "铁掌峰",
+      "region": "太湖",
+      "sceneIds": ["tiezhang_peak"],
+      "mapX": 760, "mapY": 530
+    },
+    {
+      "id": "gusu",
+      "name": "姑苏",
+      "region": "江南",
+      "sceneIds": ["yanziwu", "mantuoshan"],
+      "mapX": 820, "mapY": 560
+    },
+    {
+      "id": "lingjiugong",
+      "name": "灵鹫宫",
+      "region": "天山",
+      "sceneIds": ["lingjiugong"],
+      "mapX": 150, "mapY": 150
+    },
+    {
+      "id": "xingxiuhai",
+      "name": "星宿海",
+      "region": "西域",
+      "sceneIds": ["xingxiuhai"],
+      "mapX": 80, "mapY": 350
+    },
+    {
+      "id": "yanmenguan",
+      "name": "雁门关",
+      "region": "太行",
+      "sceneIds": ["yanmenguan"],
+      "mapX": 520, "mapY": 180
+    },
+    {
+      "id": "jingzhou",
+      "name": "荆州",
+      "region": "荆州",
+      "sceneIds": ["jingzhou_city", "jingzhou_prison", "tianningsi"],
+      "mapX": 380, "mapY": 600
+    },
+    {
+      "id": "xuegu",
+      "name": "雪谷",
+      "region": "藏边",
+      "sceneIds": ["xuegu"],
+      "mapX": 120, "mapY": 260
+    },
+    {
+      "id": "shiliang",
+      "name": "石梁",
+      "region": "江南",
+      "sceneIds": ["shiliang"],
+      "mapX": 820, "mapY": 620
+    },
+    {
+      "id": "tongguan",
+      "name": "潼关",
+      "region": "关中",
+      "sceneIds": ["tongguan"],
+      "mapX": 250, "mapY": 300
+    },
+    {
+      "id": "jingshi",
+      "name": "京师",
+      "region": "直隶",
+      "sceneIds": ["jingshi", "wanansi"],
+      "mapX": 600, "mapY": 220
+    },
+    {
+      "id": "motianya",
+      "name": "摩天崖",
+      "region": "太行",
+      "sceneIds": ["motianya"],
+      "mapX": 540, "mapY": 200
+    },
+    {
+      "id": "lingxiaocheng",
+      "name": "凌霄城",
+      "region": "西域",
+      "sceneIds": ["lingxiaocheng"],
+      "mapX": 60, "mapY": 280
+    },
+    {
+      "id": "ziyandao",
+      "name": "紫烟岛",
+      "region": "东海",
+      "sceneIds": ["ziyandao"],
+      "mapX": 880, "mapY": 440
+    },
+    {
+      "id": "xiake_dao",
+      "name": "侠客岛",
+      "region": "东海",
+      "sceneIds": ["xiake_dao"],
+      "mapX": 900, "mapY": 400
+    },
+    {
+      "id": "xuansuzhuang",
+      "name": "玄素庄",
+      "region": "中原",
+      "sceneIds": ["xuansuzhuang"],
+      "mapX": 500, "mapY": 420
+    },
+    {
+      "id": "yangzhou",
+      "name": "扬州",
+      "region": "江南",
+      "sceneIds": ["yangzhou"],
+      "mapX": 620, "mapY": 640
+    },
+    {
+      "id": "zijincheng",
+      "name": "紫禁城",
+      "region": "直隶",
+      "sceneIds": ["zijincheng"],
+      "mapX": 600, "mapY": 220
+    },
+    {
+      "id": "wutai_shan",
+      "name": "五台山",
+      "region": "山西",
+      "sceneIds": ["wutai_shan"],
+      "mapX": 480, "mapY": 240
+    },
+    {
+      "id": "shenlong_dao",
+      "name": "神龙岛",
+      "region": "东海",
+      "sceneIds": ["shenlong_dao"],
+      "mapX": 920, "mapY": 380
+    },
+    {
+      "id": "pingxi_wangfu",
+      "name": "平西王府",
+      "region": "云南",
+      "sceneIds": ["pingxi_wangfu"],
+      "mapX": 160, "mapY": 680
+    }
+  ],
+  "routes": [
+    { "from": "huashan", "to": "songshan", "distance": 230, "travelTime": 5.0 },
+    { "from": "huashan", "to": "wudang", "distance": 169, "travelTime": 3.5 },
+    { "from": "huashan", "to": "quanzhen", "distance": 90, "travelTime": 2.0 },
+    { "from": "huashan", "to": "heimuya", "distance": 269, "travelTime": 5.5 },
+    { "from": "songshan", "to": "hengshan", "distance": 153, "travelTime": 3.0 },
+    { "from": "songshan", "to": "taishan", "distance": 200, "travelTime": 4.0 },
+    { "from": "songshan", "to": "heimuya", "distance": 112, "travelTime": 2.5 },
+    { "from": "songshan", "to": "guangming", "distance": 163, "travelTime": 3.5 },
+    { "from": "wudang", "to": "xiangyang", "distance": 71, "travelTime": 1.5 },
+    { "from": "wudang", "to": "hengshan_south", "distance": 170, "travelTime": 3.5 },
+    { "from": "xiangyang", "to": "hengshan_south", "distance": 117, "travelTime": 2.5 },
+    { "from": "xiangyang", "to": "dali", "distance": 286, "travelTime": 6.0 },
+    { "from": "taishan", "to": "jiaxing", "distance": 206, "travelTime": 4.0 },
+    { "from": "hengshan_south", "to": "dali", "distance": 360, "travelTime": 7.5 },
+    { "from": "taohua", "to": "jiaxing", "distance": 51, "travelTime": 1.0 },
+    { "from": "taohua", "to": "guangming", "distance": 190, "travelTime": 4.0 },
+    { "from": "guangming", "to": "jiaxing", "distance": 143, "travelTime": 3.0 },
+    { "from": "guangming", "to": "hengshan_south", "distance": 197, "travelTime": 4.0 },
+    { "from": "liujiacun", "to": "xiangyang", "distance": 130, "travelTime": 2.5 },
+    { "from": "liujiacun", "to": "hengshan_south", "distance": 90, "travelTime": 2.0 },
+    { "from": "linan", "to": "jiaxing", "distance": 60, "travelTime": 1.0 },
+    { "from": "linan", "to": "taohua", "distance": 120, "travelTime": 2.5 },
+    { "from": "fujian", "to": "hengshan_south", "distance": 200, "travelTime": 4.0 },
+    { "from": "fujian", "to": "jiaxing", "distance": 280, "travelTime": 6.0 },
+    { "from": "qingcheng", "to": "huashan", "distance": 220, "travelTime": 4.5 },
+    { "from": "qingcheng", "to": "wudang", "distance": 250, "travelTime": 5.0 },
+    { "from": "qingcheng", "to": "dali", "distance": 180, "travelTime": 4.0 },
+    { "from": "tiezhang", "to": "jiaxing", "distance": 130, "travelTime": 2.5 },
+    { "from": "tiezhang", "to": "taohua", "distance": 150, "travelTime": 3.0 },
+    { "from": "jiaxing", "to": "gusu", "distance": 80, "travelTime": 1.5 },
+    { "from": "guangming", "to": "lingjiugong", "distance": 400, "travelTime": 8.0 },
+    { "from": "guangming", "to": "xingxiuhai", "distance": 350, "travelTime": 7.0 },
+    { "from": "heimuya", "to": "yanmenguan", "distance": 90, "travelTime": 2.0 },
+    { "from": "jingzhou", "to": "xiangyang", "distance": 150, "travelTime": 3.0 },
+    { "from": "jingzhou", "to": "hengshan_south", "distance": 200, "travelTime": 4.0 },
+    { "from": "xuegu", "to": "xingxiuhai", "distance": 300, "travelTime": 6.0 },
+    { "from": "shiliang", "to": "gusu", "distance": 80, "travelTime": 1.5 },
+    { "from": "tongguan", "to": "huashan", "distance": 120, "travelTime": 2.5 },
+    { "from": "jingshi", "to": "yanmenguan", "distance": 180, "travelTime": 3.5 },
+    { "from": "jingshi", "to": "songshan", "distance": 250, "travelTime": 5.0 },
+    { "from": "motianya", "to": "heimuya", "distance": 90, "travelTime": 2.0 },
+    { "from": "lingxiaocheng", "to": "xingxiuhai", "distance": 250, "travelTime": 5.0 },
+    { "from": "ziyandao", "to": "taohua", "distance": 60, "travelTime": 1.0 },
+    { "from": "xiake_dao", "to": "taohua", "distance": 80, "travelTime": 1.5 },
+    { "from": "xuansuzhuang", "to": "songshan", "distance": 60, "travelTime": 1.5 },
+    { "from": "yangzhou", "to": "liujiacun", "distance": 120, "travelTime": 2.5 },
+    { "from": "zijincheng", "to": "jingshi", "distance": 10, "travelTime": 0.5 },
+    { "from": "wutai_shan", "to": "hengshan", "distance": 150, "travelTime": 3.0 },
+    { "from": "shenlong_dao", "to": "taohua", "distance": 100, "travelTime": 2.0 },
+    { "from": "pingxi_wangfu", "to": "dali", "distance": 120, "travelTime": 2.5 }
+  ]
+}

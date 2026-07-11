@@ -1,0 +1,11 @@
+{
+  "id": "tiezhang_peak",
+  "name": "铁掌峰",
+  "description": "太湖之畔的铁掌帮总坛,山势险峻,易守难攻。帮主裘千仞以此为大本营,勾结金人图谋中原。近来西毒欧阳锋亦盘踞于此,二人狼狈为奸,江湖正道欲除之而后快。峰顶铁掌帮大堂中,杀气森然。",
+  "region": "太湖",
+  "backgroundImagePath": "assets/scenes/tiezhang_peak.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["qiu_qianren", "ouyang_feng"],
+  "factionId": null,
+  "isSpecial": true
+}

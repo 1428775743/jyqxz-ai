@@ -1,0 +1,17 @@
+{
+  "id": "wudang_hall",
+  "name": "武当紫霄宫",
+  "description": "武当派主殿，太极图高悬，张三丰在此修道。",
+  "region": "武当",
+  "backgroundImagePath": "assets/scenes/wudang_hall.jpg",
+  "connectedScenes": ["wudang_town"],
+  "defaultNPCs": ["zhang_sanfeng", "wudang_disciple_qing", "wudang_disciple_ming"],
+  "factionId": "wudang",
+  "isSpecial": false,
+  "martialLessons": [
+    { "artId": "wudang_basic_internal", "cost": 100 },
+    { "artId": "wudang_basic_sword", "cost": 150 },
+    { "artId": "wudang_xinfa", "cost": 400 },
+    { "artId": "wudang_mianzhang", "cost": 500 }
+  ]
+}

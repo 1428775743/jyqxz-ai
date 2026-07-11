@@ -1,0 +1,9 @@
+{
+  "id": "liancheng_jue",
+  "name": "连城诀",
+  "description": "一串以数字排列之密码,藏于唐诗选辑之中,所指乃梁元帝藏于荆州天宁寺之惊天宝藏。凌退思毒害丁典、万家师徒相残,皆为此物。",
+  "type": "QuestItem",
+  "value": 0,
+  "stackable": false,
+  "rarity": "legendary"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "analects",
+  "name": "论语",
+  "description": "孔子弟子所编儒家经典，读之可知礼义。",
+  "type": "Gift",
+  "value": 120,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 10,
+  "giftPreference": "文人",
+  "rarity": "common"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "jinsi_gauntlet",
+  "name": "金丝拳套",
+  "description": "以金丝软线编织的拳套,轻若无物却坚逾精钢,掌力拳风皆可借此加持。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "fist",
+  "attackBonus": 60,
+  "defenseBonus": 0,
+  "value": 1200,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

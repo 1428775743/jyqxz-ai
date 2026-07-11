@@ -1,0 +1,33 @@
+{
+  "id": "yitian_wanansi",
+  "name": "万安寺救援",
+  "type": "chain",
+  "triggerNpcId": "zhang_wuji",
+  "minFavorabilityToOffer": 40,
+  "relatedNpcIds": ["zhao_min", "fan_yao"],
+  "description": "赵敏将六大门派高手囚于大都万安寺,意图胁迫武林。张无忌邀你同往救援,光明右使范遥亦潜伏其中为内应。此行凶险万分,玄冥二老坐镇,需小心应对。",
+  "difficulty": "hard",
+  "steps": [
+    {
+      "id": "wanansi_rescue",
+      "actionType": "go",
+      "targetScene": "wanansi",
+      "description": "潜入大都万安寺,与范遥里应外合,解救被囚六大门派高手。",
+      "aiHint": "赵敏将六大门派囚于万安寺,你邀玩家同往救援。范遥潜伏其中为内应,可里应外合。然万安寺机关重重,玄冥二老坐镇,凶险万分。你叮嘱玩家小心,务必保全各派高手性命。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 300 }
+    },
+    {
+      "id": "escape_wanansi",
+      "actionType": "fight",
+      "targetNPC": "xuanming_elder",
+      "description": "撤离时遭玄冥二老拦截,与之交手,护众人脱险。",
+      "aiHint": "众人撤离时遭玄冥二老拦截,其玄冥神掌阴毒无比,寒毒入骨。你与之交手,护众人脱险。九阳神功可克其寒毒,你提醒玩家以纯阳真气应对。此战不求杀伤,但求全身而退。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 200, "karmaBonus": 10 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 300,
+    "goldBonus": 1000,
+    "reputationBonus": 300
+  }
+}

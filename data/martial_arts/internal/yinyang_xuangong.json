@@ -1,0 +1,36 @@
+{
+  "id": "yinyang_xuangong",
+  "name": "阴阳玄功",
+  "type": "internal",
+  "description": "宫中老太监海大富所修内功,真气阴阳互济,绵长阴柔。修成后内力绵绵不绝,可化去部分攻势,阴阳反噬灼伤来犯者。乃海大富一脉之深宫内功。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 75,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 450,
+  "attackBonusPerLevel": 25,
+  "defenseBonusPerLevel": 28,
+  "effects": [
+    {
+      "type": "FlatDamageReduction",
+      "value": 80,
+      "chance": 1.0,
+      "description": "阴阳护体:受到攻击时固定减伤80"
+    },
+    {
+      "type": "MPRecover",
+      "value": 0.15,
+      "chance": 1.0,
+      "description": "阴阳绵绵:每回合恢复15%内力"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.2,
+      "chance": 0.4,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:阴阳反噬,40%概率反弹20%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

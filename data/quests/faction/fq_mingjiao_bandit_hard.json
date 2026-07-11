@@ -1,0 +1,19 @@
+{
+  "id": "fq_mingjiao_bandit_hard",
+  "name": "直捣黑风岭老巢",
+  "type": "faction",
+  "description": "明教欲彻底铲除黑风岭,需高手亲临。事成,贡献甚大。",
+  "factionId": "mingjiao",
+  "dungeonId": "bandit_hard",
+  "difficulty": "hard",
+  "steps": [
+    { "id": "clear", "description": "直捣黑风岭老巢", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 200,
+    "reputationBonus": 80,
+    "factionContributionBonus": 60,
+    "factionIdForContribution": "mingjiao",
+    "jianghuExp": 50
+  }
+}

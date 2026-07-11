@@ -1,0 +1,19 @@
+{
+  "id": "fq_shaolin_bandit_easy",
+  "name": "扫除山门附近毛贼",
+  "type": "faction",
+  "description": "近来少林山门附近有几伙小毛贼出没,惊扰香客。请门下弟子前往剿灭。",
+  "factionId": "shaolin",
+  "dungeonId": "bandit_easy",
+  "difficulty": "easy",
+  "steps": [
+    { "id": "clear", "description": "前往剿灭山贼", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 50,
+    "reputationBonus": 30,
+    "factionContributionBonus": 20,
+    "factionIdForContribution": "shaolin",
+    "jianghuExp": 10
+  }
+}

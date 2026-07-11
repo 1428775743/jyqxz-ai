@@ -1,0 +1,45 @@
+{
+  "id": "ouyang_ke",
+  "name": "欧阳克",
+  "type": "npc",
+  "personality": "风流好色,狡诈阴险,自恃白驼山少主,横行江湖。对美色尤无抵抗力,为色所驱常坏事。",
+  "description": "白驼山少主,西毒欧阳锋之侄(实为亲子)。武功得家传灵蛇拳,自恃身份横行江湖。性好渔色,见黄蓉之美即起觊觎之心,纠缠桃花岛。",
+  "maxHP": 3200,
+  "maxMP": 1800,
+  "attack": 380,
+  "defense": 240,
+  "speed": 80,
+  "relations": {
+    "ouyang_feng": "师父"
+  },
+  "factionId": null,
+  "karma": -20,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "taohua_scene",
+  "schedule": {
+    "清晨": "taohua_scene",
+    "白天": "taohua_scene",
+    "黄昏": "taohua_scene",
+    "夜晚": "taohua_scene"
+  },
+  "jianghuLevel": 30,
+  "craftSkills": {
+    "art": 20,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 15,
+    "medicine": 20
+  },
+  "portraitPath": "ouyang_ke.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "lingshe_quan", "proficiencyLevel": 8 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "lingshe_quan",
+  "activeLightArtId": "basic_qinggong"
+}

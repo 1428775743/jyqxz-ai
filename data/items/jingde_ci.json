@@ -1,0 +1,12 @@
+{
+  "id": "jingde_ci",
+  "name": "景德瓷器",
+  "description": "景德镇御窑所出青花瓷，白如玉薄如纸声如磬，富贵人家案头清供。",
+  "type": "Gift",
+  "value": 150,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

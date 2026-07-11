@@ -1,0 +1,53 @@
+{
+  "id": "yang_liantin",
+  "name": "杨莲亭",
+  "type": "npc",
+  "personality": "阴柔谄媚,仗教主之势在教中作威作福。能言善辩,擅长拉拢人心,但内心阴毒。",
+  "description": "日月神教代教主,东方不败的心腹。代教主之名行教中事务,处理大小教务。",
+  "maxHP": 3200,
+  "maxMP": 2200,
+  "attack": 480,
+  "defense": 260,
+  "speed": 85,
+  "relations": {
+    "dongfang_bubai": "Master"
+  },
+  "factionId": "riyue",
+  "karma": -40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "defaultScene": "heimuya_scene",
+  "schedule": {
+    "清晨": "heimuya_scene",
+    "白天": "heimuya_scene",
+    "黄昏": "heimuya_scene",
+    "夜晚": "heimuya_scene"
+  },
+  "jianghuLevel": 28,
+  "craftSkills": {
+    "art": 50,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 10,
+    "medicine": 20
+  },
+  "portraitPath": "yang_liantin.png",
+  "learnedArts": [
+    {
+      "artId": "mingjiao_basic_internal",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "mojiao_zhang",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "mojiao_zhang",
+  "activeLightArtId": "basic_qinggong"
+}

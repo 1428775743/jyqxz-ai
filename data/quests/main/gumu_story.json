@@ -1,0 +1,59 @@
+{
+  "id": "gumu_story",
+  "name": "古墓情缘",
+  "type": "chain",
+  "triggerNpcId": "xiao_long_nv",
+  "minFavorabilityToOffer": 80,
+  "relatedNpcIds": ["li_mochou"],
+  "description": "你拜入古墓派,随小龙女习得门中武学,与之情义渐深。然赤练仙子李莫愁觊觎玉女心经已久,终率众攻打古墓。一场恶战在所难免,你须护住墓主与门中绝学。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "xiao_long_nv", "lines": ["古墓清冷,久无外客。", "你既入我门,便当守墓中规矩——不染尘俗,不动情思。"] },
+      { "speaker": "玩家", "lines": ["弟子明白。"] },
+      { "speaker": "xiao_long_nv", "lines": ["玉女心经乃本门至宝,日后传你。", "只是...师姐李莫愁觊觎此经已久,恐生事端。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "mochou_attack",
+      "actionType": "fight",
+      "targetNPC": "li_mochou",
+      "description": "赤练仙子李莫愁率众攻打古墓,为夺玉女心经而来。挺身而出,击退李莫愁。",
+      "aiHint": "李莫愁来犯,你心系墓中绝学与玩家安危。你与玩家并肩御敌,然李莫愁武功高强,你亦忧心难敌。此战关乎古墓存亡,你全力以赴。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 100 }
+    },
+    {
+      "id": "flee_gumu",
+      "actionType": "go",
+      "targetScene": "gumu_exit",
+      "description": "敌强我弱,李莫愁人多势众。携玉女心经从古墓出口撤离,暂避锋芒。古墓机关重重,李莫愁一时难入深处。",
+      "aiHint": "局势危急,你深知不可力敌。你决意携玉女心经与玩家从古墓出口撤离,以保全门中绝学。你虽不舍故土,然为大局,只能暂避。古墓机关重重,你引玩家从秘道而出。",
+      "reward": { "jianghuExp": 150 }
+    },
+    {
+      "id": "find_yangguo",
+      "actionType": "talk",
+      "targetNPC": "xiao_long_nv",
+      "description": "逃出古墓后与小龙女失散,约定他日重逢。小龙女赠你九阴白骨爪残篇,聊作凭信。",
+      "aiHint": "逃出古墓后你与玩家失散,心中虽有万般不舍,然世事无常。你赠玩家九阴白骨爪残篇以为信物,约定他日重逢。你清冷如常,然言语间已见深情。你说江湖险恶,让他好生保重,待机缘到时再续前缘。",
+      "reward": { "martialArtId": "jiuyin_jian", "jianghuExp": 100 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "xiao_long_nv", "lines": ["此番离散,不知何日重逢。", "这九阴白骨爪残篇...你收好,权作信物。"] },
+          { "speaker": "玩家", "lines": ["师父保重!弟子定会寻你。"] },
+          { "speaker": "xiao_long_nv", "lines": ["江湖险恶,万事小心。", "我...会等你的。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 300,
+    "reputationBonus": 200
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["古墓情缘暂了,九阴残篇在手,你我后会有期。"] }
+    ]
+  }
+}

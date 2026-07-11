@@ -1,0 +1,45 @@
+{
+  "id": "tutorial_liujiacun",
+  "name": "初出茅庐",
+  "type": "chain",
+  "description": "王老伯觉得你该历练历练，给你安排了三个小考验：先去拜访村长了解村中近况，再到后山采些矿石回来，最后和铁匠切磋一番。完成这些，你就算真正踏入了江湖。",
+  "triggerNpcId": "wang_old_man",
+  "difficulty": "easy",
+  "steps": [
+    {
+      "id": "talk_chief",
+      "description": "去村长家拜访刘村长，听听他的教诲",
+      "actionType": "talk",
+      "targetNPC": "liu_chief",
+      "reward": {
+        "jianghuExp": 20,
+        "goldBonus": 50
+      }
+    },
+    {
+      "id": "submit_ore",
+      "description": "去后山采铁矿石x2，然后回来提交",
+      "actionType": "submit",
+      "targetScene": "liujiacun_backhill",
+      "requiredItems": [
+        { "itemId": "iron_ore", "quantity": 2 }
+      ],
+      "reward": {
+        "jianghuExp": 30,
+        "goldBonus": 100
+      }
+    },
+    {
+      "id": "spar_blacksmith",
+      "description": "与刘铁匠切磋，展示你的武艺",
+      "actionType": "fight",
+      "targetNPC": "liu_blacksmith",
+      "reward": {}
+    }
+  ],
+  "reward": {
+    "jianghuExp": 100,
+    "goldBonus": 200,
+    "martialArtId": "zuowang_gong"
+  }
+}

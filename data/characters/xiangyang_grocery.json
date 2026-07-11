@@ -1,0 +1,47 @@
+{
+  "id": "xiangyang_grocery",
+  "name": "孙大娘(杂货)",
+  "type": "npc",
+  "personality": "泼辣爽利，心直口快，最疼守城军汉",
+  "description": "襄阳城里开杂货铺的大娘，军镇边关之地，货物多是北方粗犷实用的皮酒之物。",
+  "maxHP": 300,
+  "maxMP": 90,
+  "attack": 20,
+  "defense": 14,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 20,
+  "gender": "女",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_cheng"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "shaodaozi",
+    "dried_meat"
+  ],
+  "shopRandomItems": [
+    "wolf_pelt",
+    "leather",
+    "bear_gallbladder",
+    "good_wine",
+    "iron_ore",
+    "fresh_meat"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

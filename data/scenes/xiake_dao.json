@@ -1,0 +1,10 @@
+{
+  "id": "xiake_dao",
+  "name": "侠客岛",
+  "description": "东海孤岛,龙木二岛主所居。岛上石壁刻有太玄经,以李白《侠客行》诗为引。每十年邀天下高手饮腊八粥,赏善罚恶。天下武人闻之色变,实则武学圣地。",
+  "region": "东海",
+  "backgroundImagePath": "assets/scenes/xiake_dao.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["shi_potian", "long_daozhu", "mu_daozhu"],
+  "isSpecial": true
+}

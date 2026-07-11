@@ -1,0 +1,27 @@
+{
+  "id": "bandit_hard",
+  "name": "直捣黑风岭",
+  "description": "黑风岭老巢盘踞已久,寨主独眼龙武艺高强,直捣其穴方能剪除大患。",
+  "type": "bandit",
+  "rounds": [
+    {
+      "opponentPool": ["bandit_medium_1", "bandit_medium_2"],
+      "count": 3,
+      "triggerDialogue": true
+    },
+    {
+      "opponentPool": ["bandit_hard_2"],
+      "count": 2,
+      "triggerDialogue": true
+    },
+    {
+      "opponentCharacterId": "bandit_hard_1",
+      "count": 1,
+      "triggerDialogue": true
+    }
+  ],
+  "reward": { "gold": 500, "reputation": 300 },
+  "onFail": { "type": "deductHP", "amount": 1 },
+  "staminaCost": 40,
+  "timeCostHours": 4
+}

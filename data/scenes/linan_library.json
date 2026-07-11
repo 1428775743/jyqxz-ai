@@ -1,0 +1,13 @@
+{
+  "id": "linan_library",
+  "name": "藏书阁",
+  "description": "临安城中的藏书阁，典藏万卷。其中不乏武学典籍、医书药方、江湖秘闻。读书人可在此增长见闻，习武者可参悟武学心得。",
+  "region": "临安",
+  "backgroundImagePath": "assets/scenes/linan_library.jpg",
+  "connectedScenes": ["linan_street"],
+  "defaultNPCs": ["librarian_chen"],
+  "factionId": null,
+  "isSpecial": false,
+  "craftLessons": [],
+  "martialLessons": []
+}

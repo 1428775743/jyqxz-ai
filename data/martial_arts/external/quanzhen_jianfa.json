@@ -1,0 +1,31 @@
+{
+  "id": "quanzhen_jianfa",
+  "name": "全真剑法",
+  "type": "external",
+  "description": "全真教镇派剑法,王重阳所创,剑法中正平和,博大精深。七大弟子各传一式,合则成天罡北斗阵。剑招看似平淡,实则暗含先天易理。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 35,
+  "effects": [
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.2,
+      "description": "剑势连绵:20%概率追加一剑"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.08,
+      "chance": 0.25,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁:25%概率剑气伤脉(流血)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.1 },
+    "10": { "damageCoefficient": 2.5 }
+  }
+}

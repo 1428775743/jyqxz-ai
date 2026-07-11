@@ -1,0 +1,54 @@
+{
+  "id": "shaolin_disciple_xu",
+  "name": "玄虚小和尚",
+  "type": "npc",
+  "personality": "勤奋刻苦，性格沉稳，一心向佛",
+  "description": "少林寺入门弟子，修行数年，基本功扎实。",
+  "maxHP": 1300,
+  "maxMP": 600,
+  "attack": 150,
+  "defense": 140,
+  "speed": 65,
+  "relations": {},
+  "factionId": "shaolin",
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "shaolin_hall",
+  "schedule": {
+    "清晨": "shaolin_hall",
+    "白天": "shaolin_hall",
+    "黄昏": "shaolin_hall",
+    "夜晚": "shaolin_hall"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 15,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 20,
+    "medicine": 35
+  },
+  "portraitPath": "shaolin_disciple_xu.png",
+  "learnedArts": [
+    {
+      "artId": "shaolin_luohan_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shaolin_bore",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shaolin_luohan_quan",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shaolin_qinna",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "shaolin_bore",
+  "activeExternalArtId": "shaolin_qinna"
+}

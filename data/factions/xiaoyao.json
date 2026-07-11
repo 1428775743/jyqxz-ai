@@ -1,0 +1,20 @@
+{
+  "id": "xiaoyao",
+  "name": "逍遥派",
+  "description": "逍遥派,掌门无崖子。门下北冥神功、小无相功、八荒六合唯我独尊功并称三大内功,天山折梅手、天山六阳掌、凌波微步皆为绝学。门规奇诡,择徒极严,门人稀少却个个惊才绝艳。",
+  "leaderId": "wu_yazi",
+  "sceneId": "lingjiugong",
+  "availableArts": [
+    "beiming_shengong",
+    "xiaowuxiang_gong",
+    "bahuang_liuhe",
+    "tianshan_zhemei",
+    "tianshan_liuyang",
+    "lingbo_weibu"
+  ],
+  "joinKarmaMin": 0,
+  "joinKarmaMax": 100,
+  "alliedFactions": {},
+  "enemyFactions": {},
+  "alignment": "中立"
+}

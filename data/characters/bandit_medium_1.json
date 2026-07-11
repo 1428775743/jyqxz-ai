@@ -1,0 +1,35 @@
+{
+  "id": "bandit_medium_1",
+  "name": "黑风岭副寨主",
+  "type": "npc",
+  "personality": "心狠手辣，重财轻命",
+  "description": "黑风岭山寨副当家，善使一对弯刀，江湖上颇有恶名。",
+  "maxHP": 400,
+  "maxMP": 120,
+  "attack": 55,
+  "defense": 30,
+  "speed": 40,
+  "relations": {},
+  "factionId": null,
+  "karma": -60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 12,
+  "portraitPath": "bandit_medium_1.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

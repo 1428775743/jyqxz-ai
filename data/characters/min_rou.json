@@ -1,0 +1,23 @@
+{
+  "id": "min_rou",
+  "name": "闵柔",
+  "type": "npc",
+  "personality": "石清之妻,慈母心肠,剑法轻灵。性情温婉,却因二子之事忧心如焚。与夫并称黑白双剑。",
+  "description": "玄素庄女主人,石清之妻。慈母心肠,性情温婉,剑法轻灵。与夫石清并称黑白双剑,感情深厚。因长子石中玉顽劣、次子石破天身世坎坷,忧心如焚。",
+  "maxHP": 2600,
+  "maxMP": 2000,
+  "attack": 360,
+  "defense": 320,
+  "speed": 75,
+  "karma": 40,
+  "gender": "女",
+  "defaultScene": "xuansuzhuang",
+  "jianghuLevel": 35,
+  "portraitPath": "min_rou.png",
+  "learnedArts": [
+    { "artId": "xueshan_jianfa", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "xueshan_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

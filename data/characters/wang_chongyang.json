@@ -1,0 +1,45 @@
+{
+  "id": "wang_chongyang",
+  "name": "王重阳",
+  "type": "npc",
+  "personality": "仙风道骨,心怀天下,昔日华山论剑天下第一。虽已羽化,遗泽犹存。",
+  "description": "全真教祖师,昔日华山论剑五绝之首'中神通'。武功天下第一,先天生功独步武林。虽已仙逝多年,然其遗刻仍藏于古墓之中,影响深远。",
+  "maxHP": 6500,
+  "maxMP": 6000,
+  "attack": 1000,
+  "defense": 580,
+  "speed": 100,
+  "relations": {
+    "qiu_chuji": "Disciple"
+  },
+  "factionId": "quanzhen",
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": true,
+  "isHidden": true,
+  "defaultScene": "quanzhen_hall",
+  "schedule": {
+    "清晨": "quanzhen_hall",
+    "白天": "quanzhen_hall",
+    "黄昏": "quanzhen_hall",
+    "夜晚": "quanzhen_hall"
+  },
+  "jianghuLevel": 60,
+  "craftSkills": {
+    "art": 80,
+    "forging": 30,
+    "mining": 20,
+    "gathering": 40,
+    "medicine": 50
+  },
+  "portraitPath": "wang_chongyang.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 10 },
+    { "artId": "quanzhen_neigong", "proficiencyLevel": 10 },
+    { "artId": "quanzhen_jianfa", "proficiencyLevel": 10 },
+    { "artId": "tian_gang_beidou", "proficiencyLevel": 10 }
+  ],
+  "activeInternalArtId": "tian_gang_beidou",
+  "activeExternalArtId": "quanzhen_jianfa"
+}

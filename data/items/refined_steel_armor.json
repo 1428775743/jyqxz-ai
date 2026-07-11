@@ -1,0 +1,13 @@
+{
+  "id": "refined_steel_armor",
+  "name": "精钢甲",
+  "description": "百炼精钢编缀的甲胄，坚固轻便，比寻常铁甲防护更佳。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 40,
+  "value": 400,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

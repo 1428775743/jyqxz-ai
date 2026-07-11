@@ -1,0 +1,23 @@
+{
+  "id": "shi_qing",
+  "name": "石清",
+  "type": "npc",
+  "personality": "玄素庄主,黑白双剑之一,严正重义。为人正直,重情重义。与妻闵柔剑法双绝,江湖敬重。",
+  "description": "玄素庄庄主,与妻闵柔并称黑白双剑。为人严正重义,重情重义。雪山剑法得其精要,与闵柔剑法双绝。乃石中玉、石破天之父,因二子之事奔波劳碌。",
+  "maxHP": 3000,
+  "maxMP": 2200,
+  "attack": 420,
+  "defense": 360,
+  "speed": 72,
+  "karma": 40,
+  "gender": "男",
+  "defaultScene": "xuansuzhuang",
+  "jianghuLevel": 40,
+  "portraitPath": "shi_qing.png",
+  "learnedArts": [
+    { "artId": "xueshan_jianfa", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "xueshan_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "wen_fangshan",
+  "name": "温方山",
+  "type": "npc",
+  "personality": "温家五老之一,阴狠狡诈,随长兄为恶。擅金蛇游身掌,武功不弱。",
+  "description": "温家五老之一,温方达之弟。阴狠狡诈,随长兄为恶,囚禁温仪、谋夺金蛇秘笈。擅金蛇游身掌,武功不弱。后为袁承志所败,恶有恶报。",
+  "maxHP": 3000,
+  "maxMP": 2000,
+  "attack": 400,
+  "defense": 340,
+  "speed": 65,
+  "karma": -25,
+  "gender": "男",
+  "defaultScene": "shiliang",
+  "jianghuLevel": 40,
+  "portraitPath": "wen_fangshan.png",
+  "learnedArts": [
+    {
+      "artId": "jinshe_youshenzhang",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "wudang_basic_internal",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeExternalArtId": "jinshe_youshenzhang",
+  "activeLightArtId": "basic_qinggong",
+  "activeInternalArtId": "wudang_basic_internal"
+}

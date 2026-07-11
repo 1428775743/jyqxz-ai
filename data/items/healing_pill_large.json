@@ -1,0 +1,12 @@
+{
+  "id": "healing_pill_large",
+  "name": "大还丹",
+  "description": "上等疗伤药，可恢复大量生命。",
+  "type": "Consumable",
+  "value": 200,
+  "stackable": true,
+  "quantity": 1,
+  "hpRecovery": 800,
+  "rarity": "uncommon",
+  "combatUsable": true
+}

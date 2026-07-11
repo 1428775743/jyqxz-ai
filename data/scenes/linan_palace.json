@@ -1,0 +1,14 @@
+{
+  "id": "linan_palace",
+  "name": "皇城",
+  "description": "临安皇城，金碧辉煌、守卫森严。非朝廷要员或武林名宿不得随意入内。传闻太医院中有天下第一神医坐诊，可解百毒、治百病。",
+  "region": "临安",
+  "backgroundImagePath": "assets/scenes/linan_palace.jpg",
+  "connectedScenes": ["linan_street"],
+  "defaultNPCs": ["imperial_doctor"],
+  "factionId": null,
+  "isSpecial": true,
+  "minReputation": 500,
+  "craftLessons": [],
+  "martialLessons": []
+}

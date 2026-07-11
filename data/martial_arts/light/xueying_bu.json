@@ -1,0 +1,18 @@
+{
+  "id": "xueying_bu",
+  "name": "血影步",
+  "type": "light",
+  "description": "血刀门轻功身法,步法诡谲如血影飘忽,敌人难以捉摸。修习者身形忽左忽右,如鬼魅般穿梭战阵,可避来犯之招。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "speedBonusPerLevel": 4,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.2,
+      "chance": 1.0,
+      "description": "血影迷踪:20%概率闪避来袭攻击"
+    }
+  ],
+  "levelBonuses": {}
+}

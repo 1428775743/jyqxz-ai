@@ -1,0 +1,13 @@
+{
+  "id": "wujin_jiasha",
+  "name": "乌金袈裟",
+  "description": "一件乌金所织袈裟,上以暗线绣有连城剑法图谱,招式暗合唐诗。乃连城诀宝藏之钥,得此袈裟方可参透连城剑法之全貌。",
+  "type": "Manual",
+  "value": 6000,
+  "stackable": false,
+  "containedArtIds": ["liancheng_jianfa"],
+  "prerequisite": {
+    "requiredAttack": 200
+  },
+  "rarity": "legendary"
+}

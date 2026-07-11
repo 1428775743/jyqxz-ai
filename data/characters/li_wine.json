@@ -1,0 +1,37 @@
+{
+  "id": "li_wine",
+  "name": "李掌柜(酒贩)",
+  "type": "npc",
+  "personality": "热情好客，爱聊江湖八卦",
+  "description": "襄阳客栈的老掌柜，卖酒三十年，对江湖事了如指掌。",
+  "maxHP": 300,
+  "maxMP": 100,
+  "attack": 20,
+  "defense": 15,
+  "speed": 30,
+  "relations": {},
+  "factionId": null,
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_inn",
+  "schedule": {
+    "清晨": "xiangyang_inn",
+    "白天": "xiangyang_inn",
+    "黄昏": "xiangyang_inn",
+    "夜晚": "xiangyang_inn"
+  },
+  "npcRole": "wine_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "good_wine"
+  ],
+  "shopRandomItems": [
+    "good_wine",
+    "mp_pill",
+    "healing_pill_small"
+  ],
+  "craftSkills": {},
+  "portraitPath": "li_wine.png",
+  "learnedArts": []
+}

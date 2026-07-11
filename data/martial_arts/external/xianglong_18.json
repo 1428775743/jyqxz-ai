@@ -1,0 +1,41 @@
+{
+  "id": "xianglong_18",
+  "name": "降龙十八掌",
+  "type": "external",
+  "description": "丐帮镇帮绝技，刚猛无匹，一掌可裂山石。修至大成后，蓄力一击威力倍增。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.5,
+  "critChance": 0.35,
+  "cooldown": 2,
+  "mpCost": 80,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.3,
+      "chance": 1.0,
+      "description": "无视30%防御"
+    },
+    {
+      "type": "Knockback",
+      "value": 0.2,
+      "chance": 0.2,
+      "description": "20%概率击退"
+    },
+    {
+      "type": "NextAttackBoost",
+      "value": 0.80,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：使用后下次攻击伤害提升80%"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 3.0
+    },
+    "10": {
+      "damageCoefficient": 3.5
+    }
+  }
+}

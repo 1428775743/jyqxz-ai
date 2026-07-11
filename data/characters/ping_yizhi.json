@@ -1,0 +1,47 @@
+{
+  "id": "ping_yizhi",
+  "name": "平一指",
+  "type": "npc",
+  "personality": "江湖中人称'杀人名医'，医术冠绝天下，脾气古怪。他救人一命便杀一人，以维持生死平衡。但若真心救治，绝不收分文。行事全凭心意，亦正亦邪。",
+  "description": "平一指，江湖中最为传奇的医者。一根手指便可点穴治病，亦可一指毙命。他的医术无所不能——解毒、治伤、甚至能修复被毁的身躯。然其性情乖张，救人之后必杀一人，维持'杀一人救一人'的天道平衡。行踪飘忽不定，遍游天下。",
+  "maxHP": 1500,
+  "maxMP": 1200,
+  "attack": 200,
+  "defense": 150,
+  "speed": 80,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": false,
+  "npcRole": "wandering_doctor",
+  "defaultScene": "linan_street",
+  "schedule": {
+    "清晨": "linan_street",
+    "白天": "linan_street",
+    "黄昏": "linan_street",
+    "夜晚": "linan_inn"
+  },
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyang_shengong",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "jiuyang_shengong",
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "medicine": 100
+  },
+  "portraitPath": "ping_yizhi.png",
+  "activeExternalArtId": "basic_palm"
+}

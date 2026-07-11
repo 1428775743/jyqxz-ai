@@ -1,0 +1,10 @@
+{
+  "id": "rope",
+  "name": "麻绳",
+  "description": "结实耐用的麻绳一捆，登山攀岩都用得上。",
+  "type": "Material",
+  "value": 6,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

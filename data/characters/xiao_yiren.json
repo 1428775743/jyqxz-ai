@@ -1,0 +1,41 @@
+{
+  "id": "xiao_yiren",
+  "name": "箫逸人",
+  "type": "npc",
+  "personality": "忧郁深沉,寡言少语,一腔心事尽寄洞箫。箫声呜咽,如泣如诉,闻者莫名伤感。",
+  "description": "江湖落拓客,自称箫逸人。青衫落拓,面容清瘦,常独立月下吹箫。箫声深沉忧郁,似有无限心事。传闻曾有一段刻骨情伤,遂以箫寄情,云游江湖。与人相交淡如水,然箫声动人肺腑。",
+  "maxHP": 1300,
+  "maxMP": 900,
+  "attack": 85,
+  "defense": 82,
+  "speed": 72,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "musician",
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_town",
+    "白天": "huashan_path",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "linan_street"
+  },
+  "jianghuLevel": 16,
+  "craftSkills": {
+    "art": 88,
+    "forging": 8,
+    "mining": 8,
+    "gathering": 15,
+    "medicine": 20
+  },
+  "portraitPath": "xiao_yiren.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 3 },
+    { "artId": "basic_palm", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

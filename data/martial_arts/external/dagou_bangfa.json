@@ -1,0 +1,31 @@
+{
+  "id": "dagou_bangfa",
+  "name": "打狗棒法",
+  "type": "external",
+  "description": "丐帮历代帮主单传的镇帮绝技,棒法灵动莫测,招式三十六路,天下无狗。配合打狗棒使来,攻守兼备,被誉为天下第一棒法。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.3,
+  "critChance": 0.25,
+  "cooldown": 1,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.15,
+      "chance": 0.15,
+      "description": "棒法灵动:被攻击时15%概率闪避"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.3,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁:30%概率棒影连击,追加一次攻击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.6 },
+    "10": { "damageCoefficient": 3.0 }
+  }
+}

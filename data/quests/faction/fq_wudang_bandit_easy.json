@@ -1,0 +1,19 @@
+{
+  "id": "fq_wudang_bandit_easy",
+  "name": "清剿武当山脚毛贼",
+  "type": "faction",
+  "description": "近日武当山脚有一伙小毛贼骚扰行人，有损武当声誉。请门下弟子前往清剿。",
+  "factionId": "wudang",
+  "dungeonId": "bandit_easy",
+  "difficulty": "easy",
+  "steps": [
+    { "id": "clear", "description": "清剿山脚毛贼", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 50,
+    "reputationBonus": 30,
+    "factionContributionBonus": 20,
+    "factionIdForContribution": "wudang",
+    "jianghuExp": 10
+  }
+}

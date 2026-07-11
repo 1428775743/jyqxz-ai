@@ -1,0 +1,24 @@
+{
+  "id": "zuowang_gong",
+  "name": "坐忘功",
+  "type": "internal",
+  "description": "道家清静无为的内功心法，修炼时心如止水、忘却尘世纷扰。长期修炼可强身健体，修炼至高深境界更能以静制动，化解外来之力。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "cooldown": 4,
+  "mpCost": 40,
+  "hpBonusPerLevel": 100,
+  "mpBonusPerLevel": 80,
+  "attackBonusPerLevel": 8,
+  "defenseBonusPerLevel": 12,
+  "effects": [
+    {
+      "type": "FlatDamageReduction",
+      "value": 10,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "坐忘心法修炼至第8层，心如止水、以静制动，受到伤害减少10点"
+    }
+  ],
+  "levelBonuses": {}
+}

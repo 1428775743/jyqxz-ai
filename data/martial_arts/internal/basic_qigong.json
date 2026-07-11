@@ -1,0 +1,16 @@
+{
+  "id": "basic_qigong",
+  "name": "基础吐纳术",
+  "type": "internal",
+  "description": "最基础的内功修炼法，可以强身健体。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "cooldown": 3,
+  "mpCost": 30,
+  "hpBonusPerLevel": 50,
+  "mpBonusPerLevel": 70,
+  "attackBonusPerLevel": 5,
+  "defenseBonusPerLevel": 5,
+  "effects": [],
+  "levelBonuses": {}
+}

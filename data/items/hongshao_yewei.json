@@ -1,0 +1,14 @@
+{
+  "id": "hongshao_yewei",
+  "name": "红烧野味",
+  "type": "Consumable",
+  "description": "红烧山珍野味，浓油赤酱，食后攻击+15%，持续1日。食buff。",
+  "value": 120,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "atk",
+  "buffValue": 0.15,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

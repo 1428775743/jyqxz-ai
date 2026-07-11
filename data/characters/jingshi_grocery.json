@@ -1,0 +1,46 @@
+{
+  "id": "jingshi_grocery",
+  "name": "王掌柜(杂货)",
+  "type": "npc",
+  "personality": "圆滑世故，消息灵通，天子脚下做生意最懂规矩",
+  "description": "京师繁华街市的杂货掌柜，各色稀奇货物齐聚，北地特产与官窑瓷器俱全。",
+  "maxHP": 290,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 13,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "jingshi",
+  "schedule": {
+    "清晨": "jingshi",
+    "白天": "jingshi",
+    "黄昏": "jingshi",
+    "夜晚": "jingshi"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "manai_jiu",
+    "jingde_ci"
+  ],
+  "shopRandomItems": [
+    "shanshui_hua",
+    "shaodaozi",
+    "strategy_book",
+    "wolf_pelt",
+    "deer_antler"
+  ],
+  "craftSkills": {
+    "gathering": 15,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

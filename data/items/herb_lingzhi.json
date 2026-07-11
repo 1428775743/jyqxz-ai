@@ -1,0 +1,9 @@
+{
+  "id": "herb_lingzhi",
+  "name": "灵芝",
+  "type": "Material",
+  "description": "深山罕见仙草,益气安神,入药可制珍丹。",
+  "value": 150,
+  "stackable": true,
+  "rarity": "rare"
+}

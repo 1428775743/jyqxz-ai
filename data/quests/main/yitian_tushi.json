@@ -1,0 +1,32 @@
+{
+  "id": "yitian_tushi",
+  "name": "屠狮大会",
+  "type": "chain",
+  "triggerNpcId": "xie_xun",
+  "minFavorabilityToOffer": 30,
+  "relatedNpcIds": ["cheng_kun", "zhou_zhiruo"],
+  "description": "谢逊被少林囚于少林寺,江湖各派齐聚少林召开屠狮大会,欲了断谢逊与成昆的恩怨。谢逊托你相助——于大会上助其与仇人成昆了断,并化解周芷若因九阴真经之事生出的变故。",
+  "difficulty": "hard",
+  "steps": [
+    {
+      "id": "tushi_duel",
+      "actionType": "fight",
+      "targetNPC": "cheng_kun",
+      "description": "少林屠狮大会上,助谢逊与仇人成昆了断恩怨,击败这幕后黑手。",
+      "aiHint": "屠狮大会上,谢逊欲与成昆了断恩怨。成昆这老贼阴险毒辣,挑动正邪大战害人无数。玩家助谢逊与之交手,了断这场数十年的血海深仇。成昆玄冥神掌阴毒,然谢逊与玩家联手,当可制之。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 200, "karmaBonus": 10 }
+    },
+    {
+      "id": "zhiruo_confront",
+      "actionType": "talk",
+      "targetNPC": "zhou_zhiruo",
+      "description": "周芷若因九阴真经之事性情大变,于大会上露出獠牙。与之对质,化解其执念。",
+      "aiHint": "周芷若这孩子因情伤与师命所困,误练九阴白骨爪,性情大变,于屠狮大会上露出獠牙。你与玩家对质化解其执念。她本性善良,然为情所困难以自拔。你以言语点化,望她回头是岸,然其执念深重,需玩家以理服之。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 100 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 400,
+    "reputationBonus": 500
+  }
+}

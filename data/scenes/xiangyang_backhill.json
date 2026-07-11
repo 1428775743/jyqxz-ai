@@ -1,0 +1,40 @@
+{
+  "id": "xiangyang_backhill",
+  "name": "襄阳后山",
+  "description": "襄阳城外的后山,林木幽深,人迹罕至。山中隐有奇人异事,传闻有神雕栖息于深处的剑冢。亦有猎户在此设陷阱,产出兽皮草药。",
+  "region": "襄阳",
+  "backgroundImagePath": "assets/scenes/xiangyang_backhill.jpg",
+  "connectedScenes": [
+    "xiangyang_cheng",
+    "jianzhong"
+  ],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "hunt": {
+    "tier": "normal",
+    "timeCostPerHunt": 1.0,
+    "staminaCost": 12,
+    "loots": [
+      {
+        "itemId": "rabbit_fur",
+        "rarity": "common"
+      },
+      {
+        "itemId": "pheasant_feather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "leather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "deer_antler",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  }
+}

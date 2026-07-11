@@ -1,0 +1,28 @@
+{
+  "id": "shaolin_long爪",
+  "name": "少林龙爪手",
+  "type": "external",
+  "description": "少林七十二绝技之一，刚猛凌厉，爪风如龙。大成后一招得手，招招连追。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.5,
+  "critChance": 0.15,
+  "cooldown": 2,
+  "mpCost": 70,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.1,
+      "chance": 0.3,
+      "description": "30%概率无视10%防御"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 0.6,
+      "chance": 0.4,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：40%概率追击一次额外攻击(60%伤害)"
+    }
+  ],
+  "levelBonuses": {}
+}

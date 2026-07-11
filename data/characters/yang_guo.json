@@ -1,0 +1,59 @@
+{
+  "id": "yang_guo",
+  "name": "杨过",
+  "type": "npc",
+  "personality": "桀骜不驯，情深义重，亦正亦邪",
+  "description": "神雕大侠，断臂后得神雕相助，武功大成。",
+  "maxHP": 4500,
+  "maxMP": 3500,
+  "attack": 820,
+  "defense": 480,
+  "speed": 85,
+  "relations": {
+    "guo_jing": "Acquaintance"
+  },
+  "factionId": null,
+  "karma": 55,
+  "gender": "男",
+  "hiddenPower": true,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_wall",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_inn",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 50,
+  "craftSkills": {
+    "art": 20,
+    "forging": 40,
+    "mining": 30,
+    "gathering": 10,
+    "medicine": 15
+  },
+  "portraitPath": "yang_guo.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyin_zhenjing",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "dugu_jiujian",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "anran_xiaohun",
+      "proficiencyLevel": 10
+    }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "anran_xiaohun"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "fq_riyue_bandit_medium",
+  "name": "征讨太行山悍匪",
+  "type": "faction",
+  "description": "太行山中盘踞一伙悍匪,竟敢拦截教中运送的物资,公然与日月神教为敌。代教主震怒,命门下精锐前往征讨,以正教威。",
+  "factionId": "riyue",
+  "dungeonId": "bandit_medium",
+  "difficulty": "medium",
+  "steps": [
+    { "id": "clear", "description": "前往征讨悍匪", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 100,
+    "reputationBonus": 50,
+    "factionContributionBonus": 35,
+    "factionIdForContribution": "riyue",
+    "jianghuExp": 15
+  }
+}

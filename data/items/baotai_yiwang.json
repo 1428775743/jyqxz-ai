@@ -1,0 +1,10 @@
+{
+  "id": "baotai_yiwang",
+  "name": "豹胎易经丸",
+  "description": "神龙教主洪安通所制毒药,以豹胎等奇物炼成。服后暂无异样,然若不按时服解药,则骨肉变形、痛不欲生。洪安通以此控制部下,乃鹿鼎记一书中之奇毒。",
+  "type": "Material",
+  "value": 200,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

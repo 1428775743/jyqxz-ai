@@ -1,0 +1,89 @@
+{
+  "id": "taishan_backhill",
+  "name": "泰山后山",
+  "description": "泰山后山巍峨险峻，岩石中蕴含五行之气，矿石品质不凡。",
+  "region": "泰山",
+  "backgroundImagePath": "assets/scenes/taishan_backhill.jpg",
+  "connectedScenes": [
+    "taishan_scene"
+  ],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      {
+        "itemId": "iron_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "copper_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "tin_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "silver_ore",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "gold_ore",
+        "rarity": "rare"
+      }
+    ]
+  },
+  "hunt": {
+    "tier": "high",
+    "timeCostPerHunt": 1.5,
+    "staminaCost": 15,
+    "loots": [
+      {
+        "itemId": "wolf_pelt",
+        "rarity": "common"
+      },
+      {
+        "itemId": "leather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "deer_antler",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "bear_gallbladder",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  },
+  "herbGarden": {
+    "tier": "high",
+    "timeCostPerGather": 1.0,
+    "staminaCost": 12,
+    "herbs": [
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "herb_lingzhi",
+        "rarity": "epic"
+      },
+      {
+        "itemId": "herb_xuelian",
+        "rarity": "legendary"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "hongan_tong",
+  "name": "洪安通",
+  "type": "npc",
+  "personality": "神龙教主,野心勃勃,阴毒狠辣。化骨绵掌与豹胎易经丸控制部下,妄图称帝。亦正亦邪,穷凶极恶。",
+  "description": "神龙教教主,自号洪安通,妄图称帝。化骨绵掌阴毒绝伦,以豹胎易经丸控制部下。野心勃勃,阴毒狠辣。妻苏荃后归韦小宝。终为众叛亲离所灭。乃鹿鼎记一书中之邪教枭雄。",
+  "equippedWeaponId": "jinsi_gauntlet",
+  "maxHP": 4400,
+  "maxMP": 3000,
+  "attack": 600,
+  "defense": 420,
+  "speed": 80,
+  "karma": -50,
+  "gender": "男",
+  "defaultScene": "shenlong_dao",
+  "jianghuLevel": 50,
+  "isSectLeader": true,
+  "portraitPath": "hongan_tong.png",
+  "learnedArts": [
+    { "artId": "huagu_mianzhang", "proficiencyLevel": 8 },
+    { "artId": "yinyang_xuangong", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "yinyang_xuangong",
+  "activeExternalArtId": "huagu_mianzhang",
+  "activeLightArtId": "basic_qinggong"
+}

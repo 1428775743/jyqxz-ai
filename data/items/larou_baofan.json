@@ -1,0 +1,14 @@
+{
+  "id": "larou_baofan",
+  "name": "腊肉煲饭",
+  "type": "Consumable",
+  "description": "腊味煲仔饭，米香肉香交融，食后战斗中每回合回血5%最大气血，持续1日。食buff。",
+  "value": 50,
+  "stackable": true,
+  "rarity": "common",
+  "buffType": "regen",
+  "buffValue": 0.05,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

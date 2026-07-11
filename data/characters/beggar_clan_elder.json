@@ -1,0 +1,54 @@
+{
+  "id": "beggar_clan_elder",
+  "name": "丐帮长老鲁有脚",
+  "type": "npc",
+  "personality": "豪爽直率，嫉恶如仇，降龙掌法学了几招",
+  "description": "丐帮四大长老之一，忠心耿耿，虽然武功不算顶尖，但在江湖中颇有声望。",
+  "maxHP": 2400,
+  "maxMP": 1000,
+  "attack": 280,
+  "defense": 180,
+  "speed": 70,
+  "relations": {},
+  "factionId": null,
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_inn",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 20,
+  "craftSkills": {
+    "art": 10,
+    "forging": 25,
+    "mining": 20,
+    "gathering": 30,
+    "medicine": 15
+  },
+  "portraitPath": "beggar_clan_elder.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyin_zhenjing",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "xianglong_18",
+      "proficiencyLevel": 7
+    }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "xianglong_18"
+}

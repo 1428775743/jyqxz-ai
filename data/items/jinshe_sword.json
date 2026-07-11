@@ -1,0 +1,14 @@
+{
+  "id": "jinshe_sword",
+  "name": "金蛇剑",
+  "description": "金蛇郎君所遗奇剑,剑身蜿蜒如蛇,锋含血槽,招式诡奇狠辣,非正道剑法。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 80,
+  "defenseBonus": 0,
+  "value": 1500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

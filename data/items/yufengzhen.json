@@ -1,0 +1,12 @@
+{
+  "id": "yufengzhen",
+  "name": "玉蜂针",
+  "description": "古墓派独门暗器,以精钢细针淬以玉蜂毒制成。细如牛毛,中者奇痒难当,玉蜂毒无药可解。古墓弟子防身之宝。",
+  "type": "Gift",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 10,
+  "giftPreference": "刺客",
+  "rarity": "rare"
+}

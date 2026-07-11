@@ -1,0 +1,64 @@
+{
+  "id": "yue_buqun",
+  "name": "岳不群",
+  "type": "npc",
+  "personality": "温文儒雅,自诩君子剑,城府极深。表面正气凛然,实则极重权位。教徒严谨,对弟子犯错绝不姑息。",
+  "description": "华山派掌门,人称君子剑,武功深湛,德高望重。门人皆称其为师父,门规甚严。",
+  "maxHP": 5200,
+  "maxMP": 4400,
+  "attack": 920,
+  "defense": 480,
+  "speed": 88,
+  "relations": {
+    "linghu_chong": "Disciple",
+    "lin_pingzhi": "Disciple",
+    "huashan_disciple": "Disciple"
+  },
+  "factionId": "huashan",
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": true,
+  "defaultScene": "huashan_path",
+  "schedule": {
+    "清晨": "huashan_path",
+    "白天": "huashan_path",
+    "黄昏": "huashan_path",
+    "夜晚": "huashan_path"
+  },
+  "jianghuLevel": 38,
+  "craftSkills": {
+    "art": 60,
+    "forging": 20,
+    "mining": 10,
+    "gathering": 25,
+    "medicine": 20
+  },
+  "portraitPath": "yue_buqun.png",
+  "equippedWeaponId": "qingfeng_sword",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "zuowang_gong",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "zixia_shengong",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "shenxing_baibian",
+      "proficiencyLevel": 7
+    }
+  ],
+  "activeInternalArtId": "zixia_shengong",
+  "activeExternalArtId": "basic_sword",
+  "activeLightArtId": "shenxing_baibian"
+}

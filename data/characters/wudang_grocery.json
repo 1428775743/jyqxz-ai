@@ -1,0 +1,45 @@
+{
+  "id": "wudang_grocery",
+  "name": "李老汉(杂货)",
+  "type": "npc",
+  "personality": "憨厚朴实，热心肠，常与道门弟子往来",
+  "description": "武当山下小镇的杂货老汉，山货药材充裕，也卖些道家经卷字画。",
+  "maxHP": 260,
+  "maxMP": 90,
+  "attack": 16,
+  "defense": 12,
+  "speed": 26,
+  "relations": {},
+  "factionId": null,
+  "karma": 20,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "wudang_town",
+  "schedule": {
+    "清晨": "wudang_town",
+    "白天": "wudang_town",
+    "黄昏": "wudang_town",
+    "夜晚": "wudang_town"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "dried_meat"
+  ],
+  "shopRandomItems": [
+    "wild_ginseng",
+    "herb_lingzhi",
+    "tao_te_ching",
+    "honey",
+    "leather"
+  ],
+  "craftSkills": {
+    "gathering": 25,
+    "medicine": 15
+  },
+  "learnedArts": []
+}

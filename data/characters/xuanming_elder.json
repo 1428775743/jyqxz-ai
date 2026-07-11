@@ -1,0 +1,45 @@
+{
+  "id": "xuanming_elder",
+  "name": "玄冥二老",
+  "type": "npc",
+  "personality": "贪婪阴毒,恃强凌弱,为赵敏所用。玄冥神掌阴毒无比,所伤者寒毒入骨。",
+  "description": "鹿杖客与鹤笔翁二人,合称玄冥二老。原为番僧,修玄冥神掌,掌力阴毒。受赵敏招揽为麾下高手,曾以玄冥神掌重伤幼年张无忌,寒毒缠身多年。唯九阳神功可解其毒。",
+  "maxHP": 4500,
+  "maxMP": 3000,
+  "attack": 600,
+  "defense": 400,
+  "speed": 78,
+  "relations": {
+    "zhao_min": "主公"
+  },
+  "factionId": null,
+  "karma": -30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "wanansi",
+  "schedule": {
+    "清晨": "wanansi",
+    "白天": "wanansi",
+    "黄昏": "wanansi",
+    "夜晚": "wanansi"
+  },
+  "jianghuLevel": 45,
+  "craftSkills": {
+    "art": 20,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 10,
+    "medicine": 50
+  },
+  "portraitPath": "xuanming_elder.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "xuanming_shenzhang", "proficiencyLevel": 9 },
+    { "artId": "basic_palm", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "xuanming_shenzhang",
+  "activeLightArtId": "basic_qinggong"
+}

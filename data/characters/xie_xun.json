@@ -1,0 +1,47 @@
+{
+  "id": "xie_xun",
+  "name": "谢逊",
+  "type": "npc",
+  "personality": "外号金毛狮王,性情刚烈,因家仇而癫狂半生。实则重情重义,良知未泯,终在屠狮大会了断恩怨,遁入空门。",
+  "description": "明教四大法王之一金毛狮王,文武双全。因成昆害其满门而发狂,以七伤拳震慑江湖,夺屠龙刀遁走灵蛇岛。双目失明多年,凭屠龙刀与一身武功立于不败。后于屠狮大会与成昆了断,自废武功出家为僧。",
+  "maxHP": 4800,
+  "maxMP": 3000,
+  "attack": 620,
+  "defense": 420,
+  "speed": 80,
+  "relations": {
+    "zhang_wuji": "义父子",
+    "cheng_kun": "仇人"
+  },
+  "factionId": "mingjiao",
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "lingshe_island",
+  "schedule": {
+    "清晨": "lingshe_island",
+    "白天": "lingshe_island",
+    "黄昏": "lingshe_island",
+    "夜晚": "lingshe_island"
+  },
+  "jianghuLevel": 48,
+  "craftSkills": {
+    "art": 40,
+    "forging": 30,
+    "mining": 20,
+    "gathering": 15,
+    "medicine": 25
+  },
+  "portraitPath": "xie_xun.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "mingjiao_basic_internal", "proficiencyLevel": 8 },
+    { "artId": "mingjiao_basic_fist", "proficiencyLevel": 9 },
+    { "artId": "shenghuo_ling", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "mingjiao_basic_fist",
+  "activeLightArtId": "basic_qinggong"
+}

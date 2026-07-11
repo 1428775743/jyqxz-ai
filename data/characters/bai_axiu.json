@@ -1,0 +1,23 @@
+{
+  "id": "bai_axiu",
+  "name": "白阿绣",
+  "type": "npc",
+  "personality": "白自在孙女,温婉贞静,外柔内刚。端庄淑慧,与石破天相恋。虽遭变故,仍坚贞不屈。",
+  "description": "雪山派掌门白自在之孙女,温婉贞静,外柔内刚。端庄淑慧,得白家剑法真传。与石破天相恋,坚贞不渝。乃侠客行中一温婉女子,石破天之红颜。",
+  "maxHP": 2200,
+  "maxMP": 1600,
+  "attack": 260,
+  "defense": 240,
+  "speed": 72,
+  "karma": 55,
+  "gender": "女",
+  "defaultScene": "lingxiaocheng",
+  "jianghuLevel": 25,
+  "portraitPath": "bai_axiu.png",
+  "learnedArts": [
+    { "artId": "xueshan_jianfa", "proficiencyLevel": 3 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "xueshan_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

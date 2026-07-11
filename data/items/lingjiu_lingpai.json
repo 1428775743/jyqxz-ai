@@ -1,0 +1,12 @@
+{
+  "id": "lingjiu_lingpai",
+  "name": "灵鹫宫令牌",
+  "description": "天山灵鹫宫主令牌,持此者可号令三十六洞七十二岛。乃虚竹接掌灵鹫宫后所赐信物,象征逍遥派真传,江湖见之敬畏。",
+  "type": "Gift",
+  "value": 1000,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "江湖人",
+  "rarity": "epic"
+}

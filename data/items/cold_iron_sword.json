@@ -1,0 +1,14 @@
+{
+  "id": "cold_iron_sword",
+  "name": "寒铁剑",
+  "description": "以寒铁淬炼的长剑，剑身冷气森森，触之生寒，斩金切玉锋锐无匹。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 55,
+  "defenseBonus": 0,
+  "value": 800,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "jiu_nan",
+  "name": "九难师太",
+  "type": "npc",
+  "personality": "即阿九,大明长平公主。国破家亡后出家为尼,法名九难。铁剑门传人,神行百变天下无双。外冷内热,心怀故国。",
+  "description": "大明崇祯帝之女长平公主,阿九。国破后断臂出家,法名九难。铁剑门木桑道长传人,神行百变已至化境。阿珂之师,亦指点韦小宝武学。外冷内热,心怀故国,乃鹿鼎记一书中之武学宗师。",
+  "maxHP": 3800,
+  "maxMP": 3000,
+  "attack": 520,
+  "defense": 420,
+  "speed": 90,
+  "karma": 50,
+  "gender": "女",
+  "defaultScene": "yangzhou",
+  "jianghuLevel": 50,
+  "portraitPath": "jiu_nan.png",
+  "learnedArts": [
+    { "artId": "shenxing_baibian", "proficiencyLevel": 8 },
+    { "artId": "ningxue_shenzhua", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "ningxue_shenzhua",
+  "activeLightArtId": "shenxing_baibian"
+}

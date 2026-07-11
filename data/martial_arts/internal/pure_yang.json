@@ -1,0 +1,24 @@
+{
+  "id": "pure_yang",
+  "name": "纯阳无极功",
+  "type": "internal",
+  "description": "武当派至高内功，张三丰毕生修为所创，纯阳无极，万法不侵。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 90,
+  "hpBonusPerLevel": 300,
+  "mpBonusPerLevel": 450,
+  "attackBonusPerLevel": 35,
+  "defenseBonusPerLevel": 45,
+  "effects": [
+    {
+      "type": "HPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁：每回合恢复5%最大HP"
+    }
+  ],
+  "levelBonuses": {}
+}

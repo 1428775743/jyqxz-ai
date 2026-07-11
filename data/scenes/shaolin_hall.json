@@ -1,0 +1,17 @@
+{
+  "id": "shaolin_hall",
+  "name": "少林大雄宝殿",
+  "description": "少林寺正殿，庄严肃穆，佛像金身。少林武学闻名天下。",
+  "region": "嵩山",
+  "backgroundImagePath": "assets/scenes/shaolin_hall.jpg",
+  "connectedScenes": ["songshan_town", "shaoshishan"],
+  "defaultNPCs": ["kong_zhi", "shaolin_disciple_xu", "shaolin_disciple_hui"],
+  "factionId": "shaolin",
+  "isSpecial": false,
+  "martialLessons": [
+    { "artId": "shaolin_luohan_internal", "cost": 100 },
+    { "artId": "shaolin_luohan_quan", "cost": 150 },
+    { "artId": "shaolin_bore", "cost": 400 },
+    { "artId": "shaolin_qinna", "cost": 500 }
+  ]
+}

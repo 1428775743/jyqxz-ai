@@ -1,0 +1,22 @@
+{
+  "id": "fq_riyue_collect_ore",
+  "name": "采办黑木崖铁矿",
+  "type": "faction",
+  "description": "黑木崖后山矿场近来出产不丰,教中铸兵炉急需铁矿石五块以备教众兵刃。圣姑有令,凡代为采办者,记功重谢。",
+  "factionId": "riyue",
+  "issuerNpcId": "mojiao_huifa",
+  "difficulty": "normal",
+  "requiredItems": [
+    { "itemId": "iron_ore", "quantity": 5 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向传功护法贾布提交铁矿石 x5", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 70,
+    "reputationBonus": 25,
+    "factionContributionBonus": 20,
+    "factionIdForContribution": "riyue",
+    "jianghuExp": 10
+  }
+}

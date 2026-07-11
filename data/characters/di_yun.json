@@ -1,0 +1,27 @@
+{
+  "id": "di_yun",
+  "name": "狄云",
+  "type": "npc",
+  "personality": "淳朴刚直,憨厚善良,受尽冤屈却仍存侠义之心。不善言辞,重情重义,历经磨难后看透人心,却未失赤子之心。",
+  "description": "戚长发之徒,师妹戚芳青梅竹马。遭万家师徒陷害入狱,受尽酷刑。狱中得丁典传授神照经,后又得血刀老祖血刀大法。历经连城诀之祸,看破红尘。一身正邪兼修之绝学,淳朴如初。",
+  "equippedWeaponId": "qingfeng_sword",
+  "maxHP": 2800,
+  "maxMP": 2600,
+  "attack": 350,
+  "defense": 320,
+  "speed": 70,
+  "karma": 40,
+  "gender": "男",
+  "defaultScene": "jingzhou_prison",
+  "jianghuLevel": 35,
+  "portraitPath": "di_yun.png",
+  "learnedArts": [
+    { "artId": "shenzhao_jing", "proficiencyLevel": 6 },
+    { "artId": "xuedao_dafa", "proficiencyLevel": 5 },
+    { "artId": "tangshi_jianfa", "proficiencyLevel": 4 },
+    { "artId": "xueying_bu", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "shenzhao_jing",
+  "activeExternalArtId": "xuedao_dafa",
+  "activeLightArtId": "xueying_bu"
+}

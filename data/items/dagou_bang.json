@@ -1,0 +1,12 @@
+{
+  "id": "dagou_bang",
+  "name": "打狗棒",
+  "description": "丐帮帮主信物,竹棒一根,通体碧绿。历代帮主以此为凭,见棒如见帮主。洪七公传你此棒,亦有托付丐帮之意。",
+  "type": "Gift",
+  "value": 3000,
+  "stackable": false,
+  "quantity": 1,
+  "giftFavorBonus": 20,
+  "giftPreference": "武者",
+  "rarity": "epic"
+}

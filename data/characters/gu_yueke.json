@@ -1,0 +1,41 @@
+{
+  "id": "gu_yueke",
+  "name": "鼓乐客",
+  "type": "npc",
+  "personality": "豪迈奔放,热情似火,以击鼓为乐。声如洪钟,笑震屋瓦,所到之处热闹非凡。",
+  "description": "江湖豪客,人称鼓乐客。体魄魁梧,背负一面大鼓,性豪迈,好结交。以击鼓换酒食,鼓声激昂如战阵,振奋人心。常现身热闹市井与军营,为人豪爽仗义,闻者无不精神一振。",
+  "maxHP": 1800,
+  "maxMP": 600,
+  "attack": 120,
+  "defense": 110,
+  "speed": 68,
+  "relations": {},
+  "factionId": null,
+  "karma": 45,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "musician",
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_wall",
+    "黄昏": "songshan_town",
+    "夜晚": "dali_scene"
+  },
+  "jianghuLevel": 20,
+  "craftSkills": {
+    "art": 80,
+    "forging": 30,
+    "mining": 20,
+    "gathering": 10,
+    "medicine": 10
+  },
+  "portraitPath": "gu_yueke.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "basic_palm", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

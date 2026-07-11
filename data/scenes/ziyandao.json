@@ -1,0 +1,10 @@
+{
+  "id": "ziyandao",
+  "name": "紫烟岛",
+  "description": "东海一小岛,史小翠隐居之所。岛上紫烟缭绕,故名。史小翠于此创金乌刀法,专为克制白自在之雪山剑法。",
+  "region": "东海",
+  "backgroundImagePath": "assets/scenes/ziyandao.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["shi_xiaocui"],
+  "isSpecial": true
+}

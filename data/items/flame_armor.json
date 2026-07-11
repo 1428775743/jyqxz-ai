@@ -1,0 +1,13 @@
+{
+  "id": "flame_armor",
+  "name": "烈焰甲",
+  "description": "火矿锻成的战甲，赤红似火，能卸大力，近身者受其热灼。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 70,
+  "value": 1500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "tian_bo_guang",
+  "name": "田伯光",
+  "type": "npc",
+  "personality": "万里独行,好色成性,但讲信用,一言九鼎。轻功天下少有,快刀凌厉绝伦。",
+  "description": "江湖人称万里独行田伯光,以快刀和轻功闻名。性情放荡不羁,常出没华山附近。",
+  "maxHP": 3200,
+  "maxMP": 1800,
+  "attack": 560,
+  "defense": 220,
+  "speed": 110,
+  "relations": {},
+  "factionId": null,
+  "karma": -30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "huashan_backhill",
+  "schedule": {
+    "清晨": "huashan_backhill",
+    "白天": "huashan_backhill",
+    "黄昏": "huashan_backhill",
+    "夜晚": "huashan_backhill"
+  },
+  "jianghuLevel": 22,
+  "craftSkills": {
+    "art": 30,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 5,
+    "medicine": 5
+  },
+  "portraitPath": "tian_bo_guang.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "kuaidao_qinggong",
+      "proficiencyLevel": 8
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword",
+  "activeLightArtId": "kuaidao_qinggong"
+}

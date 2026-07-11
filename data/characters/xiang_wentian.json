@@ -1,0 +1,55 @@
+{
+  "id": "xiang_wentian",
+  "name": "向问天",
+  "type": "npc",
+  "personality": "豪迈仗义,粗中有细。重情重义,对任我行忠心耿耿,人称'天王老子'。",
+  "description": "日月神教光明左使,任我行的结义兄弟,十二年来奔走江湖,寻机营救任教主。",
+  "maxHP": 4800,
+  "maxMP": 3200,
+  "attack": 820,
+  "defense": 420,
+  "speed": 92,
+  "relations": {
+    "ren_woxing": "SwornBrother",
+    "linghu_chong": "Friend",
+    "dongfang_bubai": "Enemy"
+  },
+  "factionId": "riyue",
+  "karma": 20,
+  "gender": "男",
+  "hiddenPower": true,
+  "isHidden": true,
+  "defaultScene": "heimuya_backhill",
+  "schedule": {
+    "清晨": "heimuya_backhill",
+    "白天": "heimuya_backhill",
+    "黄昏": "heimuya_backhill",
+    "夜晚": "heimuya_backhill"
+  },
+  "jianghuLevel": 50,
+  "craftSkills": {
+    "art": 30,
+    "forging": 20,
+    "mining": 10,
+    "gathering": 5,
+    "medicine": 20
+  },
+  "portraitPath": "xiang_wentian.png",
+  "learnedArts": [
+    {
+      "artId": "mingjiao_basic_internal",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "mojiao_zhang",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 8
+    }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "mojiao_zhang",
+  "activeLightArtId": "basic_qinggong"
+}

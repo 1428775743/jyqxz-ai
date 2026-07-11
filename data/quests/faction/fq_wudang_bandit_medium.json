@@ -1,0 +1,19 @@
+{
+  "id": "fq_wudang_bandit_medium",
+  "name": "黑风岭外围清剿",
+  "type": "faction",
+  "description": "武当与黑风岭素有积怨,门派今欲剿其外围,削弱其势。",
+  "factionId": "wudang",
+  "dungeonId": "bandit_medium",
+  "difficulty": "medium",
+  "steps": [
+    { "id": "clear", "description": "扫荡黑风岭外围山贼", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 100,
+    "reputationBonus": 50,
+    "factionContributionBonus": 35,
+    "factionIdForContribution": "wudang",
+    "jianghuExp": 25
+  }
+}

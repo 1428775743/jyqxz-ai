@@ -1,0 +1,95 @@
+{
+  "id": "tianlong_shaoshi",
+  "name": "天龙·少室山大战",
+  "type": "chain",
+  "triggerNpcId": "qiao_feng",
+  "minFavorabilityToOffer": 30,
+  "prerequisiteQuestIds": ["tianlong_duanyu", "tianlong_qiaofeng", "tianlong_xuzhu"],
+  "exclusiveWithQuestIds": ["tianlong_shaoshi_evil"],
+  "relatedNpcIds": ["murong_fu", "you_tanzhi", "ding_chunqiu", "jiumozhi", "xiao_yuanshan", "murong_bo"],
+  "description": "段誉、乔峰、虚竹三兄弟齐聚少室山,群雄亦至。慕容复、游坦之、丁春秋、鸠摩智各据一方,萧远山、慕容博三十年恩怨将了。这一战震动天下,扫地僧现身化解。须先完成段誉、乔峰、虚竹三条线方可触发。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["少室山前,风云色变。群雄齐聚,大战一触即发。"] },
+      { "speaker": "qiao_feng", "lines": ["兄弟!你来了。今日少室山,你我兄弟三人,并肩而战!", "慕容复、丁春秋、游坦之、鸠摩智...哼,来一个乔某接一个!"] },
+      { "speaker": "duan_yu", "lines": ["大哥!三弟亦至。", "六脉神剑,今日正可一用!"] },
+      { "speaker": "xu_zhu", "lines": ["阿弥陀佛,二弟虚竹,愿与两位兄长共进退。", "丁春秋欺师灭祖,今日便要清理门户!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "fight_murong",
+      "actionType": "fight",
+      "targetNPC": "murong_fu",
+      "description": "慕容复自恃南慕容之名,率先发难。助段誉迎战慕容复,破其斗转星移。",
+      "aiHint": "你是慕容复,姑苏慕容氏嫡传,自恃南慕容之名。你以斗转星移之技率先发难,欲压三兄弟一头。你自负才华,然复燕执念已令你心性偏激。你与玩家交锋,以彼之道还施彼身,招招狠辣。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 200 }
+    },
+    {
+      "id": "fight_youtanzhi",
+      "actionType": "fight",
+      "targetNPC": "you_tanzhi",
+      "description": "铁头人游坦之痴狂扑来,为阿紫助阵。击退这诡异高手。",
+      "aiHint": "你是游坦之,聚贤庄少主,戴铁头面具,痴恋阿紫至不辨是非。你得易筋经与冰蚕毒力,武功诡异高强。你为阿紫痴狂扑来,招式阴毒诡异,全无章法却威力惊人。你对玩家言及阿紫,语气痴狂。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 150 }
+    },
+    {
+      "id": "fight_ding",
+      "actionType": "fight",
+      "targetNPC": "ding_chunqiu",
+      "description": "星宿老怪丁春秋以化功大法害人,虚竹要清理门户。助虚竹除这欺师灭祖之徒。",
+      "aiHint": "你是丁春秋,星宿派创始人,欺师灭祖之徒。你以化功大法与剧毒害人,阴毒无比。你见玩家与虚竹来清理门户,冷笑以对。你招招化人内力、附以剧毒,阴险毒辣。你仍令弟子吹捧星宿老仙,死到临头亦好大喜功。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "fight_jiumozhi",
+      "actionType": "fight",
+      "targetNPC": "jiumozhi",
+      "description": "吐蕃国师鸠摩智火焰刀凌厉,亦来搅局。力挫这自负的国师。",
+      "aiHint": "你是鸠摩智,吐蕃国师,聪慧贪婪,痴迷武学。你强练少林绝技与小无相功,已走火入魔却不自知。你以火焰刀与玩家交锋,刀气灼热凌厉。你自负不凡,言语间仍以佛门自居,实则执念深重。",
+      "reward": { "jianghuExp": 400, "reputationBonus": 250 }
+    },
+    {
+      "id": "truth_reveal",
+      "actionType": "talk",
+      "targetNPC": "xiao_yuanshan",
+      "description": "萧远山与慕容博现身,三十年雁门关血案真相大白。扫地僧现身,以佛法化解二人恩怨。",
+      "aiHint": "你是萧远山,乔峰之父,隐少林三十年苦修复仇。你与慕容博的恩怨至此了断——当年雁门关血案,幕后主使正是慕容博为复燕而假传讯息。扫地僧现身,以佛法与武学至理化解你二人三十年仇怨。你听罢,如梦初醒,放下了半生执念。",
+      "reward": { "jianghuExp": 500 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "xiao_yuanshan", "lines": ["慕容博!三十年前雁门关之变,是你假传讯息所酿!", "我妻儿惨死,半生复仇...原来皆是为你所误!"] },
+          { "speaker": "murong_bo", "lines": ["萧兄,事已至此...复燕之念,害人害己。", "你我半生执念,今日该了。"] },
+          { "speaker": "旁白", "lines": ["一位灰衣老僧自少林深处飘然而出,正是扫地僧。", "他以佛法与武学至理点化二人,萧远山、慕容博如梦初醒,半生恩怨,一朝化解。"] }
+        ]
+      }
+    },
+    {
+      "id": "epilogue",
+      "actionType": "talk",
+      "targetNPC": "qiao_feng",
+      "description": "恩怨了断,三兄弟名震天下。乔峰传你毕生所悟,以志此番生死之交。",
+      "aiHint": "少室山大战了结,三兄弟名震天下。你感念玩家生死相随,愿传毕生所悟。你见玩家历经三线,已悟武学至理,遂将扫地僧所授之八荒六合唯我独尊功心法转赠。你豪迈如初,然亦含别离之意。",
+      "reward": { "martialArtId": "bahuang_liuhe", "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "qiao_feng", "lines": ["兄弟,今日少室山一战,你我兄弟名震天下!", "扫地僧所授之心法,乔某转赠于你——八荒六合,唯我独尊。"] },
+          { "speaker": "qiao_feng", "lines": ["此功霸道,望你善用。", "江湖路远,兄弟,后会有期!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1500,
+    "goldBonus": 5000,
+    "reputationBonus": 3000,
+    "karmaBonus": 20
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["少室山大战,三兄弟力压群雄,扫地僧化解恩怨。", "自此,段誉、乔峰、虚竹之名,威震江湖,传颂一时。"] },
+      { "speaker": "qiao_feng", "lines": ["兄弟,此番生死之交,乔某铭记于心。", "望你持此武功,行侠仗义,不负天下!"] }
+    ]
+  }
+}

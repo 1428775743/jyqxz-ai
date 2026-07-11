@@ -1,0 +1,12 @@
+{
+  "id": "laba_zhou",
+  "name": "腊八粥",
+  "description": "侠客岛龙木二岛主所制腊八粥,以奇特毒药熬成,常人饮之立毙,然武功高强者饮之反而延寿增功、洗髓伐毛。乃侠客岛赏善罚恶之信物。",
+  "type": "Consumable",
+  "value": 500,
+  "stackable": true,
+  "quantity": 1,
+  "hpRecovery": 1500,
+  "mpRecovery": 1000,
+  "rarity": "epic"
+}

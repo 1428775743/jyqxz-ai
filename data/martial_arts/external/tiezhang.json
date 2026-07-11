@@ -1,0 +1,37 @@
+{
+  "id": "tiezhang",
+  "name": "铁掌",
+  "type": "external",
+  "description": "铁掌帮帮主裘千仞的镇帮绝技,掌力刚猛无匹,一掌可碎裂山石。修至大成者,掌风所至,金石为开,江湖罕有敢撄其锋者。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.4,
+  "critChance": 0.3,
+  "cooldown": 2,
+  "mpCost": 60,
+  "effects": [
+    {
+      "type": "Knockback",
+      "value": 0.3,
+      "chance": 0.3,
+      "description": "掌风刚猛:30%概率击退对方"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "description": "掌力透骨:附带15%真实伤害"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.1,
+      "chance": 0.25,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:25%概率震伤经脉(流血)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.8 },
+    "10": { "damageCoefficient": 3.2 }
+  }
+}

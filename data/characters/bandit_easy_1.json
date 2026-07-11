@@ -1,0 +1,35 @@
+{
+  "id": "bandit_easy_1",
+  "name": "蟊贼阿三",
+  "type": "npc",
+  "personality": "贪生怕死，专挑落单旅人下手",
+  "description": "山林间游荡的小毛贼，几招花拳绣腿，拦路打劫。",
+  "maxHP": 200,
+  "maxMP": 50,
+  "attack": 30,
+  "defense": 15,
+  "speed": 30,
+  "relations": {},
+  "factionId": null,
+  "karma": -40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 5,
+  "portraitPath": "bandit_easy_1.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 2
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 3
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

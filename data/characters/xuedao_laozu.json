@@ -1,0 +1,35 @@
+{
+  "id": "xuedao_laozu",
+  "name": "血刀老祖",
+  "type": "npc",
+  "personality": "西藏血刀门掌门,狠辣好色,诡计多端,为达目的不择手段。武功高强,刀法诡异,正邪两道闻之色变。",
+  "description": "西藏密宗血刀门掌门,僧人打扮却酒肉不忌、好色如命。掳掠水笙入雪谷,以一己之力斗败落花流水四位高手。血刀大法诡异绝伦,乃连城诀一书中第一等反派高手。",
+  "equippedWeaponId": "xuedao_blade",
+  "maxHP": 4200,
+  "maxMP": 3000,
+  "attack": 650,
+  "defense": 450,
+  "speed": 85,
+  "karma": -60,
+  "gender": "男",
+  "defaultScene": "xuegu",
+  "jianghuLevel": 50,
+  "portraitPath": "xuedao_laozu.png",
+  "learnedArts": [
+    {
+      "artId": "xuedao_dafa",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "xueying_bu",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "shaolin_luohan_internal",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "shaolin_luohan_internal",
+  "activeExternalArtId": "xuedao_dafa",
+  "activeLightArtId": "xueying_bu"
+}

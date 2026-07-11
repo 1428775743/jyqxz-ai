@@ -1,0 +1,10 @@
+{
+  "id": "shenlong_dao",
+  "name": "神龙岛",
+  "description": "东海神龙岛,神龙教总坛。洪安通于此称帝,以豹胎易经丸控制部下。岛上层峦叠嶂,毒物遍布,寻常人难以涉足。韦小宝曾被掳至此。",
+  "region": "东海",
+  "backgroundImagePath": "assets/scenes/shenlong_dao.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["wei_xiaobao", "hongan_tong", "su_quan"],
+  "isSpecial": true
+}

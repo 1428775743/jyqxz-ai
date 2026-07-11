@@ -1,0 +1,20 @@
+{
+  "id": "gumu",
+  "name": "古墓派",
+  "description": "终南山活死人墓中所隐之秘派,林朝英所创。门规森严,门人常居古墓不见天日,以玉女心经为根基,武功阴柔绵长。门下只传初、中级武学,高深者随缘,与全真教世代为敌。",
+  "leaderId": "xiao_long_nv",
+  "sceneId": "gumu_shi",
+  "availableArts": [
+    "yunv_xinjing",
+    "yunv_jianfa",
+    "meinv_quan",
+    "tiansuolian"
+  ],
+  "joinKarmaMin": -50,
+  "joinKarmaMax": 80,
+  "alliedFactions": {},
+  "enemyFactions": {
+    "quanzhen": "宿敌"
+  },
+  "alignment": "中立"
+}

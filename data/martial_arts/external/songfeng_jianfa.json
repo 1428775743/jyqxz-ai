@@ -1,0 +1,26 @@
+{
+  "id": "songfeng_jianfa",
+  "name": "松风剑法",
+  "type": "external",
+  "description": "青城派镇派剑法,剑势如松涛阵阵,连绵不绝,出剑迅捷阴狠。掌门余沧海以此剑法名震江湖,人称'松风剑客'。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.5,
+  "critChance": 0.20,
+  "cooldown": 1,
+  "mpCost": 18,
+  "effects": [
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.25,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:25%概率追加一次攻击(松涛连绵)"
+    }
+  ],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.6 },
+    "6": { "damageCoefficient": 1.7 },
+    "10": { "damageCoefficient": 1.9 }
+  }
+}

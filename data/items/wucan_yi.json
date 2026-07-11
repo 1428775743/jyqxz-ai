@@ -1,0 +1,13 @@
+{
+  "id": "wucan_yi",
+  "name": "乌蚕衣",
+  "description": "以冰蚕丝与乌蚕毛织就,刀剑难入,水火不侵,穿于衣内可挡暗器利刃。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 40,
+  "value": 350,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

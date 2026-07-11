@@ -1,0 +1,12 @@
+{
+  "id": "manai_jiu",
+  "name": "马奶酒",
+  "description": "草原牧人以马奶发酵酿成，醇厚微酸，蒙元待客之上品，京师亦有售。",
+  "type": "Gift",
+  "value": 75,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 10,
+  "giftPreference": "武者",
+  "rarity": "common"
+}

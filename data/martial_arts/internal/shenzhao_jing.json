@@ -1,0 +1,39 @@
+{
+  "id": "shenzhao_jing",
+  "name": "神照经",
+  "type": "internal",
+  "description": "丁典所传至高内功心法,修成者真气浑厚如神光罩体,生机不灭。重伤濒死亦可运转神照,起死回生;真气护体可化去刚猛攻势,反震外邪。乃连城诀一书中最上乘之内功。",
+  "maxLevel": 10,
+  "rarity": "mythic",
+  "cooldown": 4,
+  "mpCost": 110,
+  "hpBonusPerLevel": 280,
+  "mpBonusPerLevel": 650,
+  "attackBonusPerLevel": 30,
+  "defenseBonusPerLevel": 35,
+  "effects": [
+    {
+      "type": "HPRecover",
+      "value": 0.18,
+      "chance": 1.0,
+      "description": "神照生机:每回合恢复18%气血,重伤亦能自愈"
+    },
+    {
+      "type": "FlatDamageReduction",
+      "value": 110,
+      "chance": 1.0,
+      "description": "神光护体:受到攻击时固定减伤110"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.3,
+      "chance": 0.4,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:神照反震,40%概率反弹30%伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "hpBonusPerLevel": 320 },
+    "10": { "hpBonusPerLevel": 380 }
+  }
+}

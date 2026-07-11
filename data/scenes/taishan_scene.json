@@ -1,0 +1,10 @@
+{
+  "id": "taishan_scene",
+  "name": "泰山",
+  "description": "东岳泰山，五岳之首。泰山派道观依山而建，气势磅礴。",
+  "region": "泰山",
+  "backgroundImagePath": "assets/scenes/taishan_scene.jpg",
+  "connectedScenes": ["taishan_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

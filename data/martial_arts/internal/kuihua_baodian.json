@@ -1,0 +1,29 @@
+{
+  "id": "kuihua_baodian",
+  "name": "葵花宝典",
+  "type": "internal",
+  "description": "诡异至极的内功，修炼后速度极快，连击概率极高。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 2,
+  "mpCost": 60,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 350,
+  "attackBonusPerLevel": 80,
+  "defenseBonusPerLevel": 15,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 1.0,
+      "chance": 0.5,
+      "description": "50%概率触发连击"
+    },
+    {
+      "type": "PermanentExtraAction",
+      "value": 1,
+      "chance": 1.0,
+      "description": "天下武学,唯快不破:每回合多一次出手"
+    }
+  ],
+  "levelBonuses": {}
+}

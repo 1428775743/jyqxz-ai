@@ -1,0 +1,86 @@
+{
+  "id": "bixue_chuangwang",
+  "name": "碧血剑·闯王",
+  "type": "chain",
+  "triggerNpcId": "yuan_chengzhi",
+  "minFavorabilityToOffer": 20,
+  "prerequisiteQuestIds": ["bixue_huashan", "bixue_jinshe"],
+  "relatedNpcIds": ["li_yan", "hong_niangzi", "he_tieshou", "a_jiu"],
+  "description": "华山、金蛇两家之长已得,袁承志约你共助闯王,寻闯王军饷宝藏。李岩红娘子豪迈相迎,五毒教何铁手交锋后归顺。京师城破,阿九断臂,赠你闯王藏宝图。碧血剑恩怨,终得了结。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "yuan_chengzhi", "lines": ["兄弟,你我华山、金蛇之缘既结,有一大事相商。", "闯王举义,天下响应,然军饷匮乏。"] },
+      { "speaker": "玩家", "lines": ["袁兄但有差遣,在下万死不辞。"] },
+      { "speaker": "yuan_chengzhi", "lines": ["传闻闯王藏有军饷宝藏,图在阿九公主手中。", "五毒教何铁手亦觊觎此宝,你我需先至潼关会李岩兄,再图宝藏。", "兄弟,同去否?"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "yuan_invite",
+      "actionType": "talk",
+      "targetNPC": "yuan_chengzhi",
+      "description": "袁承志约你助闯王,寻闯王军饷宝藏。",
+      "aiHint": "你乃袁承志,集华山、金蛇、铁剑三家之长。你约玩家共助闯王,寻军饷宝藏。你淳厚仁义,言闯王仁义之师,然军饷匮乏,宝藏可济军民。你提及五毒教何铁手觊觎此宝、阿九公主手握藏宝图。对玩家以兄弟相称。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "meet_liyan",
+      "actionType": "talk",
+      "targetNPC": "li_yan",
+      "description": "潼关会李岩红娘子,商议闯王军情与宝藏之事。",
+      "aiHint": "你乃李岩,闯王部将。你与妻红娘子于潼关迎玩家与袁承志。你豪迈忠义,言闯王军情,及宝藏乃军饷关键。你提及五毒教何铁手已往京师,恐先一步夺宝。你嘱众人速赴京师。红娘子性烈如火,亦言愿同往。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 150 }
+    },
+    {
+      "id": "fight_hetieshou",
+      "actionType": "fight",
+      "targetNPC": "he_tieshou",
+      "description": "京师遇五毒教何铁手,交锋后败之,何铁手归顺。",
+      "aiHint": "你乃何铁手,五毒教主。你于京师遇玩家与袁承志,妩媚妖娆却狠辣出手,欲夺藏宝图。你擅五毒掌,招式阴毒。败后你为袁承志气度所折,归顺拜师,愿助寻宝藏。你亦正亦邪,折服后爽快利落。",
+      "reward": { "martialArtId": "wudu_zhang", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "he_tieshou", "lines": ["袁公,何铁手甘拜下风!", "这五毒掌,乃我五毒教绝学,愿献与袁公、侠士。", "我助你们寻宝藏,将功折罪。"] }
+        ]
+      }
+    },
+    {
+      "id": "go_jingshi",
+      "actionType": "go",
+      "targetScene": "jingshi",
+      "description": "闯王入京,崇祯自缢,阿九断臂于煤山之下。",
+      "aiHint": "你随袁承志赴京师,闯王已入京,崇祯于煤山自缢,大明亡。阿九公主为父所断一臂,命悬一线。你心情沉重,慨叹朝代更迭、苍生涂炭。你言宝藏此时更需善用,以济乱世之民。",
+      "reward": { "jianghuExp": 300 }
+    },
+    {
+      "id": "ajiu_baotu",
+      "actionType": "talk",
+      "targetNPC": "a_jiu",
+      "description": "阿九断臂垂危,赠你闯王藏宝图,了却尘缘。",
+      "aiHint": "你乃阿九,长平公主。父皇自缢,你为父断一臂,命不久矣。你见袁承志与玩家,将闯王藏宝图相赠,言宝藏可济乱世之民。你温婉中带悲凉,言与袁承志尘缘已尽,愿出家为尼,法名九难。你对玩家以侠士相称,嘱其助袁承志善用宝藏。",
+      "reward": { "jianghuExp": 400, "karmaBonus": 15, "items": [ { "itemId": "chuangwang_baotu", "quantity": 1 } ] },
+      "dialogue": {
+        "lines": [
+          { "speaker": "a_jiu", "lines": ["袁大哥...阿九命薄,此生无缘了。", "这闯王藏宝图,你与侠士拿去,济世安民吧。"] },
+          { "speaker": "a_jiu", "lines": ["我...将出家为尼,法名九难。", "国破家亡,青灯古佛,了此残生。"] },
+          { "speaker": "yuan_chengzhi", "lines": ["阿九!...是我误了你。", "这宝藏,我定以你之名,济世安民。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1000,
+    "goldBonus": 5000,
+    "reputationBonus": 1000,
+    "karmaBonus": 20,
+    "items": [ { "itemId": "jinshe_miji", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "yuan_chengzhi", "lines": ["兄弟,宝藏已得,闯王军饷有了着落。", "这金蛇秘笈全本,乃夏大侠毕生所悟,今日赠你。"] },
+      { "speaker": "yuan_chengzhi", "lines": ["阿九...青青...这恩怨情仇,终是难全。", "兄弟,碧血剑之祸了结,你我后会有期!"] },
+      { "speaker": "旁白", "lines": ["袁承志携宝藏助闯王,后见闯王骄纵,心灰意冷,远走海外。", "阿九出家为尼,法名九难。碧血剑恩怨,自此了结。"] }
+    ]
+  }
+}

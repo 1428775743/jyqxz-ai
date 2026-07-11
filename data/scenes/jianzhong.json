@@ -1,0 +1,10 @@
+{
+  "id": "jianzhong",
+  "name": "神雕剑冢",
+  "description": "襄阳城外深山中的一处剑冢,怪石嶙峋,乱石间插着三柄剑——一柄青锋、一柄软剑、一柄无锋重剑,正是剑魔独孤求败所遗。一头通体漆黑、体型巨大的神雕栖居于此。崖畔常有巨蛇出没,与神雕为敌。",
+  "region": "襄阳郊外",
+  "backgroundImagePath": "assets/scenes/jianzhong.jpg",
+  "connectedScenes": ["xiangyang_backhill"],
+  "defaultNPCs": ["shen_diao", "du_jiao_she"],
+  "isSpecial": true
+}

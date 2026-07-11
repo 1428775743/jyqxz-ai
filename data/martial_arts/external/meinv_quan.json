@@ -1,0 +1,31 @@
+{
+  "id": "meinv_quan",
+  "name": "美女拳法",
+  "type": "external",
+  "description": "古墓派中级拳法,招式仿美女梳妆、簪花之态,看似柔媚,实则招招暗藏杀机。出拳绵软无力之象下,是阴柔至极的巧劲。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.6,
+  "critChance": 0.15,
+  "cooldown": 1,
+  "mpCost": 25,
+  "effects": [
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.15,
+      "description": "柔中带巧:15%概率使对方短暂失神(眩晕)"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.5,
+      "chance": 0.2,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁:20%概率连击双拳"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 1.8 },
+    "10": { "damageCoefficient": 2.1 }
+  }
+}

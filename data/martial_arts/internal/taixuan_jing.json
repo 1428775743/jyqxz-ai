@@ -1,0 +1,43 @@
+{
+  "id": "taixuan_jing",
+  "name": "太玄经",
+  "type": "internal",
+  "description": "侠客岛石壁所刻之至高武学,以李白《侠客行》诗为引,暗藏天地至理。不识字者反能参悟其真谛,修成后内力如海,生机不灭,真气护体万法不侵,反震外邪。乃侠客行一书中第一神功,天下无敌。",
+  "maxLevel": 10,
+  "rarity": "mythic",
+  "cooldown": 4,
+  "mpCost": 130,
+  "hpBonusPerLevel": 350,
+  "mpBonusPerLevel": 800,
+  "attackBonusPerLevel": 40,
+  "defenseBonusPerLevel": 40,
+  "effects": [
+    {
+      "type": "HPRecover",
+      "value": 0.2,
+      "chance": 1.0,
+      "description": "太玄生机:每回合恢复20%气血,生生不息"
+    },
+    {
+      "type": "FlatDamageReduction",
+      "value": 150,
+      "chance": 1.0,
+      "description": "太玄真气护体:受到攻击时固定减伤150"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.35,
+      "chance": 0.5,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:太玄反震,50%概率反弹35%伤害"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.25,
+      "chance": 1.0,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁:参悟天地,额外减免25%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

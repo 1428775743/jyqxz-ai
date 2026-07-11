@@ -1,0 +1,23 @@
+{
+  "id": "quanzhen_neigong",
+  "name": "全真内功",
+  "type": "internal",
+  "description": "全真教入门内功心法,由王重阳所创,讲究清静无为,抱元守一。修习者内息绵绵不绝,根基扎实,为修习全真高深武学之基础。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "cooldown": 3,
+  "mpCost": 60,
+  "hpBonusPerLevel": 180,
+  "mpBonusPerLevel": 280,
+  "attackBonusPerLevel": 30,
+  "defenseBonusPerLevel": 30,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "description": "清静内息:每回合恢复5%内力"
+    }
+  ],
+  "levelBonuses": {}
+}

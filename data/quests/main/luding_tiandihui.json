@@ -1,0 +1,77 @@
+{
+  "id": "luding_tiandihui",
+  "name": "鹿鼎记·天地会",
+  "type": "chain",
+  "triggerNpcId": "chen_jinnan",
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["jiu_nan", "wu_sangui", "shuang_er"],
+  "description": "扬州天地会总舵主陈近南,碧血丹心,凝血神抓天下少有。你拜师陈近南,入天地会,反清复明。九难师太传你神行百变。赴平西王府败吴三桂,挫其谋反。陈近南传你凝血神抓,望你光复汉室。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "chen_jinnan", "lines": ["这位侠士,可愿为天下苍生效力?", "我陈近南,天地会总舵主,矢志反清复明。"] },
+      { "speaker": "玩家", "lines": ["陈总舵主忠义,在下愿拜入天地会。"] },
+      { "speaker": "chen_jinnan", "lines": ["好!收你为徒。", "九难师太亦在扬州,轻功天下无双,可向其请教。", "平西王吴三桂谋反在即,需早图之。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "baishi",
+      "actionType": "talk",
+      "targetNPC": "chen_jinnan",
+      "description": "扬州拜师陈近南,入天地会,反清复明。",
+      "aiHint": "玩家拜你陈近南为师,入天地会。你碧血丹心,忠义无双,言反清复明之大业。你文武双全,凝血神抓天下少有。你言九难师太在扬州,可传轻功;平西王吴三桂谋反,需早图之。对玩家以徒儿相称,语重心长。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 10 }
+    },
+    {
+      "id": "jiunan_qinggong",
+      "actionType": "talk",
+      "targetNPC": "jiu_nan",
+      "description": "九难师太传你神行百变轻功。",
+      "aiHint": "你乃九难师太,即阿九,大明长平公主。你见玩家拜陈近南为师,亦愿助反清复明。你传其神行百变轻功,言此乃铁剑门绝学,瞬息百变。你外冷内热,心怀故国,对玩家以侠士相称,语带沧桑。",
+      "reward": { "martialArtId": "shenxing_baibian", "jianghuExp": 350 }
+    },
+    {
+      "id": "go_pingxi",
+      "actionType": "go",
+      "targetScene": "pingxi_wangfu",
+      "description": "赴平西王府,查吴三桂谋反之事。",
+      "aiHint": "你随玩家赴平西王府查吴三桂谋反。你陈近南言吴三桂引清兵入关,罪大恶极,然其谋反亦需挫之,以免生灵涂炭。你心情沉重,反清复明之路漫漫。",
+      "reward": { "jianghuExp": 250 }
+    },
+    {
+      "id": "fight_wusangui",
+      "actionType": "fight",
+      "targetNPC": "wu_sangui",
+      "description": "败吴三桂,挫其谋反之谋。",
+      "aiHint": "你乃吴三桂,平西王。你见玩家来犯,老谋深算,阴狠出手。你擅金刚拳与凝血神抓,武功不弱。你言人为财死,鸟为食亡,反复无常。败后你桀骜不驯,谋反之谋暂挫。",
+      "reward": { "jianghuExp": 400, "reputationBonus": 250 }
+    },
+    {
+      "id": "learn_ningxue",
+      "actionType": "talk",
+      "targetNPC": "chen_jinnan",
+      "description": "陈近南传你凝血神抓,望你光复汉室。",
+      "aiHint": "玩家挫吴三桂谋反,你陈近南感其忠义,传其凝血神抓。你言此乃天地会至高绝学,抓穴定身,凝血不动。你碧血丹心,望玩家以此神抓,光复汉室。对玩家以徒儿相称,语重心长,亦带悲凉(暗示日后为己所害)。",
+      "reward": { "martialArtId": "ningxue_shenzhua", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "chen_jinnan", "lines": ["徒儿,这凝血神抓乃为师毕生所悟。", "抓穴定身,凝血不动,望你以此光复汉室。"] },
+          { "speaker": "chen_jinnan", "lines": ["反清复明之路漫漫,为师老矣,日后全靠你们了。", "去罢,莫负为师所托!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "goldBonus": 1000,
+    "karmaBonus": 15
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "chen_jinnan", "lines": ["徒儿,天地会之大业,日后托付于你。", "凝血神抓既已传你,望你善用。"] },
+      { "speaker": "玩家", "lines": ["师父教诲,弟子铭记。", "反清复明,虽死不悔!"] }
+    ]
+  }
+}

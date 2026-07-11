@@ -1,0 +1,39 @@
+{
+  "id": "wang_weapon",
+  "name": "王铁匠(武器商)",
+  "type": "npc",
+  "personality": "沉默寡言，专注打铁，偶有豪爽",
+  "description": "襄阳城中的铁匠，打铁数十年，手艺精湛。",
+  "maxHP": 500,
+  "maxMP": 150,
+  "attack": 40,
+  "defense": 35,
+  "speed": 25,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_cheng"
+  },
+  "npcRole": "weapon_merchant",
+  "jianghuLevel": 3,
+  "shopFixedItems": [
+    "iron_sword"
+  ],
+  "shopRandomItems": [
+    "iron_sword",
+    "leather_armor",
+    "good_wine"
+  ],
+  "craftSkills": {
+    "forging": 80
+  },
+  "portraitPath": "wang_weapon.png",
+  "learnedArts": []
+}

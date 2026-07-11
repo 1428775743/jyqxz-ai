@@ -1,0 +1,37 @@
+{
+  "id": "jiasha_fumo",
+  "name": "袈裟伏魔功",
+  "type": "external",
+  "description": "少林七十二绝技之一,以宽大袈裟为器,伏魔降妖。掌风如袈裟罩落,力道刚猛可震退强敌,修至大成掌影重重,连绵不绝。少林高僧以此护法伏魔。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.0,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 45,
+  "effects": [
+    {
+      "type": "Knockback",
+      "value": 0.25,
+      "chance": 0.4,
+      "description": "伏魔力道:40%概率击退对方"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.25,
+      "chance": 1.0,
+      "description": "袈裟罩落:无视25%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.85,
+      "chance": 0.2,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:掌影重重,20%概率连击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.3 },
+    "10": { "damageCoefficient": 2.6 }
+  }
+}

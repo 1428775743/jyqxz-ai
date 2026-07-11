@@ -1,0 +1,10 @@
+{
+  "id": "yanmenguan",
+  "name": "雁门关",
+  "description": "太行山脉,雁门雄关,宋辽边境要塞。三十年前血案在此发生,萧远山妻离子散,乔峰身世之谜亦埋于此。关外风沙猎猎,关内烽烟时起,乃宋辽纷争之地。",
+  "region": "太行",
+  "backgroundImagePath": "assets/scenes/yanmenguan.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

@@ -1,0 +1,26 @@
+{
+  "id": "aobai",
+  "name": "鳌拜",
+  "type": "npc",
+  "personality": "满洲第一勇士,跋扈嚣张,权倾朝野。金刚拳与十三太保横练天下少有,然骄横跋扈,终为康熙所擒。",
+  "description": "清朝四大辅臣之首,满洲第一勇士。擅金刚拳与十三太保横练,刚猛无匹,刀枪不入。权倾朝野,跋扈嚣张,欺凌幼主。终为康熙与韦小宝所擒。乃鹿鼎记一书中第一反派。",
+  "equippedWeaponId": "jingang_gauntlet",
+  "maxHP": 4200,
+  "maxMP": 2200,
+  "attack": 560,
+  "defense": 460,
+  "speed": 65,
+  "karma": -40,
+  "gender": "男",
+  "defaultScene": "zijincheng",
+  "jianghuLevel": 48,
+  "portraitPath": "aobai.png",
+  "learnedArts": [
+    { "artId": "jingang_quan", "proficiencyLevel": 7 },
+    { "artId": "shisan_taibao", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "shisan_taibao",
+  "activeExternalArtId": "jingang_quan",
+  "activeLightArtId": "basic_qinggong"
+}

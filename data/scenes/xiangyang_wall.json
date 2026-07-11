@@ -1,0 +1,10 @@
+{
+  "id": "xiangyang_wall",
+  "name": "襄阳城墙",
+  "description": "高耸的城墙上可以远眺四方，守军日夜巡逻。",
+  "region": "襄阳",
+  "backgroundImagePath": "assets/scenes/xiangyang_wall.jpg",
+  "connectedScenes": ["xiangyang_cheng"],
+  "defaultNPCs": ["guo_jing", "xiangyang_guard"],
+  "isSpecial": false
+}

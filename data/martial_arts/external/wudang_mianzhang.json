@@ -1,0 +1,25 @@
+{
+  "id": "wudang_mianzhang",
+  "name": "武当绵掌",
+  "type": "external",
+  "description": "武当派进阶掌法，掌力绵绵不绝，看似柔弱无力，实则暗含刚劲，伤人于无形。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "damageCoefficient": 1.6,
+  "critChance": 0.15,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.1,
+      "chance": 0.4,
+      "requiredLevel": 3,
+      "description": "Lv.3解锁：40%概率无视10%防御"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 1.9 },
+    "8": { "damageCoefficient": 2.2 }
+  }
+}

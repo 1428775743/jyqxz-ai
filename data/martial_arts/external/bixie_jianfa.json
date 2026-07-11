@@ -1,0 +1,39 @@
+{
+  "id": "bixie_jianfa",
+  "name": "辟邪剑法",
+  "type": "external",
+  "description": "林家祖传剑法,出招迅捷诡异,剑势凌厉。修炼时必先自宫,否则走火入魔。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 1.6,
+  "critChance": 0.30,
+  "cooldown": 0,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "ExtraActionNextRound",
+      "value": 1,
+      "chance": 1.0,
+      "description": "出招后下回合多一次出手(读条减半)"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.35,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:无视35%防御"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.4,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:40%概率追加一次攻击"
+    }
+  ],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.8 },
+    "6": { "damageCoefficient": 2.0 },
+    "10": { "damageCoefficient": 2.4 }
+  }
+}

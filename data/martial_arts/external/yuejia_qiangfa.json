@@ -1,0 +1,31 @@
+{
+  "id": "yuejia_qiangfa",
+  "name": "岳家枪法",
+  "type": "external",
+  "description": "岳武穆遗书中所载的沙场枪法,枪出如龙,势大力沉,乃千军万马中历练出的杀人技。配合武穆兵法习练,攻守有度,枪挑连营。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.2,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "Knockback",
+      "value": 0.3,
+      "chance": 0.3,
+      "description": "枪势刚猛:30%概率击退对方"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.25,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:25%概率枪花连刺,追加一次攻击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.6 },
+    "10": { "damageCoefficient": 3.0 }
+  }
+}

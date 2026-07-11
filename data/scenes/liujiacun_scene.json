@@ -1,0 +1,10 @@
+{
+  "id": "liujiacun_scene",
+  "name": "刘家村",
+  "description": "一个宁静的小村庄，村口老槐树下常有老人讲古。这里是小虾米的家乡。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/liujiacun_scene.jpg",
+  "connectedScenes": ["liujiacun_house", "liujiacun_backhill"],
+  "defaultNPCs": ["liu_blacksmith", "liu_hunter", "wang_old_man"],
+  "isSpecial": false
+}

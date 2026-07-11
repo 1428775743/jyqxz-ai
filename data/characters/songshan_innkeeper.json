@@ -1,0 +1,46 @@
+{
+  "id": "songshan_innkeeper",
+  "name": "嵩山客栈掌柜钱富贵",
+  "type": "npc",
+  "personality": "精明圆滑，消息灵通，见多识广",
+  "description": "嵩山客栈的掌柜，虽然是生意人，但年轻时也走过江湖，略通拳脚。",
+  "maxHP": 700,
+  "maxMP": 300,
+  "attack": 55,
+  "defense": 45,
+  "speed": 50,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "songshan_inn",
+  "schedule": {
+    "清晨": "songshan_inn",
+    "白天": "songshan_inn",
+    "黄昏": "songshan_inn",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 5,
+  "craftSkills": {
+    "art": 15,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 25,
+    "medicine": 10
+  },
+  "portraitPath": "songshan_innkeeper.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 3
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

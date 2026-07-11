@@ -1,0 +1,41 @@
+{
+  "id": "di_weng",
+  "name": "笛翁",
+  "type": "npc",
+  "personality": "洒脱飘逸,放浪形骸,一管竹笛伴一生。嗜酒如命,饮必醉,醉必吹笛,笛声悠扬透着几分醉意。",
+  "description": "江湖怪客,人称笛翁。须发半白,腰悬酒葫芦,手持一管斑竹笛。云游四方,以吹笛换酒钱。笛声时而悠远如山风,时而欢快如溪流,听者心旷神怡。性好酒,有酒必吹,有笛必饮。",
+  "maxHP": 1400,
+  "maxMP": 700,
+  "attack": 90,
+  "defense": 85,
+  "speed": 75,
+  "relations": {},
+  "factionId": null,
+  "karma": 40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "musician",
+  "defaultScene": "dali_scene",
+  "schedule": {
+    "清晨": "dali_scene",
+    "白天": "jiaxing_scene",
+    "黄昏": "linan_street",
+    "夜晚": "wudang_town"
+  },
+  "jianghuLevel": 18,
+  "craftSkills": {
+    "art": 85,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 20,
+    "medicine": 15
+  },
+  "portraitPath": "di_weng.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 4 },
+    { "artId": "basic_palm", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

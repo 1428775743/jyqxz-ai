@@ -1,0 +1,32 @@
+{
+  "id": "imperial_doctor",
+  "name": "张御医",
+  "type": "npc",
+  "personality": "太医院首席御医，医术出神入化，号称'活死人肉白骨'。为人清高孤傲，不轻易为外人诊治。若有人求得他的帮助，需有极高的声望或诚意。",
+  "description": "张御医名讳仲德，太医院中资历最深的御医。自幼研习岐黄之术，精通内科疑难杂症。可解剧毒、治重伤，但性情高傲，非达官贵人或武林名宿不轻易出手。若患者态度诚恳、品德端正，倒也可能动恻隐之心。",
+  "maxHP": 120,
+  "maxMP": 150,
+  "attack": 3,
+  "defense": 3,
+  "speed": 10,
+  "relations": {},
+  "factionId": null,
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "imperial_doctor",
+  "defaultScene": "linan_palace",
+  "schedule": {
+    "清晨": "linan_palace",
+    "白天": "linan_palace",
+    "黄昏": "linan_palace",
+    "夜晚": "linan_palace"
+  },
+  "jianghuLevel": 5,
+  "craftSkills": {
+    "medicine": 95
+  },
+  "portraitPath": "imperial_doctor.png",
+  "learnedArts": []
+}

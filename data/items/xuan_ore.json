@@ -1,0 +1,9 @@
+{
+  "id": "xuan_ore",
+  "name": "玄铁矿石",
+  "description": "坚硬罕见的深色矿石，据说可锻造削铁如泥的利刃。",
+  "type": "Material",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1
+}

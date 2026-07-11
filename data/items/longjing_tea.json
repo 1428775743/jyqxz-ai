@@ -1,0 +1,12 @@
+{
+  "id": "longjing_tea",
+  "name": "龙井茶",
+  "description": "西湖狮峰所产明前龙井，色绿香郁味醇形美，文人雅客品茗之首选。",
+  "type": "Gift",
+  "value": 60,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 8,
+  "giftPreference": "文人",
+  "rarity": "common"
+}

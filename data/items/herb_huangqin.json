@@ -1,0 +1,9 @@
+{
+  "id": "herb_huangqin",
+  "name": "黄芩",
+  "type": "Material",
+  "description": "山野常见草药,清热燥湿,制药辅料。",
+  "value": 10,
+  "stackable": true,
+  "rarity": "common"
+}

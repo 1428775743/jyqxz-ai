@@ -1,0 +1,21 @@
+{
+  "id": "a_jiu",
+  "name": "阿九",
+  "type": "npc",
+  "personality": "大明长平公主,温婉秀慧,外柔内刚。倾心袁承志,奈何国破家亡,命运多舛。后断臂出家,法名九难。",
+  "description": "大明崇祯帝之女长平公主,小名阿九。温婉秀慧,外柔内刚,倾心袁承志。闯王入京,崇祯自缢,阿九为父所断一臂。后出家为尼,法名九难。乃碧血剑中命运最令人扼腕之女子。",
+  "maxHP": 1800,
+  "maxMP": 1400,
+  "attack": 200,
+  "defense": 220,
+  "speed": 70,
+  "karma": 55,
+  "gender": "女",
+  "defaultScene": "jingshi",
+  "jianghuLevel": 20,
+  "portraitPath": "a_jiu.png",
+  "learnedArts": [
+    { "artId": "basic_qinggong", "proficiencyLevel": 3 }
+  ],
+  "activeLightArtId": "basic_qinggong"
+}

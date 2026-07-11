@@ -1,0 +1,26 @@
+{
+  "id": "jiumozhi",
+  "name": "鸠摩智",
+  "type": "npc",
+  "personality": "聪慧贪婪,自负不凡,痴迷武学以至走火入魔。表面谦和,内里野心勃勃。",
+  "description": "吐蕃国师,密宗大手印与火焰刀天下少有。聪慧过人,过目不忘,却痴迷天下武学,强练少林七十二绝技与小无相功,终至走火入魔。曾赴天龙寺强索六脉神剑,与段誉结下梁子。自负不凡,实则执念深重。",
+  "maxHP": 4800,
+  "maxMP": 3600,
+  "attack": 780,
+  "defense": 460,
+  "speed": 84,
+  "karma": 30,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 50,
+  "portraitPath": "jiumozhi.png",
+  "learnedArts": [
+    { "artId": "xiaowuxiang_gong", "proficiencyLevel": 7 },
+    { "artId": "huoyan_dao", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "xiaowuxiang_gong",
+  "activeExternalArtId": "huoyan_dao",
+  "activeLightArtId": "basic_qinggong"
+}

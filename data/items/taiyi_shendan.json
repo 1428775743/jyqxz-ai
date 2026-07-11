@@ -1,0 +1,13 @@
+{
+  "id": "taiyi_shendan",
+  "name": "太乙神丹",
+  "type": "Consumable",
+  "description": "太乙炉九炼而成,服之真气暴涨,攻击+35%,持续1日。药buff,与同类互斥。",
+  "value": 3000,
+  "stackable": true,
+  "rarity": "legendary",
+  "buffType": "atk",
+  "buffValue": 0.35,
+  "buffDurationDays": 1,
+  "combatUsable": false
+}

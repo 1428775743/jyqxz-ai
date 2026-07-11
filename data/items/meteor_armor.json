@@ -1,0 +1,13 @@
+{
+  "id": "meteor_armor",
+  "name": "陨铁甲",
+  "description": "天外陨铁所铸的宝甲，甲身隐现星纹，坚逾金铁，乃铁匠毕生功力所聚之极品。虽不及传说宝甲，已是寻常手段的巅峰。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 80,
+  "value": 2500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

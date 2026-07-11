@@ -1,0 +1,14 @@
+{
+  "id": "mogu_xianrou_tang",
+  "name": "蘑菇鲜肉汤",
+  "type": "Consumable",
+  "description": "山菇炖鲜肉，汤浓味鲜，食后气血上限+10%，持续1日。食buff。",
+  "value": 45,
+  "stackable": true,
+  "rarity": "common",
+  "buffType": "maxhp",
+  "buffValue": 0.10,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

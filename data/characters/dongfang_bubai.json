@@ -1,0 +1,60 @@
+{
+  "id": "dongfang_bubai",
+  "name": "东方不败",
+  "type": "npc",
+  "personality": "阴狠毒辣，武功诡异，唯我独尊",
+  "description": "日月神教教主，修炼葵花宝典，武功天下无敌。",
+  "maxHP": 5000,
+  "maxMP": 5500,
+  "attack": 1100,
+  "defense": 280,
+  "speed": 130,
+  "relations": {},
+  "factionId": "riyue",
+  "karma": -30,
+  "gender": "男",
+  "hiddenPower": true,
+  "isHidden": true,
+  "defaultScene": "heimuya_backhill",
+  "schedule": {
+    "清晨": "heimuya_backhill",
+    "白天": "heimuya_backhill",
+    "黄昏": "heimuya_backhill",
+    "夜晚": "heimuya_backhill"
+  },
+  "jianghuLevel": 55,
+  "craftSkills": {
+    "art": 70,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 10,
+    "medicine": 20
+  },
+  "portraitPath": "dongfang_bubai.png",
+  "equippedWeaponId": "kuihua_silver_needle",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "kuihua_baodian",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "kuihua_xiuhuazhen",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "kuihua_shenfa",
+      "proficiencyLevel": 10
+    }
+  ],
+  "activeInternalArtId": "kuihua_baodian",
+  "activeExternalArtId": "kuihua_xiuhuazhen",
+  "activeLightArtId": "kuihua_shenfa"
+}

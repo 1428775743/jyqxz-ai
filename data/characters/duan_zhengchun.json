@@ -1,0 +1,27 @@
+{
+  "id": "duan_zhengchun",
+  "name": "段正淳",
+  "type": "npc",
+  "personality": "风流多情,义气深重,虽有薄幸之名,然大节不亏。对段誉慈爱有加。",
+  "description": "大理国镇南王,段誉之父(名义上)。一阳指名震天下,为人风流多情,早年江湖处处留情。虽有过,然大节不亏,义气深重。乃大理段氏中流砥柱,执掌段氏武学传承。",
+  "maxHP": 3600,
+  "maxMP": 2400,
+  "attack": 560,
+  "defense": 360,
+  "speed": 75,
+  "factionId": "dali_duan",
+  "karma": 45,
+  "gender": "男",
+  "isSectLeader": true,
+  "defaultScene": "dali_scene",
+  "jianghuLevel": 40,
+  "portraitPath": "duan_zhengchun.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "yiyang_zhi", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "yiyang_zhi",
+  "activeLightArtId": "basic_qinggong"
+}

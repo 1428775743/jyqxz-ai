@@ -1,0 +1,38 @@
+{
+  "id": "baixiao_songshan",
+  "name": "百晓阁门人·钱不语",
+  "type": "npc",
+  "personality": "沉默寡言,心细如发,中原武林人物的动静他尽收眼底。传闻他师承百晓阁前任阁主,记性绝佳。",
+  "description": "百晓阁驻嵩山的门人。百晓阁是江湖中专门收集武林人物行踪的隐秘组织,门人遍布各大主城。钱不语常年在嵩山镇茶肆角落独坐,记录往来武林人物行踪。付些银两,便可请他打听某人在何处。",
+  "portraitPath": "baixiao_songshan.png",
+  "maxHP": 820,
+  "maxMP": 410,
+  "attack": 85,
+  "defense": 62,
+  "speed": 72,
+  "relations": {},
+  "factionId": null,
+  "karma": 58,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "baixiao_informer",
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_town",
+    "白天": "songshan_town",
+    "黄昏": "songshan_inn",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 9,
+  "craftSkills": {
+    "art": 45,
+    "medicine": 18
+  },
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 4 },
+    { "artId": "basic_sword", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "xuantie_jian",
+  "name": "玄铁剑",
+  "description": "剑魔独孤求败所遗重剑,通体玄铁铸就,重逾九九八十一斤,无锋无刃。重剑无锋,大巧不工,非力大者不能驭。神雕以此剑授杨过,助其重登武学巅峰。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 120,
+  "defenseBonus": 0,
+  "value": 5000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

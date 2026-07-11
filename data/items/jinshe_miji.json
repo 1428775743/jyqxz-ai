@@ -1,0 +1,13 @@
+{
+  "id": "jinshe_miji",
+  "name": "金蛇秘笈",
+  "description": "金蛇郎君夏雪宜毕生所悟之武功秘笈,内含金蛇剑法与金蛇游身掌两大绝学。剑走偏锋,掌势诡谲,乃碧血剑一书中第一奇书。非内力根基深厚者不可修。",
+  "type": "Manual",
+  "value": 9000,
+  "stackable": false,
+  "containedArtIds": ["jinshe_jianfa", "jinshe_youshenzhang"],
+  "prerequisite": {
+    "requiredAttack": 230
+  },
+  "rarity": "mythic"
+}

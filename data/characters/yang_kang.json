@@ -1,0 +1,46 @@
+{
+  "id": "yang_kang",
+  "name": "杨康",
+  "type": "npc",
+  "personality": "贪慕富贵,认贼作父,然天良未泯,内心偶有挣扎。完颜洪烈养子,金国小王子,自恃身份横行江南。",
+  "description": "本名杨康,杨铁心之子,却被金国王爷完颜洪烈收养为完颜康。拜全真教丘处机为师,又学得铁枪法。贪图富贵认贼作父,率金兵袭扰江南村落,为江湖正道所恶。",
+  "maxHP": 1800,
+  "maxMP": 800,
+  "attack": 220,
+  "defense": 160,
+  "speed": 70,
+  "relations": {
+    "qiu_qianren": "盟友",
+    "ouyang_feng": "盟友"
+  },
+  "factionId": null,
+  "karma": -10,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_scene",
+    "白天": "liujiacun_scene",
+    "黄昏": "liujiacun_scene",
+    "夜晚": "liujiacun_scene"
+  },
+  "jianghuLevel": 18,
+  "craftSkills": {
+    "art": 15,
+    "forging": 20,
+    "mining": 10,
+    "gathering": 10,
+    "medicine": 10
+  },
+  "portraitPath": "yang_kang.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "basic_sword", "proficiencyLevel": 6 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword",
+  "activeLightArtId": "basic_qinggong"
+}

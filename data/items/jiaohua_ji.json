@@ -1,0 +1,11 @@
+{
+  "id": "jiaohua_ji",
+  "name": "叫花鸡",
+  "description": "以黄泥裹鸡烤制而成的江湖美食,皮脆肉嫩,香气四溢。洪七公之最爱,以此为饵可打动九指神丐。",
+  "type": "Consumable",
+  "value": 50,
+  "stackable": true,
+  "quantity": 1,
+  "hpRecovery": 80,
+  "rarity": "common"
+}

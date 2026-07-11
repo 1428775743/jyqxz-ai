@@ -1,0 +1,12 @@
+{
+  "id": "mp_pill_large",
+  "name": "大内力丹",
+  "description": "上等丹药，可恢复大量内力。",
+  "type": "Consumable",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1,
+  "mpRecovery": 500,
+  "rarity": "uncommon",
+  "combatUsable": true
+}

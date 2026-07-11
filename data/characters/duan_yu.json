@@ -1,0 +1,27 @@
+{
+  "id": "duan_yu",
+  "name": "段誉",
+  "type": "npc",
+  "personality": "痴情迂阔,仁善纯良,不通世务却重情重义。不爱习武,却机缘巧合得三大绝学。",
+  "description": "大理国镇南王世子,生性洒脱,笃信佛法,不愿习武。离家游历江湖,于无量山琅嬛福地偶得北冥神功与凌波微步,又于天龙寺习六脉神剑。痴恋王语嫣,一路相随。后与乔峰、虚竹结为异姓兄弟,排行第三。",
+  "maxHP": 3000,
+  "maxMP": 3800,
+  "attack": 400,
+  "defense": 300,
+  "speed": 90,
+  "factionId": "dali_duan",
+  "karma": 60,
+  "gender": "男",
+  "defaultScene": "dali_scene",
+  "jianghuLevel": 30,
+  "portraitPath": "duan_yu.png",
+  "learnedArts": [
+    { "artId": "beiming_shengong", "proficiencyLevel": 6 },
+    { "artId": "liumai_shenjian", "proficiencyLevel": 5 },
+    { "artId": "lingbo_weibu", "proficiencyLevel": 7 },
+    { "artId": "yiyang_zhi", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "beiming_shengong",
+  "activeExternalArtId": "liumai_shenjian",
+  "activeLightArtId": "lingbo_weibu"
+}

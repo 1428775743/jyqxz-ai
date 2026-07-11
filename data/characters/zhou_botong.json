@@ -1,0 +1,49 @@
+{
+  "id": "zhou_botong",
+  "name": "周伯通",
+  "type": "npc",
+  "personality": "顽童心性,玩世不恭,武痴一个。对武学痴迷到忘食废寝,创出左右互搏与空明拳。人称老顽童,辈分极高却毫无架子。",
+  "description": "全真教王重阳之师弟,辈分极高,人称老顽童。生性好玩嗜武,被困桃花岛山洞十五载,期间创出左右互搏与空明拳两大奇功。更习得九阴真经,武功之高,五绝亦难撄其锋。",
+  "maxHP": 6200,
+  "maxMP": 5200,
+  "attack": 820,
+  "defense": 540,
+  "speed": 105,
+  "relations": {
+    "huang_yaoshi": "敌对",
+    "guo_jing": "结义兄弟"
+  },
+  "factionId": null,
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "taohua_cave",
+  "schedule": {
+    "清晨": "taohua_cave",
+    "白天": "taohua_cave",
+    "黄昏": "taohua_cave",
+    "夜晚": "taohua_cave"
+  },
+  "jianghuLevel": 58,
+  "craftSkills": {
+    "art": 30,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 20,
+    "medicine": 10
+  },
+  "portraitPath": "zhou_botong.png",
+  "equippedWeaponId": "jingang_gauntlet",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 8 },
+    { "artId": "jiuyin_zhenjing", "proficiencyLevel": 10 },
+    { "artId": "kongming_quan", "proficiencyLevel": 10 },
+    { "artId": "zuoyou_hubo", "proficiencyLevel": 10 },
+    { "artId": "basic_palm", "proficiencyLevel": 8 },
+    { "artId": "caoshang_fei", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "zuoyou_hubo",
+  "activeExternalArtId": "kongming_quan",
+  "activeLightArtId": "caoshang_fei"
+}

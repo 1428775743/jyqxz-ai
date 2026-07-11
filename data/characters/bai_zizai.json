@@ -1,0 +1,24 @@
+{
+  "id": "bai_zizai",
+  "name": "白自在",
+  "type": "npc",
+  "personality": "雪山派掌门,凌霄城主,自大狂妄。自认天下第一,实则坐井观天。武功高强,然心胸狭隘。",
+  "description": "雪山派掌门,凌霄城主。自大狂妄,常自诩天下第一,武功高强然心胸狭隘。擅雪山剑法。因自大而闹出诸多笑话,后经侠客岛之役方知天外有天。乃侠客行中一自负之掌门。",
+  "maxHP": 3800,
+  "maxMP": 2600,
+  "attack": 540,
+  "defense": 400,
+  "speed": 70,
+  "karma": 25,
+  "gender": "男",
+  "defaultScene": "lingxiaocheng",
+  "jianghuLevel": 48,
+  "isSectLeader": true,
+  "portraitPath": "bai_zizai.png",
+  "learnedArts": [
+    { "artId": "xueshan_jianfa", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "xueshan_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

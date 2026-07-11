@@ -1,0 +1,43 @@
+{
+  "id": "zhao_zhijing",
+  "name": "赵志敬",
+  "type": "npc",
+  "personality": "心胸狭窄,嫉贤妒能,外宽内忌。嫉妒杨过之资质,百般刁难欺压,终酿大祸。",
+  "description": "全真教三代弟子之首,掌管杂役。表面道貌岸然,实则心术不正,嫉妒心极重。视资质过人的弟子为眼中钉,百般刁难,是杨过幼时在重阳宫受苦的祸首。",
+  "maxHP": 2400,
+  "maxMP": 1500,
+  "attack": 280,
+  "defense": 200,
+  "speed": 65,
+  "relations": {
+    "qiu_chuji": "Master"
+  },
+  "factionId": "quanzhen",
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "quanzhen_mountain_path",
+  "schedule": {
+    "清晨": "quanzhen_mountain_path",
+    "白天": "quanzhen_mountain_path",
+    "黄昏": "quanzhen_hall",
+    "夜晚": "quanzhen_hall"
+  },
+  "jianghuLevel": 25,
+  "craftSkills": {
+    "art": 15,
+    "forging": 20,
+    "mining": 25,
+    "gathering": 15,
+    "medicine": 10
+  },
+  "portraitPath": "zhao_zhijing.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "quanzhen_neigong", "proficiencyLevel": 5 },
+    { "artId": "quanzhen_jianfa", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "quanzhen_neigong",
+  "activeExternalArtId": "quanzhen_jianfa"
+}

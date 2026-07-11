@@ -1,0 +1,10 @@
+{
+  "id": "zijincheng",
+  "name": "紫禁城",
+  "description": "大清皇宫紫禁城,金碧辉煌,禁卫森严。康熙帝于此理政,鳌拜跋扈,海大富潜伏。建宁公主、沐剑屏亦在宫中。宫廷风云,暗流涌动。",
+  "region": "直隶",
+  "backgroundImagePath": "assets/scenes/zijincheng.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["kangxi", "hai_dafu", "aobai", "jianing_princess", "mu_jianping"],
+  "isSpecial": true
+}

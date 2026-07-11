@@ -1,0 +1,10 @@
+{
+  "id": "basic_qinggong",
+  "name": "基础轻功",
+  "type": "light",
+  "description": "江湖各派通用的入门轻功,可减轻自身,加快步伐。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "speedBonusPerLevel": 1,
+  "effects": []
+}

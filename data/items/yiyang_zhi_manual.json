@@ -1,0 +1,11 @@
+{
+  "id": "yiyang_zhi_manual",
+  "name": "一阳指谱",
+  "description": "大理段氏家传指法图谱,以纯阳指力点按穴道。乃六脉神剑之根基,段氏镇族之宝,非段氏嫡传不授。",
+  "type": "Manual",
+  "value": 3000,
+  "stackable": false,
+  "containedArtIds": ["yiyang_zhi"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

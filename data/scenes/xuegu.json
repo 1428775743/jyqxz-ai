@@ -1,0 +1,10 @@
+{
+  "id": "xuegu",
+  "name": "雪谷",
+  "description": "藏边一处大雪谷,四面雪山环抱,出口狭长。血刀老祖挟水笙困守于此,落花流水四侠围攻反为其所败。谷中血刃与白雪交映,惨烈异常。",
+  "region": "藏边",
+  "backgroundImagePath": "assets/scenes/xuegu.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["xuedao_laozu", "bao_xiang", "shui_sheng", "shui_dai", "hua_tiegan"],
+  "isSpecial": true
+}

@@ -1,0 +1,12 @@
+{
+  "id": "yanwo",
+  "name": "燕窝",
+  "description": "南海金丝燕唾腺所筑之巢，滋补养颜，福建沿海特产，价昂难得。",
+  "type": "Gift",
+  "value": 130,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 12,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

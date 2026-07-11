@@ -1,0 +1,17 @@
+{
+  "id": "shaolin_luohan_quan",
+  "name": "少林罗汉拳",
+  "type": "external",
+  "description": "少林寺入门拳法，招式朴实无华，以刚猛见长，是少林武学的根基所在。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "damageCoefficient": 1.4,
+  "critChance": 0.1,
+  "cooldown": 0,
+  "mpCost": 10,
+  "effects": [],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.6 },
+    "5": { "damageCoefficient": 1.8 }
+  }
+}

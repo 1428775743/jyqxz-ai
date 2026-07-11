@@ -1,0 +1,11 @@
+{
+  "id": "dried_meat",
+  "name": "肉干",
+  "description": "风干牛肉条，便于携带，行路充饥佳品。",
+  "type": "Consumable",
+  "value": 15,
+  "stackable": true,
+  "quantity": 1,
+  "hpRecovery": 50,
+  "rarity": "common"
+}

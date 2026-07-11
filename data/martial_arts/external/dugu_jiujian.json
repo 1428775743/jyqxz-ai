@@ -1,0 +1,41 @@
+{
+  "id": "dugu_jiujian",
+  "name": "独孤九剑",
+  "type": "external",
+  "description": "风清扬所传，无招胜有招，破尽天下武功。修至大成后，敌人攻来即可自动反击。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.8,
+  "critChance": 0.45,
+  "cooldown": 2,
+  "mpCost": 60,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.5,
+      "chance": 0.8,
+      "description": "80%概率无视50%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 1.0,
+      "chance": 0.25,
+      "description": "25%概率连击"
+    },
+    {
+      "type": "CounterAttack",
+      "value": 0.6,
+      "chance": 0.50,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁：被攻击时50%概率自动反击(60%伤害)"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 3.2
+    },
+    "10": {
+      "damageCoefficient": 4.0
+    }
+  }
+}

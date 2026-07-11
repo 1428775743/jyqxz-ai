@@ -1,0 +1,10 @@
+{
+  "id": "salt",
+  "name": "精盐",
+  "description": "细白精盐一包，调味腌肉皆可用。",
+  "type": "Material",
+  "value": 8,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

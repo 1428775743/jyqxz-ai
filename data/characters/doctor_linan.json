@@ -1,0 +1,43 @@
+{
+  "id": "doctor_linan",
+  "name": "陆大夫",
+  "type": "npc",
+  "personality": "临安回春堂的坐堂大夫，医术精湛，为人和善。对寻常毒症颇有心得，但面对剧毒和重伤则力有未逮。诊金公道，童叟无欺。",
+  "description": "临安回春堂的陆大夫，年过半百，须发花白，一身青灰长袍。自幼随父学医，擅长内科调理和解毒。在临安城中悬壶济世数十年，口碑极好。能治疗普通中毒，但剧毒和重伤需另请高明。",
+  "maxHP": 150,
+  "maxMP": 100,
+  "attack": 5,
+  "defense": 5,
+  "speed": 15,
+  "relations": {},
+  "factionId": null,
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "medicine_merchant",
+  "defaultScene": "linan_street",
+  "schedule": {
+    "清晨": "linan_street",
+    "白天": "linan_street",
+    "黄昏": "linan_street",
+    "夜晚": "linan_inn"
+  },
+  "jianghuLevel": 3,
+  "craftSkills": {
+    "medicine": 60
+  },
+  "portraitPath": "doctor_linan.png",
+  "learnedArts": [],
+  "shopFixedItems": [
+    "healing_pill_small",
+    "mp_pill",
+    "ningshen_dan"
+  ],
+  "shopRandomItems": [
+    "healing_pill_large",
+    "juli_dan",
+    "tiegu_dan",
+    "qiangshen_dan"
+  ]
+}

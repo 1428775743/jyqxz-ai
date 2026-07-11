@@ -1,0 +1,39 @@
+{
+  "id": "sun_weapon",
+  "name": "孙铁匠(武器商)",
+  "type": "npc",
+  "personality": "直爽豪迈，爱喝酒",
+  "description": "武当镇的铁匠，据说年轻时也是江湖中人。",
+  "maxHP": 450,
+  "maxMP": 120,
+  "attack": 35,
+  "defense": 30,
+  "speed": 20,
+  "relations": {},
+  "factionId": null,
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "wudang_town",
+  "schedule": {
+    "清晨": "wudang_town",
+    "白天": "wudang_town",
+    "黄昏": "wudang_town",
+    "夜晚": "wudang_town"
+  },
+  "npcRole": "weapon_merchant",
+  "jianghuLevel": 2,
+  "shopFixedItems": [
+    "iron_sword"
+  ],
+  "shopRandomItems": [
+    "iron_sword",
+    "leather_armor",
+    "mp_pill"
+  ],
+  "craftSkills": {
+    "forging": 60
+  },
+  "portraitPath": "sun_weapon.png",
+  "learnedArts": []
+}

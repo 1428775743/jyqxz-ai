@@ -1,0 +1,35 @@
+{
+  "id": "bandit_hard_2",
+  "name": "毒手判官",
+  "type": "npc",
+  "personality": "阴狠毒辣，喜在暗处下毒",
+  "description": "黑风岭的客卿，专擅毒功，江湖中谈之色变。",
+  "maxHP": 650,
+  "maxMP": 320,
+  "attack": 92,
+  "defense": 50,
+  "speed": 55,
+  "relations": {},
+  "factionId": null,
+  "karma": -75,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 26,
+  "portraitPath": "bandit_hard_2.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "songshan_wanderer",
+  "name": "嵩山游侠赵四海",
+  "type": "npc",
+  "personality": "行侠仗义，放荡不羁，好打抱不平",
+  "description": "嵩山一带的江湖游侠，武功杂而不精，但实战经验丰富。",
+  "maxHP": 1300,
+  "maxMP": 450,
+  "attack": 150,
+  "defense": 110,
+  "speed": 70,
+  "relations": {},
+  "factionId": null,
+  "karma": 40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_inn",
+    "白天": "songshan_town",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 15,
+    "forging": 30,
+    "mining": 25,
+    "gathering": 10,
+    "medicine": 20
+  },
+  "portraitPath": "songshan_wanderer.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword"
+}

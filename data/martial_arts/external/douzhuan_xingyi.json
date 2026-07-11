@@ -1,0 +1,38 @@
+{
+  "id": "douzhuan_xingyi",
+  "name": "斗转星移",
+  "type": "external",
+  "description": "姑苏慕容氏家传绝学,以彼之道还施彼身。无论敌方何种招式攻来,皆可以斗转星移之法借力反弹,反施于敌。修至大成,敌攻愈烈,反击愈强,慕容氏以此技名震江湖。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 70,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 1.0,
+      "chance": 0.6,
+      "description": "以彼之道还施彼身:被攻击时60%概率反击"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.3,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:借力破防,无视30%防御"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.2,
+      "chance": 0.3,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:星移劲气,30%概率附加流血"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.1 },
+    "10": { "damageCoefficient": 2.4 }
+  }
+}

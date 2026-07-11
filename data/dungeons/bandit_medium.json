@@ -1,0 +1,27 @@
+{
+  "id": "bandit_medium",
+  "name": "黑风岭外围扫荡",
+  "description": "黑风岭山贼日益坐大,门派欲先扫清外围,剿其爪牙。",
+  "type": "bandit",
+  "rounds": [
+    {
+      "opponentPool": ["bandit_medium_1", "bandit_medium_2"],
+      "count": 2,
+      "triggerDialogue": true
+    },
+    {
+      "opponentPool": ["bandit_medium_1", "bandit_medium_2"],
+      "count": 2,
+      "triggerDialogue": true
+    },
+    {
+      "opponentPool": ["bandit_medium_1", "bandit_medium_2"],
+      "count": 2,
+      "triggerDialogue": true
+    }
+  ],
+  "reward": { "gold": 200, "reputation": 120 },
+  "onFail": { "type": "deductGold", "amount": 80 },
+  "staminaCost": 30,
+  "timeCostHours": 3
+}

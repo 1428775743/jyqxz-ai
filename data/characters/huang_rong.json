@@ -1,0 +1,61 @@
+{
+  "id": "huang_rong",
+  "name": "黄蓉",
+  "type": "npc",
+  "personality": "聪明伶俐，古灵精怪，重情重义",
+  "description": "桃花岛主之女，丐帮帮主，智计百出。",
+  "maxHP": 3500,
+  "maxMP": 2800,
+  "attack": 580,
+  "defense": 400,
+  "speed": 95,
+  "relations": {
+    "guo_jing": "Spouse",
+    "huang_yaoshi": "Disciple"
+  },
+  "factionId": null,
+  "karma": 70,
+  "gender": "女",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_inn",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 50,
+  "craftSkills": {
+    "art": 60,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 20,
+    "medicine": 30
+  },
+  "portraitPath": "huang_rong.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyin_zhenjing",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "luoying_shenjian",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "yanzi_chaoshui",
+      "proficiencyLevel": 8
+    }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "luoying_shenjian",
+  "activeLightArtId": "yanzi_chaoshui"
+}

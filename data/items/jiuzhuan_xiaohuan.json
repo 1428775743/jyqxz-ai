@@ -1,0 +1,11 @@
+{
+  "id": "jiuzhuan_xiaohuan",
+  "name": "九转小还丹",
+  "type": "Consumable",
+  "description": "九转炉炼制,服下回血1500。可在战斗中使用。",
+  "value": 500,
+  "stackable": true,
+  "rarity": "rare",
+  "hpRecovery": 1500,
+  "combatUsable": true
+}

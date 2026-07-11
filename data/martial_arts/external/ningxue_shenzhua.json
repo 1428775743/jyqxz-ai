@@ -1,0 +1,37 @@
+{
+  "id": "ningxue_shenzhua",
+  "name": "凝血神抓",
+  "type": "external",
+  "description": "天地会总舵主陈近南绝学,抓力阴柔,中者气血凝滞、穴道被封。乃反清复明之利器,修至大成抓穴定身,凝血不动。鹿鼎记一书中天地会至高武学。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.0,
+  "critChance": 0.25,
+  "cooldown": 2,
+  "mpCost": 70,
+  "effects": [
+    {
+      "type": "Stun",
+      "value": 0.15,
+      "chance": 0.3,
+      "description": "凝血抓穴:30%概率使对方眩晕"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.7,
+      "chance": 0.2,
+      "description": "连环神抓:20%概率连击(70%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:凝血透骨,附带15%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.4 },
+    "10": { "damageCoefficient": 2.8 }
+  }
+}

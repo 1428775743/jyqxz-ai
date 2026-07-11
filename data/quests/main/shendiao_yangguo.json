@@ -1,0 +1,115 @@
+{
+  "id": "shendiao_yangguo",
+  "name": "神雕大侠",
+  "type": "chain",
+  "triggerNpcId": "yang_guo",
+  "minFavorabilityToOffer": 30,
+  "relatedNpcIds": [
+    "guo_xiang",
+    "guo_jing",
+    "xiao_long_nv"
+  ],
+  "description": "你已习得玄铁剑法与九阴残篇,神雕大侠杨过见你资质武功皆有过人之处,邀你相助几桩江湖大事:为郭襄解围、助郭靖守襄阳、共寻小龙女。若能达成,杨过愿传你其自创的黯然销魂掌。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      {
+        "speaker": "yang_guo",
+        "lines": [
+          "玄铁剑法、九阴残篇...你倒与我有几分渊源。",
+          "我杨过一生漂泊,得神雕相助,断臂后重登武学巅峰。"
+        ]
+      },
+      {
+        "speaker": "yang_guo",
+        "lines": [
+          "如今有几桩江湖大事,想请你相助。",
+          "事成之后,我传你黯然销魂掌——如何?"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "help_guoxiang",
+      "actionType": "talk",
+      "targetNPC": "guo_xiang",
+      "description": "杨过之友郭襄在襄阳城中遇麻烦,受江湖宵小纠缠。前往相助,替郭襄解围。",
+      "aiHint": "玩家是杨过看中的少年英侠,你受杨过之托前来相助。你虽年纪尚轻,然豪迈洒脱,对玩家颇为欣赏。你提及杨过,言语间满是倾慕。你将城中麻烦告知玩家,请他出手相助。",
+      "reward": {
+        "jianghuExp": 150,
+        "reputationBonus": 100
+      }
+    },
+    {
+      "id": "defend_xiangyang",
+      "actionType": "fight",
+      "targetNPC": "jinbing_general",
+      "description": "金兵将领率军围攻襄阳,助郭靖守城,登城击退金将。",
+      "aiHint": "金兵围城,郭靖死守襄阳。玩家登城助阵,你与郭靖并肩作战,力抗金将。此战关乎襄阳存亡,亦是你行侠仗义之本分。你身手不凡,然金将亦是百战之将,不可轻敌。",
+      "reward": {
+        "jianghuExp": 250,
+        "reputationBonus": 200,
+        "karmaBonus": 10
+      }
+    },
+    {
+      "id": "find_xiaolongnv",
+      "actionType": "go",
+      "targetScene": "gumu_deep",
+      "description": "杨过托你同往古墓深处,寻访失散的小龙女。古墓机关重重,需小心行进。",
+      "aiHint": "你托玩家同往古墓深处寻访小龙女。你与小龙女情深,然世事无常,失散多时。古墓机关重重,你对其中路径尚算熟悉,愿引玩家同行。你心情既急切又忐忑,只盼能与龙儿重逢。",
+      "reward": {
+        "jianghuExp": 200
+      }
+    },
+    {
+      "id": "learn_anran",
+      "actionType": "talk",
+      "targetNPC": "yang_guo",
+      "description": "诸事毕,杨过感念你之情义武功,传你其自创的黯然销魂掌——此掌法唯有心中悲伤时方能发挥最大威力。",
+      "aiHint": "玩家助你守襄阳、寻龙儿,你感念其情义与武功。你见玩家已历尽江湖,心境渐成,遂将自创的黯然销魂掌倾囊相授。你言此掌法唯悲情中见真章,亦是你半生情苦所凝。传授时,你神情黯然,似又忆起与龙儿的种种。",
+      "reward": {
+        "martialArtId": "anran_xiaohun",
+        "jianghuExp": 400
+      },
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "yang_guo",
+            "lines": [
+              "此番多谢你相助。守襄阳、寻龙儿...情义两全。",
+              "这黯然销魂掌,是我思念龙儿时所创。"
+            ]
+          },
+          {
+            "speaker": "yang_guo",
+            "lines": [
+              "掌法唯悲情中见真章——望你日后,莫要如我这般断肠。",
+              "来,我传你!"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 500,
+    "goldBonus": 2000,
+    "reputationBonus": 1000
+  },
+  "completeDialogue": {
+    "lines": [
+      {
+        "speaker": "yang_guo",
+        "lines": [
+          "黯然销魂掌已传你,望你善用。",
+          "江湖路远,后会有期。"
+        ]
+      }
+    ]
+  },
+  "exclusiveWithQuestIds": [
+    "shendiao_evil"
+  ]
+}

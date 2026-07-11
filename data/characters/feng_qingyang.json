@@ -1,0 +1,62 @@
+{
+  "id": "feng_qingyang",
+  "name": "风清扬",
+  "type": "npc",
+  "personality": "孤傲不羁,剑魔之名名副其实。看似冷漠实则惜才,只对有缘人开口。剑法无招胜有招,蔑视一切既定门规。",
+  "description": "华山派太师叔,被江湖称为剑魔。久居思过崖,与世隔绝。独孤九剑唯一传人。",
+  "maxHP": 6500,
+  "maxMP": 5800,
+  "attack": 1200,
+  "defense": 520,
+  "speed": 120,
+  "relations": {
+    "linghu_chong": "Disciple"
+  },
+  "factionId": "huashan",
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "siguoyai",
+  "schedule": {
+    "清晨": "siguoyai",
+    "白天": "siguoyai",
+    "黄昏": "siguoyai",
+    "夜晚": "siguoyai"
+  },
+  "jianghuLevel": 60,
+  "craftSkills": {
+    "art": 95,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 30,
+    "medicine": 20
+  },
+  "portraitPath": "feng_qingyang.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "zuowang_gong",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "dugu_jiujian",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "shenxing_baibian",
+      "proficiencyLevel": 10
+    }
+  ],
+  "activeInternalArtId": "zuowang_gong",
+  "activeExternalArtId": "dugu_jiujian",
+  "activeLightArtId": "shenxing_baibian"
+}

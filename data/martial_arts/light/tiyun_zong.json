@@ -1,0 +1,10 @@
+{
+  "id": "tiyun_zong",
+  "name": "梯云纵",
+  "type": "light",
+  "description": "武当派镇派绝学,腾身上跃如踩云梯,翻飞如雁,身法已臻化境。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "speedBonusPerLevel": 10,
+  "effects": []
+}

@@ -1,0 +1,97 @@
+{
+  "id": "songshan_backhill",
+  "name": "嵩山后山",
+  "description": "嵩山后山矿脉丰富，深处隐有宝光，引来不少江湖人士探寻。",
+  "region": "嵩山",
+  "backgroundImagePath": "assets/scenes/songshan_backhill.jpg",
+  "connectedScenes": [
+    "songshan_town"
+  ],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      {
+        "itemId": "iron_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "copper_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "tin_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "silver_ore",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "gold_ore",
+        "rarity": "rare"
+      }
+    ]
+  },
+  "hunt": {
+    "tier": "medium",
+    "timeCostPerHunt": 1.0,
+    "staminaCost": 12,
+    "loots": [
+      {
+        "itemId": "rabbit_fur",
+        "rarity": "common"
+      },
+      {
+        "itemId": "pheasant_feather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wolf_pelt",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_mushroom",
+        "rarity": "common"
+      },
+      {
+        "itemId": "leather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "deer_antler",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "honey",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  },
+  "herbGarden": {
+    "tier": "medium",
+    "timeCostPerGather": 1.0,
+    "staminaCost": 12,
+    "herbs": [
+      {
+        "itemId": "herb_baizhu",
+        "rarity": "common"
+      },
+      {
+        "itemId": "herb_huangqin",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      }
+    ]
+  }
+}

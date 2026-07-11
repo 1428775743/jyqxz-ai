@@ -1,0 +1,36 @@
+{
+  "id": "yanyan_gong",
+  "name": "炎炎功",
+  "type": "internal",
+  "description": "摩天崖主谢烟客所传阴火内功,真气如炎火暗燃,伤敌于无形。修习者内力阴狠,可化去部分攻势,炎火反噬灼伤来犯者。乃谢烟客一脉之阴毒内功。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 70,
+  "hpBonusPerLevel": 180,
+  "mpBonusPerLevel": 400,
+  "attackBonusPerLevel": 22,
+  "defenseBonusPerLevel": 18,
+  "effects": [
+    {
+      "type": "FlatDamageReduction",
+      "value": 60,
+      "chance": 1.0,
+      "description": "炎火护体:受到攻击时固定减伤60"
+    },
+    {
+      "type": "MPRecover",
+      "value": 0.12,
+      "chance": 1.0,
+      "description": "阴火内敛:每回合恢复12%内力"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.2,
+      "chance": 0.4,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:炎火反噬,40%概率反弹20%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

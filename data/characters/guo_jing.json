@@ -1,0 +1,63 @@
+{
+  "id": "guo_jing",
+  "name": "郭靖",
+  "type": "npc",
+  "personality": "忠厚老实，侠义心肠，大智若愚",
+  "description": "一代大侠，镇守襄阳，降龙十八掌威震江湖。",
+  "maxHP": 5200,
+  "maxMP": 3200,
+  "attack": 800,
+  "defense": 620,
+  "speed": 70,
+  "relations": {
+    "huang_rong": "Spouse",
+    "hong_qigong": "Master"
+  },
+  "factionId": null,
+  "karma": 90,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_wall",
+  "schedule": {
+    "清晨": "xiangyang_wall",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 60,
+  "craftSkills": {
+    "art": 10,
+    "forging": 30,
+    "mining": 20,
+    "gathering": 40,
+    "medicine": 20
+  },
+  "portraitPath": "guo_jing.png",
+  "equippedWeaponId": "jinsi_gauntlet",
+  "equippedArmorId": "ruanwei_armor",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyin_zhenjing",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "xianglong_18",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "caoshang_fei",
+      "proficiencyLevel": 6
+    }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "xianglong_18",
+  "activeLightArtId": "caoshang_fei"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "fotiaoqiang",
+  "name": "佛跳墙",
+  "type": "Consumable",
+  "description": "御膳名肴，山珍海味共冶一坛，食后攻击+20%，持续1日。食buff。",
+  "value": 1200,
+  "stackable": true,
+  "rarity": "epic",
+  "buffType": "atk",
+  "buffValue": 0.20,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

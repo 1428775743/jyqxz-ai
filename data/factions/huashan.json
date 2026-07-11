@@ -1,0 +1,22 @@
+{
+  "id": "huashan",
+  "name": "华山派",
+  "description": "五岳剑派之一,以剑术闻名江湖。岳不群任掌门,门下有令狐冲、陆大有等弟子,后山思过崖隐居着剑魔风清扬。",
+  "leaderId": "yue_buqun",
+  "sceneId": "huashan_path",
+  "availableArts": [
+    "basic_qigong",
+    "zuowang_gong",
+    "basic_sword",
+    "huashan_jian",
+    "zixia_shengong"
+  ],
+  "joinKarmaMin": 0,
+  "joinKarmaMax": 100,
+  "alliedFactions": {
+    "shaolin": "正派联盟",
+    "wudang": "正派联盟"
+  },
+  "enemyFactions": {},
+  "alignment": "正派"
+}

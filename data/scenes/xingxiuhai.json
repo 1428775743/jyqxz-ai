@@ -1,0 +1,10 @@
+{
+  "id": "xingxiuhai",
+  "name": "星宿海",
+  "description": "西域荒漠,星宿派所在。毒瘴弥漫,星宿老怪丁春秋于此修化功大法,收徒无数。弟子出行必吹捧星宿老仙,法力无边,乃江湖一大毒窟。",
+  "region": "西域",
+  "backgroundImagePath": "assets/scenes/xingxiuhai.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

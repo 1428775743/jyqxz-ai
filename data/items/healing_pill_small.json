@@ -1,0 +1,12 @@
+{
+  "id": "healing_pill_small",
+  "name": "小还丹",
+  "description": "普通疗伤药，可恢复少量生命。",
+  "type": "Consumable",
+  "value": 50,
+  "stackable": true,
+  "quantity": 3,
+  "hpRecovery": 200,
+  "rarity": "common",
+  "combatUsable": true
+}

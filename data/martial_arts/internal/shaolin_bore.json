@@ -1,0 +1,24 @@
+{
+  "id": "shaolin_bore",
+  "name": "少林般若功",
+  "type": "internal",
+  "description": "少林寺进阶内功，以般若智慧化入武学，修成后身如铁铸，防御大增。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "cooldown": 3,
+  "mpCost": 45,
+  "hpBonusPerLevel": 180,
+  "mpBonusPerLevel": 220,
+  "attackBonusPerLevel": 18,
+  "defenseBonusPerLevel": 30,
+  "effects": [
+    {
+      "type": "DamageReduction",
+      "value": 0.10,
+      "chance": 1.0,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁：被动受到伤害降低10%"
+    }
+  ],
+  "levelBonuses": {}
+}

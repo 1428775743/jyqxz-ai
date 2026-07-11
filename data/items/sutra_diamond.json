@@ -1,0 +1,11 @@
+{
+  "id": "sutra_diamond",
+  "name": "金刚经",
+  "description": "佛家经典，诵读可增进佛法修为。",
+  "type": "Consumable",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1,
+  "buddhistChange": 20,
+  "rarity": "uncommon"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "jinbing_general",
+  "name": "金兵将领",
+  "type": "npc",
+  "personality": "凶悍残暴,恃强凌弱,率金兵围攻襄阳,为蒙古先锋。",
+  "description": "金国(蒙古)麾下猛将,率大军围攻襄阳。武功虽非顶尖,然身经百战,杀伐果断,常亲临城下搦战。",
+  "maxHP": 3500,
+  "maxMP": 1500,
+  "attack": 480,
+  "defense": 360,
+  "speed": 70,
+  "relations": {
+    "qiu_qianren": "盟友"
+  },
+  "factionId": null,
+  "karma": -30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "xiangyang_wall",
+  "schedule": {
+    "清晨": "xiangyang_wall",
+    "白天": "xiangyang_wall",
+    "黄昏": "xiangyang_wall",
+    "夜晚": "xiangyang_wall"
+  },
+  "jianghuLevel": 35,
+  "craftSkills": {
+    "art": 10,
+    "forging": 30,
+    "mining": 20,
+    "gathering": 10,
+    "medicine": 15
+  },
+  "portraitPath": "jinbing_general.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "tiezhang", "proficiencyLevel": 6 },
+    { "artId": "basic_sword", "proficiencyLevel": 6 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "tiezhang"
+}

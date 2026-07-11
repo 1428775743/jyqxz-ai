@@ -1,0 +1,13 @@
+{
+  "id": "taixuan_manual",
+  "name": "太玄经秘籍",
+  "description": "侠客岛石壁所刻太玄经之拓本,以李白《侠客行》诗为引,暗藏天地至理。不识字者反能参悟其真谛,修成天下无敌。非内力深厚、悟性超绝者不可修。",
+  "type": "Manual",
+  "value": 10000,
+  "stackable": false,
+  "containedArtIds": ["taixuan_jing"],
+  "prerequisite": {
+    "requiredAttack": 250
+  },
+  "rarity": "mythic"
+}

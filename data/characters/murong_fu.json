@@ -1,0 +1,27 @@
+{
+  "id": "murong_fu",
+  "name": "慕容复",
+  "type": "npc",
+  "personality": "外表俊雅,才华绝世,却因复燕执念走火入魔。心狠手辣,为达目的不择手段。",
+  "description": "姑苏慕容氏嫡传,人称南慕容。家传斗转星移以彼之道还施彼身,名震江湖。容貌俊雅,才华横溢,然一生为复兴大燕之执念所困,终至众叛亲离,走火入魔。与乔峰齐名,却走上一条截然不同的路。",
+  "maxHP": 4200,
+  "maxMP": 3000,
+  "attack": 680,
+  "defense": 440,
+  "speed": 82,
+  "karma": 20,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 45,
+  "portraitPath": "murong_fu.png",
+  "learnedArts": [
+    { "artId": "xiaowuxiang_gong", "proficiencyLevel": 6 },
+    { "artId": "douzhuan_xingyi", "proficiencyLevel": 8 },
+    { "artId": "canhe_zhi", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "xiaowuxiang_gong",
+  "activeExternalArtId": "douzhuan_xingyi",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "qiankun_danuoyi",
+  "name": "乾坤大挪移",
+  "type": "external",
+  "description": "明教镇教神功，借力打力，以彼之道还施彼身。修至巅峰可反弹敌人攻击。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.0,
+  "critChance": 0.3,
+  "cooldown": 2,
+  "mpCost": 70,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.4,
+      "chance": 0.6,
+      "description": "借力打力无视40%防御"
+    },
+    {
+      "type": "MPRecover",
+      "value": 0.15,
+      "chance": 0.5,
+      "description": "50%概率恢复15%内力"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.30,
+      "chance": 0.35,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁：被攻击时35%概率反弹30%伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 2.5
+    },
+    "10": {
+      "damageCoefficient": 3.2
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "tianningsi",
+  "name": "天宁寺",
+  "description": "荆州城外古刹,香火冷清。梁元帝藏宝之所,连城诀所指之惊天宝藏即埋于此。佛像之下,金银如山,亦葬无数人性命。",
+  "region": "荆州",
+  "backgroundImagePath": "assets/scenes/tianningsi.jpg",
+  "connectedScenes": ["jingzhou_city"],
+  "defaultNPCs": [],
+  "isSpecial": true
+}

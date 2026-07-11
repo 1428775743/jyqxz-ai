@@ -1,0 +1,37 @@
+{
+  "id": "xuanming_shenzhang",
+  "name": "玄冥神掌",
+  "type": "external",
+  "description": "玄冥二老所修的阴毒掌法,掌力蕴含至阴寒毒,中者寒毒入骨,经脉凝滞,痛苦万状。唯有九阳神功之纯阳真气可解。当年张无忌即中此掌,寒毒缠身多年。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.2,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 55,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.2,
+      "chance": 0.35,
+      "description": "玄冥寒毒:35%概率附加寒毒流血"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.15,
+      "description": "寒毒攻心:15%概率使对方经脉凝滞(眩晕)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.1,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:附带10%真实伤害(寒毒侵骨)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.6 },
+    "10": { "damageCoefficient": 3.0 }
+  }
+}

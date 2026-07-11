@@ -1,0 +1,38 @@
+{
+  "id": "kuihua_xiuhuazhen",
+  "name": "葵花宝典-绣花针",
+  "type": "external",
+  "description": "葵花宝典所载暗器绝技,以绣花针为兵,银光暴雨倾泻而出,无声无息,见血封喉。一针之微竟可破玄铁重铠,不可思议。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.4,
+  "critChance": 0.45,
+  "cooldown": 2,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 1.0,
+      "chance": 0.35,
+      "description": "35%概率触发连击(暴雨梨花针)"
+    },
+    {
+      "type": "ExtraActionNextRound",
+      "value": 1,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:出手后读条加速(身法奇诡)"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.5,
+      "chance": 0.6,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:60%概率无视50%防御(针细透甲)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.9 },
+    "10": { "damageCoefficient": 3.5 }
+  }
+}

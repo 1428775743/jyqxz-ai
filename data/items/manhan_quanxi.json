@@ -1,0 +1,14 @@
+{
+  "id": "manhan_quanxi",
+  "name": "满汉全席",
+  "type": "Consumable",
+  "description": "御膳巅峰，满汉珍馐毕集，食后战斗中每回合回血8%最大气血，持续1日。食buff。",
+  "value": 3000,
+  "stackable": true,
+  "rarity": "legendary",
+  "buffType": "regen",
+  "buffValue": 0.08,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

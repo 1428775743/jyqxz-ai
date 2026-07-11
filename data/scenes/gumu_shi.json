@@ -1,0 +1,11 @@
+{
+  "id": "gumu_shi",
+  "name": "古墓石室",
+  "description": "活死人墓深处的石室,阴冷幽暗,终年不见天日。石壁上刻有古墓派武功图谱。墓主小龙女常居于此,一袭白衣,清冷如月。石室之后通向墓中更深处。",
+  "region": "终南山",
+  "backgroundImagePath": "assets/scenes/gumu_shi.jpg",
+  "connectedScenes": ["gumu_entrance", "gumu_deep", "gumu_exit"],
+  "defaultNPCs": ["xiao_long_nv"],
+  "factionId": "gumu",
+  "isSpecial": true
+}

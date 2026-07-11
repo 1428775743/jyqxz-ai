@@ -1,0 +1,10 @@
+{
+  "id": "honey",
+  "name": "蜂蜜",
+  "description": "山间野蜂所酿之蜜，甜而不腻，入药可润肺止咳。",
+  "type": "Material",
+  "value": 20,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

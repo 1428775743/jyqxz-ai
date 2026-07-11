@@ -1,0 +1,71 @@
+{
+  "id": "zhang_sanfeng",
+  "name": "张三丰",
+  "type": "npc",
+  "personality": "道骨仙风，深不可测，一代宗师",
+  "description": "武当派创派祖师，太极拳剑的创始人，武功已臻化境。",
+  "maxHP": 7500,
+  "maxMP": 7500,
+  "attack": 900,
+  "defense": 950,
+  "speed": 110,
+  "relations": {},
+  "factionId": "wudang",
+  "karma": 99,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": true,
+  "defaultScene": "wudang_hall",
+  "schedule": {
+    "清晨": "wudang_hall",
+    "白天": "wudang_hall",
+    "黄昏": "wudang_hall",
+    "夜晚": "wudang_hall"
+  },
+  "jianghuLevel": 80,
+  "craftSkills": {
+    "art": 80,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 30,
+    "medicine": 50
+  },
+  "portraitPath": "zhang_sanfeng.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_basic_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_xinfa",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "pure_yang",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "wudang_basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_mianzhang",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "taiji_quan",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "tiyun_zong",
+      "proficiencyLevel": 10
+    }
+  ],
+  "activeInternalArtId": "pure_yang",
+  "activeExternalArtId": "taiji_quan",
+  "activeLightArtId": "tiyun_zong"
+}

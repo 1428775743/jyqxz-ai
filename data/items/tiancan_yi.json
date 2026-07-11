@@ -1,0 +1,13 @@
+{
+  "id": "tiancan_yi",
+  "name": "天蚕宝衣",
+  "description": "天山雪蚕所吐之丝织就,轻如薄翼却坚逾铁甲,刀剑难伤,唯火可破,武林至宝护身衣。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 110,
+  "value": 6000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

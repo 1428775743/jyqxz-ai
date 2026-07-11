@@ -1,0 +1,22 @@
+{
+  "id": "fq_shaolin_collect_pill_large",
+  "name": "为武僧采购大还丹",
+  "type": "faction",
+  "description": "少林武僧近期练功甚勤，大还丹消耗甚快。需代为采购三粒，以供武僧练后恢复之用。",
+  "factionId": "shaolin",
+  "issuerNpcId": "shaolin_disciple_hui",
+  "difficulty": "medium",
+  "requiredItems": [
+    { "itemId": "healing_pill_large", "quantity": 3 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向慧明小师弟提交大还丹 x3", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 80,
+    "reputationBonus": 30,
+    "factionContributionBonus": 25,
+    "factionIdForContribution": "shaolin",
+    "jianghuExp": 12
+  }
+}

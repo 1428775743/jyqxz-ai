@@ -1,0 +1,41 @@
+{
+  "id": "doctor_songshan",
+  "name": "赵大夫",
+  "type": "npc",
+  "personality": "嵩山脚下的小镇郎中，精明能干，善于察言观色。因嵩山派弟子常来求医，对练功走火入魔的调理略知一二。",
+  "description": "嵩山小镇上的赵大夫，四十多岁，留着山羊胡，说话慢条斯理。在嵩山脚下开了间药铺，常为少林寺和嵩山派的弟子看诊。医术中规中矩，可治普通毒症。",
+  "maxHP": 160,
+  "maxMP": 60,
+  "attack": 5,
+  "defense": 5,
+  "speed": 15,
+  "relations": {},
+  "factionId": null,
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "medicine_merchant",
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_town",
+    "白天": "songshan_town",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 2,
+  "craftSkills": {
+    "medicine": 45
+  },
+  "portraitPath": "doctor_songshan.png",
+  "learnedArts": [],
+  "shopFixedItems": [
+    "healing_pill_small",
+    "mp_pill"
+  ],
+  "shopRandomItems": [
+    "juli_dan",
+    "tiegu_dan",
+    "huoxue_dan"
+  ]
+}

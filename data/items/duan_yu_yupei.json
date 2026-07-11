@@ -1,0 +1,12 @@
+{
+  "id": "duan_yu_yupei",
+  "name": "段誉玉佩",
+  "description": "段誉随身所佩之玉,温润清雅,刻有段氏图腾。乃段誉感念相助之谊所赠,适合赠予重情义之人。",
+  "type": "Gift",
+  "value": 500,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 20,
+  "giftPreference": "女子",
+  "rarity": "rare"
+}

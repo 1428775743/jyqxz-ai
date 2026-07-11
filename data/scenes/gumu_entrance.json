@@ -1,0 +1,11 @@
+{
+  "id": "gumu_entrance",
+  "name": "古墓入口",
+  "description": "终南山后山一处隐秘所在,寒潭边石壁上有一道可容一人通过的裂缝,便是活死人墓的入口。寒气森森,罕有人至。赤练仙子李莫愁常在此徘徊,觊觎墓中武学。",
+  "region": "终南山",
+  "backgroundImagePath": "assets/scenes/gumu_entrance.jpg",
+  "connectedScenes": ["quanzhen_mountain_path", "gumu_shi"],
+  "defaultNPCs": ["li_mochou"],
+  "factionId": "gumu",
+  "isSpecial": true
+}

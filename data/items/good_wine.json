@@ -1,0 +1,12 @@
+{
+  "id": "good_wine",
+  "name": "陈年好酒",
+  "description": "一坛上好的女儿红，适合赠送给好酒之人。",
+  "type": "Gift",
+  "value": 100,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 10,
+  "giftPreference": "武者",
+  "rarity": "common"
+}

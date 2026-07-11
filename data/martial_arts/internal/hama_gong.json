@@ -1,0 +1,36 @@
+{
+  "id": "hama_gong",
+  "name": "蛤蟆功",
+  "type": "internal",
+  "description": "西毒欧阳锋的独门绝学,蹲身蓄力如蛤蟆鼓腹,以浑厚内力积聚全身,遇敌则喷薄而出,势若雷霆。功力愈深,蓄势愈久,反击之力愈强。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 90,
+  "hpBonusPerLevel": 250,
+  "mpBonusPerLevel": 600,
+  "attackBonusPerLevel": 60,
+  "defenseBonusPerLevel": 40,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 0.6,
+      "chance": 0.4,
+      "description": "蓄势反击:被攻击时40%概率以蓄积之力反击"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.2,
+      "chance": 1.0,
+      "description": "蛤蟆鼓气:将受到伤害的20%反弹给攻击者"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.1,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:10%概率以内力震慑对方(眩晕)"
+    }
+  ],
+  "levelBonuses": {}
+}

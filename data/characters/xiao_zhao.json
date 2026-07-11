@@ -1,0 +1,43 @@
+{
+  "id": "xiao_zhao",
+  "name": "小昭",
+  "type": "npc",
+  "personality": "温柔婉约,聪慧坚韧,为爱牺牲。波斯明教圣女,却甘愿常伴张无忌左右。",
+  "description": "波斯明教圣女之女,奉母命潜伏明教,后为张无忌红颜知己。温柔聪慧,善解人意。终为波斯明教所迫,回总坛接任圣女,与张无忌黯然分别。",
+  "maxHP": 2200,
+  "maxMP": 2400,
+  "attack": 200,
+  "defense": 180,
+  "speed": 80,
+  "relations": {
+    "zhang_wuji": "倾慕"
+  },
+  "factionId": "mingjiao",
+  "karma": 50,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "guangming_scene",
+  "schedule": {
+    "清晨": "guangming_scene",
+    "白天": "guangming_scene",
+    "黄昏": "guangming_scene",
+    "夜晚": "guangming_scene"
+  },
+  "jianghuLevel": 20,
+  "craftSkills": {
+    "art": 60,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 35,
+    "medicine": 45
+  },
+  "portraitPath": "xiao_zhao.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 4 },
+    { "artId": "mingjiao_basic_internal", "proficiencyLevel": 3 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeLightArtId": "basic_qinggong"
+}

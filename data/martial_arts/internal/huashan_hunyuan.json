@@ -1,0 +1,36 @@
+{
+  "id": "huashan_hunyuan",
+  "name": "华山混元功",
+  "type": "internal",
+  "description": "华山派至上内功心法,真气混元一体,周天运转不息。修成后内力绵长,混元真气护体可化刚猛攻势,刀枪难入。乃穆人清一脉相承之华山根基。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 4,
+  "mpCost": 100,
+  "hpBonusPerLevel": 250,
+  "mpBonusPerLevel": 550,
+  "attackBonusPerLevel": 28,
+  "defenseBonusPerLevel": 32,
+  "effects": [
+    {
+      "type": "FlatDamageReduction",
+      "value": 100,
+      "chance": 1.0,
+      "description": "混元护体:受到攻击时固定减伤100"
+    },
+    {
+      "type": "MPRecover",
+      "value": 0.15,
+      "chance": 1.0,
+      "description": "混元周天:每回合恢复15%内力"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.2,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:混元真气,额外减免20%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "jingshi",
+  "name": "京师",
+  "description": "大明京师北京,紫禁城所在。闯王入京,崇祯自缢,阿九断臂于此。五毒教何铁手亦潜伏城中。天下风云,汇聚于此。",
+  "region": "直隶",
+  "backgroundImagePath": "assets/scenes/jingshi.jpg",
+  "connectedScenes": ["wanansi"],
+  "defaultNPCs": ["he_tieshou", "a_jiu", "jingshi_grocery"],
+  "isSpecial": true
+}

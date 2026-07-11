@@ -1,0 +1,9 @@
+{
+  "id": "silver_ore",
+  "name": "银矿石",
+  "description": "含银量较高的矿石，色泽温润，颇有价值。",
+  "type": "Material",
+  "value": 80,
+  "stackable": true,
+  "quantity": 1
+}

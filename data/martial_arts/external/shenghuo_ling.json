@@ -1,0 +1,25 @@
+{
+  "id": "shenghuo_ling",
+  "name": "圣火令法",
+  "type": "external",
+  "description": "明教进阶武学，以六枚圣火令牌为兵器，招式诡异多变，令人防不胜防。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "damageCoefficient": 1.7,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 35,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 1.0,
+      "chance": 0.15,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁：15%概率连击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.0 },
+    "8": { "damageCoefficient": 2.3 }
+  }
+}

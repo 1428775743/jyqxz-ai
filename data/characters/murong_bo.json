@@ -1,0 +1,27 @@
+{
+  "id": "murong_bo",
+  "name": "慕容博",
+  "type": "npc",
+  "personality": "城府极深,阴鸷坚韧。一生为复燕大业筹谋,不惜挑动宋辽武林纷争。",
+  "description": "姑苏慕容氏家主,慕容复之父。三十年前为挑动宋辽大战、复燕之机,假传契丹武士来袭之讯,酿成雁门关血案。事后假死隐身少林,苦修武功。城府极深,乃幕后黑手。与萧远山在少室山了断三十年恩怨。",
+  "maxHP": 5200,
+  "maxMP": 3400,
+  "attack": 840,
+  "defense": 520,
+  "speed": 80,
+  "karma": 15,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 58,
+  "portraitPath": "murong_bo.png",
+  "learnedArts": [
+    { "artId": "xiaowuxiang_gong", "proficiencyLevel": 7 },
+    { "artId": "douzhuan_xingyi", "proficiencyLevel": 8 },
+    { "artId": "canhe_zhi", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "xiaowuxiang_gong",
+  "activeExternalArtId": "douzhuan_xingyi",
+  "activeLightArtId": "basic_qinggong"
+}

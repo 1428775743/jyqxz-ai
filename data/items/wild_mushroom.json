@@ -1,0 +1,10 @@
+{
+  "id": "wild_mushroom",
+  "name": "野山菌",
+  "description": "山中采摘的野生菌菇，鲜美可口，可入药也可佐餐。",
+  "type": "Material",
+  "value": 12,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

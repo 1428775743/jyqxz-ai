@@ -1,0 +1,40 @@
+{
+  "id": "player_default",
+  "name": "小虾米",
+  "type": "player",
+  "personality": "初出茅庐，心怀侠义",
+  "description": "一位刚踏入江湖的年轻侠客，身世成谜，前途未卜。",
+  "portraitPath": "player_01_buyi.png",
+  "maxHP": 500,
+  "maxMP": 200,
+  "attack": 45,
+  "defense": 25,
+  "speed": 50,
+  "karma": 20,
+  "talent": 5,
+  "jianghuLevel": 1,
+  "craftSkills": {
+    "art": 20,
+    "forging": 20,
+    "mining": 20,
+    "gathering": 20,
+    "medicine": 20
+  },
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 1
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 1
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 1
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm",
+  "activeLightArtId": "basic_qinggong"
+}

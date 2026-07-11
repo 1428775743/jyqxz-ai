@@ -1,0 +1,17 @@
+{
+  "id": "mingjiao_basic_fist",
+  "name": "明教入门拳法",
+  "type": "external",
+  "description": "明教弟子入门拳法，招式刚猛暴烈，一如明教行事风格，以快制胜。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "damageCoefficient": 1.4,
+  "critChance": 0.15,
+  "cooldown": 0,
+  "mpCost": 10,
+  "effects": [],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.6 },
+    "5": { "damageCoefficient": 1.9 }
+  }
+}

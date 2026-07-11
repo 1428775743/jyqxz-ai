@@ -1,0 +1,26 @@
+{
+  "id": "mu_renqing",
+  "name": "穆人清",
+  "type": "npc",
+  "personality": "外号神剑仙猿,华山派掌门。严厉正直,嫉恶如仇,武功深不可测。收徒严谨,对袁承志视如己出。",
+  "description": "华山派掌门,江湖上辈分极高,武功深不可测,人行称神剑仙猿。收袁承志为关门弟子,传其华山混元功与破玉拳。为人严厉正直,嫉恶如仇,乃当世一大宗师。",
+  "maxHP": 4600,
+  "maxMP": 3400,
+  "attack": 680,
+  "defense": 480,
+  "speed": 82,
+  "karma": 50,
+  "gender": "男",
+  "defaultScene": "huashan_backhill",
+  "jianghuLevel": 55,
+  "isSectLeader": true,
+  "portraitPath": "mu_renqing.png",
+  "learnedArts": [
+    { "artId": "huashan_hunyuan", "proficiencyLevel": 9 },
+    { "artId": "poyu_quan", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "huashan_hunyuan",
+  "activeExternalArtId": "poyu_quan",
+  "activeLightArtId": "basic_qinggong"
+}

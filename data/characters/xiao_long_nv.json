@@ -1,0 +1,49 @@
+{
+  "id": "xiao_long_nv",
+  "name": "小龙女",
+  "type": "npc",
+  "personality": "清冷淡漠,不食人间烟火,然情之所钟,至死不渝。古墓派传人,容貌绝世,白衣胜雪。",
+  "description": "古墓派第三代传人,自幼长于活死人墓,不谙世事。容貌清丽绝俗,性情冷淡如冰,玉女心经已臻大成。后遇杨过,方知人间情爱。常居古墓石室,以玉蜂为伴。",
+  "maxHP": 4500,
+  "maxMP": 4000,
+  "attack": 620,
+  "defense": 460,
+  "speed": 105,
+  "relations": {
+    "yang_guo": "Spouse",
+    "li_mochou": "师姐"
+  },
+  "factionId": "gumu",
+  "karma": 60,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "isTrainer": true,
+  "defaultScene": "gumu_shi",
+  "schedule": {
+    "清晨": "gumu_shi",
+    "白天": "gumu_shi",
+    "黄昏": "gumu_shi",
+    "夜晚": "gumu_shi"
+  },
+  "jianghuLevel": 50,
+  "craftSkills": {
+    "art": 70,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 30,
+    "medicine": 50
+  },
+  "portraitPath": "xiao_long_nv.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "yunv_xinjing", "proficiencyLevel": 10 },
+    { "artId": "yunv_jianfa", "proficiencyLevel": 10 },
+    { "artId": "meinv_quan", "proficiencyLevel": 8 },
+    { "artId": "tiansuolian", "proficiencyLevel": 10 },
+    { "artId": "caoshang_fei", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "yunv_xinjing",
+  "activeExternalArtId": "tiansuolian",
+  "activeLightArtId": "caoshang_fei"
+}

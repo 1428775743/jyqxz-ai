@@ -1,0 +1,10 @@
+{
+  "id": "heimuya_scene",
+  "name": "黑木崖",
+  "description": "太行山黑木崖，日月神教总坛。崖壁陡峭，易守难攻。",
+  "region": "太行",
+  "backgroundImagePath": "assets/scenes/heimuya_scene.jpg",
+  "connectedScenes": ["heimuya_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

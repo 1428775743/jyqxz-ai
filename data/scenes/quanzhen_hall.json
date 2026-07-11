@@ -1,0 +1,11 @@
+{
+  "id": "quanzhen_hall",
+  "name": "重阳宫",
+  "description": "终南山重阳宫,全真教祖庭。殿宇巍峨,道气森严,香火鼎盛。全真七子在此修行,掌门丘处机坐镇。宫中道众往来,诵经之声不绝。",
+  "region": "终南山",
+  "backgroundImagePath": "assets/scenes/quanzhen_hall.jpg",
+  "connectedScenes": ["quanzhen_mountain_path"],
+  "defaultNPCs": ["qiu_chuji", "sun_buer"],
+  "factionId": "quanzhen",
+  "isSpecial": false
+}

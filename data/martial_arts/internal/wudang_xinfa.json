@@ -1,0 +1,24 @@
+{
+  "id": "wudang_xinfa",
+  "name": "武当心法",
+  "type": "internal",
+  "description": "武当派进阶内功心法，以柔克刚、以静制动，修炼后内力绵长，后劲十足。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "cooldown": 3,
+  "mpCost": 40,
+  "hpBonusPerLevel": 150,
+  "mpBonusPerLevel": 250,
+  "attackBonusPerLevel": 20,
+  "defenseBonusPerLevel": 25,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "requiredLevel": 3,
+      "description": "Lv.3解锁：每回合恢复5%内力"
+    }
+  ],
+  "levelBonuses": {}
+}

@@ -1,0 +1,68 @@
+{
+  "id": "yitian_evil",
+  "name": "倚天·助纣为虐(恶线)",
+  "type": "chain",
+  "triggerNpcId": "cheng_kun",
+  "minFavorabilityToOffer": 30,
+  "exclusiveWithQuestIds": ["yitian_main"],
+  "relatedNpcIds": ["zhang_wuji", "zhao_min", "xie_xun", "cheng_kun"],
+  "description": "恶线:你不助张无忌,反与成昆、赵敏(元廷)结盟,图谋中原、覆灭明教。事成可获玄冥神掌,然侠名尽毁、善恶骤降。与'倚天屠龙'正线互斥,接此线则正线不可接。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "cheng_kun", "lines": ["哼,世人皆道我成昆阴毒,却不知这江湖本就是成王败寇。", "你既有胆识,便与我、与赵敏郡主共谋大事——覆灭明教,扶保元廷,封侯拜相指日可待!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "fight_zhang_wuji",
+      "actionType": "fight",
+      "targetNPC": "zhang_wuji",
+      "description": "张无忌率明教来援,你助成昆拦杀。与这位少侠生死相搏。",
+      "aiHint": "你是张无忌,明教教主,性情宽厚。你不解玩家为何与成昆同流,痛心疾首。你以乾坤大挪移与九阳神功迎战,招式浑厚。你喝道:'阁下何苦助纣为虐!'",
+      "reward": { "jianghuExp": 400, "reputationBonus": 120, "karmaBonus": -5 }
+    },
+    {
+      "id": "kill_xie_xun",
+      "actionType": "fight",
+      "targetNPC": "xie_xun",
+      "description": "成昆命你除掉谢逊灭口,了结他与谢逊的旧仇。谢逊双目虽盲,狮吼功却威力惊人。",
+      "aiHint": "你是谢逊,金毛狮王,双目已盲,性烈如火。你听出玩家与成昆同流,怒发冲冠。你以七伤拳与狮吼功迎战,招招拼命。你怒吼:'成昆那厮的走狗,纳命来!'",
+      "reward": { "jianghuExp": 400, "reputationBonus": 120, "karmaBonus": -4 }
+    },
+    {
+      "id": "ally_zhaomin",
+      "actionType": "talk",
+      "targetNPC": "zhao_min",
+      "description": "赵敏见你武艺高强,以元廷权位相诱,与你共图中原武林。",
+      "aiHint": "你是赵敏,汝阳王之女,聪慧狡黠,心机深沉。你见玩家武艺高强且愿与元廷合作,大喜,以权位富贵相诱。你笑吟吟,言语间暗藏算计。",
+      "reward": { "jianghuExp": 500 }
+    },
+    {
+      "id": "epilogue_evil",
+      "actionType": "talk",
+      "targetNPC": "cheng_kun",
+      "description": "大事已定,成昆以玄冥神掌相授,酬你的助力。然江湖正道已视你为公敌。",
+      "aiHint": "你是成昆,混元霹雳手,阴险狠辣。大事已成,你志得意满,以玄冥神掌心法相授酬谢玩家。你笑得阴恻恻,言语间尽是权谋。",
+      "reward": { "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "cheng_kun", "lines": ["哈哈哈,明教覆灭,中原武林唾手可得!", "这玄冥神掌,乃玄冥二老所传,今日授你,望你助我成就大业。"] },
+          { "speaker": "旁白", "lines": ["你助成昆、赵敏覆灭明教,得玄冥神掌。", "然侠名扫地,善恶骤降,江湖正道对你恨之入骨。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1200,
+    "goldBonus": 6000,
+    "reputationBonus": 1500,
+    "karmaBonus": -15,
+    "martialArtId": "xuanming_shenzhang"
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["倚天一役,你助纣为虐,覆灭明教,得玄冥神掌与元廷富贵。", "然你与张无忌反目,侠名尽毁,自此为江湖正道所不容。"] }
+    ]
+  }
+}

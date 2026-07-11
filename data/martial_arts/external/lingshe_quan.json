@@ -1,0 +1,31 @@
+{
+  "id": "lingshe_quan",
+  "name": "灵蛇拳",
+  "type": "external",
+  "description": "白驼山欧阳锋由毒蛇扑咬之形悟出的拳法,招式阴毒诡异,出拳如蛇信吐信,虚实难辨,伤人于无形。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.7,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.1,
+      "chance": 0.3,
+      "description": "蛇毒入体:30%概率附加流血"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.5,
+      "chance": 0.2,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁:20%概率蛇形连击,双倍打击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 1.9 },
+    "10": { "damageCoefficient": 2.2 }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "tianlong_xuzhu",
+  "name": "天龙·虚竹",
+  "type": "chain",
+  "triggerNpcId": "xu_zhu",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": ["wu_yazi", "tong_lao"],
+  "description": "少林小僧虚竹,憨厚老实,本是寻常沙弥。因破解珍珑棋局,得逍遥派掌门无崖子传以北冥神功与毕生功力,后又得天山童姥真传,成灵鹫宫主。你与他结缘,助其参悟逍遥绝学,他愿将天山折梅手等绝技相授。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "xu_zhu", "lines": ["阿弥陀佛,施主...小僧虚竹,少林寺中一个寻常沙弥。", "这珍珑棋局,小僧苦思不得其解...施主可愿指点一二?"] },
+      { "speaker": "玩家", "lines": ["小师父不必过谦,棋局如人生,或可一试。"] },
+      { "speaker": "xu_zhu", "lines": ["施主所言极是!小僧...似有所悟。", "若有机缘,小僧这点微末本事,愿与施主共享。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "zhenlong",
+      "actionType": "talk",
+      "targetNPC": "xu_zhu",
+      "description": "少林寺遇小僧虚竹,他正为珍珑棋局所困。助其参悟,结下善缘。",
+      "aiHint": "玩家前来相助,你是少林小僧虚竹,憨厚老实。你正为珍珑棋局所困,得玩家指点似有所悟。你恪守戒律却心肠极软,对玩家以施主相称。你提及逍遥派与灵鹫宫之因缘,虽懵懂亦心生向往。",
+      "reward": { "jianghuExp": 150, "karmaBonus": 5 }
+    },
+    {
+      "id": "seek_xiaoyao",
+      "actionType": "go",
+      "targetScene": "lingjiugong",
+      "description": "虚竹被逍遥派因缘牵引,随他寻访天山灵鹫宫。",
+      "aiHint": "你随玩家寻访天山灵鹫宫。此处乃逍遥派支脉所在,天山童姥居此。你心怀忐忑,然因缘牵引,不得不往。你对灵鹫宫中绝学心存敬畏。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "wu_yazi_inherit",
+      "actionType": "talk",
+      "targetNPC": "wu_yazi",
+      "description": "灵鹫宫中,无崖子残年传功,将小无相功与毕生内力倾囊相授,托付逍遥派基业。",
+      "aiHint": "你是无崖子,逍遥派掌门,残瘫多年,隐于灵鹫宫。玩家与虚竹前来,你见玩家根骨不凡,愿将小无相功与毕生功力倾囊相授,亦算托付逍遥派之意。你言此功可催动各派武功,望玩家善用。你语气超然,然临终传道,亦含期许。",
+      "reward": { "martialArtId": "xiaowuxiang_gong", "items": [ { "itemId": "lingjiu_lingpai", "quantity": 1 } ], "jianghuExp": 300 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "wu_yazi", "lines": ["你来了...老朽等这一日,已等了多年。", "这小无相功,乃逍遥派不传之秘,今日传你。"] },
+          { "speaker": "wu_yazi", "lines": ["这灵鹫宫令牌,亦交与你。", "逍遥派基业,便托付你了...咳咳。"] }
+        ]
+      }
+    },
+    {
+      "id": "tonglao_test",
+      "actionType": "fight",
+      "targetNPC": "tong_lao",
+      "description": "天山童姥见你根骨,出手试招。折梅手交锋,胜后她亦认可。",
+      "aiHint": "你是天山童姥,灵鹫宫主,性情乖戾。你见玩家得无崖子真传,心生妒忌亦生兴致,出手试其成色。你以天山折梅手与之交锋,虽出手狠辣,然亦认可玩家之能。你言及与无崖子、李秋水之旧事,语气复杂。",
+      "reward": { "martialArtId": "tianshan_zhemei", "jianghuExp": 300 }
+    },
+    {
+      "id": "liuyang_inherit",
+      "actionType": "talk",
+      "targetNPC": "tong_lao",
+      "description": "童姥认可,亦传天山六阳掌之奥义,与折梅手一刚一柔相辅相成。",
+      "aiHint": "你见玩家折梅手已有所成,亦传天山六阳掌之奥义。此掌法阳刚纯猛,与折梅手一刚一柔相辅相成。你虽性情乖戾,然对玩家之资质亦生惜才之心。你言传此掌法,亦是了却一桩心愿。",
+      "reward": { "martialArtId": "tianshan_liuyang", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "tong_lao", "lines": ["哼,你这小子,倒也有些门道。", "这天山六阳掌,便一并传你!"] },
+          { "speaker": "tong_lao", "lines": ["折梅手柔,六阳掌刚,一刚一柔,方为逍遥正道。", "好好修习,莫丢我灵鹫宫的脸!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 500,
+    "goldBonus": 1500,
+    "reputationBonus": 700,
+    "karmaBonus": 10
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "xu_zhu", "lines": ["施主,逍遥派绝学已尽传于你。", "小僧...不,虚竹感念施主之义。"] },
+      { "speaker": "xu_zhu", "lines": ["日后但有用得着虚竹处,赴汤蹈火,在所不辞。", "阿弥陀佛,善哉善哉。"] }
+    ]
+  }
+}

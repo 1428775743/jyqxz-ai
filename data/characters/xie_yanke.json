@@ -1,0 +1,25 @@
+{
+  "id": "xie_yanke",
+  "name": "谢烟客",
+  "type": "npc",
+  "personality": "摩天崖主,孤傲自负,亦正亦邪。弹指神通天下少有,玄铁令主,一诺千金。性情孤僻,却重承诺。",
+  "description": "摩天崖之主,孤傲自负,亦正亦邪。擅弹指神通,内功深厚。曾发下誓言:凡持玄铁令者,必为其做一事,绝不推辞。性情孤僻,却重诺守信。乃侠客行中一奇人。",
+  "maxHP": 4000,
+  "maxMP": 3000,
+  "attack": 580,
+  "defense": 420,
+  "speed": 82,
+  "karma": 20,
+  "gender": "男",
+  "defaultScene": "motianya",
+  "jianghuLevel": 50,
+  "portraitPath": "xie_yanke.png",
+  "learnedArts": [
+    { "artId": "tanzhi_shentong", "proficiencyLevel": 8 },
+    { "artId": "yanyan_gong", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "yanyan_gong",
+  "activeExternalArtId": "tanzhi_shentong",
+  "activeLightArtId": "basic_qinggong"
+}

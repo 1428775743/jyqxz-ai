@@ -1,0 +1,55 @@
+{
+  "id": "ren_woxing",
+  "name": "任我行",
+  "type": "npc",
+  "personality": "霸气外露,豪情万丈,一代枭雄。野心勃勃,睚眦必报,但对真心相待者亦有情义。",
+  "description": "日月神教前教主,吸星大法的创始人。十二年前被东方不败篡位囚禁于西湖底,如今逃出,誓要夺回教主之位。",
+  "maxHP": 5500,
+  "maxMP": 5800,
+  "attack": 980,
+  "defense": 380,
+  "speed": 100,
+  "relations": {
+    "xiang_wentian": "SwornBrother",
+    "linghu_chong": "Friend",
+    "dongfang_bubai": "Enemy"
+  },
+  "factionId": "riyue",
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": true,
+  "isHidden": true,
+  "defaultScene": "heimuya_backhill",
+  "schedule": {
+    "清晨": "heimuya_backhill",
+    "白天": "heimuya_backhill",
+    "黄昏": "heimuya_backhill",
+    "夜晚": "heimuya_backhill"
+  },
+  "jianghuLevel": 55,
+  "craftSkills": {
+    "art": 40,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 10,
+    "medicine": 30
+  },
+  "portraitPath": "ren_woxing.png",
+  "learnedArts": [
+    {
+      "artId": "xixing_dafa",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "mojiao_zhang",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "kuihua_shenfa",
+      "proficiencyLevel": 7
+    }
+  ],
+  "activeInternalArtId": "xixing_dafa",
+  "activeExternalArtId": "mojiao_zhang",
+  "activeLightArtId": "kuihua_shenfa"
+}

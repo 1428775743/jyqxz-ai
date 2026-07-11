@@ -1,0 +1,10 @@
+{
+  "id": "deer_antler",
+  "name": "鹿茸",
+  "description": "山中猎鹿所得鹿茸，为名贵药材，可补气养血。",
+  "type": "Material",
+  "value": 80,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

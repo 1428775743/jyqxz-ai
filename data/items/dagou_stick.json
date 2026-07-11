@@ -1,0 +1,14 @@
+{
+  "id": "dagou_stick",
+  "name": "打狗棒",
+  "description": "丐帮帮主信物,碧玉所制,质坚色翠,棒法变化精微,历代帮主以此号令天下群丐。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "staff",
+  "attackBonus": 100,
+  "defenseBonus": 0,
+  "value": 4000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

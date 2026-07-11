@@ -1,0 +1,45 @@
+{
+  "id": "cheng_kun",
+  "name": "成昆",
+  "type": "npc",
+  "personality": "阴险毒辣,城府极深,人面兽心。为报私仇不惜挑动正邪大战,害人无数,实为倚天幕后黑手。",
+  "description": "外号混元霹雳手,师承少林圆真。因爱徒之事迁怒谢逊,设计害其满门,挑动谢逊发狂闹江湖,又潜伏少林挑拨六大门派围攻明教。阴险毒辣,为达目的不择手段,乃倚天第一反派。",
+  "maxHP": 5000,
+  "maxMP": 3800,
+  "attack": 680,
+  "defense": 440,
+  "speed": 82,
+  "relations": {
+    "xie_xun": "仇人"
+  },
+  "factionId": null,
+  "karma": -40,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": false,
+  "defaultScene": "shaolin_hall",
+  "schedule": {
+    "清晨": "shaolin_hall",
+    "白天": "shaolin_hall",
+    "黄昏": "shaolin_hall",
+    "夜晚": "shaolin_hall"
+  },
+  "jianghuLevel": 50,
+  "craftSkills": {
+    "art": 30,
+    "forging": 20,
+    "mining": 15,
+    "gathering": 20,
+    "medicine": 40
+  },
+  "portraitPath": "cheng_kun.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 8 },
+    { "artId": "xuanming_shenzhang", "proficiencyLevel": 8 },
+    { "artId": "basic_palm", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "xuanming_shenzhang",
+  "activeLightArtId": "basic_qinggong"
+}

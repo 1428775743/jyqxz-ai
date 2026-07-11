@@ -1,0 +1,31 @@
+{
+  "id": "chilian_shenzhang",
+  "name": "赤练神掌",
+  "type": "external",
+  "description": "赤练仙子李莫愁的绝学,掌力蕴含赤练蛇毒,阴毒无比。中掌者伤口青紫,蛇毒蔓延,无药可解。掌风所至,人畜皆惧,乃江湖第一毒掌。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.3,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 55,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.2,
+      "chance": 0.35,
+      "description": "赤练蛇毒:35%概率附加剧毒流血"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.15,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:15%概率蛇毒攻心(眩晕)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.7 },
+    "10": { "damageCoefficient": 3.1 }
+  }
+}

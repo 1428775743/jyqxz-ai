@@ -1,0 +1,14 @@
+{
+  "id": "copper_blade",
+  "name": "铜刀",
+  "description": "铜制的单刀，刀身宽厚，开刃锋利。寻常江湖人所用，胜在价廉耐用。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "blade",
+  "attackBonus": 18,
+  "defenseBonus": 0,
+  "value": 90,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

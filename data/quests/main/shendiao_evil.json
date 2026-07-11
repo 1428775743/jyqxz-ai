@@ -1,0 +1,60 @@
+{
+  "id": "shendiao_evil",
+  "name": "神雕·助蒙古攻宋(恶线)",
+  "type": "chain",
+  "triggerNpcId": "jinbing_general",
+  "minFavorabilityToOffer": 0,
+  "exclusiveWithQuestIds": ["shendiao_yangguo"],
+  "relatedNpcIds": ["yang_guo", "xiao_long_nv", "guo_xiang", "jinbing_general"],
+  "description": "恶线:你不助杨过,反与蒙古大军结盟,共攻襄阳、覆灭南宋武林。事成可获密宗绝学迦沙伏魔,然侠名尽毁、善恶骤降。与'神雕·杨过'正线互斥。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "jinbing_general", "lines": ["大蒙古国所向披靡,襄阳指日可下。", "你这般身手,何苦为南宋那帮迂腐武林卖命?助我大蒙古破襄阳,封侯赐爵,荣华富贵享之不尽!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "fight_yangguo",
+      "actionType": "fight",
+      "targetNPC": "yang_guo",
+      "description": "杨过识破你助蒙古,独臂剑拦路。与这位神雕大侠生死相搏。",
+      "aiHint": "你是杨过,独臂大侠,性情孤傲重情。你见玩家助蒙古攻宋,痛心又愤怒。你以玄铁剑法与黯然销魂掌迎战,剑招沉雄。你冷声道:'阁下既投蒙古,杨某今日便为民除害。'",
+      "reward": { "jianghuExp": 450, "reputationBonus": 130, "karmaBonus": -5 }
+    },
+    {
+      "id": "fight_xiaolongnv",
+      "actionType": "fight",
+      "targetNPC": "xiao_long_nv",
+      "description": "小龙女为护杨过,亦出手拦你。古墓派轻灵剑法,难以捉摸。",
+      "aiHint": "你是小龙女,古墓派传人,清冷如仙。你为护杨过出手拦阻玩家,招式轻灵飘逸。你以玉女剑法与玩家周旋,语声清冷:'你既与杨过为敌,便莫怪我无情。'",
+      "reward": { "jianghuExp": 400, "reputationBonus": 120, "karmaBonus": -4 }
+    },
+    {
+      "id": "epilogue_evil",
+      "actionType": "talk",
+      "targetNPC": "jinbing_general",
+      "description": "蒙古大军进逼襄阳,金将授你密宗绝学迦沙伏魔,酬你的助力。然你已沦为汉奸,为天下唾骂。",
+      "aiHint": "你是蒙古金将,骁勇善战,野心勃勃。你见玩家连败杨过、小龙女,大喜,授以密宗绝学迦沙伏魔。你豪迈大笑,许以高官厚禄。",
+      "reward": { "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "jinbing_general", "lines": ["好身手!杨过、小龙女皆败于你手,襄阳指日可破!", "这迦沙伏魔功乃我密宗不传之秘,今日授你,助我大蒙古荡平南宋!"] },
+          { "speaker": "旁白", "lines": ["你助蒙古攻宋,得迦沙伏魔功与荣华。", "然你与杨过为敌、沦为汉奸,侠名扫地,天下武林唾骂。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1200,
+    "goldBonus": 5000,
+    "reputationBonus": 1500,
+    "karmaBonus": -15,
+    "martialArtId": "jiasha_fumo"
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["神雕一役,你助蒙古攻宋,得迦沙伏魔功与高官厚禄。", "然你与杨过、小龙女反目,沦为汉奸,天下正道与你势不两立。"] }
+    ]
+  }
+}

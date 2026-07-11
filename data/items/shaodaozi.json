@@ -1,0 +1,12 @@
+{
+  "id": "shaodaozi",
+  "name": "烧刀子",
+  "description": "北方高粱烧酒，性烈辛辣，入喉如刀，豪客行伍之最爱。",
+  "type": "Gift",
+  "value": 80,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 12,
+  "giftPreference": "武者",
+  "rarity": "common"
+}

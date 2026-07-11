@@ -1,0 +1,24 @@
+{
+  "id": "yitian_wudang",
+  "name": "武当太极剑",
+  "type": "chain",
+  "triggerNpcId": "zhang_sanfeng",
+  "minFavorabilityToOffer": 20,
+  "relatedNpcIds": [],
+  "description": "武当山上,张三丰真人见你资质不凡、心境通达,愿传你武当镇派剑法——太极剑。此剑法以柔克刚,后发制人,乃张真人晚年所创之绝学。",
+  "difficulty": "normal",
+  "steps": [
+    {
+      "id": "learn_taijijian",
+      "actionType": "talk",
+      "targetNPC": "zhang_sanfeng",
+      "description": "于武当大殿随张三丰习太极剑法,领悟以柔克刚、后发制人之妙。",
+      "aiHint": "玩家前来请教,你见其资质心境皆佳,愿传太极剑法。你言太极剑与太极拳相辅,以柔克刚,后发制人,剑圆转如意,守势如山。你示范剑招,指点其要义,叮嘱需心境通达方可大成。",
+      "reward": { "martialArtId": "taiji_jian", "jianghuExp": 200 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 100,
+    "reputationBonus": 100
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "sishier_zhang",
+  "name": "四十二章经",
+  "description": "满清皇室所藏之佛经,共八本,实则暗藏关外宝藏之图。经书封皮夹层藏有碎羊皮,拼合即得藏宝之秘。鹿鼎记一书中人人觊觎之核心道具。",
+  "type": "QuestItem",
+  "value": 0,
+  "stackable": false,
+  "rarity": "legendary"
+}

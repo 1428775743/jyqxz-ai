@@ -1,0 +1,14 @@
+{
+  "id": "kuihua_silver_needle",
+  "name": "葵花银针",
+  "description": "细如牛毛的银针,淬以剧毒,藏于指缝袖间,葵花宝典所载暗器手法,针出夺命无声。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "special",
+  "attackBonus": 90,
+  "defenseBonus": 0,
+  "value": 3500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

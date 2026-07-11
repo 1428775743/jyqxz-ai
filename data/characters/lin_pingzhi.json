@@ -1,0 +1,35 @@
+{
+  "id": "lin_pingzhi",
+  "name": "林平之",
+  "type": "npc",
+  "personality": "本是富贵闲人,如今家破人亡,武功尽废,只剩满腔仇恨与报仇执念。说话低沉冷漠,目光偶尔闪过狠厉。",
+  "description": "福威镖局少镖主,镖局总镖头林震南独子。林家七十余口被余沧海与木高峰联手所害,只他一人因机缘巧合被废武功后侥幸活下。如今坐在镖局残破的大堂,等待有缘人为他报仇。家祖辟邪剑谱便藏于镖局之中,但修炼必先自宫。",
+  "maxHP": 200,
+  "maxMP": 50,
+  "attack": 5,
+  "defense": 8,
+  "speed": 40,
+  "relations": {},
+  "factionId": null,
+  "karma": 40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "fuwei_biaoju",
+  "schedule": {
+    "清晨": "fuwei_biaoju",
+    "白天": "fuwei_biaoju",
+    "黄昏": "fuwei_biaoju",
+    "夜晚": "fuwei_biaoju"
+  },
+  "jianghuLevel": 1,
+  "craftSkills": {
+    "art": 30,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 10,
+    "medicine": 10
+  },
+  "learnedArts": [],
+  "portraitPath": "lin_pingzhi.png"
+}

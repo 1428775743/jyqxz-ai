@@ -1,0 +1,13 @@
+{
+  "id": "silver_armor",
+  "name": "银丝甲",
+  "description": "银丝细编的软甲，轻便贴身却防护不凡，刀剑难透。铁匠手艺的极品。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 30,
+  "value": 280,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

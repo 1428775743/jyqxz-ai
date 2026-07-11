@@ -1,0 +1,25 @@
+{
+  "id": "heimuya_backhill",
+  "name": "黑木崖后山",
+  "description": "黑木崖后山深不可测，传闻此处蕴藏天下罕见的极品矿石，是锻造神兵的理想之地。",
+  "region": "太行",
+  "backgroundImagePath": "assets/scenes/heimuya_backhill.jpg",
+  "connectedScenes": ["heimuya_scene"],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "high",
+    "timeCostPerMine": 1.5,
+    "staminaCost": 20,
+    "ores": [
+      { "itemId": "iron_ore", "rarity": "common" },
+      { "itemId": "copper_ore", "rarity": "common" },
+      { "itemId": "silver_ore", "rarity": "uncommon" },
+      { "itemId": "gold_ore", "rarity": "rare" },
+      { "itemId": "xuan_ore", "rarity": "rare" },
+      { "itemId": "cold_iron_ore", "rarity": "epic" },
+      { "itemId": "fire_ore", "rarity": "epic" },
+      { "itemId": "heavenly_ore", "rarity": "legendary" }
+    ]
+  }
+}

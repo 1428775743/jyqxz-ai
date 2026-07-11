@@ -1,0 +1,13 @@
+{
+  "id": "ruanwei_armor",
+  "name": "软猬甲",
+  "description": "以金丝软线穿刺猬甲片编成,柔韧贴身,刀枪不入,桃花岛至宝,郭靖护身之物。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 70,
+  "value": 1500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

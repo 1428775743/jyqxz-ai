@@ -1,0 +1,11 @@
+{
+  "id": "kuaidao_qinggong",
+  "name": "快刀身法",
+  "type": "light",
+  "description": "田伯光所创,以刀法之疾配合身法之快,瞬息千里。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "speedBonusPerLevel": 4,
+  "attackBonusPerLevel": 1,
+  "effects": []
+}

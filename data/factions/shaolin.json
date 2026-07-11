@@ -1,0 +1,22 @@
+{
+  "id": "shaolin",
+  "name": "少林派",
+  "description": "天下武功出少林，佛门正宗，武学博大精深。",
+  "leaderId": "kong_zhi",
+  "sceneId": "shaolin_hall",
+  "availableArts": [
+    "shaolin_luohan_internal",
+    "shaolin_luohan_quan",
+    "shaolin_bore",
+    "shaolin_qinna",
+    "yijin_jing",
+    "shaolin_long爪"
+  ],
+  "joinKarmaMin": 20,
+  "joinKarmaMax": 100,
+  "alliedFactions": {
+    "wudang": "正派联盟"
+  },
+  "enemyFactions": {},
+  "alignment": "正派"
+}

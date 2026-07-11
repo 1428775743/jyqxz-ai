@@ -1,0 +1,10 @@
+{
+  "id": "siguoyai",
+  "name": "思过崖",
+  "description": "华山后山深处的绝壁悬崖,云雾常年缭绕,石室四壁刻满前辈高人的剑招。华山派弟子犯戒后常被罚至此地面壁思过。传闻有一位剑魔隐居于此。",
+  "region": "华山",
+  "backgroundImagePath": "assets/scenes/siguoyai.jpg",
+  "connectedScenes": ["huashan_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": true
+}

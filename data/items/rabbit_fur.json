@@ -1,0 +1,10 @@
+{
+  "id": "rabbit_fur",
+  "name": "兔皮",
+  "description": "柔软兔皮一张，可做手套或衬里。",
+  "type": "Material",
+  "value": 15,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

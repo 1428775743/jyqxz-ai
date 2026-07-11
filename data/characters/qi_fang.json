@@ -1,0 +1,21 @@
+{
+  "id": "qi_fang",
+  "name": "戚芳",
+  "type": "npc",
+  "personality": "善良柔弱,重情念旧,夹在狄云与万圭之间左右为难。本性纯良,却命运多舛。",
+  "description": "戚长发之女,狄云青梅竹马之师妹。狄云入狱后,误信其负心,嫁与万圭。然心中始终念及狄云,后知万家陷害之真相,痛悔不已。最终为护万圭而死,命途多舛。",
+  "maxHP": 1200,
+  "maxMP": 600,
+  "attack": 90,
+  "defense": 100,
+  "speed": 50,
+  "karma": 45,
+  "gender": "女",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 12,
+  "portraitPath": "qi_fang.png",
+  "learnedArts": [
+    { "artId": "tangshi_jianfa", "proficiencyLevel": 2 }
+  ],
+  "activeExternalArtId": "tangshi_jianfa"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "shui_sheng",
+  "name": "水笙",
+  "type": "npc",
+  "personality": "水岱之女,刚烈贞烈,性情倔强。被血刀老祖掳入雪谷,历经磨难,与狄云由仇转敬,终成知己。",
+  "description": "江南大侠水岱之女,表哥汪啸风之未婚妻。随父围剿血刀老祖,被困雪谷。初恨狄云,后知其为人,由仇转敬。雪谷之难后,于狄云墓前守候,性情刚烈,贞烈可风。",
+  "maxHP": 2200,
+  "maxMP": 1600,
+  "attack": 260,
+  "defense": 240,
+  "speed": 65,
+  "karma": 35,
+  "gender": "女",
+  "defaultScene": "xuegu",
+  "jianghuLevel": 28,
+  "portraitPath": "shui_sheng.png",
+  "learnedArts": [
+    { "artId": "tangshi_jianfa", "proficiencyLevel": 3 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 3 }
+  ],
+  "activeExternalArtId": "tangshi_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

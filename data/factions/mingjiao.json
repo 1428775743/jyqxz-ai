@@ -1,0 +1,22 @@
+{
+  "id": "mingjiao",
+  "name": "明教",
+  "description": "源自波斯的秘密教派，教众遍布天下，乾坤大挪移为镇教神功。",
+  "leaderId": "zhang_wuji",
+  "sceneId": "wudang_town",
+  "availableArts": [
+    "mingjiao_basic_internal",
+    "mingjiao_basic_fist",
+    "mingjiao_jiuzhuan",
+    "shenghuo_ling",
+    "jiuyang_shengong",
+    "qiankun_danuoyi"
+  ],
+  "joinKarmaMin": 0,
+  "joinKarmaMax": 100,
+  "alliedFactions": {},
+  "enemyFactions": {
+    "shaolin": "正邪对立"
+  },
+  "alignment": "中立"
+}

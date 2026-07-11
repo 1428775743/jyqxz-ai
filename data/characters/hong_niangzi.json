@@ -1,0 +1,23 @@
+{
+  "id": "hong_niangzi",
+  "name": "红娘子",
+  "type": "npc",
+  "personality": "李岩之妻,侠义刚烈,江湖儿女。随夫投闯王,征战四方。性烈如火,嫉恶如仇。",
+  "description": "李岩之妻,江湖儿女出身,侠义刚烈。随夫投闯王,征战四方,性烈如火。与李岩情深,后李岩为闯王所害,红娘子悲愤远走。乃碧血剑中一侠烈女子。",
+  "maxHP": 2800,
+  "maxMP": 1800,
+  "attack": 380,
+  "defense": 320,
+  "speed": 72,
+  "karma": 35,
+  "gender": "女",
+  "defaultScene": "tongguan",
+  "jianghuLevel": 35,
+  "portraitPath": "hong_niangzi.png",
+  "learnedArts": [
+    { "artId": "poyu_quan", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "poyu_quan",
+  "activeLightArtId": "basic_qinggong"
+}

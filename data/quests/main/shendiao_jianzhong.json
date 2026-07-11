@@ -1,0 +1,53 @@
+{
+  "id": "shendiao_jianzhong",
+  "name": "神雕剑冢",
+  "type": "chain",
+  "triggerNpcId": "shen_diao",
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": [],
+  "description": "襄阳城外深山中,有一处剑冢,乃剑魔独孤求败之所遗。一头通灵神雕栖居于此。神雕正遭巨蛇围攻,若能救之,或可得这位神物之友的赏识,习得独孤前辈的玄铁剑法。",
+  "difficulty": "normal",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["襄阳城外深山,怪石嶙峋,三柄古剑插于乱石间。", "一头体型硕大的黑雕正与巨蛇苦战,似已力竭。"] },
+      { "speaker": "shen_diao", "lines": ["嘎——!嘎——!(神雕悲鸣,似在求救)"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "save_diao",
+      "actionType": "fight",
+      "targetNPC": "du_jiao_she",
+      "description": "剑冢中,神雕正遭独角巨蛇围攻。挺身而出,击杀巨蛇,救下神雕。",
+      "aiHint": "你遭巨蛇围攻,正自苦战。玩家前来相救,你心存感激。你通灵性,识英雄,见玩家仗义出手,心生结交之意。蛇虽凶猛,你与玩家联手当可克之。",
+      "reward": { "jianghuExp": 150, "reputationBonus": 50 }
+    },
+    {
+      "id": "spar_diao",
+      "actionType": "fight",
+      "targetNPC": "shen_diao",
+      "description": "神雕感念相救之恩,愿与你切磋武艺。多次与之切磋,习其玄铁剑法之神韵。",
+      "aiHint": "你感念玩家救命之恩,愿与之切磋。你以玄铁重剑相授,见他资质不凡,遂将剑魔独孤求败的玄铁剑法倾囊相授。切磋时你留三分力,重在点拨而非胜负。多次切磋后,玩家自能领悟重剑无锋、大巧不工之妙。",
+      "reward": { "martialArtId": "xuantie_jianfa", "jianghuExp": 300, "reputationBonus": 200 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "旁白", "lines": ["数度切磋后,神雕以翅指玄铁重剑,似在传授剑魔独孤求败的遗技。"] },
+          { "speaker": "shen_diao", "lines": ["嘎!(神雕振翅,重剑嗡鸣)"] },
+          { "speaker": "旁白", "lines": ["重剑无锋,大巧不工——你似有所悟,剑法渐成。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 200,
+    "reputationBonus": 100,
+    "items": [
+      { "itemId": "xuantie_jian", "quantity": 1 }
+    ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["玄铁剑法已成,神雕目送你离去,长啸入云。"] }
+    ]
+  }
+}

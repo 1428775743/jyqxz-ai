@@ -1,0 +1,47 @@
+{
+  "id": "qiu_qianren",
+  "name": "裘千仞",
+  "type": "npc",
+  "personality": "阴险狠毒,野心勃勃,为夺天下第一不择手段。铁掌杀人无数,勾结金人图谋中原,为江湖正道所不齿。",
+  "description": "铁掌帮帮主,铁掌水上漂威震江湖。武功之高,几可与五绝比肩。然心术不正,勾结金人完颜洪烈图谋中原,以铁掌峰为巢穴,杀人越货无恶不作。",
+  "maxHP": 4800,
+  "maxMP": 3000,
+  "attack": 680,
+  "defense": 420,
+  "speed": 88,
+  "relations": {
+    "ouyang_feng": "盟友",
+    "yang_kang": "盟友"
+  },
+  "factionId": null,
+  "karma": -40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "defaultScene": "tiezhang_peak",
+  "schedule": {
+    "清晨": "tiezhang_peak",
+    "白天": "tiezhang_peak",
+    "黄昏": "tiezhang_peak",
+    "夜晚": "tiezhang_peak"
+  },
+  "jianghuLevel": 45,
+  "craftSkills": {
+    "art": 20,
+    "forging": 30,
+    "mining": 25,
+    "gathering": 15,
+    "medicine": 20
+  },
+  "portraitPath": "qiu_qianren.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "jiuyin_zhenjing", "proficiencyLevel": 5 },
+    { "artId": "tiezhang", "proficiencyLevel": 10 },
+    { "artId": "basic_palm", "proficiencyLevel": 6 },
+    { "artId": "tiezhang_qinggong", "proficiencyLevel": 8 }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "tiezhang",
+  "activeLightArtId": "tiezhang_qinggong"
+}

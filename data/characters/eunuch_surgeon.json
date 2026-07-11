@@ -1,0 +1,30 @@
+{
+  "id": "eunuch_surgeon",
+  "name": "李公公",
+  "type": "npc",
+  "personality": "司礼监中的老太监，掌管净身之事。手法娴熟，见惯不惊。对前来求术之人既不同情也不鄙夷，只将其当作寻常事务处理。偶尔会劝诫来人三思而后行。",
+  "description": "李公公是司礼监中负责净身事务的老太监，年过六旬，面白无须，声音尖细。他施行净身之术已有三十年，刀法精准，从无失手。常劝来人道：'此刀一落，此生便无回头路，你可要想清楚。'他知晓修炼辟邪剑法和葵花宝典需要自宫的秘密。",
+  "maxHP": 100,
+  "maxMP": 50,
+  "attack": 5,
+  "defense": 5,
+  "speed": 15,
+  "relations": {},
+  "factionId": null,
+  "karma": 40,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "eunuch_surgeon",
+  "defaultScene": "linan_eunuch_office",
+  "schedule": {
+    "清晨": "linan_eunuch_office",
+    "白天": "linan_eunuch_office",
+    "黄昏": "linan_eunuch_office",
+    "夜晚": "linan_eunuch_office"
+  },
+  "jianghuLevel": 3,
+  "craftSkills": {},
+  "portraitPath": "eunuch_surgeon.png",
+  "learnedArts": []
+}

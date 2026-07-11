@@ -1,0 +1,80 @@
+{
+  "id": "luding_shenlong",
+  "name": "鹿鼎记·神龙岛",
+  "type": "chain",
+  "triggerNpcId": "wei_xiaobao",
+  "minFavorabilityToOffer": 20,
+  "prerequisiteQuestIds": ["luding_palace", "luding_tiandihui"],
+  "relatedNpcIds": ["hongan_tong", "su_quan"],
+  "description": "宫廷、天地会两家之长已得,韦小宝邀你赴神龙岛,共探洪安通阴谋。洪安通阴险相待,赐豹胎易经丸。决战洪安通,化骨绵掌阴毒,败之。苏荃归顺,传美人三招。四十二章经宝藏现世,鹿鼎记恩怨了结。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "wei_xiaobao", "lines": ["这位大哥,我韦小宝,扬州来的。", "神龙教主洪安通老乌龟,野心勃勃,想造反称帝。"] },
+      { "speaker": "玩家", "lines": ["韦兄弟有何打算?"] },
+      { "speaker": "wei_xiaobao", "lines": ["我老婆苏荃也被他控制在岛上,我想干掉这老乌龟。", "大哥你武功高强,帮帮我,事成之后四十二章经的宝藏咱俩平分!", "走,上神龙岛!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "xiaobao_invite",
+      "actionType": "talk",
+      "targetNPC": "wei_xiaobao",
+      "description": "韦小宝邀你赴神龙岛,共探洪安通阴谋。",
+      "aiHint": "你乃韦小宝,油嘴滑舌,机灵狡猾。你邀玩家赴神龙岛,共除洪安通。你言洪安通老乌龟野心勃勃,控制你老婆苏荃,欲除之。你许诺四十二章经宝藏平分。你对玩家以大哥相称,嬉皮笑脸中带认真。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "hongan_taohao",
+      "actionType": "talk",
+      "targetNPC": "hongan_tong",
+      "description": "洪安通阴险相待,赐豹胎易经丸,欲控制你。",
+      "aiHint": "你乃洪安通,神龙教主。你见玩家上岛,阴险相待,赐豹胎易经丸欲控制之。你野心勃勃,妄图称帝,化骨绵掌阴毒绝伦。你言顺我者昌逆我者亡,对玩家威逼利诱。你亦赏玩家武功高强,欲收为己用。",
+      "reward": { "jianghuExp": 250, "items": [ { "itemId": "baotai_yiwang", "quantity": 1 } ] }
+    },
+    {
+      "id": "fight_hongan",
+      "actionType": "fight",
+      "targetNPC": "hongan_tong",
+      "description": "决战洪安通,化骨绵掌阴毒,败之。",
+      "aiHint": "你乃洪安通,神龙教主。你见玩家不受控,化骨绵掌阴毒出手。你武功高强,化骨绵掌腐蚀化脓,阴毒绝伦。你野心勃勃,然众叛亲离。败后你桀骜不驯,终为所灭。你言竖子敢尔,神龙教岂容放肆。",
+      "reward": { "martialArtId": "huagu_mianzhang", "jianghuExp": 500, "reputationBonus": 300 }
+    },
+    {
+      "id": "suquan_guishun",
+      "actionType": "talk",
+      "targetNPC": "su_quan",
+      "description": "苏荃归顺,传美人三招。",
+      "aiHint": "洪安通既灭,你苏荃获救,归顺玩家与韦小宝。你妩媚果决,将美人三招传与玩家。你言此乃洪安通所创三招,连环进击,诡变莫测。你对玩家以侠士相称,亦带情意,言日后随韦小宝归隐。",
+      "reward": { "martialArtId": "meiren_sanzhao", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "su_quan", "lines": ["侠士大恩,苏荃没齿难忘。", "这美人三招乃洪安通所创,今传与你。"] },
+          { "speaker": "su_quan", "lines": ["连环进击,诡变莫测,望侠士善用。", "日后我随小宝归隐,这宝藏你与 他平分便是。"] }
+        ]
+      }
+    },
+    {
+      "id": "treasure_reveal",
+      "actionType": "go",
+      "targetScene": "wutai_shan",
+      "description": "依四十二章经之秘,赴关外寻大清宝藏。",
+      "aiHint": "你随韦小宝依四十二章经之秘寻大清宝藏。宝藏藏于关外,金银无数。你感慨鹿鼎记之恩怨皆因此宝而起,如今宝藏现世,韦小宝携众美归隐。你心情复杂,亦为韦小宝庆幸。",
+      "reward": { "jianghuExp": 400 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1000,
+    "reputationBonus": 1000,
+    "goldBonus": 5000,
+    "karmaBonus": 20,
+    "items": [ { "itemId": "sishier_zhang", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "wei_xiaobao", "lines": ["大哥,宝藏既得,这四十二章经你收着。", "小弟我携七个老婆归隐,再不涉江湖了。"] },
+      { "speaker": "wei_xiaobao", "lines": ["化骨绵掌、美人三招你都学去了,够本啦!", "后会有期,大哥——嘿嘿!"] },
+      { "speaker": "旁白", "lines": ["韦小宝携众美归隐,鹿鼎公爵位辞去。", "四十二章经宝藏现世,鹿鼎记之恩怨,自此了结。"] }
+    ]
+  }
+}

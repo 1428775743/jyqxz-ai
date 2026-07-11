@@ -1,0 +1,25 @@
+{
+  "id": "gui_xinshu",
+  "name": "归辛树",
+  "type": "npc",
+  "personality": "外号神拳无敌,华山派大弟子,穆人清首徒。刚直护短,木讷寡言,武功高强却脾气火爆,护妻心切。",
+  "description": "华山派大弟子,穆人清首徒,外号神拳无敌。破玉拳天下无双,性格刚直护短,木讷寡言。其妻归二娘性烈如火,二人对袁承志这个小师弟颇为照顾。后卷入反清复明之事。",
+  "maxHP": 4200,
+  "maxMP": 2600,
+  "attack": 560,
+  "defense": 440,
+  "speed": 72,
+  "karma": 30,
+  "gender": "男",
+  "defaultScene": "huashan_backhill",
+  "jianghuLevel": 48,
+  "portraitPath": "gui_xinshu.png",
+  "learnedArts": [
+    { "artId": "huashan_hunyuan", "proficiencyLevel": 7 },
+    { "artId": "poyu_quan", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "huashan_hunyuan",
+  "activeExternalArtId": "poyu_quan",
+  "activeLightArtId": "basic_qinggong"
+}

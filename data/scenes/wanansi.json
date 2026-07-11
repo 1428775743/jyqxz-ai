@@ -1,0 +1,10 @@
+{
+  "id": "wanansi",
+  "name": "万安寺",
+  "description": "大都城内皇家寺院,金碧辉煌。赵敏以此为名,实则将囚禁的六大门派高手关押于此。寺内暗藏机关,守卫森严,玄冥二老坐镇,寻常人难以脱身。",
+  "region": "大都",
+  "backgroundImagePath": "assets/scenes/wanansi.jpg",
+  "connectedScenes": ["jingshi"],
+  "defaultNPCs": ["zhao_min", "xuanming_elder", "fan_yao"],
+  "isSpecial": true
+}

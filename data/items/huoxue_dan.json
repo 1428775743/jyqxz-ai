@@ -1,0 +1,13 @@
+{
+  "id": "huoxue_dan",
+  "name": "活血丹",
+  "type": "Consumable",
+  "description": "服药后气血畅行,战斗中每回合恢复8%最大HP,持续1日。药buff,与同类互斥。",
+  "value": 180,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "regen",
+  "buffValue": 0.08,
+  "buffDurationDays": 1,
+  "combatUsable": false
+}

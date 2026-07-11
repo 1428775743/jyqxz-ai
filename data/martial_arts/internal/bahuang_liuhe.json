@@ -1,0 +1,36 @@
+{
+  "id": "bahuang_liuhe",
+  "name": "八荒六合唯我独尊功",
+  "type": "internal",
+  "description": "天山童姥所修霸道内功,修至大成可返老还童,内力刚猛无俦。出手之际唯我独尊,气势压人,读条常先人一步,霸道真气更附真实伤害。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 4,
+  "mpCost": 110,
+  "hpBonusPerLevel": 260,
+  "mpBonusPerLevel": 480,
+  "attackBonusPerLevel": 50,
+  "defenseBonusPerLevel": 25,
+  "effects": [
+    {
+      "type": "HPRecover",
+      "value": 0.08,
+      "chance": 1.0,
+      "description": "返老还童:每回合恢复8%气血"
+    },
+    {
+      "type": "PermanentExtraAction",
+      "value": 1.0,
+      "chance": 1.0,
+      "description": "唯我独尊:出手后读条归半,常先人一步"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.2,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:霸道真气护体,减伤20%"
+    }
+  ],
+  "levelBonuses": {}
+}

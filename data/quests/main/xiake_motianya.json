@@ -1,0 +1,73 @@
+{
+  "id": "xiake_motianya",
+  "name": "侠客行·摩天崖",
+  "type": "chain",
+  "triggerNpcId": "xie_yanke",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": ["ding_dang", "ding_busan"],
+  "description": "摩天崖主谢烟客,孤傲自负,弹指神通天下少有。你登摩天崖,得玄铁令,结交谢烟客。丁不三刁难出手,败之。谢烟客感你气度,传你炎炎功与弹指神通,赠玄铁令。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "xie_yanke", "lines": ["你上得摩天崖,便是与谢某有缘。", "我谢烟客,一诺千金——这玄铁令,你且收下。"] },
+      { "speaker": "玩家", "lines": ["谢岛主威名赫赫,在下仰慕已久。"] },
+      { "speaker": "xie_yanke", "lines": ["持此令者,可令谢某做任意一事。", "然丁不三这老怪近日亦在崖上,生事得很。", "你若能挫他锐气,谢某便传你几手绝学。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "meet_yanke",
+      "actionType": "talk",
+      "targetNPC": "xie_yanke",
+      "description": "摩天崖遇谢烟客,得玄铁令,结交。",
+      "aiHint": "玩家登摩天崖,你以玄铁令相赠,结为忘年。你孤傲自负,亦正亦邪,然重诺守信。你言丁不三老怪近日在崖上生事,若玩家能挫其锐气,便传绝学。你对玩家以小友相称,语气孤傲中带欣赏。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "fight_dingbusan",
+      "actionType": "fight",
+      "targetNPC": "ding_busan",
+      "description": "丁不三刁难出手,败之。",
+      "aiHint": "你乃丁不三,丁家老大,外号杀人名医。你见玩家与谢烟客结交,心生不忿,刁难出手。你狠辣诡谲,擅丁家擒拿手与炎炎功,招式阴毒。你言小子不配与谢烟客平辈,败后桀骜不驯却亦暗服。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 200 }
+    },
+    {
+      "id": "learn_yanyan",
+      "actionType": "talk",
+      "targetNPC": "xie_yanke",
+      "description": "谢烟客感你气度,传你炎炎功。",
+      "aiHint": "玩家挫丁不三锐气,你感其气度,传其炎炎功。你言此乃阴火内功,真气如炎火暗燃,可化攻势、反噬外邪。你孤傲中带欣慰,对小友传功,语重心长。",
+      "reward": { "martialArtId": "yanyan_gong", "jianghuExp": 300 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "xie_yanke", "lines": ["小友,这炎炎功乃我毕生所悟阴火内功。", "真气暗燃,化攻反噬,望你善用。"] }
+        ]
+      }
+    },
+    {
+      "id": "learn_tanzhi",
+      "actionType": "talk",
+      "targetNPC": "xie_yanke",
+      "description": "谢烟客传你弹指神通,赠玄铁令。",
+      "aiHint": "你再将弹指神通传与玩家,言此乃指力绝学,势如破竹。你赠玄铁令,言一诺千金,日后有事持令相求。你对玩家以小友相称,语气中满是托付之意。",
+      "reward": { "martialArtId": "tanzhi_shentong", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "xie_yanke", "lines": ["弹指神通,指力穿甲,可弹指点穴。", "这玄铁令你收好,日后有事,谢某绝不推辞。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 10,
+    "items": [ { "itemId": "xuantie_ling", "quantity": 1 }, { "itemId": "wucan_yi", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "xie_yanke", "lines": ["小友,炎炎功与弹指神通皆已传你。", "这玄铁令便是谢某之诺,后会有期。"] },
+      { "speaker": "玩家", "lines": ["谢岛主厚恩,在下铭记。", "后会有期!"] }
+    ]
+  }
+}

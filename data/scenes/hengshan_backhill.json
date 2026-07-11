@@ -1,0 +1,22 @@
+{
+  "id": "hengshan_backhill",
+  "name": "恒山后山",
+  "description": "恒山后山常年积雪，矿石在冰雪中历经淬炼，质地坚硬。",
+  "region": "恒山",
+  "backgroundImagePath": "assets/scenes/hengshan_backhill.jpg",
+  "connectedScenes": ["hengshan_scene"],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      { "itemId": "iron_ore", "rarity": "common" },
+      { "itemId": "copper_ore", "rarity": "common" },
+      { "itemId": "tin_ore", "rarity": "common" },
+      { "itemId": "silver_ore", "rarity": "uncommon" },
+      { "itemId": "gold_ore", "rarity": "rare" }
+    ]
+  }
+}

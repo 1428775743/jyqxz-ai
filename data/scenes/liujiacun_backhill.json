@@ -1,0 +1,82 @@
+{
+  "id": "liujiacun_backhill",
+  "name": "刘家村后山",
+  "description": "刘家村后山的小矿洞，产出一些普通矿石，村民们偶尔来此采石。山林中也有野兔山鸡可猎。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/liujiacun_backhill.jpg",
+  "connectedScenes": [
+    "liujiacun_scene",
+    "huanggu_cave"
+  ],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "normal",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      {
+        "itemId": "iron_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "copper_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "tin_ore",
+        "rarity": "common"
+      }
+    ]
+  },
+  "hunt": {
+    "tier": "normal",
+    "timeCostPerHunt": 1.0,
+    "staminaCost": 12,
+    "loots": [
+      {
+        "itemId": "rabbit_fur",
+        "rarity": "common"
+      },
+      {
+        "itemId": "pheasant_feather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_mushroom",
+        "rarity": "common"
+      },
+      {
+        "itemId": "fish",
+        "rarity": "common"
+      },
+      {
+        "itemId": "dried_meat",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  },
+  "herbGarden": {
+    "tier": "normal",
+    "timeCostPerGather": 1.0,
+    "staminaCost": 12,
+    "herbs": [
+      {
+        "itemId": "herb_baizhu",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_mushroom",
+        "rarity": "common"
+      },
+      {
+        "itemId": "herb_huangqin",
+        "rarity": "common"
+      }
+    ]
+  }
+}

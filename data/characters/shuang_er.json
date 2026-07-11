@@ -1,0 +1,23 @@
+{
+  "id": "shuang_er",
+  "name": "双儿",
+  "type": "npc",
+  "personality": "庄家丫鬟,忠心耿耿,温柔可人。对韦小宝死心塌地,会武功,机敏乖巧。韦小宝最爱之妻。",
+  "description": "庄家丫鬟,后归韦小宝。温柔可人,忠心耿耿,对韦小宝死心塌地。会武功,擅美人三招与轻功,机敏乖巧。随韦小宝历经生死,乃韦小宝最爱之妻。乃鹿鼎记一书中之贤妻。",
+  "maxHP": 2400,
+  "maxMP": 1800,
+  "attack": 320,
+  "defense": 280,
+  "speed": 82,
+  "karma": 50,
+  "gender": "女",
+  "defaultScene": "yangzhou",
+  "jianghuLevel": 30,
+  "portraitPath": "shuang_er.png",
+  "learnedArts": [
+    { "artId": "meiren_sanzhao", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "meiren_sanzhao",
+  "activeLightArtId": "basic_qinggong"
+}

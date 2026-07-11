@@ -1,0 +1,14 @@
+{
+  "id": "flame_blade",
+  "name": "烈焰刀",
+  "description": "火矿锻打的单刀，刀身赤红似带火光，挥动时热浪逼人，伤处如火灼。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "blade",
+  "attackBonus": 70,
+  "defenseBonus": 0,
+  "value": 1500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

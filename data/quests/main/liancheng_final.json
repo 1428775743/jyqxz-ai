@@ -1,0 +1,199 @@
+{
+  "id": "liancheng_final",
+  "name": "连城诀·宝藏",
+  "type": "chain",
+  "triggerNpcId": "di_yun",
+  "minFavorabilityToOffer": 20,
+  "prerequisiteQuestIds": [
+    "liancheng_dingdian",
+    "liancheng_xuedao"
+  ],
+  "relatedNpcIds": [
+    "wan_zhenshan",
+    "qi_changfa",
+    "ling_tuisi"
+  ],
+  "description": "丁典已逝,血刀伏诛,连城诀之秘渐明。狄云历尽磨难,愿与你共揭连城诀宝藏、了结万家师徒与凌退思之恩怨。天宁寺中,宝藏现世,人性尽显。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      {
+        "speaker": "di_yun",
+        "lines": [
+          "兄弟,丁大哥临终所托,我狄云不敢或忘。",
+          "连城诀之秘,藏于唐诗选辑,所指乃天宁寺梁元帝藏宝。"
+        ]
+      },
+      {
+        "speaker": "玩家",
+        "lines": [
+          "狄云兄弟,我既受丁兄所托,必助你了却恩怨。"
+        ]
+      },
+      {
+        "speaker": "di_yun",
+        "lines": [
+          "万家师徒与凌退思皆为此物丧心病狂。",
+          "乌金袈裟上绣有连城剑法,乃宝藏之钥。",
+          "兄弟,你我同去,了结这场连城之祸!"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "diyun_reveal",
+      "actionType": "talk",
+      "targetNPC": "di_yun",
+      "description": "狄云揭示连城诀宝藏与乌金袈裟剑法之秘,约你同了恩怨。",
+      "aiHint": "你乃狄云,历尽冤屈磨难,看透人心。你向玩家揭示连城诀宝藏藏于天宁寺、乌金袈裟绣有连城剑法之秘。你淳朴刚直,虽遭万家师徒陷害、师妹惨死,仍存侠义。你言连城诀乃祸根,愿与玩家了结恩怨,不愿宝藏再害人性命。对玩家以兄弟相称。",
+      "reward": {
+        "jianghuExp": 200,
+        "karmaBonus": 5
+      }
+    },
+    {
+      "id": "go_jingzhou",
+      "actionType": "go",
+      "targetScene": "jingzhou_city",
+      "description": "赴荆州城,万家师徒与凌退思已齐聚,为连城诀剑拔弩张。",
+      "aiHint": "你随玩家赴荆州城,万家师徒与凌退思为连城诀宝藏剑拔弩张。你心情沉重,此地乃你冤屈之源,师妹戚芳亦死于此。你言众人皆因贪婪而疯魔,唯恐宝藏现世更添血腥。",
+      "reward": {
+        "jianghuExp": 200
+      }
+    },
+    {
+      "id": "fight_wanzhenshan",
+      "actionType": "fight",
+      "targetNPC": "wan_zhenshan",
+      "description": "万震山为夺宝藏出手,败之。",
+      "aiHint": "你乃万震山,荆州大侠,表面豪侠实则阴毒。你为连城诀宝藏,砌墙埋尸、欺师灭祖。你见玩家与狄云同来,冷笑相迎,出手争夺宝藏。你武功不弱,然贪婪蒙心,招招狠辣。你言连城诀本是你万家之物,谁敢染指。",
+      "reward": {
+        "jianghuExp": 350,
+        "reputationBonus": 200
+      }
+    },
+    {
+      "id": "fight_qichangfa",
+      "actionType": "fight",
+      "targetNPC": "qi_changfa",
+      "description": "戚长发阴狠出手,欲独吞宝藏,败之。",
+      "aiHint": "你乃戚长发,外号铁锁横江,狄云之师。你藏拙数十年,故意教错剑法,只为独吞连城诀。你见宝藏近在眼前,撕下淳朴伪装,阴狠出手。你城府极深,招招暗藏杀机。你言人为财死,鸟为食亡,连城诀非你莫属。",
+      "reward": {
+        "jianghuExp": 350,
+        "reputationBonus": 200
+      }
+    },
+    {
+      "id": "kill_lingtuisi",
+      "actionType": "kill",
+      "targetNPC": "ling_tuisi",
+      "description": "凌退思机关算尽,终因觊觎宝藏中毒身亡,了结其罪恶一生。",
+      "aiHint": "你乃凌退思,荆州知府。你机关算尽,毒害丁典、活埋亲女,终因觊觎宝藏触碰金波旬花之毒,命不久矣。你临死仍念念不忘宝藏,癫狂痴笑。你被玩家了结,罪恶一生终得报应。",
+      "reward": {
+        "jianghuExp": 300,
+        "karmaBonus": 10,
+        "items": [
+          {
+            "itemId": "liancheng_jue",
+            "quantity": 1
+          }
+        ]
+      },
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "ling_tuisi",
+            "lines": [
+              "哈哈哈...连城诀...宝藏...都是我的!",
+              "金波旬花...毒...毒发矣...哈哈哈哈..."
+            ]
+          },
+          {
+            "speaker": "旁白",
+            "lines": [
+              "凌退思癫狂而亡,手中紧攥连城诀。",
+              "连城诀之秘,终于现于你手。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tianningsi_treasure",
+      "actionType": "go",
+      "targetScene": "tianningsi",
+      "description": "赴天宁寺,以连城诀开启梁元帝藏宝,乌金袈裟现世。",
+      "aiHint": "你随玩家赴天宁寺,以连城诀开启梁元帝藏宝。佛像之下金银如山,乌金袈裟亦在其中。你感慨连城诀害人无数,宝藏不过是过眼云烟。你言愿将连城剑法授与玩家,自携师妹骨灰归隐,再不涉江湖。",
+      "reward": {
+        "jianghuExp": 400,
+        "items": [
+          {
+            "itemId": "wujin_jiasha",
+            "quantity": 1
+          }
+        ]
+      },
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "旁白",
+            "lines": [
+              "天宁寺佛像之下,金银珠宝堆积如山。",
+              "乌金袈裟静卧其中,上绣连城剑法图谱。"
+            ]
+          },
+          {
+            "speaker": "di_yun",
+            "lines": [
+              "兄弟,这连城剑法乃宝藏之钥,今日传你。",
+              "金银于我如浮云,我携师妹骨灰归隐,再不涉江湖。",
+              "连城诀之祸,终于了结。"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "martialArtId": "liancheng_jianfa",
+    "jianghuExp": 1000,
+    "goldBonus": 5000,
+    "reputationBonus": 1000,
+    "karmaBonus": 20,
+    "items": [
+      {
+        "itemId": "xuedao_blade",
+        "quantity": 1
+      }
+    ]
+  },
+  "completeDialogue": {
+    "lines": [
+      {
+        "speaker": "di_yun",
+        "lines": [
+          "兄弟,连城诀之祸,因你而了结。",
+          "这连城剑法,招招暗合唐诗,乃天下绝学,望你善用。"
+        ]
+      },
+      {
+        "speaker": "di_yun",
+        "lines": [
+          "我狄云一生坎坷,今日终得解脱。",
+          "师妹,我来了...兄弟,后会有期!"
+        ]
+      },
+      {
+        "speaker": "旁白",
+        "lines": [
+          "狄云携戚芳骨灰,隐入苍茫江湖。",
+          "连城诀之祸自此绝迹,你独得天宁寺宝藏与连城剑法,名动天下。"
+        ]
+      }
+    ]
+  },
+  "exclusiveWithQuestIds": [
+    "liancheng_evil"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "jingzhou_city",
+  "name": "荆州城",
+  "description": "荆州古城,长江之畔,商贾云集。万家与凌府盘踞于此,连城诀之祸皆由此起。城中暗流涌动,藏宝之秘牵动人心。",
+  "region": "荆州",
+  "backgroundImagePath": "assets/scenes/jingzhou_city.jpg",
+  "connectedScenes": ["jingzhou_prison", "tianningsi"],
+  "defaultNPCs": ["wan_zhenshan", "wan_gui", "qi_fang", "qi_changfa", "ling_tuisi", "jingzhou_grocery"],
+  "isSpecial": false
+}

@@ -1,0 +1,23 @@
+{
+  "id": "li_yan",
+  "name": "李岩",
+  "type": "npc",
+  "personality": "闯王李自成部将,豪迈忠义,文武双全。红娘子之夫。对闯王忠心耿耿,然终为闯王所疑,悲剧收场。",
+  "description": "闯王李自成部下大将,豪迈忠义,文武双全。妻红娘子亦是一代侠女。随闯王南征北战,屡立战功。后闯王入京骄纵,李岩苦谏不纳,终为闯王所杀。乃碧血剑中一悲剧英雄。",
+  "maxHP": 3200,
+  "maxMP": 2000,
+  "attack": 420,
+  "defense": 360,
+  "speed": 70,
+  "karma": 35,
+  "gender": "男",
+  "defaultScene": "tongguan",
+  "jianghuLevel": 40,
+  "portraitPath": "li_yan.png",
+  "learnedArts": [
+    { "artId": "poyu_quan", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "poyu_quan",
+  "activeLightArtId": "basic_qinggong"
+}

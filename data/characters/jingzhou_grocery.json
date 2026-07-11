@@ -1,0 +1,45 @@
+{
+  "id": "jingzhou_grocery",
+  "name": "张掌柜(杂货)",
+  "type": "npc",
+  "personality": "精明谨慎，为人低调，九省通衢见多识广",
+  "description": "荆州城杂货铺掌柜，南北货物流转之地，蜀锦丝绸与文房书画皆备。",
+  "maxHP": 280,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 12,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 12,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "jingzhou_city",
+  "schedule": {
+    "清晨": "jingzhou_city",
+    "白天": "jingzhou_city",
+    "黄昏": "jingzhou_city",
+    "夜晚": "jingzhou_city"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "shu_jin"
+  ],
+  "shopRandomItems": [
+    "silk",
+    "poetry_book",
+    "fish",
+    "honey",
+    "leather"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

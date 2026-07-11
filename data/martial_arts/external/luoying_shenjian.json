@@ -1,0 +1,28 @@
+{
+  "id": "luoying_shenjian",
+  "name": "落英神剑掌",
+  "type": "external",
+  "description": "桃花岛绝技，掌法飘逸，如落英缤纷。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 2.0,
+  "critChance": 0.3,
+  "cooldown": 1,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "DrainMP",
+      "value": 0.05,
+      "chance": 0.4,
+      "description": "40%概率消耗对方5%内力"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 2.5
+    },
+    "10": {
+      "damageCoefficient": 3.0
+    }
+  }
+}

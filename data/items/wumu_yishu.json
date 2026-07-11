@@ -1,0 +1,11 @@
+{
+  "id": "wumu_yishu",
+  "name": "武穆遗书",
+  "description": "岳武穆岳飞所遗兵法奇书,载有用兵如神之法、行军布阵之妙。得之者可运筹帷幄,决胜千里。传闻藏于皇宫深处的密室之中,为历代兵家所觊觎。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": [],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "copper_ore",
+  "name": "铜矿石",
+  "description": "含铜量尚可的矿石，锻造辅料。",
+  "type": "Material",
+  "value": 30,
+  "stackable": true,
+  "quantity": 1
+}

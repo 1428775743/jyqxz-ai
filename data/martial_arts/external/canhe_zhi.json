@@ -1,0 +1,31 @@
+{
+  "id": "canhe_zhi",
+  "name": "参合指",
+  "type": "external",
+  "description": "姑苏慕容氏上乘指法,取参合之意,指力阴柔绵密,伤人于无形。中招者经脉受损,绵绵流血不止。乃慕容复所精研,与斗转星移相辅相成。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 1.9,
+  "critChance": 0.3,
+  "cooldown": 1,
+  "mpCost": 40,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.3,
+      "chance": 1.0,
+      "description": "指力阴柔:无视30%防御"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.25,
+      "chance": 0.3,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:伤经断脉,30%概率附加流血"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.2 },
+    "10": { "damageCoefficient": 2.5 }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "poyu_quan",
+  "name": "破玉拳",
+  "type": "external",
+  "description": "华山派拳法,刚猛沉雄,拳势如破玉裂石。乃华山弟子入门必修之拳术,根基扎实,连环进击。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 0.6,
+      "chance": 0.2,
+      "description": "连环拳:20%概率连击(60%伤害)"
+    }
+  ],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.95 },
+    "6": { "damageCoefficient": 2.1 }
+  }
+}

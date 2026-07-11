@@ -1,0 +1,169 @@
+{
+  "id": "yitian_main",
+  "name": "倚天屠龙记",
+  "type": "chain",
+  "triggerNpcId": "zhang_wuji",
+  "minFavorabilityToOffer": 5,
+  "relatedNpcIds": [
+    "zhang_sanfeng",
+    "zhao_min",
+    "xie_xun",
+    "cheng_kun"
+  ],
+  "description": "武当山遇张无忌,他身中玄冥神掌寒毒多年,见你骨骼清奇,愿传九阳神功化解寒毒之法。一段牵动倚天剑与屠龙刀、明教兴衰的传奇就此展开——从光明顶解围,到灵蛇岛寻刀,再到以刀剑互斫取出兵法秘籍,你将见证张无忌的成长与江湖恩怨的了结。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      {
+        "speaker": "zhang_wuji",
+        "lines": [
+          "这玄冥神掌的寒毒...折磨我多年,九阳神功方能压制。",
+          "看你根骨不凡,愿学这化寒之法么?"
+        ]
+      },
+      {
+        "speaker": "玩家",
+        "lines": [
+          "愿学!多谢张教主。"
+        ]
+      },
+      {
+        "speaker": "zhang_wuji",
+        "lines": [
+          "叫我无忌便好。这江湖...倚天屠龙,风波将起。"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "learn_jiuyang",
+      "actionType": "talk",
+      "targetNPC": "zhang_wuji",
+      "description": "武当山中遇张无忌,他身中玄冥神掌寒毒多年,见你心性纯良,传你九阳神功以纯阳真气化解寒毒之法。",
+      "aiHint": "玩家前来,你身中玄冥神掌寒毒多年,虽以九阳神功压制,然亦深受其苦。你见玩家骨骼清奇、心性纯良,愿传九阳神功,既助他,亦算报当年武当养育之恩。你言传身教,叮嘱九阳神功需至纯至阳方可大成。",
+      "reward": {
+        "martialArtId": "jiuyang_shengong",
+        "jianghuExp": 150
+      }
+    },
+    {
+      "id": "guangming_siege",
+      "actionType": "fight",
+      "targetNPC": "cheng_kun",
+      "description": "六大门派围攻光明顶,你随张无忌驰援明教。幕后黑手成昆混于其中,与之交锋,揭其阴谋。",
+      "aiHint": "光明顶危急,你随张无忌驰援。成昆这老贼潜伏少林,挑拨六大门派围攻,你与他交锋。他阴险毒辣,玄冥神掌掌力阴寒,你需小心应对。此战为揭其阴谋,亦为明教解围。",
+      "reward": {
+        "jianghuExp": 250,
+        "reputationBonus": 200
+      }
+    },
+    {
+      "id": "become_jiaozhu",
+      "actionType": "go",
+      "targetScene": "guangming_scene",
+      "description": "助张无忌化解明教危机,张无忌被推举为教主。赴光明顶议事,见证明教中兴。",
+      "aiHint": "危机暂解,你随张无忌赴光明顶。明教众人推举张无忌为教主,你见证这一刻。张无忌为人仁厚,你亦为他欣慰。光明顶圣火长明,明教就此中兴,然江湖风波未息。",
+      "reward": {
+        "jianghuExp": 200
+      }
+    },
+    {
+      "id": "find_xie_xun",
+      "actionType": "talk",
+      "targetNPC": "xie_xun",
+      "description": "谢逊隐居东海灵蛇岛,携屠龙刀多年。寻访谢逊,问屠龙刀下落与其中秘密。",
+      "aiHint": "玩家远渡灵蛇岛寻访你,你双目失明多年,凭声音辨人。你是张无忌义父,见玩家与无忌相熟,愿与之相交。你谈及屠龙刀与其中所藏武穆遗书之秘,然屠龙刀之秘关乎天下,你亦不愿轻泄。",
+      "reward": {
+        "jianghuExp": 200,
+        "reputationBonus": 100
+      }
+    },
+    {
+      "id": "tulong_secret",
+      "actionType": "go",
+      "targetScene": "lingshe_island",
+      "description": "灵蛇岛上得知屠龙刀中藏有武穆遗书兵法,得谢逊相赠屠龙刀,肩负此武林至宝。",
+      "aiHint": "谢逊相赠屠龙刀,你肩负此武林至宝。刀中藏有岳武穆的兵法,乃保家卫国之宝。谢逊言此刀刀剑互斫方可取秘,然需先寻得倚天剑。你携刀离去,心知此物将引来无数觊觎。",
+      "reward": {
+        "items": [
+          {
+            "itemId": "tulong_dao",
+            "quantity": 1
+          }
+        ],
+        "jianghuExp": 300
+      }
+    },
+    {
+      "id": "yitian_secret",
+      "actionType": "fight",
+      "targetNPC": "zhao_min",
+      "description": "赵敏设计夺取倚天剑,与之交锋。胜后得倚天剑,剑中藏九阴真经残卷。",
+      "aiHint": "赵敏这丫头狡黠多变,设计夺倚天剑。你与之交锋,她虽武功不弱,然非你敌手。胜后你夺得倚天剑,剑中藏有九阴真经残卷。赵敏虽败,然对你亦生情愫,离去时言语间颇多曲折。",
+      "reward": {
+        "items": [
+          {
+            "itemId": "yitian_jian",
+            "quantity": 1
+          }
+        ],
+        "jianghuExp": 300,
+        "reputationBonus": 200
+      }
+    },
+    {
+      "id": "decode_secret",
+      "actionType": "talk",
+      "targetNPC": "zhang_wuji",
+      "description": "以倚天剑与屠龙刀互斫,取出武穆遗书与九阴真经残卷。张无忌感念你之义,传你乾坤大挪移神功。",
+      "aiHint": "玩家以刀剑互斫,取出武穆遗书与九阴真经残卷,你见证此武林至秘。你感念玩家之义,愿传乾坤大挪移神功。此功为明教镇教之宝,你传之,亦是托付明教之意。你言此功借力打力,以彼之道还施彼身,修至大成可反弹敌攻。",
+      "reward": {
+        "martialArtId": "qiankun_danuoyi",
+        "items": [
+          {
+            "itemId": "wumu_yishu",
+            "quantity": 1
+          }
+        ],
+        "jianghuExp": 400
+      },
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "旁白",
+            "lines": [
+              "倚天剑与屠龙刀互斫,火星四溅,终于各现其秘。"
+            ]
+          },
+          {
+            "speaker": "zhang_wuji",
+            "lines": [
+              "武穆遗书、九阴真经...郭大侠与黄帮主所藏,今日终见天日。",
+              "这乾坤大挪移乃明教镇教之宝,我传你,亦是托付之意。"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 500,
+    "goldBonus": 3000,
+    "reputationBonus": 1500
+  },
+  "completeDialogue": {
+    "lines": [
+      {
+        "speaker": "zhang_wuji",
+        "lines": [
+          "倚天屠龙之事已了,江湖却永无宁日。",
+          "望你持此武功兵法,行侠仗义,莫负苍生。"
+        ]
+      }
+    ]
+  },
+  "exclusiveWithQuestIds": [
+    "yitian_evil"
+  ]
+}

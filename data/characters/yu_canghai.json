@@ -1,0 +1,42 @@
+{
+  "id": "yu_canghai",
+  "name": "余沧海",
+  "type": "npc",
+  "personality": "阴险狠毒,贪婪无度,为夺辟邪剑谱不惜灭人满门。表面是青城派掌门,实则心术不正。",
+  "description": "青城派当代掌门,矮瘦阴鸷,人称'松风剑客'。为夺辟邪剑谱,与塞北明驼木高峰勾结血洗福威镖局七十余口,死有余辜。剑法称'松风剑法',却尽是阴狠杀招。",
+  "maxHP": 4500,
+  "maxMP": 2500,
+  "attack": 600,
+  "defense": 520,
+  "speed": 80,
+  "relations": {},
+  "factionId": "qingcheng",
+  "karma": 5,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "defaultScene": "qingcheng_pai",
+  "schedule": {
+    "清晨": "qingcheng_pai",
+    "白天": "qingcheng_pai",
+    "黄昏": "qingcheng_pai",
+    "夜晚": "qingcheng_pai"
+  },
+  "jianghuLevel": 35,
+  "craftSkills": {
+    "art": 20,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 10,
+    "medicine": 30
+  },
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "wudang_xinfa", "proficiencyLevel": 6 },
+    { "artId": "basic_sword", "proficiencyLevel": 5 },
+    { "artId": "songfeng_jianfa", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "wudang_xinfa",
+  "activeExternalArtId": "songfeng_jianfa",
+  "portraitPath": "yu_canghai.png"
+}

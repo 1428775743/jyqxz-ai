@@ -1,0 +1,10 @@
+{
+  "id": "jinbo_xunhua",
+  "name": "金波旬花",
+  "description": "西域奇毒之花,花瓣金黄,触之即中毒,无药可解。凌退思以此花之毒害丁典于狱中,沾之片刻便七窍流血而亡。江湖中人闻之色变。",
+  "type": "Material",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

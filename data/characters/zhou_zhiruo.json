@@ -1,0 +1,45 @@
+{
+  "id": "zhou_zhiruo",
+  "name": "周芷若",
+  "type": "npc",
+  "personality": "外柔内刚,因爱生恨。本性善良,然为师命与情伤所困,误入歧途,性情大变。",
+  "description": "峨眉派掌门灭绝师太之徒,后继任掌门。与张无忌有婚约之约,却因赵敏之事生变。误得倚天剑中九阴真经残卷,练成九阴白骨爪,性情渐趋阴鸷。屠狮大会上原形毕露。",
+  "maxHP": 3500,
+  "maxMP": 2600,
+  "attack": 440,
+  "defense": 300,
+  "speed": 85,
+  "relations": {
+    "zhang_wuji": "情伤"
+  },
+  "factionId": null,
+  "karma": 0,
+  "gender": "女",
+  "hiddenPower": true,
+  "isSectLeader": false,
+  "defaultScene": "shaolin_hall",
+  "schedule": {
+    "清晨": "shaolin_hall",
+    "白天": "shaolin_hall",
+    "黄昏": "shaolin_hall",
+    "夜晚": "shaolin_hall"
+  },
+  "jianghuLevel": 35,
+  "craftSkills": {
+    "art": 50,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 25,
+    "medicine": 30
+  },
+  "portraitPath": "zhou_zhiruo.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "jiuyin_jian", "proficiencyLevel": 7 },
+    { "artId": "basic_sword", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "jiuyin_jian",
+  "activeLightArtId": "basic_qinggong"
+}

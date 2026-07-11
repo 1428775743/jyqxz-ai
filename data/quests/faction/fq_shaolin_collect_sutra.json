@@ -1,0 +1,22 @@
+{
+  "id": "fq_shaolin_collect_sutra",
+  "name": "寻回散落的金刚经",
+  "type": "faction",
+  "description": "少林藏经阁近日清点发现缺少两册金刚经卷，疑有江湖中人盗走。望门下弟子或善心人士代为寻回。",
+  "factionId": "shaolin",
+  "issuerNpcId": "shaolin_disciple_hui",
+  "difficulty": "normal",
+  "requiredItems": [
+    { "itemId": "sutra_diamond", "quantity": 2 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向慧明小师弟提交金刚经 x2", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 50,
+    "reputationBonus": 25,
+    "factionContributionBonus": 20,
+    "factionIdForContribution": "shaolin",
+    "jianghuExp": 10
+  }
+}

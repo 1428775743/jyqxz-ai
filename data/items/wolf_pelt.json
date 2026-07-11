@@ -1,0 +1,10 @@
+{
+  "id": "wolf_pelt",
+  "name": "狼皮",
+  "description": "完整的狼皮一张，毛色油亮，可制裘衣。",
+  "type": "Material",
+  "value": 60,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

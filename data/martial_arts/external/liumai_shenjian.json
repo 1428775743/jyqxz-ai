@@ -1,0 +1,37 @@
+{
+  "id": "liumai_shenjian",
+  "name": "六脉神剑",
+  "type": "external",
+  "description": "大理段氏至高无上绝学,以浑厚内力化作无形剑气,自指尖六脉激射而出,可伤人于无形之间。剑气凌厉,无视护体,连绵不绝,修至大成剑气透体,真伤难挡。",
+  "maxLevel": 10,
+  "rarity": "mythic",
+  "damageCoefficient": 3.0,
+  "critChance": 0.4,
+  "cooldown": 2,
+  "mpCost": 90,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.6,
+      "chance": 1.0,
+      "description": "无形剑气:无视60%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.85,
+      "chance": 0.3,
+      "description": "剑气连绵:30%概率连击(85%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.2,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:剑气透体,附带20%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 3.4 },
+    "10": { "damageCoefficient": 4.2 }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "fq_shaolin_bandit_medium",
+  "name": "荡平黑风岭外围",
+  "type": "faction",
+  "description": "黑风岭山贼日益猖獗，已威胁到少林周边的商路安全。门派欲派弟子荡平其外围据点。",
+  "factionId": "shaolin",
+  "dungeonId": "bandit_medium",
+  "difficulty": "medium",
+  "steps": [
+    { "id": "clear", "description": "清剿黑风岭外围山贼", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 100,
+    "reputationBonus": 50,
+    "factionContributionBonus": 35,
+    "factionIdForContribution": "shaolin",
+    "jianghuExp": 25
+  }
+}

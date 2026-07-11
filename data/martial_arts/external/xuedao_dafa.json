@@ -1,0 +1,44 @@
+{
+  "id": "xuedao_dafa",
+  "name": "血刀大法",
+  "type": "external",
+  "description": "西藏血刀门至高刀法,刀势诡谲狠辣,出刀如血光乍现,招招攻敌必救。连环血刀层层叠进,修至大成刀气透骨,嗜血追魂,一刀既出煞气难挡。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.6,
+  "critChance": 0.3,
+  "cooldown": 2,
+  "mpCost": 85,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.4,
+      "chance": 1.0,
+      "description": "刀势诡谲:无视40%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.75,
+      "chance": 0.25,
+      "description": "连环血刀:25%概率连击(75%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:血刀透骨,附带15%真实伤害"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 0.7,
+      "chance": 0.3,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁:嗜血追魂,30%概率追加一次攻击(70%伤害)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 3.0 },
+    "10": { "damageCoefficient": 3.6 }
+  }
+}

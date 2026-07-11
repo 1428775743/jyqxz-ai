@@ -1,0 +1,21 @@
+{
+  "id": "wang_yuyan",
+  "name": "王语嫣",
+  "type": "npc",
+  "personality": "温婉痴情,博闻强记,熟读天下武学典籍却不谙武功。一片痴心系于慕容复。",
+  "description": "曼陀山庄王夫人之女,容貌清丽,酷似无量山玉像。虽不谙武功,却熟读天下武学典籍,对各派招式了如指掌,常于旁指点破招。痴恋表哥慕容复,一路相随。段誉视之为神仙姐姐,倾心不已。",
+  "maxHP": 1500,
+  "maxMP": 2000,
+  "attack": 80,
+  "defense": 100,
+  "speed": 40,
+  "karma": 60,
+  "gender": "女",
+  "defaultScene": "mantuoshan",
+  "jianghuLevel": 20,
+  "portraitPath": "wang_yuyan.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 1 }
+  ],
+  "activeInternalArtId": "basic_qigong"
+}

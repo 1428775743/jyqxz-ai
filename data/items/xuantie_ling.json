@@ -1,0 +1,12 @@
+{
+  "id": "xuantie_ling",
+  "name": "玄铁令",
+  "description": "摩天崖主谢烟客所铸之玄铁令牌,持此令者可令谢烟客做任意一事,绝不推辞。乃江湖中人人觊觎之物,适合赠予重诺之武者。",
+  "type": "Gift",
+  "value": 4000,
+  "stackable": false,
+  "quantity": 1,
+  "giftFavorBonus": 25,
+  "giftPreference": "武者",
+  "rarity": "legendary"
+}

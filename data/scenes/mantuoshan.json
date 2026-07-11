@@ -1,0 +1,10 @@
+{
+  "id": "mantuoshan",
+  "name": "曼陀山庄",
+  "description": "燕子坞畔,茶花满庄。王夫人之女王语嫣居此,容貌清丽,酷似无量山玉像。庄中武学典籍汗牛充栋,语嫣虽不谙武功,却于旁指点破招,天下武学皆在胸中。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/mantuoshan.jpg",
+  "connectedScenes": ["yanziwu"],
+  "defaultNPCs": ["wang_yuyan"],
+  "isSpecial": false
+}

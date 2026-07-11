@@ -1,0 +1,55 @@
+{
+  "id": "wudang_disciple_qing",
+  "name": "清风道长",
+  "type": "npc",
+  "personality": "温文尔雅，道心坚定，太极功夫颇有造诣",
+  "description": "武当派入室弟子，跟随张三丰修行多年，太极剑法已入门径。",
+  "maxHP": 1200,
+  "maxMP": 600,
+  "attack": 140,
+  "defense": 130,
+  "speed": 65,
+  "relations": {},
+  "factionId": "wudang",
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "quest_giver",
+  "defaultScene": "wudang_hall",
+  "schedule": {
+    "清晨": "wudang_hall",
+    "白天": "wudang_hall",
+    "黄昏": "wudang_hall",
+    "夜晚": "wudang_hall"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 35,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 20,
+    "medicine": 30
+  },
+  "portraitPath": "wudang_disciple_qing.png",
+  "learnedArts": [
+    {
+      "artId": "wudang_basic_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_xinfa",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "wudang_mianzhang",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeInternalArtId": "wudang_xinfa",
+  "activeExternalArtId": "wudang_mianzhang"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "liujiacun_house",
+  "name": "村民住所",
+  "description": "刘家村中一处朴实的院落，屋内陈设简朴，桌上放着茶具。村长常在这里招待来往的客人，讲述刘家村曾经的江湖往事。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/liujiacun_house.jpg",
+  "connectedScenes": ["liujiacun_scene"],
+  "defaultNPCs": ["liu_chief"],
+  "isSpecial": false
+}

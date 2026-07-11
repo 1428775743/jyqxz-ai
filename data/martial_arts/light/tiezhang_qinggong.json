@@ -1,0 +1,23 @@
+{
+  "id": "tiezhang_qinggong",
+  "name": "铁掌水上漂",
+  "type": "light",
+  "description": "铁掌帮主裘千仞的独门轻功,掌力踏水可于湖面行走不沉,身法快逾奔马。江湖中论轻功之妙,与裘千仞齐名者寥寥。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.25,
+      "chance": 0.25,
+      "description": "踏水如风:被攻击时25%概率完全闪避"
+    },
+    {
+      "type": "PassiveDamageReduction",
+      "value": 0.1,
+      "chance": 1.0,
+      "description": "身法卸力:受到攻击时减伤10%"
+    }
+  ],
+  "levelBonuses": {}
+}

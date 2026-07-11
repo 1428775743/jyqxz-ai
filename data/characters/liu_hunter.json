@@ -1,0 +1,56 @@
+{
+  "id": "liu_hunter",
+  "name": "老刘头(猎人)",
+  "type": "npc",
+  "personality": "沉默寡言，箭法精准，熟悉山中一草一木",
+  "description": "刘家村后山的老猎人，打了一辈子猎，山中的兽道鸟径他闭着眼都能找到。偶尔也卖些猎物和皮毛。",
+  "maxHP": 500,
+  "maxMP": 100,
+  "attack": 80,
+  "defense": 45,
+  "speed": 55,
+  "relations": {},
+  "factionId": null,
+  "karma": 20,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_backhill",
+    "白天": "liujiacun_backhill",
+    "黄昏": "liujiacun_scene",
+    "夜晚": "liujiacun_scene"
+  },
+  "npcRole": "hunter",
+  "jianghuLevel": 5,
+  "shopFixedItems": [
+    "dried_meat",
+    "rabbit_fur"
+  ],
+  "shopRandomItems": [
+    "wolf_pelt",
+    "deer_antler",
+    "pheasant_feather",
+    "leather",
+    "wild_mushroom",
+    "fish",
+    "wild_ginseng"
+  ],
+  "craftSkills": {
+    "mining": 10,
+    "gathering": 15
+  },
+  "portraitPath": "liu_hunter.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

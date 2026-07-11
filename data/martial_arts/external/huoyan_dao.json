@@ -1,0 +1,30 @@
+{
+  "id": "huoyan_dao",
+  "name": "火焰刀",
+  "type": "external",
+  "description": "西域番僧所修刀法,以浑厚内力催动刀气如火焰般灼热,远隔数丈可伤人。刀气所至,灼热难当,乃西域一绝。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.9,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 35,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.15,
+      "chance": 0.25,
+      "description": "灼热刀气:25%概率附加灼伤流血"
+    },
+    {
+      "type": "Knockback",
+      "value": 0.2,
+      "chance": 0.2,
+      "description": "刀势刚猛:20%概率击退对方"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.1 },
+    "10": { "damageCoefficient": 2.5 }
+  }
+}

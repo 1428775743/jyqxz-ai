@@ -1,0 +1,67 @@
+{
+  "id": "kong_zhi",
+  "name": "空智大师",
+  "type": "npc",
+  "personality": "慈悲为怀，佛法精深，武功高强",
+  "description": "少林寺方丈，四大神僧之一，精通少林七十二绝技。",
+  "maxHP": 5500,
+  "maxMP": 3500,
+  "attack": 700,
+  "defense": 750,
+  "speed": 80,
+  "relations": {},
+  "factionId": "shaolin",
+  "karma": 95,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "defaultScene": "shaolin_hall",
+  "schedule": {
+    "清晨": "shaolin_hall",
+    "白天": "shaolin_hall",
+    "黄昏": "shaolin_hall",
+    "夜晚": "shaolin_hall"
+  },
+  "jianghuLevel": 35,
+  "craftSkills": {
+    "art": 30,
+    "forging": 10,
+    "mining": 10,
+    "gathering": 30,
+    "medicine": 60
+  },
+  "portraitPath": "kong_zhi.png",
+  "learnedArts": [
+    {
+      "artId": "shaolin_luohan_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shaolin_bore",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "yijin_jing",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "shaolin_luohan_quan",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shaolin_qinna",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "shaolin_long爪",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "yiwei_dujiang",
+      "proficiencyLevel": 9
+    }
+  ],
+  "activeInternalArtId": "yijin_jing",
+  "activeExternalArtId": "shaolin_long爪",
+  "activeLightArtId": "yiwei_dujiang"
+}

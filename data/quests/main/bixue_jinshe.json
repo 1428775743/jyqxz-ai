@@ -1,0 +1,78 @@
+{
+  "id": "bixue_jinshe",
+  "name": "碧血剑·金蛇",
+  "type": "chain",
+  "triggerNpcId": "wen_qingqing",
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["wen_yi", "wen_fangda", "wen_fangshan", "xia_xueyi"],
+  "description": "石梁温家,金蛇郎君夏雪宜埋骨之地。温青青邀你同往温家,温仪讲述夏雪宜与金蛇秘笈之悲剧。温家五老刁难,败之,方可寻得金蛇秘笈与金蛇剑,习金蛇剑法。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "wen_qingqing", "lines": ["这位侠士,我温青青,这身男装莫怪。", "我爹爹金蛇郎君夏雪宜,昔年遭温家五老暗算,埋骨石梁。"] },
+      { "speaker": "玩家", "lines": ["温姑娘有何事需相助?"] },
+      { "speaker": "wen_qingqing", "lines": ["温家五老囚禁我娘多年,更觊觎金蛇秘笈。", "侠士若肯同往石梁,助我了却恩怨,青青感激不尽!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "to_shiliang",
+      "actionType": "talk",
+      "targetNPC": "wen_qingqing",
+      "description": "随温青青至石梁温家,温家五老阴险刁难。",
+      "aiHint": "玩家随你至石梁温家。你机灵刁蛮,对温家五老心存戒备。你言五老阴险毒辣,囚禁你娘温仪多年,更觊觎金蛇秘笈。你带玩家见温仪,望其助你了却恩怨。对玩家以侠士相称,渐生情愫。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "wenyi_story",
+      "actionType": "talk",
+      "targetNPC": "wen_yi",
+      "description": "温仪讲述夏雪宜与金蛇秘笈之悲剧,嘱你寻得秘笈。",
+      "aiHint": "你乃温仪,温家大小姐,被囚多年。你向玩家讲述与夏雪宜相恋、遭温家五老暗算之事。你言夏雪宜临终将金蛇秘笈藏于隐秘处,望有人寻得,了却其遗愿。你温婉贞静,语气悲切,提及夏雪宜时泪眼朦胧。你嘱玩家寻得秘笈,传于青青。",
+      "reward": { "jianghuExp": 250, "karmaBonus": 5 }
+    },
+    {
+      "id": "fight_fangda",
+      "actionType": "fight",
+      "targetNPC": "wen_fangda",
+      "description": "温家五老之首温方达刁难出手,败之。",
+      "aiHint": "你乃温方达,温家五老之首。你见玩家与温青青同来,阴险刁难,出手相抗。你擅金蛇游身掌,老谋深算,招招暗藏杀机。你言金蛇秘笈乃温家之物,谁敢染指。你为夺秘笈不择手段,败后仍桀骜不驯。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 200 }
+    },
+    {
+      "id": "fight_fangshan",
+      "actionType": "fight",
+      "targetNPC": "wen_fangshan",
+      "description": "温方山随兄为恶,再败之。",
+      "aiHint": "你乃温方山,温家五老之一。你随长兄为恶,见温方达败北,阴狠出手。你擅金蛇游身掌,武功不弱。你言温家岂容外人放肆,誓夺金蛇秘笈。败后心惊,方知玩家之强。",
+      "reward": { "jianghuExp": 350, "reputationBonus": 200 }
+    },
+    {
+      "id": "find_miji",
+      "actionType": "talk",
+      "targetNPC": "wen_qingqing",
+      "description": "寻得金蛇秘笈与金蛇剑,习金蛇剑法。",
+      "aiHint": "温家五老败退,你与玩家寻得金蛇秘笈与金蛇剑。你感念玩家相助,将金蛇剑法相授。你机灵刁蛮中带感动,言此乃父亲毕生所悟,望玩家善用。你提及母亲温仪终得脱困,喜极而泣。对玩家以侠士相称,情意渐深。",
+      "reward": { "martialArtId": "jinshe_jianfa", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "wen_qingqing", "lines": ["侠士,这便是金蛇秘笈与金蛇剑!", "我爹爹毕生所悟的金蛇剑法,今日传你。"] },
+          { "speaker": "xia_xueyi", "lines": ["（忆中）金蛇剑法,剑走偏锋,诡谲凌厉...望得此剑者,善用之。"] },
+          { "speaker": "wen_qingqing", "lines": ["娘亲终得脱困,青青...多谢侠士!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 15,
+    "items": [ { "itemId": "jinshe_jian", "quantity": 1 }, { "itemId": "jinshe_sword", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "wen_qingqing", "lines": ["这金蛇剑,乃爹爹遗物,今日赠你。", "金蛇剑法配金蛇剑,方能发挥十成威力。"] },
+      { "speaker": "玩家", "lines": ["温姑娘,金蛇秘笈之恩,在下铭记。", "令尊遗愿,我定助你完成。"] }
+    ]
+  }
+}

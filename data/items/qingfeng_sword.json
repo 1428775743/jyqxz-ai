@@ -1,0 +1,14 @@
+{
+  "id": "qingfeng_sword",
+  "name": "青锋剑",
+  "description": "青钢所铸长剑,剑身修长,寒光凛凛,初入江湖者的趁手利器。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 40,
+  "defenseBonus": 0,
+  "value": 250,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

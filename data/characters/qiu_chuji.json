@@ -1,0 +1,47 @@
+{
+  "id": "qiu_chuji",
+  "name": "丘处机",
+  "type": "npc",
+  "personality": "刚直豪迈,嫉恶如仇,道行高深。全真七子之首,铁骨铮铮,曾万里西行劝谏成吉思汗止杀。",
+  "description": "全真教掌门,全真七子之首,道号长春子。武功高强,全真剑法已臻化境。性刚直,嫉恶如仇,为江湖正道之柱石。座下弟子众多,然对赵志敬之流颇有微词。",
+  "maxHP": 4200,
+  "maxMP": 3200,
+  "attack": 520,
+  "defense": 380,
+  "speed": 78,
+  "relations": {
+    "wang_chongyang": "Master",
+    "sun_buer": "同门",
+    "zhao_zhijing": "Disciple"
+  },
+  "factionId": "quanzhen",
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": true,
+  "isTrainer": true,
+  "defaultScene": "quanzhen_hall",
+  "schedule": {
+    "清晨": "quanzhen_hall",
+    "白天": "quanzhen_hall",
+    "黄昏": "quanzhen_hall",
+    "夜晚": "quanzhen_hall"
+  },
+  "jianghuLevel": 40,
+  "craftSkills": {
+    "art": 50,
+    "forging": 20,
+    "mining": 15,
+    "gathering": 30,
+    "medicine": 25
+  },
+  "portraitPath": "qiu_chuji.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "quanzhen_neigong", "proficiencyLevel": 8 },
+    { "artId": "quanzhen_jianfa", "proficiencyLevel": 9 },
+    { "artId": "tian_gang_beidou", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "quanzhen_neigong",
+  "activeExternalArtId": "quanzhen_jianfa"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "liumai_manual",
+  "name": "六脉神剑剑谱",
+  "description": "大理天龙寺所藏六脉神剑图谱,以浑厚内力化无形剑气,自六脉激射而出。天下第一指法绝学,非内力深厚者不可修。",
+  "type": "Manual",
+  "value": 8000,
+  "stackable": false,
+  "containedArtIds": ["liumai_shenjian"],
+  "prerequisite": {
+    "requiredAttack": 250
+  },
+  "rarity": "mythic"
+}

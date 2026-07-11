@@ -1,0 +1,10 @@
+{
+  "id": "huashan_path",
+  "name": "华山小径",
+  "description": "华山山间小道，险峻异常，常有华山弟子在此练剑。",
+  "region": "华山",
+  "backgroundImagePath": "assets/scenes/huashan_path.jpg",
+  "connectedScenes": ["huashan_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

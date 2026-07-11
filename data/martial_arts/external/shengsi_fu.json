@@ -1,0 +1,37 @@
+{
+  "id": "shengsi_fu",
+  "name": "生死符",
+  "type": "external",
+  "description": "天山童姥所创阴毒暗器手法,以阴寒内力凝薄如蝉翼之符种入敌体。中符者奇痒剧痛交加,内力被封,求生不得求死不能,三日内受尽生死煎熬。乃灵鹫宫镇宫绝学之一。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 1.6,
+  "critChance": 0.15,
+  "cooldown": 2,
+  "mpCost": 55,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.4,
+      "chance": 0.8,
+      "description": "种入生死符:80%概率附加流血(持续3回合)"
+    },
+    {
+      "type": "Stun",
+      "value": 1.0,
+      "chance": 0.25,
+      "description": "痛极失力:25%概率定身"
+    },
+    {
+      "type": "DrainMP",
+      "value": 0.2,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:封人内力,吸取20%当前内力"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 1.9 },
+    "10": { "damageCoefficient": 2.2 }
+  }
+}

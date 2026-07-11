@@ -1,0 +1,59 @@
+{
+  "id": "quanzhen_story",
+  "name": "全真风雨",
+  "type": "chain",
+  "triggerNpcId": "zhao_zhijing",
+  "requireSameFaction": true,
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["qiu_chuji"],
+  "description": "你拜入全真教,却被杂役头目赵志敬百般刁难,安排劈柴挑水的苦差。这位心胸狭窄的师兄嫉妒你的资质,处处与你为难,一场风波似乎在所难免。",
+  "difficulty": "normal",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "zhao_zhijing", "lines": ["新来的?哼,重阳宫不养闲人。", "从今日起,劈柴挑水、洒扫庭院,都归你管。莫要偷懒!"] },
+      { "speaker": "玩家", "lines": ["弟子谨遵师兄教诲。"] },
+      { "speaker": "zhao_zhijing", "lines": ["哼,倒还识相。记住,这里我说了算。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "accept_chore",
+      "actionType": "talk",
+      "targetNPC": "zhao_zhijing",
+      "description": "赵志敬安排你劈柴挑水的杂役差事,在山道上受其百般刁难。",
+      "aiHint": "玩家是你门下的新弟子,你嫉妒他的资质,故意安排苦差刁难他。表面冠冕堂皇说是磨练,实则处处找茬,言语带刺。你态度倨傲刻薄,处处压他一头。",
+      "reward": { "jianghuExp": 50 }
+    },
+    {
+      "id": "refuse_conflict",
+      "actionType": "talk",
+      "targetNPC": "zhao_zhijing",
+      "description": "忍无可忍,与赵志敬当众决裂,被指为忘恩负义的逆徒。",
+      "aiHint": "玩家终于忍无可忍与你当众顶撞。你恼羞成怒,搬出师门规矩压他,当众指他为逆徒,扬言要禀告掌门逐他出门。你态度蛮横,倒打一耙。",
+      "reward": { "jianghuExp": 80, "karmaBonus": 10 }
+    },
+    {
+      "id": "leave_mountain",
+      "actionType": "go",
+      "targetScene": "quanzhen_mountain_path",
+      "description": "被逐出重阳宫,黯然下山。山道尽头的密林中,似乎别有洞天——传闻那便是活死人墓的所在。",
+      "aiHint": "玩家被逐下山,你心中得意又隐隐心虚。此事已惊动掌门丘处机,你对玩家放狠话后转身离去,警告他莫要再踏入重阳宫半步。山道尽头那活死人墓的所在,玩家此去或有机缘。",
+      "reward": { "jianghuExp": 100 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "zhao_zhijing", "lines": ["滚!重阳宫容不下你这等逆徒!", "日后莫要再踏入山门半步!"] },
+          { "speaker": "旁白", "lines": ["你黯然走下终南山,回首重阳宫巍峨殿宇,心中五味杂陈。", "山道尽头密林深处,似有别样天地——传闻那便是活死人墓的所在。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 150,
+    "reputationBonus": 50
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["全真风雨已了,你黯然离去,前路茫茫。"] }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "leather_armor",
+  "name": "皮甲",
+  "description": "轻便的皮甲，可以提供基本的防护。江湖行脚商贩与低阶武人常备。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 15,
+  "value": 80,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

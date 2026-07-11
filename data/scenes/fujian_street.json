@@ -1,0 +1,10 @@
+{
+  "id": "fujian_street",
+  "name": "福州街头",
+  "description": "福州城内最繁华的街道,商铺林立,人来人往。福威镖局的青砖大门就在街道尽头,镖局门口的石狮虽未拆去,却已是物是人非。",
+  "region": "福建",
+  "backgroundImagePath": "assets/scenes/fujian_street.jpg",
+  "connectedScenes": ["fuwei_biaoju"],
+  "defaultNPCs": ["fujian_grocery"],
+  "isSpecial": false
+}

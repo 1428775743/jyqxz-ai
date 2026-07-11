@@ -1,0 +1,12 @@
+{
+  "id": "puer_tea",
+  "name": "普洱茶",
+  "description": "滇南所产普洱茶饼，陈香醇厚，消食化滞，大理一带商队常备之物。",
+  "type": "Gift",
+  "value": 70,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 8,
+  "giftPreference": "文人",
+  "rarity": "common"
+}

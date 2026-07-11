@@ -1,0 +1,49 @@
+{
+  "id": "hong_qigong",
+  "name": "洪七公",
+  "type": "npc",
+  "personality": "豪迈贪嘴,嫉恶如仇,行侠仗义。平生唯二爱好:除暴安良与天下美食。虽为丐帮帮主,却不拘小节,云游四方。",
+  "description": "丐帮第十八代帮主,江湖五绝之'北丐',人称九指神丐。因贪吃误事自断一指,武功登峰造极,降龙十八掌与打狗棒法天下无双。性嗜美食,有叫花鸡则万事好商量。",
+  "maxHP": 5200,
+  "maxMP": 4000,
+  "attack": 780,
+  "defense": 560,
+  "speed": 90,
+  "relations": {
+    "guo_jing": "Disciple",
+    "huang_rong": "Disciple"
+  },
+  "factionId": null,
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isTrainer": true,
+  "defaultScene": "huanggu_cave",
+  "schedule": {
+    "清晨": "huanggu_cave",
+    "白天": "huanggu_cave",
+    "黄昏": "huanggu_cave",
+    "夜晚": "huanggu_cave"
+  },
+  "jianghuLevel": 55,
+  "craftSkills": {
+    "art": 30,
+    "forging": 20,
+    "mining": 10,
+    "gathering": 40,
+    "medicine": 15
+  },
+  "portraitPath": "hong_qigong.png",
+  "equippedWeaponId": "jinsi_gauntlet",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 8 },
+    { "artId": "jiuyin_zhenjing", "proficiencyLevel": 7 },
+    { "artId": "xianglong_18", "proficiencyLevel": 10 },
+    { "artId": "dagou_bangfa", "proficiencyLevel": 10 },
+    { "artId": "caoshang_fei", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "xianglong_18",
+  "activeLightArtId": "caoshang_fei"
+}

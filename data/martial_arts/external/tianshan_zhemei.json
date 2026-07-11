@@ -1,0 +1,37 @@
+{
+  "id": "tianshan_zhemei",
+  "name": "天山折梅手",
+  "type": "external",
+  "description": "灵鹫宫绝学,三路掌法包罗万有,可拆解天下武学招式。敌招攻来,以折梅手法化而击之,顺势反击,后发先至。修至大成,掌影连绵,攻势不绝。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.4,
+  "critChance": 0.3,
+  "cooldown": 2,
+  "mpCost": 60,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 0.7,
+      "chance": 0.45,
+      "description": "拆解反击:被攻击时45%概率自动反击"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.4,
+      "chance": 1.0,
+      "description": "手法精妙:无视40%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.85,
+      "chance": 0.25,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:掌影连绵,25%概率连击"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.7 },
+    "10": { "damageCoefficient": 3.1 }
+  }
+}

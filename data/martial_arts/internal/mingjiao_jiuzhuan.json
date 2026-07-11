@@ -1,0 +1,31 @@
+{
+  "id": "mingjiao_jiuzhuan",
+  "name": "明教九转功",
+  "type": "internal",
+  "description": "明教进阶内功，九转归元，每转一层功力大增，修炼至大成可源源不绝。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "cooldown": 3,
+  "mpCost": 55,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 350,
+  "attackBonusPerLevel": 30,
+  "defenseBonusPerLevel": 25,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.06,
+      "chance": 1.0,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁：每回合恢复6%内力"
+    },
+    {
+      "type": "DrainMP",
+      "value": 0.05,
+      "chance": 0.4,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁：40%概率吸取对方5%内力"
+    }
+  ],
+  "levelBonuses": {}
+}

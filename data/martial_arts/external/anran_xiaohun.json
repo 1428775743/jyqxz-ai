@@ -1,0 +1,34 @@
+{
+  "id": "anran_xiaohun",
+  "name": "黯然销魂掌",
+  "type": "external",
+  "description": "杨过自创掌法，唯有心中悲伤时方能发挥最大威力。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.2,
+  "critChance": 0.4,
+  "cooldown": 3,
+  "mpCost": 100,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.2,
+      "chance": 0.7,
+      "description": "悲痛之力无视20%防御"
+    },
+    {
+      "type": "Stun",
+      "value": 0.15,
+      "chance": 0.15,
+      "description": "15%概率使对方眩晕"
+    }
+  ],
+  "levelBonuses": {
+    "5": {
+      "damageCoefficient": 2.8
+    },
+    "10": {
+      "damageCoefficient": 3.5
+    }
+  }
+}

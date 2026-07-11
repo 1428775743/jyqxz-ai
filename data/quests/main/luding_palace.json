@@ -1,0 +1,145 @@
+{
+  "id": "luding_palace",
+  "name": "鹿鼎记·宫廷",
+  "type": "chain",
+  "triggerNpcId": "kangxi",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": [
+    "hai_dafu",
+    "aobai",
+    "jianing_princess",
+    "mu_jianping"
+  ],
+  "description": "少年康熙,英主之姿,与韦小宝摔跤结友。你入紫禁城,与康熙共谋擒鳌拜。海大富阴险出手,败之习阴阳玄功;再败满洲第一勇士鳌拜,得金刚拳。康熙赏你金丝宝衣与含沙射影暗器,封鹿鼎公。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      {
+        "speaker": "kangxi",
+        "lines": [
+          "你是何人?竟敢擅入紫禁城。",
+          "看你不似宫中之人,倒有几分胆色。"
+        ]
+      },
+      {
+        "speaker": "玩家",
+        "lines": [
+          "在下仰慕皇上英明,特来相投。"
+        ]
+      },
+      {
+        "speaker": "kangxi",
+        "lines": [
+          "哈哈,好胆色!朕正缺一帮手。",
+          "鳌拜老贼跋扈,朕欲除之,你可有胆相助?",
+          "事成之后,朕重重有赏!"
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "meet_kangxi",
+      "actionType": "talk",
+      "targetNPC": "kangxi",
+      "description": "入紫禁城遇康熙,摔跤结友,共谋擒鳌拜。",
+      "aiHint": "玩家入紫禁城,你康熙与之摔跤结友,共谋擒鳌拜。你少年英主,睿智果决,重情重义。你言鳌拜跋扈,欲除之却缺帮手,邀玩家相助。你对玩家以侠士相称,亦师亦友。",
+      "reward": {
+        "jianghuExp": 200,
+        "karmaBonus": 5
+      }
+    },
+    {
+      "id": "fight_haidafu",
+      "actionType": "fight",
+      "targetNPC": "hai_dafu",
+      "description": "海大富阴险出手,败之,习阴阳玄功。",
+      "aiHint": "你乃海大富,宫中老太监。你见玩家与康熙亲近,阴险出手相试。你阴阳玄功深不可测,擅化骨绵掌,阴沉寡言。败后你识玩家不凡,将阴阳玄功相授以示诚服。你言此功乃深宫秘传,望玩家善用。",
+      "reward": {
+        "martialArtId": "yinyang_xuangong",
+        "jianghuExp": 350
+      }
+    },
+    {
+      "id": "fight_aobai",
+      "actionType": "fight",
+      "targetNPC": "aobai",
+      "description": "擒鳌拜,败满洲第一勇士,得金刚拳。",
+      "aiHint": "你乃鳌拜,满洲第一勇士。你跋扈嚣张,见康熙带玩家来擒,狂妄出手。你金刚拳与十三太保横练刚猛无匹,刀枪不入。败后你虽桀骜却不服不行,金刚拳为玩家所夺。你言竖子敢尔,终为所擒。",
+      "reward": {
+        "martialArtId": "jingang_quan",
+        "jianghuExp": 450,
+        "reputationBonus": 300
+      }
+    },
+    {
+      "id": "kangxi_reward",
+      "actionType": "talk",
+      "targetNPC": "kangxi",
+      "description": "康熙赏赐金丝宝衣与含沙射影暗器,封鹿鼎公。",
+      "aiHint": "鳌拜既擒,你康熙重赏玩家。你赏金丝宝衣与含沙射影暗器,封其为鹿鼎公。你少年英主,重情重义,言玩家之功当赏。你对玩家以兄弟相称,语带倚重。",
+      "reward": {
+        "jianghuExp": 400,
+        "reputationBonus": 300
+      },
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "kangxi",
+            "lines": [
+              "兄弟,鳌拜既除,朕心甚慰。",
+              "这金丝宝衣与含沙射影,乃宫中至宝,赏你。"
+            ]
+          },
+          {
+            "speaker": "kangxi",
+            "lines": [
+              "朕封你为鹿鼎公,日后你我兄弟,共治天下。",
+              "这鹿鼎公爵印你收好。"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 15,
+    "items": [
+      {
+        "itemId": "jinshi_baoyi",
+        "quantity": 1
+      },
+      {
+        "itemId": "hansha_ying",
+        "quantity": 1
+      },
+      {
+        "itemId": "luding_jueyin",
+        "quantity": 1
+      }
+    ]
+  },
+  "completeDialogue": {
+    "lines": [
+      {
+        "speaker": "kangxi",
+        "lines": [
+          "鹿鼎公,朕之兄弟,后会有期。",
+          "这阴阳玄功、金刚拳你既已习得,望你为朕分忧。"
+        ]
+      },
+      {
+        "speaker": "玩家",
+        "lines": [
+          "皇上隆恩,微臣万死不辞。",
+          "后会有期!"
+        ]
+      }
+    ]
+  },
+  "exclusiveWithQuestIds": [
+    "luding_evil"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "xuantie_jianfa_manual",
+  "name": "玄铁剑法秘籍",
+  "description": "记载独孤求败重剑剑法的图谱,重剑无锋,大巧不工。神雕于剑冢传承此剑法,辅以玄铁重剑,威力绝伦。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["xuantie_jianfa"],
+  "prerequisite": {
+    "requiredAttack": 200
+  },
+  "rarity": "epic"
+}

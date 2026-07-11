@@ -1,0 +1,10 @@
+{
+  "id": "pingxi_wangfu",
+  "name": "平西王府",
+  "description": "云南昆明平西王府,吴三桂所居。富丽堂皇,兵甲森严。吴三桂于此蓄谋反清,招兵买马。乃鹿鼎记一书中之权谋之地。",
+  "region": "云南",
+  "backgroundImagePath": "assets/scenes/pingxi_wangfu.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["wu_sangui"],
+  "isSpecial": true
+}

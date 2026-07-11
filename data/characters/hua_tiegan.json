@@ -1,0 +1,23 @@
+{
+  "id": "hua_tiegan",
+  "name": "花铁干",
+  "type": "npc",
+  "personality": "落花流水之一,枪法名家。表面豪侠,实则贪生怕死。雪谷之难后卑躬屈膝,折节事敌,前后判若两人。",
+  "description": "江南落花流水之一,擅使枪法,名震江湖。随众围剿血刀老祖,雪谷中同伴俱亡,竟吓得卑躬屈膝,折节事敌,一代豪侠之名尽毁。前后判若两人,乃连城诀中最令人不齿之角色。",
+  "maxHP": 3000,
+  "maxMP": 2200,
+  "attack": 390,
+  "defense": 340,
+  "speed": 68,
+  "karma": 10,
+  "gender": "男",
+  "defaultScene": "xuegu",
+  "jianghuLevel": 40,
+  "portraitPath": "hua_tiegan.png",
+  "learnedArts": [
+    { "artId": "tangshi_jianfa", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "tangshi_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

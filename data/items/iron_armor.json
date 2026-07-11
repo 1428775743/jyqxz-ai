@@ -1,0 +1,13 @@
+{
+  "id": "iron_armor",
+  "name": "铁甲",
+  "description": "铁片编缀的甲胄，坚固厚实，刀枪难入，唯稍嫌沉重。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 22,
+  "value": 110,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

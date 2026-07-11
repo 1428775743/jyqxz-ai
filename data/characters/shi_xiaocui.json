@@ -1,0 +1,24 @@
+{
+  "id": "shi_xiaocui",
+  "name": "史小翠",
+  "type": "npc",
+  "personality": "白自在之妻,紫烟岛主,刚烈要强。与白自在赌气分居,创金乌刀法以克雪山剑法。武功高强,心高气傲。",
+  "description": "雪山派掌门白自在之妻,因与夫赌气而居紫烟岛。刚烈要强,心高气傲。创金乌刀法,专为克制白自在之雪山剑法。武功高强,亦通雪山剑法。乃侠客行中一刚烈女子。",
+  "maxHP": 3600,
+  "maxMP": 2600,
+  "attack": 500,
+  "defense": 380,
+  "speed": 74,
+  "karma": 30,
+  "gender": "女",
+  "defaultScene": "ziyandao",
+  "jianghuLevel": 46,
+  "portraitPath": "shi_xiaocui.png",
+  "learnedArts": [
+    { "artId": "jinwu_daofa", "proficiencyLevel": 7 },
+    { "artId": "xueshan_jianfa", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "jinwu_daofa",
+  "activeLightArtId": "basic_qinggong"
+}

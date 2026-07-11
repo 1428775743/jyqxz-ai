@@ -1,0 +1,38 @@
+{
+  "id": "wan_zhenshan",
+  "name": "万震山",
+  "type": "npc",
+  "personality": "表面豪侠,实则阴毒多疑,心狠手辣。为连城诀宝藏,砌墙埋尸,欺师灭祖。",
+  "description": "荆州大侠,梅念笙之徒,与师弟戚长发、言达平共谋弑师以夺连城诀。精于砌墙之术,将知情人活砌于墙中。表面行侠仗义,实则阴毒至极。为连城诀宝藏,与子徒相残。",
+  "maxHP": 3300,
+  "maxMP": 2400,
+  "attack": 430,
+  "defense": 360,
+  "speed": 65,
+  "karma": -30,
+  "gender": "男",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 45,
+  "portraitPath": "wan_zhenshan.png",
+  "learnedArts": [
+    {
+      "artId": "tangshi_jianfa",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "liancheng_jianfa",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "liancheng_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

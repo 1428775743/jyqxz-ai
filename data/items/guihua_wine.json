@@ -1,0 +1,12 @@
+{
+  "id": "guihua_wine",
+  "name": "桂花酒",
+  "description": "以金桂酿就的江南秋酿，清甜芬芳，入口微醺，临安嘉兴一带尤负盛名。",
+  "type": "Gift",
+  "value": 90,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 10,
+  "giftPreference": "武者",
+  "rarity": "common"
+}

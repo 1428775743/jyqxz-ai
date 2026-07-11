@@ -1,0 +1,17 @@
+{
+  "id": "songshan_town",
+  "name": "嵩山镇",
+  "description": "嵩山脚下的小镇，来往香客和武林人士络绎不绝。",
+  "region": "嵩山",
+  "backgroundImagePath": "assets/scenes/songshan_town.jpg",
+  "connectedScenes": ["shaolin_hall", "songshan_inn", "songshan_backhill"],
+  "defaultNPCs": ["linghu_chong", "songshan_wanderer", "chen_medicine", "zhou_grocery", "baixiao_songshan"],
+  "isSpecial": false,
+  "craftLessons": [
+    { "skillId": "art", "cost": 50, "gain": 5, "maxLevel": 50 }
+  ],
+  "martialLessons": [
+    { "artId": "basic_palm", "cost": 100 },
+    { "artId": "basic_kick", "cost": 180 }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "tin_ore",
+  "name": "锡矿石",
+  "description": "质地柔软的锡矿，可与铜合炼为青铜。",
+  "type": "Material",
+  "value": 25,
+  "stackable": true,
+  "quantity": 1
+}

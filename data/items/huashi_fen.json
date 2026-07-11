@@ -1,0 +1,10 @@
+{
+  "id": "huashi_fen",
+  "name": "化尸粉",
+  "description": "韦小宝所携剧毒之粉,触肉即化,顷刻间可将尸体化为一滩黄水,毁尸灭迹之极品。江湖中人闻之色变。",
+  "type": "Material",
+  "value": 100,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

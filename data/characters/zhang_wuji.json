@@ -1,0 +1,67 @@
+{
+  "id": "zhang_wuji",
+  "name": "张无忌",
+  "type": "npc",
+  "personality": "优柔寡断，宅心仁厚，武功盖世",
+  "description": "明教教主，身怀九阳神功和乾坤大挪移。",
+  "maxHP": 5800,
+  "maxMP": 5500,
+  "attack": 850,
+  "defense": 650,
+  "speed": 90,
+  "relations": {},
+  "factionId": "mingjiao",
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": true,
+  "defaultScene": "wudang_town",
+  "schedule": {
+    "清晨": "wudang_hall",
+    "白天": "wudang_town",
+    "黄昏": "wudang_town",
+    "夜晚": "wudang_town"
+  },
+  "jianghuLevel": 45,
+  "craftSkills": {
+    "art": 30,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 40,
+    "medicine": 70
+  },
+  "portraitPath": "zhang_wuji.png",
+  "equippedWeaponId": "jingang_gauntlet",
+  "learnedArts": [
+    {
+      "artId": "shaolin_luohan_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "jiuyang_shengong",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "mingjiao_basic_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "mingjiao_jiuzhuan",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "mingjiao_basic_fist",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "qiankun_danuoyi",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "tiyun_zong",
+      "proficiencyLevel": 7
+    }
+  ],
+  "activeInternalArtId": "jiuyang_shengong",
+  "activeExternalArtId": "qiankun_danuoyi",
+  "activeLightArtId": "tiyun_zong"
+}

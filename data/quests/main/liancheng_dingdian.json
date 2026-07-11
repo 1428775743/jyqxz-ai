@@ -1,0 +1,78 @@
+{
+  "id": "liancheng_dingdian",
+  "name": "连城诀·丁典",
+  "type": "chain",
+  "triggerNpcId": "ding_dian",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": ["ling_shuanghua", "ling_tuisi", "wan_gui"],
+  "description": "荆州大牢之中,豪侠丁典自囚于此,只为守护与凌霜华之情。他身负神照经绝学与连城诀宝藏之秘,凌退思以金波旬花之毒害其性命。结交丁典,助他查清真相、了却恩怨,他愿以神照经相授。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "ding_dian", "lines": ["这位兄台,狱中相见,亦是缘分。", "我丁典,本是江湖人,却甘愿困于此处...只为霜华。"] },
+      { "speaker": "玩家", "lines": ["丁兄何故自囚于此?"] },
+      { "speaker": "ding_dian", "lines": ["霜华乃荆州知府凌退思之女,你我相爱,却遭其父毒计。", "凌退思觊觎连城诀宝藏,以金波旬花之毒害我...我命不久矣。", "兄台若可托付,丁典愿以神照经与连城诀之秘相授!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "prison_meet",
+      "actionType": "talk",
+      "targetNPC": "ding_dian",
+      "description": "荆州大牢之中,丁典以诚相待,讲述连城诀宝藏与凌霜华之事。",
+      "aiHint": "玩家于狱中与你相会,你视其为可托付之人。你讲述连城诀乃梁元帝藏宝之秘,藏于唐诗选辑之中;又言与凌霜华相爱、遭凌退思毒害之事。你豪迈中带悲凉,语气沉痛而坦荡。对玩家以兄台相称。",
+      "reward": { "jianghuExp": 150, "karmaBonus": 5 }
+    },
+    {
+      "id": "investigate_jingzhou",
+      "actionType": "go",
+      "targetScene": "jingzhou_city",
+      "description": "丁典托你出狱探查荆州万家与凌府,查清凌退思之阴谋。",
+      "aiHint": "你托玩家出狱往荆州城探查万家师徒与凌退思之动静。你言凌退思表面文雅,实则阴毒,需小心提防。你心中挂念霜华,语气焦切。",
+      "reward": { "jianghuExp": 150 }
+    },
+    {
+      "id": "confront_ling",
+      "actionType": "talk",
+      "targetNPC": "ling_tuisi",
+      "description": "荆州城中访凌退思,识破其下毒害丁典之阴谋。",
+      "aiHint": "你乃凌退思,荆州知府。玩家前来探访,你表面客套周旋,言谈间暗藏杀机。你觊觎连城诀宝藏,以金波旬花之毒害丁典,更将亲生女儿凌霜华活埋。你伪善阴毒,被玩家识破后仍强作镇定。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 100 }
+    },
+    {
+      "id": "defeat_wangui",
+      "actionType": "fight",
+      "targetNPC": "wan_gui",
+      "description": "万圭奉父命阻拦,出手相抗,败之。",
+      "aiHint": "你乃万圭,万震山之子。你奉父命阻拦玩家,出手相抗。你阴险嫉妒,武功平平却心狠手辣。你言玩家多管闲事,必死无葬身之地。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 150 }
+    },
+    {
+      "id": "dingdian_death",
+      "actionType": "talk",
+      "targetNPC": "ding_dian",
+      "description": "返回大牢,丁典毒发,将神照经与连城诀线索托付于你。",
+      "aiHint": "玩家返回大牢,你已毒发垂危。你以残力将神照经心法倾囊相授,又托付连城诀线索与唐诗选辑。你言霜华已逝,你亦随之而去,唯愿玩家了却连城诀之恩怨。你语气虚弱却释然,对玩家再三叮嘱。",
+      "reward": { "martialArtId": "shenzhao_jing", "jianghuExp": 300 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "ding_dian", "lines": ["兄台...丁典命不久矣。", "这神照经,乃我毕生所悟,真气浑厚,可起死回生...今日传你。"] },
+          { "speaker": "ling_shuanghua", "lines": ["（忆中）丁郎...霜华先走一步,黄泉路上,等你。"] },
+          { "speaker": "ding_dian", "lines": ["霜华!我来也...兄台,连城诀之秘,藏于唐诗选辑...望你善用神照经,了却恩怨。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 10,
+    "items": [ { "itemId": "tangshi_xuanji", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["丁典含笑而逝,与凌霜华合葬一处。", "你手捧神照经秘籍与唐诗选辑,心中五味杂陈。"] },
+      { "speaker": "玩家", "lines": ["丁兄,霜华姑娘,放心去吧。", "连城诀之祸,我定当了结!"] }
+    ]
+  }
+}

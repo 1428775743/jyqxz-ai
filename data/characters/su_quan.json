@@ -1,0 +1,24 @@
+{
+  "id": "su_quan",
+  "name": "苏荃",
+  "type": "npc",
+  "personality": "洪安通之妻,后归韦小宝。妩媚妖娆,武功高强,亦正亦邪。美人三招出神入化,性情果决。",
+  "description": "神龙教主洪安通之妻,苏荃。妩媚妖娆,武功高强,擅美人三招与化骨绵掌。后洪安通众叛亲离,苏荃归韦小宝,成其大老婆。性情果决,亦正亦邪,乃鹿鼎记一书中之奇女子。",
+  "maxHP": 3000,
+  "maxMP": 2200,
+  "attack": 420,
+  "defense": 340,
+  "speed": 80,
+  "karma": 20,
+  "gender": "女",
+  "defaultScene": "shenlong_dao",
+  "jianghuLevel": 38,
+  "portraitPath": "su_quan.png",
+  "learnedArts": [
+    { "artId": "meiren_sanzhao", "proficiencyLevel": 6 },
+    { "artId": "huagu_mianzhang", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "meiren_sanzhao",
+  "activeLightArtId": "basic_qinggong"
+}

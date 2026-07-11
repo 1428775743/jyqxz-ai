@@ -1,0 +1,30 @@
+{
+  "id": "yunv_xinjing",
+  "name": "玉女心经",
+  "type": "internal",
+  "description": "古墓派镇派内功,林朝英所创,专克全真武功。修习者内力阴柔绵长,以静制动,以柔克刚。须与玉女剑法合修方有大成。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 70,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 350,
+  "attackBonusPerLevel": 35,
+  "defenseBonusPerLevel": 25,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "description": "阴柔内息:每回合恢复5%内力"
+    },
+    {
+      "type": "CounterAttack",
+      "value": 0.5,
+      "chance": 0.2,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:20%概率借力反击对手"
+    }
+  ],
+  "levelBonuses": {}
+}

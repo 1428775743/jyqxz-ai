@@ -1,0 +1,14 @@
+{
+  "id": "iron_gauntlet",
+  "name": "铁手套",
+  "description": "铁片缀革制成的护手套，拳锋带铁，徒手搏击时增添几分狠辣。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "fist",
+  "attackBonus": 14,
+  "defenseBonus": 2,
+  "value": 85,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

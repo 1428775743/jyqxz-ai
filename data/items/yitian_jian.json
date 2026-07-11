@@ -1,0 +1,11 @@
+{
+  "id": "yitian_jian",
+  "name": "倚天剑",
+  "description": "郭靖黄蓉以独孤求败的玄铁重剑熔铸而成,与屠龙刀并称武林至宝。剑身锋锐无匹,削铁如泥。剑中藏有九阴真经残卷——以刀剑互斫方可取出。江湖传曰:'武林至尊,宝刀屠龙,号令天下,莫敢不从,倚天不出,谁与争锋。'",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["jiuyin_zhenjing"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

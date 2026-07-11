@@ -1,0 +1,97 @@
+{
+  "id": "wudang_backhill",
+  "name": "武当后山",
+  "description": "武当后山幽静深远，山中矿石汲取天地灵气，品质上佳。深林中偶有獐狍野鹿出没。",
+  "region": "武当",
+  "backgroundImagePath": "assets/scenes/wudang_backhill.jpg",
+  "connectedScenes": [
+    "wudang_town"
+  ],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      {
+        "itemId": "iron_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "copper_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "tin_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "silver_ore",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "gold_ore",
+        "rarity": "rare"
+      }
+    ]
+  },
+  "hunt": {
+    "tier": "medium",
+    "timeCostPerHunt": 1.0,
+    "staminaCost": 12,
+    "loots": [
+      {
+        "itemId": "rabbit_fur",
+        "rarity": "common"
+      },
+      {
+        "itemId": "pheasant_feather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wolf_pelt",
+        "rarity": "common"
+      },
+      {
+        "itemId": "leather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_mushroom",
+        "rarity": "common"
+      },
+      {
+        "itemId": "deer_antler",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  },
+  "herbGarden": {
+    "tier": "medium",
+    "timeCostPerGather": 1.0,
+    "staminaCost": 12,
+    "herbs": [
+      {
+        "itemId": "herb_baizhu",
+        "rarity": "common"
+      },
+      {
+        "itemId": "herb_danggui",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      }
+    ]
+  }
+}

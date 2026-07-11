@@ -1,0 +1,9 @@
+{
+  "id": "chuangwang_baotu",
+  "name": "闯王藏宝图",
+  "description": "闯王李自成军饷宝藏之图,乃阿九所赠。宝藏藏于关外,金银无数,足以济世安民。碧血剑之祸,多因此宝而起。",
+  "type": "QuestItem",
+  "value": 0,
+  "stackable": false,
+  "rarity": "legendary"
+}

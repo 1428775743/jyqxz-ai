@@ -1,0 +1,10 @@
+{
+  "id": "tongguan",
+  "name": "潼关",
+  "description": "关中潼关,扼守中原西大门,自古兵家必争之地。闯王军往来于此,李岩红娘子驻扎关上。袁承志下山后多在此活动,联结群豪,共图大业。",
+  "region": "关中",
+  "backgroundImagePath": "assets/scenes/tongguan.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["yuan_chengzhi", "li_yan", "hong_niangzi"],
+  "isSpecial": false
+}

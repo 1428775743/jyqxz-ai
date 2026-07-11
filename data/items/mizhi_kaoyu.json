@@ -1,0 +1,14 @@
+{
+  "id": "mizhi_kaoyu",
+  "name": "蜜汁烤鱼",
+  "type": "Consumable",
+  "description": "蜂蜜涂抹炭烤鲜鱼，皮脆肉嫩，食后防御+15%，持续1日。食buff。",
+  "value": 120,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "def",
+  "buffValue": 0.15,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

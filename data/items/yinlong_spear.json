@@ -1,0 +1,14 @@
+{
+  "id": "yinlong_spear",
+  "name": "银龙枪",
+  "description": "白蜡杆配银枪头,枪长一丈,枪出如龙,沙场武将的马上兵刃。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "spear",
+  "attackBonus": 45,
+  "defenseBonus": 0,
+  "value": 300,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

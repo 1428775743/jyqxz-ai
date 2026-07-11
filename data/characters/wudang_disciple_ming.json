@@ -1,0 +1,46 @@
+{
+  "id": "wudang_disciple_ming",
+  "name": "明月小道童",
+  "type": "npc",
+  "personality": "天真烂漫，好奇心强，喜欢偷看师父练功",
+  "description": "武当派最年轻的道童，刚拜入张三丰门下，正在扎马步练基本功。",
+  "maxHP": 450,
+  "maxMP": 200,
+  "attack": 40,
+  "defense": 20,
+  "speed": 50,
+  "relations": {},
+  "factionId": "wudang",
+  "karma": 65,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "wudang_hall",
+  "schedule": {
+    "清晨": "wudang_hall",
+    "白天": "wudang_hall",
+    "黄昏": "wudang_hall",
+    "夜晚": "wudang_hall"
+  },
+  "jianghuLevel": 3,
+  "craftSkills": {
+    "art": 15,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 10,
+    "medicine": 10
+  },
+  "portraitPath": "wudang_disciple_ming.png",
+  "learnedArts": [
+    {
+      "artId": "wudang_basic_internal",
+      "proficiencyLevel": 1
+    },
+    {
+      "artId": "wudang_basic_sword",
+      "proficiencyLevel": 1
+    }
+  ],
+  "activeInternalArtId": "wudang_basic_internal",
+  "activeExternalArtId": "wudang_basic_sword"
+}

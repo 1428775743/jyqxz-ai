@@ -1,0 +1,12 @@
+{
+  "id": "mingjiao_token",
+  "name": "明教圣火令",
+  "description": "明教总坛圣火令,六枚为一组,乃明教至高信物。持令者可号令明教教众。圣火令上刻有波斯明教武功,亦可作兵器使用。",
+  "type": "Gift",
+  "value": 2000,
+  "stackable": false,
+  "quantity": 1,
+  "giftFavorBonus": 20,
+  "giftPreference": "武者",
+  "rarity": "epic"
+}

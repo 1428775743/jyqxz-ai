@@ -1,0 +1,11 @@
+{
+  "id": "gumu_deep",
+  "name": "古墓深处",
+  "description": "活死人墓最深处,迷宫般的甬道交错,处处机关暗器。传闻此处藏有林朝英与王重阳的往日旧物,亦有九阴真经的残篇。若无墓主引路,外人难寻其踪。",
+  "region": "终南山",
+  "backgroundImagePath": "assets/scenes/gumu_deep.jpg",
+  "connectedScenes": ["gumu_shi"],
+  "defaultNPCs": [],
+  "factionId": "gumu",
+  "isSpecial": true
+}

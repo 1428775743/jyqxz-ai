@@ -1,0 +1,22 @@
+{
+  "id": "fq_wudang_collect_pill",
+  "name": "采购大还丹补给",
+  "type": "faction",
+  "description": "武当练功房丹药储备不足，需大还丹两粒以备弟子修炼时应急。望江湖义士代为采购。",
+  "factionId": "wudang",
+  "issuerNpcId": "wudang_disciple_qing",
+  "difficulty": "normal",
+  "requiredItems": [
+    { "itemId": "healing_pill_large", "quantity": 2 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向清风道长提交大还丹 x2", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 45,
+    "reputationBonus": 18,
+    "factionContributionBonus": 15,
+    "factionIdForContribution": "wudang",
+    "jianghuExp": 6
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "zhao_min",
+  "name": "赵敏",
+  "type": "npc",
+  "personality": "聪慧绝顶,计谋百出,敢爱敢恨。身为蒙古郡主,行事却亦正亦邪,对张无忌情根深种。",
+  "description": "蒙古汝阳王之女,封号绍敏郡主。聪慧机敏,计谋百出,麾下收罗玄冥二老等高手。曾设计囚禁六大门派于万安寺,亦曾为张无忌出生入死。亦正亦邪,难以捉摸。",
+  "maxHP": 3800,
+  "maxMP": 2800,
+  "attack": 460,
+  "defense": 320,
+  "speed": 92,
+  "relations": {
+    "zhang_wuji": "倾慕",
+    "xuanming_elder": "部属"
+  },
+  "factionId": null,
+  "karma": 20,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "wanansi",
+  "schedule": {
+    "清晨": "wanansi",
+    "白天": "wanansi",
+    "黄昏": "wanansi",
+    "夜晚": "wanansi"
+  },
+  "jianghuLevel": 38,
+  "craftSkills": {
+    "art": 70,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 20,
+    "medicine": 40
+  },
+  "portraitPath": "zhao_min.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "huoyan_dao", "proficiencyLevel": 7 },
+    { "artId": "basic_sword", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "huoyan_dao",
+  "activeLightArtId": "basic_qinggong"
+}

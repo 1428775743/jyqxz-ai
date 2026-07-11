@@ -1,0 +1,14 @@
+{
+  "id": "tulong_dao",
+  "name": "屠龙刀",
+  "description": "郭靖黄蓉以玄铁重剑熔铸而成,与倚天剑并称武林至宝。刀身沉重,刀锋锐利。武林中为争夺此刀,血雨腥风数十年。'号令天下,莫敢不从'。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "blade",
+  "attackBonus": 180,
+  "defenseBonus": 0,
+  "value": 8000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "mythic"
+}

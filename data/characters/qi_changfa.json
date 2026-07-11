@@ -1,0 +1,38 @@
+{
+  "id": "qi_changfa",
+  "name": "戚长发",
+  "type": "npc",
+  "personality": "外号铁锁横江,城府极深,藏拙阴狠。表面老实憨厚,实则心机深沉,为连城诀隐忍数十年。",
+  "description": "梅念笙之徒,狄云与戚芳之师。外号铁锁横江,言其心思缜密、滴水不漏。为连城诀宝藏,故意教狄云错误的唐诗剑法,藏私数十年。看似淳朴,实则阴狠,最终亦死于连城诀之祸。",
+  "maxHP": 3000,
+  "maxMP": 2200,
+  "attack": 400,
+  "defense": 340,
+  "speed": 62,
+  "karma": -25,
+  "gender": "男",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 40,
+  "portraitPath": "qi_changfa.png",
+  "learnedArts": [
+    {
+      "artId": "tangshi_jianfa",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "liancheng_jianfa",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeExternalArtId": "liancheng_jianfa",
+  "activeLightArtId": "basic_qinggong",
+  "activeInternalArtId": "basic_qigong"
+}

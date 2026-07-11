@@ -1,0 +1,27 @@
+{
+  "id": "xu_zhu",
+  "name": "虚竹",
+  "type": "npc",
+  "personality": "憨厚木讷,老实本分,恪守戒律却心肠极软。机缘不断,本性善良。",
+  "description": "少林寺小僧,憨厚老实,本是寻常沙弥。因破解珍珑棋局,得逍遥派掌门无崖子传以北冥神功与毕生功力,后又得天山童姥真传,成为灵鹫宫主。一身绝世武功,却仍是那副木讷模样。与乔峰、段誉结义,排行第二。",
+  "maxHP": 3400,
+  "maxMP": 3600,
+  "attack": 420,
+  "defense": 360,
+  "speed": 70,
+  "karma": 70,
+  "gender": "男",
+  "defaultScene": "shaolin_hall",
+  "jianghuLevel": 35,
+  "portraitPath": "xu_zhu.png",
+  "learnedArts": [
+    { "artId": "beiming_shengong", "proficiencyLevel": 5 },
+    { "artId": "tianshan_zhemei", "proficiencyLevel": 5 },
+    { "artId": "tianshan_liuyang", "proficiencyLevel": 4 },
+    { "artId": "shaolin_luohan_internal", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "beiming_shengong",
+  "activeExternalArtId": "tianshan_zhemei",
+  "activeLightArtId": "basic_qinggong"
+}

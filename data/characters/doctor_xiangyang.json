@@ -1,0 +1,42 @@
+{
+  "id": "doctor_xiangyang",
+  "name": "孙郎中",
+  "type": "npc",
+  "personality": "襄阳城中的郎中，忠厚老实，因常年为守城将士医治伤病，对跌打损伤和外伤治疗颇有心得。对郭靖大侠忠心敬仰。",
+  "description": "襄阳城中的孙郎中，五十出头，面色黝黑，双手粗糙。年轻时曾随军行医，擅长金创外科和跌打损伤。如今在襄阳城中开了一间小医馆，时常为守城将士义诊。能治疗普通中毒。",
+  "maxHP": 180,
+  "maxMP": 80,
+  "attack": 8,
+  "defense": 8,
+  "speed": 12,
+  "relations": {},
+  "factionId": null,
+  "karma": 85,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "medicine_merchant",
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 2,
+  "craftSkills": {
+    "medicine": 50
+  },
+  "portraitPath": "doctor_xiangyang.png",
+  "learnedArts": [],
+  "shopFixedItems": [
+    "healing_pill_small",
+    "mp_pill",
+    "huoxue_dan"
+  ],
+  "shopRandomItems": [
+    "healing_pill_large",
+    "qiangshen_dan",
+    "ningshen_dan"
+  ]
+}

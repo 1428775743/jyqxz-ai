@@ -1,0 +1,22 @@
+{
+  "id": "wudang",
+  "name": "武当派",
+  "description": "道家武学正宗，太极剑法名震天下。",
+  "leaderId": "zhang_sanfeng",
+  "sceneId": "wudang_hall",
+  "availableArts": [
+    "wudang_basic_internal",
+    "wudang_basic_sword",
+    "wudang_xinfa",
+    "wudang_mianzhang",
+    "pure_yang",
+    "taiji_quan"
+  ],
+  "joinKarmaMin": 10,
+  "joinKarmaMax": 100,
+  "alliedFactions": {
+    "shaolin": "正派联盟"
+  },
+  "enemyFactions": {},
+  "alignment": "正派"
+}

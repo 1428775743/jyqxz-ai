@@ -1,0 +1,45 @@
+{
+  "id": "dali_grocery",
+  "name": "段大娘(杂货)",
+  "type": "npc",
+  "personality": "爽朗好客，能歌善舞，滇南口音",
+  "description": "大理城里的杂货大娘，滇南风物齐全，普洱茶、山珍药材、香料应有尽有。",
+  "maxHP": 280,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 12,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "女",
+  "hiddenPower": false,
+  "defaultScene": "dali_scene",
+  "schedule": {
+    "清晨": "dali_scene",
+    "白天": "dali_scene",
+    "黄昏": "dali_scene",
+    "夜晚": "dali_scene"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "puer_tea"
+  ],
+  "shopRandomItems": [
+    "herb_xuelian",
+    "wild_ginseng",
+    "silk",
+    "honey",
+    "bear_gallbladder"
+  ],
+  "craftSkills": {
+    "gathering": 25,
+    "medicine": 15
+  },
+  "learnedArts": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "kongming_quan_manual",
+  "name": "空明拳秘籍",
+  "description": "老顽童周伯通所创空明拳的拳谱,以虚击实,以柔克刚。记录于桃花岛山洞石壁之上。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["kongming_quan"],
+  "prerequisite": {},
+  "rarity": "epic"
+}

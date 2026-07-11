@@ -1,0 +1,35 @@
+{
+  "id": "riyue_dongfang_test",
+  "name": "魔教晋升·黑木崖之变",
+  "type": "chain",
+  "triggerNpcId": "yang_liantin",
+  "requireSameFaction": true,
+  "minFavorabilityToOffer": 50,
+  "minAnyArtLevel": 5,
+  "relatedNpcIds": ["dongfang_bubai", "ren_woxing", "xiang_wentian", "linghu_chong"],
+  "description": "杨代教主对你颇为器重,谓你武学已有小成,准你拜访东方教主以求印证。然黑木崖近日风云变幻,此行祸福未卜。",
+  "difficulty": "hard",
+  "steps": [
+    {
+      "id": "visit_dongfang",
+      "actionType": "talk",
+      "targetNPC": "dongfang_bubai",
+      "description": "前往黑木崖后山,拜见东方教主。",
+      "aiHint": "玩家受杨莲亭引荐前来,你应矜持接见。但你心中知晓任我行已逃出生天,正聚众杀来,你也不揭穿,看玩家临阵会作何抉择。",
+      "reward": { "jianghuExp": 100 }
+    },
+    {
+      "id": "final_choice",
+      "actionType": "kill",
+      "targetNPC": "_riyue_choice_marker",
+      "description": "任我行率向问天、令狐冲杀至,你须当机立断:助东方教主诛敌,或助任前辈夺位。",
+      "aiHint": "玩家正面临两难抉择。无论选择哪方,对你而言都是天大变数。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 300 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 500,
+    "factionContributionBonus": 200,
+    "factionIdForContribution": "riyue"
+  }
+}

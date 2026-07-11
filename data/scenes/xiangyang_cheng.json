@@ -1,0 +1,19 @@
+{
+  "id": "xiangyang_cheng",
+  "name": "襄阳城",
+  "description": "大宋重镇，城墙巍峨，商铺林立。郭靖大侠在此镇守多年。",
+  "region": "襄阳",
+  "backgroundImagePath": "assets/scenes/xiangyang_cheng.jpg",
+  "connectedScenes": ["xiangyang_wall", "xiangyang_inn"],
+  "defaultNPCs": ["guo_jing", "huang_rong", "wei_xiaobao", "beggar_clan_elder", "mingjiao_warrior", "wang_weapon", "wen_bookseller", "doctor_xiangyang", "xiangyang_grocery"],
+  "factionId": null,
+  "isSpecial": false,
+  "craftLessons": [
+    { "skillId": "forging", "cost": 60, "gain": 5, "maxLevel": 50 }
+  ],
+  "martialLessons": [
+    { "artId": "basic_palm", "cost": 100 },
+    { "artId": "basic_sword", "cost": 200 },
+    { "artId": "basic_qigong", "cost": 150 }
+  ]
+}

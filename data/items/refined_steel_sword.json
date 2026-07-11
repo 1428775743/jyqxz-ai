@@ -1,0 +1,14 @@
+{
+  "id": "refined_steel_sword",
+  "name": "精钢剑",
+  "description": "百炼精钢铸就的长剑，剑身刚劲少瑕，胜过寻常铁剑数倍。铁匠手艺进阶之作。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 40,
+  "defenseBonus": 0,
+  "value": 400,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

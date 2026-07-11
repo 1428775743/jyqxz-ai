@@ -1,0 +1,102 @@
+{
+  "id": "huashan_backhill",
+  "name": "华山后山",
+  "description": "华山后山深处，岩层中蕴藏着不少珍贵矿石，常有华山弟子来此历练。",
+  "region": "华山",
+  "backgroundImagePath": "assets/scenes/huashan_backhill.jpg",
+  "connectedScenes": [
+    "huashan_path",
+    "siguoyai"
+  ],
+  "defaultNPCs": [
+    "mu_renqing",
+    "mu_sang",
+    "gui_xinshu"
+  ],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      {
+        "itemId": "iron_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "copper_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "tin_ore",
+        "rarity": "common"
+      },
+      {
+        "itemId": "silver_ore",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "gold_ore",
+        "rarity": "rare"
+      }
+    ]
+  },
+  "hunt": {
+    "tier": "medium",
+    "timeCostPerHunt": 1.0,
+    "staminaCost": 12,
+    "loots": [
+      {
+        "itemId": "rabbit_fur",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wolf_pelt",
+        "rarity": "common"
+      },
+      {
+        "itemId": "pheasant_feather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "leather",
+        "rarity": "common"
+      },
+      {
+        "itemId": "deer_antler",
+        "rarity": "uncommon"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "fresh_meat",
+        "rarity": "common"
+      }
+    ]
+  },
+  "herbGarden": {
+    "tier": "medium",
+    "timeCostPerGather": 1.0,
+    "staminaCost": 12,
+    "herbs": [
+      {
+        "itemId": "herb_danggui",
+        "rarity": "common"
+      },
+      {
+        "itemId": "herb_huangqin",
+        "rarity": "common"
+      },
+      {
+        "itemId": "wild_ginseng",
+        "rarity": "rare"
+      },
+      {
+        "itemId": "herb_lingzhi",
+        "rarity": "epic"
+      }
+    ]
+  }
+}

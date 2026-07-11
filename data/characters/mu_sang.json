@@ -1,0 +1,24 @@
+{
+  "id": "mu_sang",
+  "name": "木桑道长",
+  "type": "npc",
+  "personality": "铁剑门掌门,风趣豁达,嗜棋如命。看似玩世不恭,实则武功高强,心怀正义。传袁承志神行百变与暗器之术。",
+  "description": "铁剑门掌门,道号木桑,性情风趣,嗜棋如命。与穆人清为至交,客居华山。见袁承志资质上佳,传其神行百变轻功与金蛇锥暗器。看似玩世不恭,实则心怀正义,乃一游戏人间的世外高人。",
+  "maxHP": 3800,
+  "maxMP": 3000,
+  "attack": 500,
+  "defense": 420,
+  "speed": 88,
+  "karma": 45,
+  "gender": "男",
+  "defaultScene": "huashan_backhill",
+  "jianghuLevel": 50,
+  "isTrainer": true,
+  "portraitPath": "mu_sang.png",
+  "learnedArts": [
+    { "artId": "shenxing_baibian", "proficiencyLevel": 8 },
+    { "artId": "huashan_hunyuan", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "huashan_hunyuan",
+  "activeLightArtId": "shenxing_baibian"
+}

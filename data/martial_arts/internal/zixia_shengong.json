@@ -1,0 +1,38 @@
+{
+  "id": "zixia_shengong",
+  "name": "紫霞神功",
+  "type": "internal",
+  "description": "华山派镇派内功,运起时面泛紫气,气血如长虹贯日。习至大成,内息绵长,百邪不侵,出招更增三分威势。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 70,
+  "hpBonusPerLevel": 260,
+  "mpBonusPerLevel": 380,
+  "attackBonusPerLevel": 30,
+  "defenseBonusPerLevel": 38,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.08,
+      "chance": 1.0,
+      "requiredLevel": 3,
+      "description": "Lv.3解锁:每回合恢复8%最大内力"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:运功时减伤15%(2回合)"
+    },
+    {
+      "type": "HPRecover",
+      "value": 0.04,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:每回合恢复4%最大HP"
+    }
+  ],
+  "levelBonuses": {}
+}

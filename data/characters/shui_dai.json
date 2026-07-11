@@ -1,0 +1,23 @@
+{
+  "id": "shui_dai",
+  "name": "水岱",
+  "type": "npc",
+  "personality": "江南大侠,落花流水之一,刚正豪迈,爱女如命。为救水笙,与血刀老祖周旋雪谷,慷慨赴义。",
+  "description": "江南大侠,与刘乘风、花铁干、陆天抒并称落花流水。水笙之父。为救被掳之女,与众侠围剿血刀老祖于雪谷。武功高强,为人正派,乃江湖中一等一的英雄。",
+  "maxHP": 3100,
+  "maxMP": 2300,
+  "attack": 410,
+  "defense": 350,
+  "speed": 70,
+  "karma": 30,
+  "gender": "男",
+  "defaultScene": "xuegu",
+  "jianghuLevel": 42,
+  "portraitPath": "shui_dai.png",
+  "learnedArts": [
+    { "artId": "tangshi_jianfa", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "tangshi_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

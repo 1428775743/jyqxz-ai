@@ -1,0 +1,17 @@
+{
+  "id": "linan_street",
+  "name": "临安街道",
+  "description": "南宋都城临安，繁华鼎盛。青石板街两侧店铺鳞次栉比，茶馆酒肆热闹非凡，达官显贵与江湖人士在此交汇。",
+  "region": "临安",
+  "backgroundImagePath": "assets/scenes/linan_street.jpg",
+  "connectedScenes": ["linan_palace", "linan_library", "linan_eunuch_office", "linan_inn"],
+  "defaultNPCs": ["doctor_linan", "ping_yizhi", "baixiao_linan", "linan_grocery"],
+  "factionId": null,
+  "isSpecial": false,
+  "craftLessons": [
+    { "skillId": "medicine", "cost": 80, "gain": 8, "maxLevel": 60 }
+  ],
+  "martialLessons": [
+    { "artId": "basic_qigong", "cost": 200 }
+  ]
+}

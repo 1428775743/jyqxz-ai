@@ -1,0 +1,23 @@
+{
+  "id": "jiuyin_zhenjing",
+  "name": "九阴真经",
+  "type": "internal",
+  "description": "黄裳所著的绝世武功，内含深厚的内功心法。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 80,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 300,
+  "attackBonusPerLevel": 40,
+  "defenseBonusPerLevel": 30,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.05,
+      "chance": 1.0,
+      "description": "每回合恢复5%内力"
+    }
+  ],
+  "levelBonuses": {}
+}

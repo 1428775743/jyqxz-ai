@@ -1,0 +1,16 @@
+{
+  "id": "shaolin_luohan_internal",
+  "name": "少林罗汉心法",
+  "type": "internal",
+  "description": "少林寺入门内功，以佛门禅定之法修炼，强身健体，为少林武学打下根基。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "cooldown": 3,
+  "mpCost": 25,
+  "hpBonusPerLevel": 70,
+  "mpBonusPerLevel": 80,
+  "attackBonusPerLevel": 5,
+  "defenseBonusPerLevel": 8,
+  "effects": [],
+  "levelBonuses": {}
+}

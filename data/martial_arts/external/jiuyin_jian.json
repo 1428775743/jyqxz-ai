@@ -1,0 +1,31 @@
+{
+  "id": "jiuyin_jian",
+  "name": "九阴白骨爪",
+  "type": "external",
+  "description": "九阴真经下卷所载的爪法,以十指摧敌首骨。陈玄风、梅超风误练而成阴毒武功,爪力阴狠,所中者筋骨寸断。虽为九阴真经之末流,亦已足以横行江湖。弱于全本九阴真经。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 2.0,
+  "critChance": 0.25,
+  "cooldown": 1,
+  "mpCost": 45,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.15,
+      "chance": 0.3,
+      "description": "爪力阴毒:30%概率附加流血"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.15,
+      "chance": 0.5,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:50%概率无视15%防御"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.3 },
+    "10": { "damageCoefficient": 2.7 }
+  }
+}

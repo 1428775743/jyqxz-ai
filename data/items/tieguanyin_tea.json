@@ -1,0 +1,12 @@
+{
+  "id": "tieguanyin_tea",
+  "name": "铁观音",
+  "description": "闽南安溪名茶，兰花香韵，七泡有余香，福建茶商的看家货。",
+  "type": "Gift",
+  "value": 65,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 8,
+  "giftPreference": "文人",
+  "rarity": "common"
+}

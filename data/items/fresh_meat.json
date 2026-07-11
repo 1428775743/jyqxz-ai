@@ -1,0 +1,10 @@
+{
+  "id": "fresh_meat",
+  "name": "鲜肉",
+  "description": "刚猎得的兽肉，鲜嫩肥美，是烹饪佳肴的上等食材，也可论斤卖给商家。",
+  "type": "Material",
+  "value": 12,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

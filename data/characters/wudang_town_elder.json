@@ -1,0 +1,47 @@
+{
+  "id": "wudang_town_elder",
+  "name": "武当镇老药师孙伯",
+  "type": "npc",
+  "personality": "慈眉善目，精通药理，偶尔指点武当弟子修行",
+  "description": "武当镇上的老药师，与武当派渊源颇深，年轻时曾得张三丰指点。",
+  "maxHP": 800,
+  "maxMP": 350,
+  "attack": 65,
+  "defense": 70,
+  "speed": 50,
+  "relations": {},
+  "factionId": null,
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "errand_npc",
+  "defaultScene": "wudang_town",
+  "schedule": {
+    "清晨": "wudang_town",
+    "白天": "wudang_town",
+    "黄昏": "wudang_town",
+    "夜晚": "wudang_town"
+  },
+  "jianghuLevel": 10,
+  "craftSkills": {
+    "art": 20,
+    "forging": 10,
+    "mining": 15,
+    "gathering": 40,
+    "medicine": 70
+  },
+  "portraitPath": "wudang_town_elder.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 3
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

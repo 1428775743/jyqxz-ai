@@ -1,0 +1,23 @@
+{
+  "id": "jianing_princess",
+  "name": "建宁公主",
+  "type": "npc",
+  "personality": "康熙之妹,刁蛮任性,受虐倾向,钟情韦小宝。性烈如火,反复无常,却对韦小宝一往情深。",
+  "description": "清宫建宁公主,康熙之妹。刁蛮任性,受虐倾向,钟情韦小宝。性烈如火,反复无常,曾助韦小宝出宫。后嫁韦小宝,虽刁蛮却痴情。乃鹿鼎记一书中之刁蛮公主。",
+  "maxHP": 2000,
+  "maxMP": 1500,
+  "attack": 260,
+  "defense": 240,
+  "speed": 70,
+  "karma": 10,
+  "gender": "女",
+  "defaultScene": "zijincheng",
+  "jianghuLevel": 25,
+  "portraitPath": "jianing_princess.png",
+  "learnedArts": [
+    { "artId": "basic_kick", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "basic_kick",
+  "activeLightArtId": "basic_qinggong"
+}

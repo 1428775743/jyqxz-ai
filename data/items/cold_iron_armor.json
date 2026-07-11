@@ -1,0 +1,13 @@
+{
+  "id": "cold_iron_armor",
+  "name": "寒铁甲",
+  "description": "寒铁打制的护甲，甲面生寒，刀剑触之多被崩开，防护非凡。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 55,
+  "value": 800,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

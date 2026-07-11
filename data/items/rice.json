@@ -1,0 +1,10 @@
+{
+  "id": "rice",
+  "name": "大米",
+  "description": "上等粳米一袋，江湖人出门必备干粮。",
+  "type": "Material",
+  "value": 5,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

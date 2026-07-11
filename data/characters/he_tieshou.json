@@ -1,0 +1,23 @@
+{
+  "id": "he_tieshou",
+  "name": "何铁手",
+  "type": "npc",
+  "personality": "五毒教教主,妩媚妖娆,狠辣果决。初与中原武林为敌,后为袁承志所折,归顺拜师。亦正亦邪,重情重义。",
+  "description": "五毒教教主,何铁手,臂上镶铁钩,善用五毒掌与暗器。妩媚妖娆,狠辣果决。初与温家勾结,后为袁承志所折服,归顺拜师,助其破温家、寻宝藏。亦正亦邪,重情重义,乃碧血剑中一奇女子。",
+  "maxHP": 3200,
+  "maxMP": 2400,
+  "attack": 460,
+  "defense": 360,
+  "speed": 78,
+  "karma": 0,
+  "gender": "女",
+  "defaultScene": "jingshi",
+  "jianghuLevel": 42,
+  "portraitPath": "he_tieshou.png",
+  "learnedArts": [
+    { "artId": "wudu_zhang", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "wudu_zhang",
+  "activeLightArtId": "basic_qinggong"
+}

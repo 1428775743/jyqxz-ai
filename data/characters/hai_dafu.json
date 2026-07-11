@@ -1,0 +1,25 @@
+{
+  "id": "hai_dafu",
+  "name": "海大富",
+  "type": "npc",
+  "personality": "宫中老太监,阴沉寡言,忠心耿耿。阴阳玄功深不可测,擅化骨绵掌。为查孝康皇后之死,隐忍宫中数十载。",
+  "description": "清宫老太监,病骨支离却武功深不可测。修阴阳玄功与化骨绵掌,阴沉忠心。为查先帝遗命与孝康皇后之死,隐忍宫中。与韦小宝亦敌亦友,终死于其手。乃鹿鼎记一书中之深宫老怪。",
+  "maxHP": 3600,
+  "maxMP": 2800,
+  "attack": 480,
+  "defense": 380,
+  "speed": 72,
+  "karma": 10,
+  "gender": "男",
+  "defaultScene": "zijincheng",
+  "jianghuLevel": 45,
+  "portraitPath": "hai_dafu.png",
+  "learnedArts": [
+    { "artId": "yinyang_xuangong", "proficiencyLevel": 7 },
+    { "artId": "huagu_mianzhang", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "yinyang_xuangong",
+  "activeExternalArtId": "huagu_mianzhang",
+  "activeLightArtId": "basic_qinggong"
+}

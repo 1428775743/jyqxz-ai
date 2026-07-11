@@ -1,0 +1,12 @@
+{
+  "id": "silk",
+  "name": "丝绸",
+  "description": "一匹细软丝绸，色泽温润，适合裁衣或赠人。",
+  "type": "Gift",
+  "value": 150,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 12,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

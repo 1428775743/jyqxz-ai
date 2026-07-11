@@ -1,0 +1,12 @@
+{
+  "id": "jinshe_jian",
+  "name": "金蛇剑",
+  "description": "金蛇郎君夏雪宜所铸奇形宝剑,剑身蜿蜒如蛇,金光灿然。剑锋诡异,与金蛇剑法相得益彰。乃碧血剑一书中之名器,适合赠予嗜剑之武者。",
+  "type": "Gift",
+  "value": 5000,
+  "stackable": false,
+  "quantity": 1,
+  "giftFavorBonus": 25,
+  "giftPreference": "武者",
+  "rarity": "legendary"
+}

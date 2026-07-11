@@ -1,0 +1,26 @@
+{
+  "id": "you_tanzhi",
+  "name": "游坦之",
+  "type": "npc",
+  "personality": "痴情偏执,自卑怯懦,为阿紫痴狂至不辨是非。戴铁头面具,身世凄凉。",
+  "description": "聚贤庄游氏双雄之子,父辈因乔峰而亡。本是一介文弱少年,却痴恋阿紫,甘受其虐。机缘巧合得易筋经与冰蚕毒力,戴铁头面具行走江湖,人称铁头人。武功诡异高强,然心智已为痴情所迷。",
+  "maxHP": 3800,
+  "maxMP": 2200,
+  "attack": 560,
+  "defense": 400,
+  "speed": 70,
+  "karma": 30,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 32,
+  "portraitPath": "you_tanzhi.png",
+  "learnedArts": [
+    { "artId": "yijin_jing", "proficiencyLevel": 5 },
+    { "artId": "huagong_dafa", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeInternalArtId": "yijin_jing",
+  "activeExternalArtId": "huagong_dafa",
+  "activeLightArtId": "basic_qinggong"
+}

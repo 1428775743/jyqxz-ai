@@ -1,0 +1,45 @@
+{
+  "id": "jiaxing_grocery",
+  "name": "周大叔(杂货)",
+  "type": "npc",
+  "personality": "老实本分，和气生财，南湖边上的老街坊",
+  "description": "嘉兴南湖边的杂货大叔，江南水乡物产丰富，尤以桂花酒闻名。",
+  "maxHP": 270,
+  "maxMP": 90,
+  "attack": 17,
+  "defense": 12,
+  "speed": 27,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "jiaxing_scene",
+  "schedule": {
+    "清晨": "jiaxing_scene",
+    "白天": "jiaxing_scene",
+    "黄昏": "jiaxing_scene",
+    "夜晚": "jiaxing_scene"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "guihua_wine"
+  ],
+  "shopRandomItems": [
+    "fish",
+    "honey",
+    "silk",
+    "poetry_book",
+    "wild_mushroom"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

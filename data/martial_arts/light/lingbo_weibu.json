@@ -1,0 +1,17 @@
+{
+  "id": "lingbo_weibu",
+  "name": "凌波微步",
+  "type": "light",
+  "description": "段氏家传上乘身法,步法奇诡如踩八卦,身随意动,翩若惊鸿。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "speedBonusPerLevel": 5,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.25,
+      "chance": 1.0,
+      "description": "被动:25%概率闪避来袭攻击"
+    }
+  ]
+}

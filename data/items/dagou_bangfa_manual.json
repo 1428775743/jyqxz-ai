@@ -1,0 +1,11 @@
+{
+  "id": "dagou_bangfa_manual",
+  "name": "打狗棒法秘籍",
+  "description": "丐帮历代帮主单传的棒法图谱,三十六路天下无狗。非丐帮帮主不传,洪七公破例相授。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["dagou_bangfa"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "zuoyou_hubo_manual",
+  "name": "左右互搏秘籍",
+  "description": "老顽童周伯通分心二用之法,左手画圆右手画方。修成可双手各使一路武功,出手次数倍增。此法需悟性,非人人可学。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["zuoyou_hubo"],
+  "prerequisite": {},
+  "rarity": "epic"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "yanziwu",
+  "name": "燕子坞",
+  "description": "姑苏慕容氏庄院,粉墙黛瓦,水木清华。参合庄掩映其间,乃南慕容慕容复之家。庄中暗藏玄机,慕容氏以彼之道还施彼身之名,皆自此出。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/yanziwu.jpg",
+  "connectedScenes": ["mantuoshan"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

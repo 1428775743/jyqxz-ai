@@ -1,0 +1,42 @@
+{
+  "id": "wen_bookseller",
+  "name": "文秀才(书贩)",
+  "type": "npc",
+  "personality": "温文尔雅，饱读诗书，偶尔叹息世人不重文墨",
+  "description": "襄阳城中书铺的老板，虽有一身学问却不愿入仕，以卖书为乐，常与读书人论道。",
+  "maxHP": 260,
+  "maxMP": 120,
+  "attack": 12,
+  "defense": 10,
+  "speed": 22,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_inn"
+  },
+  "npcRole": "book_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "analects",
+    "poetry_book"
+  ],
+  "shopRandomItems": [
+    "tao_te_ching",
+    "strategy_book",
+    "sutra_diamond",
+    "jade_pendant",
+    "silk"
+  ],
+  "craftSkills": {
+    "art": 40
+  },
+  "portraitPath": "wen_bookseller.png",
+  "learnedArts": []
+}

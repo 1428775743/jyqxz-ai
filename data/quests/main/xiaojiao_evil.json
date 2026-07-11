@@ -1,0 +1,59 @@
+{
+  "id": "xiaojiao_evil",
+  "name": "笑傲·黑木崖之变(恶线)",
+  "type": "chain",
+  "triggerNpcId": "ren_woxing",
+  "minFavorabilityToOffer": 30,
+  "exclusiveWithQuestIds": ["siguoyai_meditation"],
+  "relatedNpcIds": ["dongfang_bubai", "linghu_chong", "yue_buqun", "xiang_wentian", "ren_yingying"],
+  "description": "恶线:任我行脱困黑木崖,欲夺回日月神教教主之位。你选择助任我行,与令狐冲、岳不群等正派为敌。事成可获葵花宝典残篇,然侠名有损、善恶骤降。与'思过崖面壁'正线互斥,接此线则正线不可接。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "ren_woxing", "lines": ["哈哈,老夫困于西湖底多年,今日得脱,定要夺回教主之位!", "你既肯助我,便是本教贵客。令狐冲那小子冥顽不灵,岳不群伪君子一个,你我逐个收拾!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "fight_linghu",
+      "actionType": "fight",
+      "targetNPC": "linghu_chong",
+      "description": "令狐冲拦路,劝你莫助任我行。你执意相搏,与这位昔日的潇洒剑客反目。",
+      "aiHint": "你是令狐冲,生性豁达潇洒。你见玩家助任我行,痛心劝阻无效,只得拔剑。你以独孤九剑迎战,剑招无招胜有招。你叹道:'兄台何苦趟这浑水?'",
+      "reward": { "jianghuExp": 400, "reputationBonus": 120, "karmaBonus": -4 }
+    },
+    {
+      "id": "fight_yuebuqun",
+      "actionType": "fight",
+      "targetNPC": "yue_buqun",
+      "description": "岳不群伪君子真小人,亦来阻拦。击败这位'君子剑',撕破他的伪装。",
+      "aiHint": "你是岳不群,华山掌门,外号君子剑,实则阴险伪善。你暗中觊觎辟邪剑谱,见玩家助任我行恐乱己谋,遂出手阻拦。你以紫霞神功与华山剑法迎战,招式堂皇却暗藏杀机。",
+      "reward": { "jianghuExp": 450, "reputationBonus": 150, "karmaBonus": -4 }
+    },
+    {
+      "id": "seize_kuihua",
+      "actionType": "talk",
+      "targetNPC": "ren_woxing",
+      "description": "黑木崖之变功成,任我行重掌教主。他取出从东方不败处夺得的葵花宝典残篇,以酬你的助力。",
+      "aiHint": "你是任我行,日月神教前教主,霸气深沉。你重夺教主之位,志得意满。你取出一卷残破书册——正是葵花宝典残篇。你大笑:'此物东方不败所修,如今归你,望你善用!'",
+      "reward": { "martialArtId": "kuihua_baodian", "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "ren_woxing", "lines": ["黑木崖之变,你功不可没。", "这葵花宝典残篇,本是东方不败那厮所修,如今赏你。", "不过切记——欲练此功,必先自宫,哈哈哈!"] },
+          { "speaker": "旁白", "lines": ["你助任我行夺回教主之位,得葵花宝典残篇。", "然与令狐冲反目、侠名受损,江湖正道对你已生戒备。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1200,
+    "goldBonus": 6000,
+    "reputationBonus": 1500,
+    "karmaBonus": -15
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["黑木崖之变既定,日月神教易主,你得葵花宝典残篇。", "然你与正派为敌,善恶骤降,自此江湖路,正邪两道皆侧目。"] }
+    ]
+  }
+}

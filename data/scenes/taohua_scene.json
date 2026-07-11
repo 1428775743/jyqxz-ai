@@ -1,0 +1,10 @@
+{
+  "id": "taohua_scene",
+  "name": "桃花岛",
+  "description": "东海桃花岛，岛上桃花遍地，奇阵遍布。东邪黄药师隐居之地。",
+  "region": "东海",
+  "backgroundImagePath": "assets/scenes/taohua_scene.jpg",
+  "connectedScenes": ["taohua_cave"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

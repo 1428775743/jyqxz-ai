@@ -1,0 +1,12 @@
+{
+  "id": "mp_pill",
+  "name": "回气丸",
+  "description": "恢复内力的丹药。",
+  "type": "Consumable",
+  "value": 80,
+  "stackable": true,
+  "quantity": 2,
+  "mpRecovery": 150,
+  "rarity": "common",
+  "combatUsable": true
+}

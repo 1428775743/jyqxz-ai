@@ -1,0 +1,10 @@
+{
+  "id": "dali_scene",
+  "name": "大理",
+  "description": "大理古城，苍山洱海之间。段氏皇族世代居此，一阳指名震天下。",
+  "region": "大理",
+  "backgroundImagePath": "assets/scenes/dali_scene.jpg",
+  "connectedScenes": ["tianlongsi"],
+  "defaultNPCs": ["baixiao_dali", "dali_grocery"],
+  "isSpecial": false
+}

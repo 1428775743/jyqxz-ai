@@ -1,0 +1,43 @@
+{
+  "id": "wei_xiaobao",
+  "name": "韦小宝",
+  "type": "npc",
+  "personality": "油嘴滑舌，机灵狡猾，好色贪财",
+  "description": "扬州妓院长大的小混混，误打误撞进了皇宫，一身三教九流的本事。",
+  "maxHP": 700,
+  "maxMP": 250,
+  "attack": 60,
+  "defense": 45,
+  "speed": 80,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "shenlong_dao",
+  "schedule": {
+    "清晨": "shenlong_dao",
+    "白天": "shenlong_dao",
+    "黄昏": "shenlong_dao",
+    "夜晚": "shenlong_dao"
+  },
+  "jianghuLevel": 30,
+  "craftSkills": {
+    "art": 20,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 5,
+    "medicine": 5
+  },
+  "portraitPath": "wei_xiaobao.png",
+  "equippedWeaponId": "hansha_ying",
+  "equippedArmorId": "jinshi_baoyi",
+  "learnedArts": [
+    { "artId": "shenxing_baibian", "proficiencyLevel": 4 },
+    { "artId": "meiren_sanzhao", "proficiencyLevel": 4 },
+    { "artId": "huagu_mianzhang", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": null,
+  "activeExternalArtId": "meiren_sanzhao",
+  "activeLightArtId": "shenxing_baibian"
+}

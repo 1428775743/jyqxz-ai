@@ -1,0 +1,25 @@
+{
+  "id": "shaolin_qinna",
+  "name": "少林擒拿手",
+  "type": "external",
+  "description": "少林寺进阶外功，以巧制刚，手法精妙，善于拿穴锁关节，令对手动弹不得。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "damageCoefficient": 1.5,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.15,
+      "requiredLevel": 3,
+      "description": "Lv.3解锁：15%概率使对方眩晕"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 1.8 },
+    "8": { "damageCoefficient": 2.1 }
+  }
+}

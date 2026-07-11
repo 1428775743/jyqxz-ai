@@ -1,0 +1,43 @@
+{
+  "id": "liu_medicine",
+  "name": "刘药师(药商)",
+  "type": "npc",
+  "personality": "和蔼可亲，话不多但句句在理",
+  "description": "武当镇的药铺老板，与武当派有药材往来。",
+  "maxHP": 350,
+  "maxMP": 180,
+  "attack": 20,
+  "defense": 18,
+  "speed": 30,
+  "relations": {},
+  "factionId": null,
+  "karma": 25,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "wudang_town",
+  "schedule": {
+    "清晨": "wudang_town",
+    "白天": "wudang_town",
+    "黄昏": "wudang_town",
+    "夜晚": "wudang_town"
+  },
+  "npcRole": "medicine_merchant",
+  "jianghuLevel": 2,
+  "shopFixedItems": [
+    "healing_pill_small",
+    "mp_pill",
+    "juli_dan"
+  ],
+  "shopRandomItems": [
+    "healing_pill_large",
+    "tiegu_dan",
+    "qiangshen_dan",
+    "huoxue_dan",
+    "ningshen_dan"
+  ],
+  "craftSkills": {
+    "medicine": 60
+  },
+  "portraitPath": "liu_medicine.png",
+  "learnedArts": []
+}

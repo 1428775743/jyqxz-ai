@@ -1,0 +1,11 @@
+{
+  "id": "lingjiugong",
+  "name": "灵鹫宫",
+  "description": "天山缥缈峰上,灵鹫宫巍然矗立。逍遥派支脉所在,天山童姥居此,以生死符御三十六洞七十二岛。宫中石壁刻满逍遥派绝学,天山折梅手、天山六阳掌皆藏于此。",
+  "region": "天山",
+  "backgroundImagePath": "assets/scenes/lingjiugong.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["tong_lao"],
+  "factionId": "xiaoyao",
+  "isSpecial": true
+}

@@ -1,0 +1,78 @@
+{
+  "id": "tianlong_duanyu",
+  "name": "天龙·段誉",
+  "type": "chain",
+  "triggerNpcId": "duan_yu",
+  "minFavorabilityToOffer": 10,
+  "relatedNpcIds": ["wang_yuyan", "duan_zhengchun", "murong_fu"],
+  "description": "大理镇南王世子段誉,生性痴钝却机缘深厚。他不愿习武,离家游历江湖,于无量山偶得北冥神功与凌波微步。一路痴恋王语嫣,又至天龙寺习六脉神剑。你与他结伴同行,助其了却心愿,他愿将毕生绝学倾囊相授。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "duan_yu", "lines": ["这位兄台,小生段誉,大理人氏。", "我本不愿习武,奈何江湖纷扰,身不由己。"] },
+      { "speaker": "玩家", "lines": ["段兄客气,萍水相逢便是缘。"] },
+      { "speaker": "duan_yu", "lines": ["兄台豪气!小生正欲往姑苏一行,寻访一位...故人。", "若兄台不弃,结伴同行如何?事成,小生这点微末本事,愿与兄台共享。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "leave_dali",
+      "actionType": "talk",
+      "targetNPC": "duan_yu",
+      "description": "段誉邀你结伴离大理,往江南姑苏一行。先与他叙谈,定下同行之约。",
+      "aiHint": "玩家与你萍水相逢却豪气相投,你邀他结伴往姑苏寻访王语嫣。你生性痴钝迂阔,不善武功却机缘深厚,对玩家以兄长相称。你提及姑苏慕容与王语嫣,言语间满是倾慕与忐忑。",
+      "reward": { "jianghuExp": 100 }
+    },
+    {
+      "id": "visit_yanziwu",
+      "actionType": "go",
+      "targetScene": "yanziwu",
+      "description": "随段誉前往姑苏燕子坞,寻访南慕容慕容复的庄院。",
+      "aiHint": "你随段誉至姑苏燕子坞。慕容氏庄院粉墙黛瓦,你虽不通武事,却感此处暗藏玄机。你提及慕容复其人,心怀忐忑。",
+      "reward": { "jianghuExp": 150 }
+    },
+    {
+      "id": "meet_yuyan",
+      "actionType": "talk",
+      "targetNPC": "wang_yuyan",
+      "description": "曼陀山庄遇王语嫣,段誉痴恋不已。语嫣虽不谙武功,却熟读天下武学典籍,于旁指点破招之法。",
+      "aiHint": "玩家随段誉来访,你是曼陀山庄王语嫣,容貌清丽,酷似无量山玉像。你虽不谙武功,却熟读天下武学典籍,对各派招式了如指掌。你见玩家武功不弱,愿以所知武学相告,指点其破招之法。你言谈温婉,对表哥慕容复一片痴心。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 100 }
+    },
+    {
+      "id": "tianlongsi_visit",
+      "actionType": "go",
+      "targetScene": "tianlongsi",
+      "description": "随段誉返回大理天龙寺,段氏武学圣地。六脉神剑剑谱与一阳指传承皆藏于此。",
+      "aiHint": "你随段誉至大理天龙寺,此处乃段氏武学圣地。古刹深幽,六脉神剑与一阳指之传承皆在此。你心有所感,似悟六脉神剑之妙。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "learn_beiming",
+      "actionType": "talk",
+      "targetNPC": "duan_yu",
+      "description": "段誉感念你一路相伴,将无量山琅嬛福地所得之北冥神功倾囊相授。",
+      "aiHint": "玩家一路相助,你感念其义。你将无量山琅嬛福地偶得之北冥神功倾囊相授。此乃逍遥派至高内功,你虽只习得皮毛,然亦足以相赠。你言此功可纳百川、化敌内力,望玩家善用。",
+      "reward": { "martialArtId": "beiming_shengong", "jianghuExp": 300 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "duan_yu", "lines": ["兄台一路相护,小生无以为报。", "这北冥神功,是我在无量山琅嬛福地偶得...虽只习得皮毛,亦愿相赠。"] },
+          { "speaker": "duan_yu", "lines": ["此功可纳百川,化敌内力为己用。", "望兄台善用,莫如小生这般,痴来痴去,一事无成。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "martialArtId": "liumai_shenjian",
+    "jianghuExp": 500,
+    "goldBonus": 1000,
+    "reputationBonus": 800,
+    "items": [ { "itemId": "duan_yu_yupei", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "duan_yu", "lines": ["六脉神剑,乃我段氏至高绝学,今日传与兄台。", "无形剑气,自六脉出——望兄台以此行侠仗义。"] },
+      { "speaker": "duan_yu", "lines": ["这枚玉佩,是小生随身之物,权作留念。", "后会有期,兄台!"] }
+    ]
+  }
+}

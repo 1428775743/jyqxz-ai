@@ -1,0 +1,30 @@
+{
+  "id": "tian_gang_beidou",
+  "name": "天罡北斗阵",
+  "type": "internal",
+  "description": "全真教镇派绝学,王重阳所创,合全真七子之力,可越级抗衡五绝高手。修习者步法暗合北斗七星之位,攻守兼备,身形莫测。单修亦能借北斗之势,御敌于阵外。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 80,
+  "hpBonusPerLevel": 220,
+  "mpBonusPerLevel": 400,
+  "attackBonusPerLevel": 40,
+  "defenseBonusPerLevel": 40,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.15,
+      "chance": 0.15,
+      "description": "七星移位:被攻击时15%概率闪避"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.1,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:北斗御阵,减伤10%"
+    }
+  ],
+  "levelBonuses": {}
+}

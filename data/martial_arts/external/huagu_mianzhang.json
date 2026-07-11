@@ -1,0 +1,37 @@
+{
+  "id": "huagu_mianzhang",
+  "name": "化骨绵掌",
+  "type": "external",
+  "description": "海大富、洪安通所传阴毒掌法,掌力阴柔绵长,中掌者初觉无异,实则骨肉渐渐腐蚀化脓。乃鹿鼎记一书中最阴毒之掌法,修至大成掌力透骨,化骨蚀肉。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.2,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 75,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.4,
+      "chance": 1.0,
+      "description": "化骨蚀防:无视40%防御"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.15,
+      "chance": 0.4,
+      "description": "化骨腐蚀:40%概率附加流血(化骨之毒)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:化骨透骨,附带15%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.6 },
+    "10": { "damageCoefficient": 3.0 }
+  }
+}

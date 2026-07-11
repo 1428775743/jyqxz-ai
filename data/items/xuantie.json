@@ -1,0 +1,10 @@
+{
+  "id": "xuantie",
+  "name": "玄铁",
+  "description": "天上陨铁所化之稀有金属,色黑质沉,坚逾精钢。以之打造兵器,锋利无匹,乃上品锻造材料。谢烟客铸玄铁令即用此物。",
+  "type": "Material",
+  "value": 150,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

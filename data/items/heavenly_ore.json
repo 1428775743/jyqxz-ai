@@ -1,0 +1,9 @@
+{
+  "id": "heavenly_ore",
+  "name": "天陨铁",
+  "description": "天降陨铁，世所罕见。以此锻造的兵器可称神兵利器，千金难求。",
+  "type": "Material",
+  "value": 2000,
+  "stackable": true,
+  "quantity": 1
+}

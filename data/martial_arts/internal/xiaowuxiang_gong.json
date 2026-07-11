@@ -1,0 +1,37 @@
+{
+  "id": "xiaowuxiang_gong",
+  "name": "小无相功",
+  "type": "internal",
+  "description": "逍遥派不传之秘,以无形无相之心催动真气,可模拟天下各派武功而不露本相。修成后真气绵长护体,反弹敌力于无形。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 90,
+  "hpBonusPerLevel": 220,
+  "mpBonusPerLevel": 520,
+  "attackBonusPerLevel": 30,
+  "defenseBonusPerLevel": 35,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.12,
+      "chance": 1.0,
+      "description": "真气绵长:每回合恢复12%内力"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.25,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:无形护体,减伤25%"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.2,
+      "chance": 0.4,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁:无相反弹,40%概率反弹20%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

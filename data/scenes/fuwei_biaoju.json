@@ -1,0 +1,10 @@
+{
+  "id": "fuwei_biaoju",
+  "name": "福威镖局",
+  "description": "曾经名震东南的福威镖局,如今已是一片狼藉。庭院血迹斑斑,镖旗倒在地上。林家七十余口尽数遭难,只剩少主林平之坐在大堂上,神情木然,武功尽废。",
+  "region": "福建",
+  "backgroundImagePath": "assets/scenes/fuwei_biaoju.jpg",
+  "connectedScenes": ["fujian_street"],
+  "defaultNPCs": ["lin_pingzhi"],
+  "isSpecial": true
+}

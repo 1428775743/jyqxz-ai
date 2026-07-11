@@ -1,0 +1,47 @@
+{
+  "id": "zhou_grocery",
+  "name": "周大嫂(杂货)",
+  "type": "npc",
+  "personality": "精明能干，嘴甜心细，做生意公道",
+  "description": "嵩山镇上经营杂货铺的妇人，货物齐全，价格实惠，镇上人都认她。",
+  "maxHP": 280,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 12,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "女",
+  "hiddenPower": false,
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_town",
+    "白天": "songshan_town",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_town"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "dried_meat"
+  ],
+  "shopRandomItems": [
+    "honey",
+    "wild_mushroom",
+    "fish",
+    "silk",
+    "rabbit_fur",
+    "leather"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "portraitPath": "zhou_grocery.png",
+  "learnedArts": []
+}

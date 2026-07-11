@@ -1,0 +1,13 @@
+{
+  "id": "yuejia_qiangfa_manual",
+  "name": "岳家枪法秘籍",
+  "description": "记载岳家枪法的枪谱,枪出如龙,乃沙场历练出的杀人技。与武穆遗书同藏于皇宫,得之可习岳家枪法。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["yuejia_qiangfa"],
+  "prerequisite": {
+    "requiredAttack": 200
+  },
+  "rarity": "epic"
+}

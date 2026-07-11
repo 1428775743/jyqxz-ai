@@ -1,0 +1,12 @@
+{
+  "id": "jiuzhuan_huandan",
+  "name": "九转还魂丹",
+  "type": "Consumable",
+  "description": "传说中起死回生之神丹,服下回血5000、回内3000。可在战斗中使用。",
+  "value": 5000,
+  "stackable": true,
+  "rarity": "legendary",
+  "hpRecovery": 5000,
+  "mpRecovery": 3000,
+  "combatUsable": true
+}

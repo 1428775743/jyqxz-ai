@@ -1,0 +1,14 @@
+{
+  "id": "shanzhen_huifan",
+  "name": "山珍烩饭",
+  "type": "Consumable",
+  "description": "山菇鲜肉烩饭，滋味醇厚，食后内力上限+20%，持续1日。食buff。",
+  "value": 150,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "maxmp",
+  "buffValue": 0.20,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

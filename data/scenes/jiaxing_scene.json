@@ -1,0 +1,10 @@
+{
+  "id": "jiaxing_scene",
+  "name": "嘉兴",
+  "description": "江南水乡嘉兴，烟雨楼矗立湖畔。南湖之上常有江湖豪杰聚会。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/jiaxing_scene.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["jiaxing_grocery"],
+  "isSpecial": false
+}

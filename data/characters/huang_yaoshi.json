@@ -1,0 +1,48 @@
+{
+  "id": "huang_yaoshi",
+  "name": "黄药师",
+  "type": "npc",
+  "personality": "孤傲清高,文武双全,行事乖张不羁。通晓琴棋书画、医卜星相、五行阵法,号称东邪。重情义却蔑视世俗礼法。",
+  "description": "桃花岛主,江湖五绝之'东邪'。上通天文,下通地理,五行八卦、奇门遁甲、琴棋书画无一不精。武功自成一派,弹指神通、落英神剑掌、玉箫剑法皆绝学。黄蓉之父,对爱女掌上明珠。",
+  "maxHP": 6000,
+  "maxMP": 5500,
+  "attack": 900,
+  "defense": 520,
+  "speed": 100,
+  "relations": {
+    "huang_rong": "父女",
+    "zhou_botong": "敌对"
+  },
+  "factionId": null,
+  "karma": 50,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "taohua_scene",
+  "schedule": {
+    "清晨": "taohua_scene",
+    "白天": "taohua_scene",
+    "黄昏": "taohua_scene",
+    "夜晚": "taohua_scene"
+  },
+  "jianghuLevel": 58,
+  "craftSkills": {
+    "art": 100,
+    "forging": 40,
+    "mining": 20,
+    "gathering": 50,
+    "medicine": 60
+  },
+  "portraitPath": "huang_yaoshi.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 8 },
+    { "artId": "jiuyin_zhenjing", "proficiencyLevel": 8 },
+    { "artId": "tanzhi_shentong", "proficiencyLevel": 10 },
+    { "artId": "luoying_shenjian", "proficiencyLevel": 10 },
+    { "artId": "yuxiao_jianfa", "proficiencyLevel": 10 },
+    { "artId": "yanzi_chaoshui", "proficiencyLevel": 9 }
+  ],
+  "activeInternalArtId": "jiuyin_zhenjing",
+  "activeExternalArtId": "tanzhi_shentong",
+  "activeLightArtId": "yanzi_chaoshui"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "silver_sword",
+  "name": "银剑",
+  "description": "掺银精铸的长剑，剑身泛冷光，比寻常铁剑更利更轻。已是铁匠手艺的上限。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 30,
+  "defenseBonus": 0,
+  "value": 250,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

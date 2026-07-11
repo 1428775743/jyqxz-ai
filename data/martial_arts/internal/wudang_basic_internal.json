@@ -1,0 +1,16 @@
+{
+  "id": "wudang_basic_internal",
+  "name": "武当入门内功",
+  "type": "internal",
+  "description": "武当派弟子入门修炼的吐纳心法，以养气固本为主，虽无特别之处，但根基扎实。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "cooldown": 3,
+  "mpCost": 25,
+  "hpBonusPerLevel": 60,
+  "mpBonusPerLevel": 80,
+  "attackBonusPerLevel": 6,
+  "defenseBonusPerLevel": 7,
+  "effects": [],
+  "levelBonuses": {}
+}

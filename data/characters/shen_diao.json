@@ -1,0 +1,40 @@
+{
+  "id": "shen_diao",
+  "name": "神雕",
+  "type": "npc",
+  "personality": "通灵神物,忠义双全,力大无穷。乃剑魔独孤求败之挚友,常伴剑冢。",
+  "description": "剑冢神雕,体型硕大,通体漆黑,力大无穷,能御玄铁重剑。乃剑魔独孤求败生前挚友,独居剑冢数十载。识英雄重英雄,见资质不凡者愿与之切磋,授以玄铁剑法。",
+  "maxHP": 5000,
+  "maxMP": 2000,
+  "attack": 700,
+  "defense": 500,
+  "speed": 60,
+  "relations": {},
+  "factionId": null,
+  "karma": 50,
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "jianzhong",
+  "schedule": {
+    "清晨": "jianzhong",
+    "白天": "jianzhong",
+    "黄昏": "jianzhong",
+    "夜晚": "jianzhong"
+  },
+  "jianghuLevel": 45,
+  "craftSkills": {
+    "art": 5,
+    "forging": 50,
+    "mining": 60,
+    "gathering": 5,
+    "medicine": 5
+  },
+  "portraitPath": "shen_diao.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "xuantie_jianfa", "proficiencyLevel": 7 },
+    { "artId": "basic_palm", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "xuantie_jianfa"
+}

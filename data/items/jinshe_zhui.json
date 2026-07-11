@@ -1,0 +1,10 @@
+{
+  "id": "jinshe_zhui",
+  "name": "金蛇锥",
+  "description": "金蛇郎君夏雪宜所制暗器,锥形如蛇牙,淬有奇毒。发之无声,中者立毙。乃金蛇门招牌暗器,可赠予习暗器之武者。",
+  "type": "Material",
+  "value": 200,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

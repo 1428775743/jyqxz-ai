@@ -1,0 +1,10 @@
+{
+  "id": "gumu_exit",
+  "name": "古墓出口",
+  "description": "活死人墓的另一处出口,通往终南山后山密林。古墓遇袭时,可由此撤离。出口隐蔽,外人难以发觉。",
+  "region": "终南山",
+  "backgroundImagePath": "assets/scenes/gumu_exit.jpg",
+  "connectedScenes": ["gumu_shi"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

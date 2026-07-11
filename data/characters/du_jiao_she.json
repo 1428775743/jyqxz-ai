@@ -1,0 +1,42 @@
+{
+  "id": "du_jiao_she",
+  "name": "独角蛇",
+  "type": "npc",
+  "personality": "凶残嗜血,剧毒无比,盘踞剑冢为害神雕。",
+  "description": "剑冢中的巨蛇,头顶独角,体型巨大,剧毒无比。常与栖息剑冢的神雕为敌,人畜见之皆惧。",
+  "maxHP": 2800,
+  "maxMP": 1000,
+  "attack": 320,
+  "defense": 200,
+  "speed": 75,
+  "relations": {
+    "shen_diao": "敌对"
+  },
+  "factionId": null,
+  "karma": -20,
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "jianzhong",
+  "schedule": {
+    "清晨": "jianzhong",
+    "白天": "jianzhong",
+    "黄昏": "jianzhong",
+    "夜晚": "jianzhong"
+  },
+  "jianghuLevel": 30,
+  "craftSkills": {
+    "art": 0,
+    "forging": 0,
+    "mining": 0,
+    "gathering": 0,
+    "medicine": 0
+  },
+  "portraitPath": "du_jiao_she.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "lingshe_quan", "proficiencyLevel": 6 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "lingshe_quan"
+}

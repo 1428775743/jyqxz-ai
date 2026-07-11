@@ -1,0 +1,43 @@
+{
+  "id": "jiuyang_shengong",
+  "name": "九阳神功",
+  "type": "internal",
+  "description": "至刚至阳的内功心法，练成后内力量源不绝。大成后攻击附带纯阳真气，无视护体。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 100,
+  "hpBonusPerLevel": 280,
+  "mpBonusPerLevel": 500,
+  "attackBonusPerLevel": 45,
+  "defenseBonusPerLevel": 40,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.1,
+      "chance": 1.0,
+      "description": "每回合恢复10%内力"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：攻击附带15%真实伤害（无视防御）"
+    },
+    {
+      "type": "HPRecover",
+      "value": 0.10,
+      "chance": 1.0,
+      "description": "九阳护体:每回合恢复10%最大HP"
+    },
+    {
+      "type": "DamageReduction",
+      "value": 0.20,
+      "chance": 1.0,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:九阳护体,受击减伤20%"
+    }
+  ],
+  "levelBonuses": {}
+}

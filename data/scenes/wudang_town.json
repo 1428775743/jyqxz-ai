@@ -1,0 +1,20 @@
+{
+  "id": "wudang_town",
+  "name": "武当镇",
+  "description": "武当山下的小镇，道家气息浓厚。",
+  "region": "武当",
+  "backgroundImagePath": "assets/scenes/wudang_town.jpg",
+  "connectedScenes": ["wudang_hall", "wudang_backhill"],
+  "defaultNPCs": ["wudang_town_elder", "sun_weapon", "liu_medicine", "wudang_grocery"],
+  "isSpecial": false,
+  "craftLessons": [
+    { "skillId": "gathering", "cost": 30, "gain": 3, "maxLevel": 40 },
+    { "skillId": "medicine", "cost": 80, "gain": 5, "maxLevel": 60 }
+  ],
+  "martialLessons": [
+    { "artId": "basic_palm", "cost": 80 },
+    { "artId": "basic_qigong", "cost": 120 },
+    { "artId": "mingjiao_basic_internal", "cost": 100 },
+    { "artId": "mingjiao_basic_fist", "cost": 100 }
+  ]
+}

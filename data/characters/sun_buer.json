@@ -1,0 +1,46 @@
+{
+  "id": "sun_buer",
+  "name": "孙不二",
+  "type": "npc",
+  "personality": "端庄持重,道心坚韧,全真七子之一,马钰之妻后出家。武功虽非顶尖,然修为深厚。",
+  "description": "全真七子中唯一女道,道号清静散人,马钰之妻后随王重阳出家。性端庄,善教导,重阳宫中弟子多受其教诲。全真剑法已臻上乘。",
+  "maxHP": 3000,
+  "maxMP": 2200,
+  "attack": 360,
+  "defense": 280,
+  "speed": 72,
+  "relations": {
+    "qiu_chuji": "同门",
+    "wang_chongyang": "Master"
+  },
+  "factionId": "quanzhen",
+  "karma": 60,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isTrainer": true,
+  "defaultScene": "quanzhen_hall",
+  "schedule": {
+    "清晨": "quanzhen_hall",
+    "白天": "quanzhen_hall",
+    "黄昏": "quanzhen_hall",
+    "夜晚": "quanzhen_hall"
+  },
+  "jianghuLevel": 30,
+  "craftSkills": {
+    "art": 60,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 35,
+    "medicine": 40
+  },
+  "portraitPath": "sun_buer.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 6 },
+    { "artId": "quanzhen_neigong", "proficiencyLevel": 7 },
+    { "artId": "quanzhen_jianfa", "proficiencyLevel": 7 },
+    { "artId": "tian_gang_beidou", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "quanzhen_neigong",
+  "activeExternalArtId": "quanzhen_jianfa"
+}

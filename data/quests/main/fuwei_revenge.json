@@ -1,0 +1,41 @@
+{
+  "id": "fuwei_revenge",
+  "name": "福威镖局灭门案",
+  "type": "chain",
+  "triggerNpcId": "lin_pingzhi",
+  "minFavorabilityToOffer": 1,
+  "relatedNpcIds": ["mu_gaofeng", "yu_canghai"],
+  "description": "福威镖局少主林平之武功尽废,跪求你为林家七十余口报仇雪恨。仇人是塞北明驼木高峰与青城派掌门余沧海——是他们勾结血洗了镖局。",
+  "difficulty": "hard",
+  "steps": [
+    {
+      "id": "kill_mugaofeng",
+      "actionType": "fight",
+      "targetNPC": "mu_gaofeng",
+      "description": "塞北明驼木高峰似乎潜伏在大理一带,找到他并将其击杀,为林家报仇之第一步。",
+      "reward": { "jianghuExp": 100, "goldBonus": 200, "reputationBonus": 100 }
+    },
+    {
+      "id": "kill_yu_canghai",
+      "actionType": "fight",
+      "targetNPC": "yu_canghai",
+      "description": "前往青城派,与余沧海决战。打败他,青城派便无人主事。",
+      "reward": { "jianghuExp": 200, "goldBonus": 500, "reputationBonus": 200 }
+    },
+    {
+      "id": "report_back",
+      "actionType": "talk",
+      "targetNPC": "lin_pingzhi",
+      "description": "回福威镖局向林平之复命,告知他大仇已报。",
+      "reward": { "jianghuExp": 80 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 300,
+    "goldBonus": 1000,
+    "reputationBonus": 500,
+    "items": [
+      { "itemId": "bixie_jianpu_manual", "quantity": 1 }
+    ]
+  }
+}

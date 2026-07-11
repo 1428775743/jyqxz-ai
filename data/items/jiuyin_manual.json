@@ -1,0 +1,14 @@
+{
+  "id": "jiuyin_manual",
+  "name": "九阴真经残卷",
+  "description": "记载九阴真经部分内容的残破书卷。",
+  "type": "Manual",
+  "value": 5000,
+  "stackable": false,
+  "containedArtIds": ["jiuyin_zhenjing"],
+  "prerequisite": {
+    "requiredKarma": 30,
+    "requiredAttack": 100
+  },
+  "rarity": "legendary"
+}

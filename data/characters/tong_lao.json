@@ -1,0 +1,28 @@
+{
+  "id": "tong_lao",
+  "name": "天山童姥",
+  "type": "npc",
+  "personality": "乖戾狠辣,喜怒无常,却亦有其痴情执念。返老还童,性情如孩童般任性。",
+  "description": "逍遥派掌门无崖子的师姐,灵鹫宫主。修八荒六合唯我独尊功,返老还童,每三十年返童一次。性情乖戾,杀人不眨眼,生死符控三十六洞七十二岛。与师妹李秋水争斗一生,皆为无崖子之故。",
+  "maxHP": 4600,
+  "maxMP": 3800,
+  "attack": 820,
+  "defense": 420,
+  "speed": 86,
+  "factionId": "xiaoyao",
+  "karma": 25,
+  "gender": "女",
+  "isSectLeader": true,
+  "defaultScene": "lingjiugong",
+  "jianghuLevel": 52,
+  "portraitPath": "tong_lao.png",
+  "learnedArts": [
+    { "artId": "bahuang_liuhe", "proficiencyLevel": 8 },
+    { "artId": "tianshan_zhemei", "proficiencyLevel": 8 },
+    { "artId": "shengsi_fu", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "bahuang_liuhe",
+  "activeExternalArtId": "tianshan_zhemei",
+  "activeLightArtId": "basic_qinggong"
+}

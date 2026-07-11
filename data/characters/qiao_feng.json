@@ -1,0 +1,27 @@
+{
+  "id": "qiao_feng",
+  "name": "乔峰",
+  "type": "npc",
+  "personality": "豪迈磊落,义薄云天,嗜酒如命,为人光明磊落。胸襟广阔,重诺轻死。",
+  "description": "原名萧峰,契丹人,自幼长于汉地。曾任丐帮帮主,降龙十八掌与打狗棒法天下无双。身世揭露后遭江湖唾弃,却仍以大义为重。豪迈磊落,义薄云天,乃当世第一大英雄。后与段誉、虚竹结义,排行老大。",
+  "equippedWeaponId": "jinsi_gauntlet",
+  "maxHP": 5200,
+  "maxMP": 3200,
+  "attack": 880,
+  "defense": 520,
+  "speed": 88,
+  "karma": 65,
+  "gender": "男",
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 55,
+  "portraitPath": "qiao_feng.png",
+  "learnedArts": [
+    { "artId": "yijin_jing", "proficiencyLevel": 7 },
+    { "artId": "xianglong_18", "proficiencyLevel": 9 },
+    { "artId": "dagou_bangfa", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "yijin_jing",
+  "activeExternalArtId": "xianglong_18",
+  "activeLightArtId": "basic_qinggong"
+}

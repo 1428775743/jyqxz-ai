@@ -1,0 +1,14 @@
+{
+  "id": "meteor_sword",
+  "name": "陨星剑",
+  "description": "以天外陨铁为主、寒铁为辅铸成的神兵，剑身隐现星纹，乃铁匠毕生功力所聚之极品。虽仍逊于传说神兵，已可纵横江湖。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "sword",
+  "attackBonus": 80,
+  "defenseBonus": 0,
+  "value": 2500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "rare"
+}

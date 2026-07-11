@@ -1,0 +1,31 @@
+{
+  "id": "kongming_quan",
+  "name": "空明拳",
+  "type": "external",
+  "description": "老顽童周伯通于桃花岛面壁十五载所创,以虚击实,以柔克刚。拳路空明无物,看似无力,实则借力打力,令对手攻势尽落空处。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 40,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 0.5,
+      "chance": 0.3,
+      "description": "以柔克刚:30%概率借力反击对手"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.1,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:10%概率使对方短暂失神(眩晕)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.2 },
+    "10": { "damageCoefficient": 2.6 }
+  }
+}

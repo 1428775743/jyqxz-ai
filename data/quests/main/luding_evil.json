@@ -1,0 +1,60 @@
+{
+  "id": "luding_evil",
+  "name": "鹿鼎记·助鳌拜篡权(恶线)",
+  "type": "chain",
+  "triggerNpcId": "aobai",
+  "minFavorabilityToOffer": 20,
+  "exclusiveWithQuestIds": ["luding_palace"],
+  "relatedNpcIds": ["kangxi", "hai_dafu", "aobai", "wei_xiaobao"],
+  "description": "恶线:你不助康熙擒鳌拜,反与鳌拜结盟,逼宫篡权。事成可获化骨大法,然侠名尽毁、善恶骤降。与'鹿鼎记·擒鳌拜'正线互斥。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "aobai", "lines": ["哼,那小皇帝年幼,竟想算计老夫!", "你既有本事,便助老夫先下手为强——除掉那小皇帝身边的眼线,扶老夫掌权,封侯拜相不在话下!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "kill_haidafu",
+      "actionType": "fight",
+      "targetNPC": "hai_dafu",
+      "description": "海大富是宫中眼线,鳌拜命你先除掉他。这老太监化骨绵掌阴毒,不可大意。",
+      "aiHint": "你是海大富,宫中老太监,忠心先帝,阴鸷多疑。你察觉玩家与鳌拜勾结,欲除之。你以化骨绵掌迎战,招式阴毒。你阴恻恻道:'鳌拜的党羽?哼,杂家今日便清理门户。'",
+      "reward": { "jianghuExp": 350, "reputationBonus": 100, "karmaBonus": -3 }
+    },
+    {
+      "id": "fight_kangxi",
+      "actionType": "fight",
+      "targetNPC": "kangxi",
+      "description": "逼宫康熙。少年天子虽年幼,身边却有韦小宝等相助,非易与之辈。",
+      "aiHint": "你是康熙,少年天子,聪慧果决。你见鳌拜逼宫、玩家助纣,临危不乱。你以所学武艺与身边侍卫相助迎战,虽非高手却有帝王气度。你怒喝:'鳌拜谋反!朕岂容尔等放肆!'",
+      "reward": { "jianghuExp": 450, "reputationBonus": 150, "karmaBonus": -5 }
+    },
+    {
+      "id": "epilogue_evil",
+      "actionType": "talk",
+      "targetNPC": "aobai",
+      "description": "鳌拜重掌大权,以化骨大法相授,酬你的助力。然你已与清廷正统一道决裂。",
+      "aiHint": "你是鳌拜,权臣,骄横跋扈。重掌大权后志得意满,以化骨大法相授。你大笑,满口权谋与傲慢。",
+      "reward": { "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "aobai", "lines": ["哈哈哈,小皇帝已除,大权在握!", "这化骨大法,乃海大富那老奴所修,如今归你——你我共掌这大清江山!"] },
+          { "speaker": "旁白", "lines": ["你助鳌拜篡权,得化骨大法。", "然与康熙、韦小宝为敌,侠名扫地,善恶骤降,清廷正统与你势不两立。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1200,
+    "goldBonus": 6000,
+    "reputationBonus": 1500,
+    "karmaBonus": -15,
+    "martialArtId": "huagong_dafa"
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["鹿鼎一役,你助鳌拜篡权,得化骨大法与权位富贵。", "然你与康熙为敌,沦为朝廷叛逆,江湖与庙堂皆不容你。"] }
+    ]
+  }
+}

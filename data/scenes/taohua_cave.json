@@ -1,0 +1,10 @@
+{
+  "id": "taohua_cave",
+  "name": "桃花岛山洞",
+  "description": "桃花岛后山的一处隐秘山洞,洞口布满桃花岛奇门遁甲之阵,外人难以寻觅。洞中逼仄昏暗,却有一位白发老者在此被困十五载——正是全真教老顽童周伯通。石壁上密密麻麻刻满武功图形,皆是他面壁所悟。",
+  "region": "东海",
+  "backgroundImagePath": "assets/scenes/taohua_cave.jpg",
+  "connectedScenes": ["taohua_scene"],
+  "defaultNPCs": ["zhou_botong"],
+  "isSpecial": true
+}

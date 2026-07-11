@@ -1,0 +1,23 @@
+{
+  "id": "basic_kick",
+  "name": "基础腿法",
+  "type": "external",
+  "description": "常见的腿法套路，以速度和灵活性见长。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "damageCoefficient": 1.2,
+  "critChance": 0.2,
+  "cooldown": 0,
+  "mpCost": 10,
+  "effects": [],
+  "levelBonuses": {
+    "3": {
+      "damageCoefficient": 1.4,
+      "critChance": 0.25
+    },
+    "5": {
+      "damageCoefficient": 1.7,
+      "critChance": 0.3
+    }
+  }
+}

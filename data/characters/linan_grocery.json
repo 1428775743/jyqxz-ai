@@ -1,0 +1,48 @@
+{
+  "id": "linan_grocery",
+  "name": "钱掌柜(杂货)",
+  "type": "npc",
+  "personality": "精明圆滑，见多识广，做生意八面玲珑",
+  "description": "临安城经营杂货铺的老掌柜，都城繁华之地，各色货物齐全，尤其经营江南书画茶酒特产。",
+  "maxHP": 280,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 12,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "linan_street",
+  "schedule": {
+    "清晨": "linan_street",
+    "白天": "linan_street",
+    "黄昏": "linan_street",
+    "夜晚": "linan_street"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "longjing_tea",
+    "silk"
+  ],
+  "shopRandomItems": [
+    "guihua_wine",
+    "shanshui_hua",
+    "jingde_ci",
+    "poetry_book",
+    "honey",
+    "fish",
+    "wild_mushroom"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

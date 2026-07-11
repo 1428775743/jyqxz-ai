@@ -1,0 +1,27 @@
+{
+  "id": "yuan_chengzhi",
+  "name": "袁承志",
+  "type": "npc",
+  "personality": "淳厚仁义,重情重义,集华山、金蛇、铁剑三家之长。为人正直,然感情上优柔,于阿九与青青间难以取舍。",
+  "description": "明末蓟辽督师袁崇焕之子,父冤死后被华山掌门穆人清收养。学得华山混元功、金蛇剑法、神行百变等绝学,集三家之长。下山后助闯王,卷入宝藏与情仇纷争。碧血剑一书之主角。",
+  "equippedWeaponId": "jinshe_sword",
+  "maxHP": 3200,
+  "maxMP": 2800,
+  "attack": 420,
+  "defense": 340,
+  "speed": 80,
+  "karma": 45,
+  "gender": "男",
+  "defaultScene": "tongguan",
+  "jianghuLevel": 40,
+  "portraitPath": "yuan_chengzhi.png",
+  "learnedArts": [
+    { "artId": "huashan_hunyuan", "proficiencyLevel": 6 },
+    { "artId": "jinshe_jianfa", "proficiencyLevel": 6 },
+    { "artId": "shenxing_baibian", "proficiencyLevel": 6 },
+    { "artId": "poyu_quan", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "huashan_hunyuan",
+  "activeExternalArtId": "jinshe_jianfa",
+  "activeLightArtId": "shenxing_baibian"
+}

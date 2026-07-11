@@ -1,0 +1,13 @@
+{
+  "id": "shenzhao_manual",
+  "name": "神照经秘籍",
+  "description": "丁典以毕生心血参悟之神照经心法,真气浑厚,可起死回生。丁典临终托付于你,望你善加修习,了却连城诀之恩怨。非内力根基深厚者不可修。",
+  "type": "Manual",
+  "value": 8000,
+  "stackable": false,
+  "containedArtIds": ["shenzhao_jing"],
+  "prerequisite": {
+    "requiredAttack": 220
+  },
+  "rarity": "mythic"
+}

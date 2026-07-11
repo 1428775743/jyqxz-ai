@@ -1,0 +1,13 @@
+{
+  "id": "hunyuan_manual",
+  "name": "混元功秘籍",
+  "description": "华山派至上内功心法秘籍,真气混元一体,周天运转。乃穆人清一脉相承之华山根基内功。",
+  "type": "Manual",
+  "value": 4000,
+  "stackable": false,
+  "containedArtIds": ["huashan_hunyuan"],
+  "prerequisite": {
+    "requiredAttack": 180
+  },
+  "rarity": "legendary"
+}

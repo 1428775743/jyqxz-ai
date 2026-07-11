@@ -1,0 +1,19 @@
+{
+  "id": "fq_riyue_bandit_easy",
+  "name": "清剿黑木崖外围毛贼",
+  "type": "faction",
+  "description": "近日有蟊贼聚于黑木崖外围,劫掠教众辎重,甚是烦扰。请门下弟子前往清剿,以儆效尤。",
+  "factionId": "riyue",
+  "dungeonId": "bandit_easy",
+  "difficulty": "easy",
+  "steps": [
+    { "id": "clear", "description": "前往清剿山贼", "actionType": "dungeon" }
+  ],
+  "reward": {
+    "goldBonus": 50,
+    "reputationBonus": 30,
+    "factionContributionBonus": 20,
+    "factionIdForContribution": "riyue",
+    "jianghuExp": 10
+  }
+}

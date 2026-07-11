@@ -1,0 +1,47 @@
+{
+  "id": "fan_yao",
+  "name": "范遥",
+  "type": "npc",
+  "personality": "坚忍果决,为明教忍辱负重二十年。光明右使,自毁容貌潜伏敌营,忠义可鉴。",
+  "description": "明教光明右使,与杨逍并称逍遥二仙。为查明教危机真相,自毁容貌装作哑头陀,潜伏赵敏麾下二十余年。武功高强,机智过人,于万安寺暗中相助六大门派脱困。",
+  "maxHP": 4000,
+  "maxMP": 3000,
+  "attack": 540,
+  "defense": 380,
+  "speed": 85,
+  "relations": {
+    "zhang_wuji": "同门",
+    "yang_xiao": "同门"
+  },
+  "factionId": "mingjiao",
+  "karma": 20,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "wanansi",
+  "schedule": {
+    "清晨": "wanansi",
+    "白天": "wanansi",
+    "黄昏": "wanansi",
+    "夜晚": "wanansi"
+  },
+  "jianghuLevel": 40,
+  "craftSkills": {
+    "art": 60,
+    "forging": 25,
+    "mining": 15,
+    "gathering": 20,
+    "medicine": 35
+  },
+  "portraitPath": "fan_yao.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "mingjiao_basic_internal", "proficiencyLevel": 7 },
+    { "artId": "basic_sword", "proficiencyLevel": 6 },
+    { "artId": "basic_palm", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 7 }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "basic_sword",
+  "activeLightArtId": "basic_qinggong"
+}

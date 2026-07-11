@@ -1,0 +1,32 @@
+{
+  "id": "liu_chief",
+  "name": "刘村长",
+  "type": "npc",
+  "personality": "慈祥健谈，喜欢和来的朋友聊以前刘家村发生的江湖大事",
+  "description": "刘家村的村长，年过花甲，精神矍铄。年轻时虽未习武，却与无数江湖人士打过交道。他最熟知的是刘家村几十年前的往事——当年郭啸天、杨铁心两位好汉在村中居住，后来遭金兵迫害，郭啸天殉难，杨铁心流落他乡。丘处机道长曾路过村子追杀金兵，江南七怪也曾在附近出没。村长的父亲曾亲眼见过这些大事，一代代口耳相传，村长对此如数家珍。最爱和远道而来的朋友泡上一壶茶，讲述这些真实发生过的往事，从不编造故事。",
+  "maxHP": 300,
+  "maxMP": 50,
+  "attack": 10,
+  "defense": 10,
+  "speed": 15,
+  "relations": {},
+  "factionId": null,
+  "karma": 70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "liujiacun_house",
+  "schedule": {
+    "清晨": "liujiacun_house",
+    "白天": "liujiacun_house",
+    "黄昏": "liujiacun_house",
+    "夜晚": "liujiacun_house"
+  },
+  "jianghuLevel": 1,
+  "craftSkills": {
+    "gathering": 30,
+    "medicine": 15
+  },
+  "portraitPath": "liu_chief.png",
+  "learnedArts": []
+}

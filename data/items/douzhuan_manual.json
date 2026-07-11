@@ -1,0 +1,11 @@
+{
+  "id": "douzhuan_manual",
+  "name": "斗转星移秘籍",
+  "description": "姑苏慕容氏家传绝学图谱,以彼之道还施彼身。无论敌方何种招式攻来,皆可借力反弹反施于敌。慕容氏镇族之宝。",
+  "type": "Manual",
+  "value": 4000,
+  "stackable": false,
+  "containedArtIds": ["douzhuan_xingyi"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

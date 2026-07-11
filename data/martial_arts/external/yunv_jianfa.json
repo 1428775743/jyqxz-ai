@@ -1,0 +1,30 @@
+{
+  "id": "yunv_jianfa",
+  "name": "玉女剑法",
+  "type": "external",
+  "description": "古墓派入门剑法,剑招轻灵飘逸,凌厉无匹。林朝英为克制全真剑法所创,招招针对全真剑法要害,实为玉女心经之外功体现。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.9,
+  "critChance": 0.3,
+  "cooldown": 1,
+  "mpCost": 40,
+  "effects": [
+    {
+      "type": "ExtraAttack",
+      "value": 1.0,
+      "chance": 0.2,
+      "description": "剑招连绵:20%概率追加一次攻击"
+    },
+    {
+      "type": "DrainMP",
+      "value": 0.05,
+      "chance": 0.4,
+      "description": "40%概率吸取对方5%内力"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.2 },
+    "10": { "damageCoefficient": 2.6 }
+  }
+}

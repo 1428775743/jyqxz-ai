@@ -1,0 +1,11 @@
+{
+  "id": "tianshan_zhemei_manual",
+  "name": "天山折梅手秘籍",
+  "description": "灵鹫宫绝学图谱,三路掌法包罗万有,可拆解天下武学招式。刻于灵鹫宫石壁之上,虚竹由此悟得逍遥真传。",
+  "type": "Manual",
+  "value": 4000,
+  "stackable": false,
+  "containedArtIds": ["tianshan_zhemei"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

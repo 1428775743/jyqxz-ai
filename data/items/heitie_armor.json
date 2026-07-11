@@ -1,0 +1,13 @@
+{
+  "id": "heitie_armor",
+  "name": "黑铁甲",
+  "description": "黑铁锻制的铠甲,沉重厚实,护住要害,沙场武将御刃之甲。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 50,
+  "value": 500,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

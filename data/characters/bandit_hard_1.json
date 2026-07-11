@@ -1,0 +1,35 @@
+{
+  "id": "bandit_hard_1",
+  "name": "黑风寨主独眼龙",
+  "type": "npc",
+  "personality": "狡诈多端，江湖经验老到",
+  "description": "盘踞黑风岭多年的寨主，独眼独臂，刀法奇绝。",
+  "maxHP": 700,
+  "maxMP": 250,
+  "attack": 90,
+  "defense": 55,
+  "speed": 50,
+  "relations": {},
+  "factionId": null,
+  "karma": -70,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 25,
+  "portraitPath": "bandit_hard_1.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

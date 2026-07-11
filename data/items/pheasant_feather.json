@@ -1,0 +1,10 @@
+{
+  "id": "pheasant_feather",
+  "name": "野鸡翎",
+  "description": "色彩斑斓的野鸡尾羽，可做箭翎或装饰。",
+  "type": "Material",
+  "value": 10,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

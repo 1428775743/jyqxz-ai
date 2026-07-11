@@ -1,0 +1,27 @@
+{
+  "id": "ding_chunqiu",
+  "name": "丁春秋",
+  "type": "npc",
+  "personality": "阴毒狡诈,好大喜功,欺师灭祖。惯以剧毒化功害人,弟子阿谀吹捧。",
+  "description": "原逍遥派弟子,欺师灭祖,暗算师父无崖子后叛逃,自立星宿派于星宿海。修化功大法,以剧毒内力化人功力,阴毒无比。好大喜功,出门必令弟子吹捧星宿老仙,法力无边。乃江湖一大毒瘤。",
+  "maxHP": 4400,
+  "maxMP": 3200,
+  "attack": 640,
+  "defense": 380,
+  "speed": 72,
+  "karma": 10,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 42,
+  "portraitPath": "ding_chunqiu.png",
+  "learnedArts": [
+    { "artId": "xixing_dafa", "proficiencyLevel": 7 },
+    { "artId": "huagong_dafa", "proficiencyLevel": 8 },
+    { "artId": "shengsi_fu", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "xixing_dafa",
+  "activeExternalArtId": "huagong_dafa",
+  "activeLightArtId": "basic_qinggong"
+}

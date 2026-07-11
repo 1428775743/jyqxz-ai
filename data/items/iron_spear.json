@@ -1,0 +1,14 @@
+{
+  "id": "iron_spear",
+  "name": "铁枪",
+  "description": "精铁铸就的长枪，枪杆坚韧枪头锐。一寸长一寸强，马战步战皆宜。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "spear",
+  "attackBonus": 22,
+  "defenseBonus": 0,
+  "value": 110,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

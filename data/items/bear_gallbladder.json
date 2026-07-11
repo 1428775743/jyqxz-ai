@@ -1,0 +1,10 @@
+{
+  "id": "bear_gallbladder",
+  "name": "熊胆",
+  "description": "山中黑熊之胆，极为珍贵，入药可清热解毒。",
+  "type": "Material",
+  "value": 350,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "wang_old_man",
+  "name": "王老伯",
+  "type": "npc",
+  "personality": "慈祥的老人，见多识广，喜欢指点后辈。年轻时也曾闯荡江湖，如今隐居刘家村，常坐在村口老槐树下回忆往事。他关心村里的年轻人，总是愿意给初出茅庐的人一些指引和考验。",
+  "description": "刘家村的一位老者，须发皆白，精神矍铄。年轻时曾行走江湖，虽不是武林高手，却见多识广。如今安度晚年，最喜欢和年轻人聊天，给他们出一些小小的考验来锻炼他们。",
+  "maxHP": 200,
+  "maxMP": 50,
+  "attack": 5,
+  "defense": 5,
+  "speed": 10,
+  "relations": {},
+  "factionId": null,
+  "karma": 75,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_scene",
+    "白天": "liujiacun_scene",
+    "黄昏": "liujiacun_scene",
+    "夜晚": "liujiacun_house"
+  },
+  "jianghuLevel": 1,
+  "craftSkills": {},
+  "portraitPath": "wang_old_man.png",
+  "learnedArts": []
+}

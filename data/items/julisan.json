@@ -1,0 +1,13 @@
+{
+  "id": "julisan",
+  "name": "聚力散",
+  "type": "Consumable",
+  "description": "药师秘制,药效胜过寻常聚力丹,攻击+25%,持续1日。药buff,与同类互斥。",
+  "value": 600,
+  "stackable": true,
+  "rarity": "rare",
+  "buffType": "atk",
+  "buffValue": 0.25,
+  "buffDurationDays": 1,
+  "combatUsable": false
+}

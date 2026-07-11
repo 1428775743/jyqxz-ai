@@ -1,0 +1,37 @@
+{
+  "id": "liancheng_jianfa",
+  "name": "连城剑法",
+  "type": "external",
+  "description": "藏于乌金袈裟之绝世剑法,招式暗合唐诗,每一剑皆对应一句唐诗,连绵成城。剑招繁复诡异,看似平平无奇实则暗藏杀机,修至大成剑意透骨,连城不破。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.4,
+  "critChance": 0.25,
+  "cooldown": 2,
+  "mpCost": 80,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.3,
+      "chance": 1.0,
+      "description": "剑招暗藏:无视30%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.8,
+      "chance": 0.2,
+      "description": "剑招连绵:20%概率连击(80%伤害),剑出如城"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:连城剑意,附带15%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.8 },
+    "10": { "damageCoefficient": 3.3 }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "linghu_chong",
+  "name": "令狐冲",
+  "type": "npc",
+  "personality": "洒脱不羁，嗜酒如命，剑法通神",
+  "description": "华山派大弟子，得风清扬传授独孤九剑，笑傲江湖。",
+  "maxHP": 4000,
+  "maxMP": 3800,
+  "attack": 880,
+  "defense": 350,
+  "speed": 95,
+  "relations": {
+    "ren_yingying": "Spouse"
+  },
+  "factionId": null,
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": true,
+  "defaultScene": "huashan_path",
+  "schedule": {
+    "清晨": "huashan_path",
+    "白天": "songshan_town",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_inn"
+  },
+  "jianghuLevel": 40,
+  "craftSkills": {
+    "art": 50,
+    "forging": 10,
+    "mining": 5,
+    "gathering": 20,
+    "medicine": 10
+  },
+  "portraitPath": "linghu_chong.png",
+  "equippedWeaponId": "xuantie_jian",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "zuowang_gong",
+      "proficiencyLevel": 6
+    },
+    {
+      "artId": "xixing_dafa",
+      "proficiencyLevel": 9
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "dugu_jiujian",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "shenxing_baibian",
+      "proficiencyLevel": 8
+    }
+  ],
+  "activeInternalArtId": "xixing_dafa",
+  "activeExternalArtId": "dugu_jiujian",
+  "activeLightArtId": "shenxing_baibian"
+}

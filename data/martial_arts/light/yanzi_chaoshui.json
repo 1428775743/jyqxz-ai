@@ -1,0 +1,17 @@
+{
+  "id": "yanzi_chaoshui",
+  "name": "燕子三抄水",
+  "type": "light",
+  "description": "燕青所传身法,身轻如燕,水面亦可点踏三步而过。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "speedBonusPerLevel": 4,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.10,
+      "chance": 1.0,
+      "description": "被动:10%概率闪避来袭攻击"
+    }
+  ]
+}

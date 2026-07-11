@@ -1,0 +1,118 @@
+{
+  "id": "shediao_main",
+  "name": "射雕英雄传",
+  "type": "chain",
+  "triggerNpcId": "huang_rong",
+  "minFavorabilityToOffer": 3,
+  "relatedNpcIds": ["guo_jing", "hong_qigong", "ouyang_ke", "zhou_botong", "qiu_qianren", "huang_yaoshi"],
+  "description": "襄阳城中偶遇丐帮帮主黄蓉,她见你骨骼清奇、心性侠义,邀你结伴闯荡江湖。一段波澜壮阔的射雕奇缘就此展开——从夜探荒谷拜师学艺,到桃花岛困局习得绝学,再到铁掌峰鏖战、皇宫取遗书,你将走完一代大侠的成长之路。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "huang_rong", "lines": ["咦?这位小兄弟,我观你骨骼清奇,眼中正气凛然。", "这江湖风雨飘摇,正缺你这样的后生。"] },
+      { "speaker": "玩家", "lines": ["黄帮主谬赞,晚辈不过一介草民。"] },
+      { "speaker": "huang_rong", "lines": ["少谦虚啦!我与你靖哥哥当年也是这般闯出来的。", "可愿随我走一遭?拜名师、斗奸邪、取遗书——保家卫国,名扬天下!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "meet_huangrong",
+      "actionType": "talk",
+      "targetNPC": "huang_rong",
+      "description": "在襄阳城中寻访黄蓉,与她结伴。黄蓉机灵古怪,需先博得她的好感与认可。",
+      "aiHint": "玩家是初出茅庐的少年,你见他骨骼清奇、心性纯良,颇为欣赏。你想带他闯荡江湖,重走你与郭靖当年的传奇之路。态度亲昵带些考验,会先考校他的机灵与侠义。",
+      "reward": { "jianghuExp": 80, "reputationBonus": 30 }
+    },
+    {
+      "id": "night_huanggu",
+      "actionType": "go",
+      "targetScene": "huanggu_cave",
+      "description": "黄蓉提议夜探刘家村后山荒谷深处的一处山洞,听闻有位爱吃鸡的世外高人云游至此。前往荒谷山洞一探究竟。",
+      "aiHint": "你正带玩家夜探荒谷,你知晓那'爱吃鸡的高人'正是你义父洪七公。你想引玩家拜师,故作神秘,只说'到了便知'。对洞中情景了如指掌却不点破。",
+      "reward": { "jianghuExp": 100 }
+    },
+    {
+      "id": "learn_xianglong",
+      "actionType": "talk",
+      "targetNPC": "hong_qigong",
+      "description": "荒谷山洞中果然遇见九指神丐洪七公。若能献上一只叫花鸡打动他的胃口,或可得他青睐,拜师学艺。洪七公的降龙十八掌与打狗棒法乃天下绝学。",
+      "aiHint": "玩家前来拜师,你贪嘴成性,若有叫花鸡则大悦收徒。你见玩家心性憨厚忠义,颇为投缘,愿意传授降龙十八掌与打狗棒法,并赠打狗棒以为信物。传授时不忘叮嘱武德。",
+      "reward": { "martialArtId": "xianglong_18", "items": [ { "itemId": "dagou_bangfa_manual", "quantity": 1 }, { "itemId": "dagou_bang", "quantity": 1 } ] },
+      "dialogue": {
+        "lines": [
+          { "speaker": "hong_qigong", "lines": ["嗝——好鸡!好鸡!小兄弟,你这叫花鸡烤得地道。", "老叫花子平生最爱两样:一是除暴安良,二是天下美食。"] },
+          { "speaker": "hong_qigong", "lines": ["看你心性憨厚,忠义可嘉,老叫花子破例收你做个记名弟子。", "降龙十八掌刚猛无匹,打狗棒法灵动莫测——好好学!"] },
+          { "speaker": "玩家", "lines": ["多谢师父!弟子定不负所托!"] }
+        ]
+      }
+    },
+    {
+      "id": "defend_liujiacun",
+      "actionType": "fight",
+      "targetNPC": "yang_kang",
+      "description": "忽有急报:金国小王子完颜康率金兵袭扰刘家村,祸害百姓。速回刘家村击退完颜康,保家卫国。",
+      "aiHint": "玩家家乡遭金兵袭扰,完颜康率人来犯。你对此事忧心,支持玩家回村御敌。此事关乎家国大义,亦是你当年与郭靖所行侠义之道。",
+      "reward": { "jianghuExp": 150, "reputationBonus": 150, "karmaBonus": 10 }
+    },
+    {
+      "id": "taohua_ouyangke",
+      "actionType": "fight",
+      "targetNPC": "ouyang_ke",
+      "description": "随黄蓉赴东海桃花岛,白驼山少主欧阳克正纠缠求亲,图谋不轨。替黄蓉出头,大战欧阳克,挫其锐气。",
+      "aiHint": "欧阳克这厮又在桃花岛纠缠,你厌恶至极。玩家替你出头迎战,你在一旁观战,父亲黄药师亦在侧。若玩家取胜,父亲或会另眼相看。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 150, "martialArtId": "tanzhi_shentong" }
+    },
+    {
+      "id": "trapped_taohua",
+      "actionType": "talk",
+      "targetNPC": "zhou_botong",
+      "description": "机缘巧合下,你被困于桃花岛后山的隐秘山洞,洞中竟有一位被困十五载的白发老者——全真教老顽童周伯通。他武痴心性,见你可教,愿传你九阴真经、空明拳与左右互搏三大奇功。",
+      "aiHint": "玩家误入桃花岛山洞,你被困此处十五载,寂寞难耐,见有后辈来访大喜过望。你武痴心性,恨不得倾囊相授,愿传九阴真经、空明拳与左右互搏。你顽童心性,传授时嬉笑玩闹,却字字珠玑。",
+      "reward": { "martialArtId": "jiuyin_zhenjing", "items": [ { "itemId": "kongming_quan_manual", "quantity": 1 }, { "itemId": "zuoyou_hubo_manual", "quantity": 1 } ] },
+      "dialogue": {
+        "lines": [
+          { "speaker": "旁白", "lines": ["桃花岛后山幽暗石洞中,一位白发老者盘坐石壁下,见有人来,眼中精光大盛。"] },
+          { "speaker": "zhou_botong", "lines": ["哈哈哈!十五年了!十五年了!终于有人来陪老顽童说话!", "小兄弟,你可来得太迟啦!"] },
+          { "speaker": "zhou_botong", "lines": ["你瞧这石壁——空明拳、左右互搏,都是老顽童闲极无聊琢磨出来的。", "九阴真经嘛...嘿嘿,黄老邪藏我于此,我倒把这经书背得烂熟!"] },
+          { "speaker": "玩家", "lines": ["前辈武学通神,晚辈斗胆求教。"] },
+          { "speaker": "zhou_botong", "lines": ["好说好说!左手画圆,右手画方——来,跟着老顽童学!"] }
+        ]
+      }
+    },
+    {
+      "id": "tiezhang_qiu",
+      "actionType": "fight",
+      "targetNPC": "qiu_qianren",
+      "description": "铁掌帮主裘千仞勾结金人完颜洪烈,图谋中原,为江湖大患。赴铁掌峰,大战裘千仞,铲除这一祸害。传闻西毒欧阳锋亦盘踞于此,需小心应对。",
+      "aiHint": "裘千仞勾结金人,为江湖大害,玩家赴铁掌峰讨之。你支持此举,亦担忧欧阳锋在场生变。此战凶险,你叮嘱玩家小心,却相信其已有降龙掌与九阴真经傍身,可堪一战。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 200, "karmaBonus": 10 }
+    },
+    {
+      "id": "palace_wumu",
+      "actionType": "go",
+      "targetScene": "linan_palace",
+      "description": "传闻岳武穆遗书藏于临安皇宫深处,得之可运筹帷幄、保家卫国。潜入临安皇城,寻得武穆遗书与岳家枪法,完成大侠之路的最后一步。",
+      "aiHint": "武穆遗书乃岳武穆所遗兵法,藏于皇宫。玩家此去凶险万分,然为家国大义,值得冒险。你与郭靖全力支持,愿玩家得此遗书,日后抵御外侮,成就一代大侠。",
+      "reward": { "jianghuExp": 300, "reputationBonus": 500, "items": [ { "itemId": "wumu_yishu", "quantity": 1 }, { "itemId": "yuejia_qiangfa_manual", "quantity": 1 } ] },
+      "dialogue": {
+        "lines": [
+          { "speaker": "旁白", "lines": ["临安皇宫深处,密室幽暗,一卷泛黄古卷静卧石台——正是岳武穆遗书。"] },
+          { "speaker": "玩家", "lines": ["找到了!武穆遗书,岳爷爷的兵法绝学..."] },
+          { "speaker": "旁白", "lines": ["你郑重收起遗书与岳家枪谱,转身潜出皇宫。江湖路远,家国重担,自此落在肩上。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 500,
+    "goldBonus": 2000,
+    "reputationBonus": 1000,
+    "items": [ { "itemId": "ruanwei_armor", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "huang_rong", "lines": ["好兄弟!降龙掌、九阴真经、玄铁剑法...你如今武功已臻一流。", "更难得的是这一颗侠义之心,武穆遗书得你所用,天下苍生有福了。"] },
+      { "speaker": "guo_jing", "lines": ["蓉儿说得是。侠之大者,为国为民——望你铭记此言。"] }
+    ]
+  }
+}

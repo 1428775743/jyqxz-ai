@@ -1,0 +1,10 @@
+{
+  "id": "shiliang",
+  "name": "石梁",
+  "description": "浙江衢州石梁镇,温家五老盘踞之地。温家大宅深院,暗藏金蛇秘笈与宝藏之秘。温仪囚禁于此,夏雪宜亦埋骨于此。恩怨纠葛,皆由此起。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/shiliang.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["wen_qingqing", "wen_yi", "wen_fangda", "wen_fangshan"],
+  "isSpecial": true
+}

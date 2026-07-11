@@ -1,0 +1,9 @@
+{
+  "id": "herb_danggui",
+  "name": "当归",
+  "type": "Material",
+  "description": "补血活血之要药,制丹常用。",
+  "value": 12,
+  "stackable": true,
+  "rarity": "common"
+}

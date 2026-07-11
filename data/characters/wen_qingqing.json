@@ -1,0 +1,23 @@
+{
+  "id": "wen_qingqing",
+  "name": "温青青",
+  "type": "npc",
+  "personality": "金蛇郎君夏雪宜与温仪之女,机灵刁蛮,娇纵任性却情深义重。常着男装行走江湖,对袁承志一往情深。",
+  "description": "金蛇郎君夏雪宜与温仪之女,自幼寄养温家。机灵刁蛮,常着男装自称青青。遇袁承志后倾心相随,助其寻金蛇秘笈、了结温家恩怨。虽任性却情深义重,乃碧血剑女主角。",
+  "maxHP": 2200,
+  "maxMP": 1600,
+  "attack": 280,
+  "defense": 240,
+  "speed": 75,
+  "karma": 25,
+  "gender": "女",
+  "defaultScene": "shiliang",
+  "jianghuLevel": 28,
+  "portraitPath": "wen_qingqing.png",
+  "learnedArts": [
+    { "artId": "jinshe_jianfa", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "jinshe_jianfa",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "wudang_qinggong",
+  "name": "武当轻功",
+  "type": "light",
+  "description": "武当派内门轻功,以纯阳之气贯通经脉,步法稳健,身随剑行。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "speedBonusPerLevel": 3,
+  "attackBonusPerLevel": 1,
+  "effects": []
+}

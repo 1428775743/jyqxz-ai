@@ -1,0 +1,10 @@
+{
+  "id": "huanggu_cave",
+  "name": "荒谷山洞",
+  "description": "刘家村后山荒谷深处的一处山洞,洞口隐蔽于藤蔓之后。洞内有人生活痕迹,地上残有烤鸡骨架与酒葫芦——传闻九指神丐洪七公云游四方时,常在此处落脚烤鸡饮酒。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/huanggu_cave.jpg",
+  "connectedScenes": ["liujiacun_backhill"],
+  "defaultNPCs": ["hong_qigong"],
+  "isSpecial": false
+}

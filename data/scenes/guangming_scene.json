@@ -1,0 +1,11 @@
+{
+  "id": "guangming_scene",
+  "name": "光明顶",
+  "description": "昆仑山光明顶，明教总坛所在。地势高峻，常年云雾缭绕。",
+  "region": "昆仑",
+  "backgroundImagePath": "assets/scenes/guangming_scene.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["yang_xiao", "xiao_zhao"],
+  "factionId": "mingjiao",
+  "isSpecial": true
+}

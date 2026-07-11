@@ -1,0 +1,69 @@
+{
+  "id": "xiake_xueshan",
+  "name": "侠客行·雪山",
+  "type": "chain",
+  "triggerNpcId": "bai_axiu",
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["bai_zizai", "shi_xiaocui"],
+  "description": "西域凌霄城,雪山派总坛。白阿绣求你相助,其祖白自在自大狂妄,刁难出手。败白自在得其雪山剑法,再赴紫烟岛寻史小翠,习金乌刀法以克雪山。雪山与金乌,相生相克。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "bai_axiu", "lines": ["侠士远来是客,我白阿绣有礼了。", "祖父白自在近来狂妄更甚,自称天下第一,与人动辄动手。"] },
+      { "speaker": "玩家", "lines": ["白姑娘何须相助?"] },
+      { "speaker": "bai_axiu", "lines": ["祖父若刁难侠士,望手下留情。", "祖母史小翠居紫烟岛,创金乌刀法克雪山剑法,侠士若能习之,或可制衡祖父。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "meet_axiu",
+      "actionType": "talk",
+      "targetNPC": "bai_axiu",
+      "description": "凌霄城遇白阿绣,白自在自大刁难。",
+      "aiHint": "玩家至凌霄城,你白阿绣以礼相待,求其相助。你温婉贞静,言祖父白自在自大狂妄,自称天下第一,恐刁难玩家。你提及祖母史小翠居紫烟岛,创金乌刀法克雪山剑法。对玩家以侠士相称,渐生情愫。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "fight_zizai",
+      "actionType": "fight",
+      "targetNPC": "bai_zizai",
+      "description": "白自在自大出手,败之,得其雪山剑法。",
+      "aiHint": "你乃白自在,雪山派掌门,自诩天下第一。你见玩家上凌霄城,自大刁难,出手相试。你擅雪山剑法,剑招寒冰凌厉。败后你方知天外有天,虽不甘却亦服气,将雪山剑法相授以示诚服。",
+      "reward": { "martialArtId": "xueshan_jianfa", "jianghuExp": 400 }
+    },
+    {
+      "id": "go_ziyandao",
+      "actionType": "go",
+      "targetScene": "ziyandao",
+      "description": "赴紫烟岛寻史小翠,求金乌刀法。",
+      "aiHint": "你随玩家赴紫烟岛寻史小翠。你白阿绣言祖母刚烈要强,与祖父赌气分居,创金乌刀法专为克雪山剑法。你望玩家习得金乌刀法,以制衡祖父之狂。",
+      "reward": { "jianghuExp": 200 }
+    },
+    {
+      "id": "learn_jinwu",
+      "actionType": "talk",
+      "targetNPC": "shi_xiaocui",
+      "description": "史小翠传你金乌刀法,克雪山剑法。",
+      "aiHint": "你乃史小翠,白自在之妻,紫烟岛主。你见玩家已败白自在,大快人心。你刚烈要强,创金乌刀法专为克雪山剑法,今传与玩家。你言此刀法如金乌灼日,焚尽寒冰,望玩家善用以制白自在之狂。对玩家以侠士相称,爽快利落。",
+      "reward": { "martialArtId": "jinwu_daofa", "jianghuExp": 400 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "shi_xiaocui", "lines": ["好小子,挫了白老儿锐气,大快人心!", "这金乌刀法乃我所创,专为克那雪山剑法。"] },
+          { "speaker": "shi_xiaocui", "lines": ["刀势如金乌灼日,焚尽寒冰。", "望你善用,制衡那自大的老儿!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "goldBonus": 1000,
+    "karmaBonus": 10
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "bai_axiu", "lines": ["侠士习得雪山剑法与金乌刀法,相生相克。", "祖父之狂,终有人可制了。"] },
+      { "speaker": "玩家", "lines": ["白姑娘,雪山与金乌之恩,在下铭记。", "后会有期!"] }
+    ]
+  }
+}

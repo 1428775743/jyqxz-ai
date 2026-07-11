@@ -1,0 +1,10 @@
+{
+  "id": "hengshan_south_scene",
+  "name": "衡山",
+  "description": "南岳衡山，风景秀丽。衡山派以琴剑双绝闻名于世。",
+  "region": "衡山",
+  "backgroundImagePath": "assets/scenes/hengshan_south_scene.jpg",
+  "connectedScenes": ["hengshan_south_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

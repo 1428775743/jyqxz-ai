@@ -1,0 +1,41 @@
+{
+  "id": "qin_xianzi",
+  "name": "琴仙子",
+  "type": "npc",
+  "personality": "雅致清冷,不染尘俗,以琴音寄情。云游四方,所到之处必抚琴一曲,琴声所至,闻者忘忧。",
+  "description": "江湖知名的流浪琴师,人称琴仙子。容貌清丽,一袭素白,身背古琴。不慕名利,唯爱以琴会友。所到之处抚琴一曲,或婉约或清冷,听者如痴如醉。性情孤高,然遇知音则倾心相待。",
+  "maxHP": 1200,
+  "maxMP": 800,
+  "attack": 80,
+  "defense": 80,
+  "speed": 70,
+  "relations": {},
+  "factionId": null,
+  "karma": 50,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "musician",
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_scene",
+    "白天": "linan_street",
+    "黄昏": "songshan_town",
+    "夜晚": "xiangyang_cheng"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 90,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 30,
+    "medicine": 10
+  },
+  "portraitPath": "qin_xianzi.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 3 },
+    { "artId": "basic_palm", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

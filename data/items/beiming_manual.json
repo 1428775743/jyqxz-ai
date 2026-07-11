@@ -1,0 +1,13 @@
+{
+  "id": "beiming_manual",
+  "name": "北冥神功秘籍",
+  "description": "逍遥派至高内功心法,载于竹简之上。修成可纳百川、化敌内力为己用,内力汪洋不竭。乃无崖子所传之逍遥至宝。",
+  "type": "Manual",
+  "value": 8000,
+  "stackable": false,
+  "containedArtIds": ["beiming_shengong"],
+  "prerequisite": {
+    "requiredAttack": 180
+  },
+  "rarity": "mythic"
+}

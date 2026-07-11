@@ -1,0 +1,50 @@
+{
+  "id": "xiangyang_guard",
+  "name": "襄阳守将王坚",
+  "type": "npc",
+  "personality": "忠勇刚毅，保家卫国，军中好手",
+  "description": "襄阳城守军将领，跟随郭靖大侠多年，枪法精湛。",
+  "maxHP": 1600,
+  "maxMP": 500,
+  "attack": 180,
+  "defense": 170,
+  "speed": 60,
+  "relations": {},
+  "factionId": null,
+  "karma": 75,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "xiangyang_wall",
+  "schedule": {
+    "清晨": "xiangyang_wall",
+    "白天": "xiangyang_wall",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_wall"
+  },
+  "jianghuLevel": 15,
+  "craftSkills": {
+    "art": 5,
+    "forging": 40,
+    "mining": 30,
+    "gathering": 15,
+    "medicine": 20
+  },
+  "portraitPath": "xiangyang_guard.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "basic_sword",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword"
+}

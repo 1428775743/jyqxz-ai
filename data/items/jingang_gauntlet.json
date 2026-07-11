@@ -1,0 +1,14 @@
+{
+  "id": "jingang_gauntlet",
+  "name": "精钢拳套",
+  "description": "精钢打制的拳套,指节处镶铁钉,一拳击出可碎砖裂石。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "fist",
+  "attackBonus": 30,
+  "defenseBonus": 0,
+  "value": 200,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "uncommon"
+}

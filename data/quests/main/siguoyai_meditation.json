@@ -1,0 +1,35 @@
+{
+  "id": "siguoyai_meditation",
+  "name": "思过崖面壁",
+  "type": "chain",
+  "triggerNpcId": "yue_buqun",
+  "autoAcceptOnly": true,
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["linghu_chong", "feng_qingyang"],
+  "exclusiveWithQuestIds": ["xiaojiao_evil"],
+  "description": "岳掌门得知你放走了田伯光,大为震怒——华山弟子岂能心慈手软?师父罚你到思过崖面壁三十日,反思武学与心性。",
+  "difficulty": "normal",
+  "steps": [
+    {
+      "id": "meditate_siguoyai",
+      "actionType": "meditate",
+      "targetScene": "siguoyai",
+      "description": "前往华山后山深处的思过崖,面壁思过三十日。",
+      "aiHint": "玩家正在思过崖面壁,你对其放走田伯光仍有不满,态度冷淡。但你内心也隐约期待——思过崖石壁刻有前辈剑招,或许能让他有所开悟。这是你不会明说的隐秘期望。",
+      "reward": { "jianghuExp": 100 }
+    },
+    {
+      "id": "meet_fengqingyang",
+      "actionType": "talk",
+      "targetNPC": "feng_qingyang",
+      "description": "在思过崖面壁期间,机缘巧合下,得见剑魔风清扬。",
+      "aiHint": "玩家已机缘巧合见到风清扬太师叔,这是他的造化。你对此既欣慰又有一丝忌惮——风清扬辈分极高,你只能尊敬。回山后玩家若询问,你态度可缓和,但绝不会传授紫霞神功(玩家未完成师门考验)。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 200 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 200,
+    "goldBonus": 200,
+    "reputationBonus": 100
+  }
+}

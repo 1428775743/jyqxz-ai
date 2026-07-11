@@ -1,0 +1,44 @@
+{
+  "id": "jinshe_jianfa",
+  "name": "金蛇剑法",
+  "type": "external",
+  "description": "金蛇郎君夏雪宜所创绝世剑法,剑走偏锋,诡谲凌厉。出剑如金蛇吐信,游走不定,招招攻敌不备。修至大成剑含蛇毒,连绵追魂,乃碧血剑一书中最诡异之剑法。",
+  "maxLevel": 10,
+  "rarity": "mythic",
+  "damageCoefficient": 2.8,
+  "critChance": 0.4,
+  "cooldown": 2,
+  "mpCost": 88,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.5,
+      "chance": 1.0,
+      "description": "金蛇诡异:无视50%防御"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.8,
+      "chance": 0.3,
+      "description": "金蛇连绵:30%概率连击(80%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.18,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:金蛇毒蚀,附带18%真实伤害"
+    },
+    {
+      "type": "ExtraAttack",
+      "value": 0.7,
+      "chance": 0.3,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁:金蛇吐信,30%概率追加一次攻击(70%伤害)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 3.2 },
+    "10": { "damageCoefficient": 4.0 }
+  }
+}

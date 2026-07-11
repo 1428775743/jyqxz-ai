@@ -1,0 +1,47 @@
+{
+  "id": "ouyang_feng",
+  "name": "欧阳锋",
+  "type": "npc",
+  "personality": "阴鸷狠辣,城府极深,为达目的不择手段。痴迷武学,对天下绝学皆欲得之。表面与裘千仞结盟,实则各怀鬼胎。",
+  "description": "白驼山主,江湖五绝之'西毒'。蛤蟆功独步天下,善用毒蛇暗器,行事狠辣。为子欧阳克之事与江湖正道为敌,近来盘踞铁掌峰,与裘千仞勾结图谋不轨。",
+  "maxHP": 5800,
+  "maxMP": 5000,
+  "attack": 950,
+  "defense": 480,
+  "speed": 85,
+  "relations": {
+    "ouyang_ke": "子侄",
+    "qiu_qianren": "盟友"
+  },
+  "factionId": null,
+  "karma": -30,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "tiezhang_peak",
+  "schedule": {
+    "清晨": "tiezhang_peak",
+    "白天": "tiezhang_peak",
+    "黄昏": "tiezhang_peak",
+    "夜晚": "tiezhang_peak"
+  },
+  "jianghuLevel": 55,
+  "craftSkills": {
+    "art": 40,
+    "forging": 20,
+    "mining": 15,
+    "gathering": 30,
+    "medicine": 80
+  },
+  "portraitPath": "ouyang_feng.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 8 },
+    { "artId": "hama_gong", "proficiencyLevel": 10 },
+    { "artId": "lingshe_quan", "proficiencyLevel": 8 },
+    { "artId": "basic_palm", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "hama_gong",
+  "activeExternalArtId": "lingshe_quan",
+  "activeLightArtId": "basic_qinggong"
+}

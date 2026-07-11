@@ -1,0 +1,10 @@
+{
+  "id": "xiangyang_inn",
+  "name": "襄阳客栈",
+  "description": "城中最大的客栈，往来江湖人士众多，消息灵通。",
+  "region": "襄阳",
+  "backgroundImagePath": "assets/scenes/xiangyang_inn.jpg",
+  "connectedScenes": ["xiangyang_cheng"],
+  "defaultNPCs": ["jianghu_brawler", "li_wine"],
+  "isSpecial": false
+}

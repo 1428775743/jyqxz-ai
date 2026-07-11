@@ -1,0 +1,23 @@
+{
+  "id": "basic_sword",
+  "name": "基础剑法",
+  "type": "external",
+  "description": "江湖中最常见的剑法，招式简单但实用。",
+  "maxLevel": 10,
+  "rarity": "common",
+  "damageCoefficient": 1.4,
+  "critChance": 0.15,
+  "cooldown": 1,
+  "mpCost": 15,
+  "effects": [],
+  "levelBonuses": {
+    "3": {
+      "damageCoefficient": 1.6,
+      "critChance": 0.2
+    },
+    "5": {
+      "damageCoefficient": 1.9,
+      "critChance": 0.25
+    }
+  }
+}

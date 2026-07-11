@@ -1,0 +1,9 @@
+{
+  "id": "cold_iron_ore",
+  "name": "寒铁矿石",
+  "description": "极寒之地才有的稀有矿石，触手冰凉，锻造的兵器自带寒气。",
+  "type": "Material",
+  "value": 500,
+  "stackable": true,
+  "quantity": 1
+}

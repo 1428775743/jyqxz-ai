@@ -1,0 +1,24 @@
+{
+  "id": "kangxi",
+  "name": "康熙",
+  "type": "npc",
+  "personality": "少年英主,睿智果决,重情重义。与韦小宝摔跤结友,亦师亦友。胸怀大志,智擒鳌拜,平定三藩。",
+  "description": "大清圣祖仁皇帝,爱新觉罗·玄烨,年号康熙。八岁登基,少年擒鳌拜,后平三藩、收台湾、拒沙俄,乃一代明君。与韦小宝摔跤结友,情同手足。虽为帝王,重情重义,乃鹿鼎记一书中之少年英主。",
+  "maxHP": 3000,
+  "maxMP": 2000,
+  "attack": 350,
+  "defense": 300,
+  "speed": 75,
+  "karma": 50,
+  "gender": "男",
+  "defaultScene": "zijincheng",
+  "jianghuLevel": 35,
+  "isSectLeader": true,
+  "portraitPath": "kangxi.png",
+  "learnedArts": [
+    { "artId": "jingang_quan", "proficiencyLevel": 4 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "jingang_quan",
+  "activeLightArtId": "basic_qinggong"
+}

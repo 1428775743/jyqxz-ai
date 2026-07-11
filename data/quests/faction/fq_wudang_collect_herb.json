@@ -1,0 +1,22 @@
+{
+  "id": "fq_wudang_collect_herb",
+  "name": "代为搜罗白术",
+  "type": "faction",
+  "description": "武当镇上的老药师近日草药短缺,需要白术五株,望江湖中人代为搜罗,送回武当镇。",
+  "factionId": "wudang",
+  "issuerNpcId": "wudang_town_elder",
+  "difficulty": "easy",
+  "requiredItems": [
+    { "itemId": "herb_baizhu", "quantity": 5 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向武当老药师提交白术 x5", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 30,
+    "reputationBonus": 20,
+    "factionContributionBonus": 15,
+    "factionIdForContribution": "wudang",
+    "jianghuExp": 5
+  }
+}

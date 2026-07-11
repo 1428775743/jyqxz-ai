@@ -1,0 +1,47 @@
+{
+  "id": "guo_xiang",
+  "name": "郭襄",
+  "type": "npc",
+  "personality": "豁达豪迈,英气勃勃,有小东邪之称。郭靖黄蓉之女,性情洒脱,不拘小节。",
+  "description": "郭靖与黄蓉之女,人称小东邪。性情豁达豪迈,结交天下豪杰。对神雕大侠杨过倾慕有加,后开创峨眉一派。此时正当少女,游历江湖。",
+  "maxHP": 2600,
+  "maxMP": 2000,
+  "attack": 300,
+  "defense": 220,
+  "speed": 82,
+  "relations": {
+    "guo_jing": "父女",
+    "huang_rong": "母女",
+    "yang_guo": "倾慕"
+  },
+  "factionId": null,
+  "karma": 60,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_wall",
+    "夜晚": "xiangyang_inn"
+  },
+  "jianghuLevel": 25,
+  "craftSkills": {
+    "art": 50,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 25,
+    "medicine": 30
+  },
+  "portraitPath": "guo_xiang.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 5 },
+    { "artId": "luoying_shenjian", "proficiencyLevel": 5 },
+    { "artId": "basic_palm", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "luoying_shenjian",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "strategy_book",
+  "name": "孙子兵法",
+  "description": "兵法奇书，研读可增进谋略见识。",
+  "type": "Gift",
+  "value": 250,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "武者",
+  "rarity": "uncommon"
+}

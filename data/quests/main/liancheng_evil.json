@@ -1,0 +1,69 @@
+{
+  "id": "liancheng_evil",
+  "name": "连城诀·夺宝恶线",
+  "type": "chain",
+  "triggerNpcId": "ling_tuisi",
+  "minFavorabilityToOffer": 20,
+  "prerequisiteQuestIds": ["liancheng_dingdian", "liancheng_xuedao"],
+  "exclusiveWithQuestIds": ["liancheng_final"],
+  "relatedNpcIds": ["di_yun", "ding_dian", "wan_zhenshan", "qi_changfa", "ling_tuisi"],
+  "description": "恶线:你不助狄云、丁典,反与凌退思、万震山同流,共夺连城宝藏。事成可获血刀大法与连城宝藏,然侠名尽毁、善恶骤降。须先完成连城诀前两章方可触发;与正线互斥。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "ling_tuisi", "lines": ["连城宝藏,富可敌国,我凌退思苦寻多年。", "你既有本事,便助我夺得宝藏,你我共享这富可敌国之财——条件是,丁典、狄云那两个碍眼的,得除掉。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "fight_di_yun",
+      "actionType": "fight",
+      "targetNPC": "di_yun",
+      "description": "狄云察觉你与凌退思同谋,悲愤拦路。与这位蒙冤的质朴汉子生死相搏。",
+      "aiHint": "你是狄云,质朴憨厚,却遭冤狱受尽苦楚。你见玩家竟助凌退思夺宝,悲愤交加。你以血刀刀法与神照经内功迎战,招式朴实却含悲愤之力。你悲声道:'我原以为你是好人...'",
+      "reward": { "jianghuExp": 350, "reputationBonus": 100, "karmaBonus": -4 }
+    },
+    {
+      "id": "seize_dingdian",
+      "actionType": "fight",
+      "targetNPC": "ding_dian",
+      "description": "丁典身怀连城诀与宝藏线索,凌退思命你抢夺。丁典武功高强,非易与之辈。",
+      "aiHint": "你是丁典,为人豪爽重义,身怀连城诀与宝藏秘密。你见玩家助凌退思,怒其不争。你以神照经与连城剑法迎战,招式凌厉。你怒喝:'凌退思那狗官的走狗,休想得逞!'",
+      "reward": { "jianghuExp": 400, "reputationBonus": 120, "karmaBonus": -4 }
+    },
+    {
+      "id": "plot_wan",
+      "actionType": "talk",
+      "targetNPC": "wan_zhenshan",
+      "description": "万震山亦觊觎宝藏,你与凌退思与之合谋,又暗中算计,尽屠知情人。",
+      "aiHint": "你是万震山,万震山门主,阴险毒辣,为宝藏不择手段。你与凌退思、玩家合谋夺宝,却又各怀鬼胎。你笑里藏刀,言语间尽是算计。",
+      "reward": { "jianghuExp": 500 }
+    },
+    {
+      "id": "epilogue_evil",
+      "actionType": "talk",
+      "targetNPC": "ling_tuisi",
+      "description": "连城宝藏出土,凌退思大喜,以血刀大法相授,并分你大笔财宝。然你已沦为江湖公敌。",
+      "aiHint": "你是凌退思,荆州知府,贪婪阴毒。连城宝藏到手,你志得意满,以血刀大法相授,分玩家财宝。你笑得满脸横肉,满口官腔。",
+      "reward": { "jianghuExp": 800 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "ling_tuisi", "lines": ["哈哈哈哈,连城宝藏,终于到手!", "这血刀大法,乃血刀门秘传,本官赏你——这些金银,也尽你取。"] },
+          { "speaker": "旁白", "lines": ["你助凌退思夺得连城宝藏,得血刀大法与万贯家财。", "然狄云、丁典之冤未雪,你反成帮凶,侠名扫地,善恶骤降。"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1200,
+    "goldBonus": 10000,
+    "reputationBonus": 1000,
+    "karmaBonus": -15,
+    "martialArtId": "xuedao_dafa"
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["连城宝藏出土,你与凌退思、万震山同流,得血刀大法与连城财富。", "然你助纣为虐,侠名尽毁,江湖中人提起你,皆道'见利忘义'。"] }
+    ]
+  }
+}

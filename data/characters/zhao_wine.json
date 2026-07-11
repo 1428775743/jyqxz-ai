@@ -1,0 +1,36 @@
+{
+  "id": "zhao_wine",
+  "name": "赵掌柜(酒贩)",
+  "type": "npc",
+  "personality": "健谈风趣，好记性",
+  "description": "嵩山客栈的掌柜，经营客栈多年，见过无数江湖豪杰。",
+  "maxHP": 250,
+  "maxMP": 80,
+  "attack": 15,
+  "defense": 10,
+  "speed": 25,
+  "relations": {},
+  "factionId": null,
+  "karma": 5,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "songshan_inn",
+  "schedule": {
+    "清晨": "songshan_inn",
+    "白天": "songshan_inn",
+    "黄昏": "songshan_inn",
+    "夜晚": "songshan_inn"
+  },
+  "npcRole": "wine_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "good_wine"
+  ],
+  "shopRandomItems": [
+    "good_wine",
+    "healing_pill_small"
+  ],
+  "craftSkills": {},
+  "portraitPath": "zhao_wine.png",
+  "learnedArts": []
+}

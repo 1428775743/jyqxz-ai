@@ -1,0 +1,22 @@
+{
+  "id": "hengshan_south_backhill",
+  "name": "衡山后山",
+  "description": "衡山后山林密谷深，地脉温热，矿石品质不俗。",
+  "region": "衡山",
+  "backgroundImagePath": "assets/scenes/hengshan_south_backhill.jpg",
+  "connectedScenes": ["hengshan_south_scene"],
+  "defaultNPCs": [],
+  "isSpecial": false,
+  "mine": {
+    "tier": "medium",
+    "timeCostPerMine": 1.0,
+    "staminaCost": 15,
+    "ores": [
+      { "itemId": "iron_ore", "rarity": "common" },
+      { "itemId": "copper_ore", "rarity": "common" },
+      { "itemId": "tin_ore", "rarity": "common" },
+      { "itemId": "silver_ore", "rarity": "uncommon" },
+      { "itemId": "gold_ore", "rarity": "rare" }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "tiansuolian",
+  "name": "天罗地网势",
+  "type": "external",
+  "description": "古墓派最高武学,林朝英穷毕生之力所创。双手齐出,掌影如天罗地网,密不透风,令对手无处可逃。修至大成可徒手接住飞鸟,实乃古墓绝学之巅。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.0,
+  "critChance": 0.2,
+  "cooldown": 2,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 0.6,
+      "chance": 0.3,
+      "description": "网势回护:30%概率反击对手"
+    },
+    {
+      "type": "Bleed",
+      "value": 0.1,
+      "chance": 0.25,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:25%概率撕裂经脉(流血)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.4 },
+    "10": { "damageCoefficient": 2.8 }
+  }
+}

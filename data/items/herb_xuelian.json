@@ -1,0 +1,9 @@
+{
+  "id": "herb_xuelian",
+  "name": "雪莲",
+  "type": "Material",
+  "description": "极寒绝顶方生一株,通灵圣药,可制传说丹药。",
+  "value": 400,
+  "stackable": true,
+  "rarity": "epic"
+}

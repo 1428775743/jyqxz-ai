@@ -1,0 +1,30 @@
+{
+  "id": "meiren_sanzhao",
+  "name": "美人三招",
+  "type": "external",
+  "description": "神龙教主洪安通所创三招,原授苏荃,后苏荃传韦小宝。招式以美人姿态为名,连环进击,诡变莫测。乃鹿鼎记一书中之奇招。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.9,
+  "critChance": 0.25,
+  "cooldown": 1,
+  "mpCost": 35,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 0.7,
+      "chance": 0.3,
+      "description": "三招连环:30%概率连击(70%伤害)"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.25,
+      "chance": 1.0,
+      "description": "诡变莫测:无视25%防御"
+    }
+  ],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 2.05 },
+    "6": { "damageCoefficient": 2.2 }
+  }
+}

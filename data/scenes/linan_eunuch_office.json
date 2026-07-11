@@ -1,0 +1,13 @@
+{
+  "id": "linan_eunuch_office",
+  "name": "司礼监",
+  "description": "临安城中一处隐秘所在，乃宦官当差之处。此处有人专门施行净身之术，刀法精湛。传闻欲修炼某些绝世武功，需先净其身。",
+  "region": "临安",
+  "backgroundImagePath": "assets/scenes/linan_eunuch_office.jpg",
+  "connectedScenes": ["linan_street"],
+  "defaultNPCs": ["eunuch_surgeon"],
+  "factionId": null,
+  "isSpecial": false,
+  "craftLessons": [],
+  "martialLessons": []
+}

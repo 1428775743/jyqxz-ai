@@ -1,0 +1,78 @@
+{
+  "id": "xiake_island",
+  "name": "侠客行·侠客岛",
+  "type": "chain",
+  "triggerNpcId": "shi_potian",
+  "minFavorabilityToOffer": 20,
+  "prerequisiteQuestIds": ["xiake_motianya", "xiake_xueshan"],
+  "relatedNpcIds": ["long_daozhu", "mu_daozhu"],
+  "description": "摩天崖、雪山两家之长已得,石破天邀你赴侠客岛参悟石壁武学。龙岛主以腊八粥相待,述赏善罚恶之事。与木岛主试招,终参悟太玄经——不识字者反得真谛,天下无敌。侠客岛之谜,终得解开。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "shi_potian", "lines": ["这位大哥,我叫石破天,人都叫我狗杂种。", "龙岛主说岛上石壁刻着绝世武功,可我看不懂字..."] },
+      { "speaker": "玩家", "lines": ["石兄弟谦虚了,阁下内力深厚,非常人所及。"] },
+      { "speaker": "shi_potian", "lines": ["龙岛主说,不识字的人反能参悟太玄经。", "大哥你跟我一起去侠客岛吧,咱俩一块儿参悟!", "那太玄经厉害得很,学成了天下无敌!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "potian_invite",
+      "actionType": "talk",
+      "targetNPC": "shi_potian",
+      "description": "石破天邀你赴侠客岛参悟石壁武学。",
+      "aiHint": "你乃石破天,狗杂种出身,淳朴无争。你邀玩家同赴侠客岛参悟石壁武学。你不识字,龙岛主说反能参悟太玄经。你赤子之心,对玩家以大哥相称,语气质朴真诚。你言太玄经厉害,学成天下无敌。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "long_laba",
+      "actionType": "talk",
+      "targetNPC": "long_daozhu",
+      "description": "龙岛主以腊八粥相待,述侠客岛赏善罚恶之事。",
+      "aiHint": "你乃龙岛主,侠客岛之主。你以腊八粥相待玩家与石破天,述侠客岛每十年邀天下高手饮粥、赏善罚恶之事。你温和睿智,言腊八粥含毒,武功高强者饮之反延寿增功。你言石壁刻有太玄经,以李白《侠客行》诗为引,不识字者反能参悟。你对玩家以侠士相称。",
+      "reward": { "jianghuExp": 300, "items": [ { "itemId": "laba_zhou", "quantity": 1 } ] },
+      "dialogue": {
+        "lines": [
+          { "speaker": "long_daozhu", "lines": ["侠士远来,且饮一碗腊八粥。", "此粥含毒,然武功高强者饮之,反延寿增功。"] },
+          { "speaker": "long_daozhu", "lines": ["石壁所刻太玄经,以《侠客行》诗为引。", "数十年来,我与众高手参悟,竟不如这不识字的小兄弟。", "侠士若有意,可与木岛主试招,验证武学。"] }
+        ]
+      }
+    },
+    {
+      "id": "fight_mudaozhu",
+      "actionType": "fight",
+      "targetNPC": "mu_daozhu",
+      "description": "与木岛主试招,验证武学修为。",
+      "aiHint": "你乃木岛主,龙岛主之弟。你与玩家试招,验证其武学修为。你沉默寡言,擅雪山剑法与太玄经,武学深不可测。你出手留有余地,见玩家不凡,暗暗点头。败后你以目示意,赞其根骨。",
+      "reward": { "jianghuExp": 450, "reputationBonus": 300 }
+    },
+    {
+      "id": "learn_taixuan",
+      "actionType": "talk",
+      "targetNPC": "shi_potian",
+      "description": "石破天不识字却悟太玄经,传你至高心法。",
+      "aiHint": "你乃石破天,你不识字,却于石壁前参悟太玄经真谛。你淳朴中透着通透,将太玄经心法传与玩家。你言这经书不讲字,讲的是天地之理,大哥你看,便是这样。你以质朴之言,传至高之学。对玩家以大哥相称,赤子之心。",
+      "reward": { "martialArtId": "taixuan_jing", "jianghuExp": 500 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "shi_potian", "lines": ["大哥,我看懂了!这石壁画的不光是字。", "是一招一式,还有呼吸的法子。"] },
+          { "speaker": "shi_potian", "lines": ["龙岛主他们说这叫太玄经,厉害得很。", "大哥,我教你,咱俩一块儿天下无敌!"] }
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1000,
+    "reputationBonus": 1000,
+    "goldBonus": 3000,
+    "karmaBonus": 20,
+    "items": [ { "itemId": "taixuan_manual", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "long_daozhu", "lines": ["数十载参悟,竟不如这位不识字的小兄弟。", "太玄经之真谛,终得传承。"] },
+      { "speaker": "shi_potian", "lines": ["大哥,咱俩都学成太玄经啦,天下无敌!", "以后我跟着你闯江湖,好不好?"] },
+      { "speaker": "旁白", "lines": ["侠客岛之谜终解,太玄经重现世间。", "你与石破天参悟太玄经,武学登峰造极,天下无敌。"] }
+    ]
+  }
+}

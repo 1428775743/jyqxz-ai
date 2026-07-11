@@ -1,0 +1,37 @@
+{
+  "id": "jinwu_daofa",
+  "name": "金乌刀法",
+  "type": "external",
+  "description": "紫烟岛史小翠所创刀法,刀势如金乌灼日,刚猛炽烈,专为克制雪山剑法而设。刀法宏阔,修至大成刀气灼热,焚尽寒冰。乃侠客行一书中与雪山剑法齐名之绝学。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "damageCoefficient": 2.4,
+  "critChance": 0.3,
+  "cooldown": 2,
+  "mpCost": 82,
+  "effects": [
+    {
+      "type": "IgnoreDefense",
+      "value": 0.35,
+      "chance": 1.0,
+      "description": "金乌灼日:无视35%防御(克雪山剑法)"
+    },
+    {
+      "type": "DoubleStrike",
+      "value": 0.75,
+      "chance": 0.25,
+      "description": "刀势宏阔:25%概率连击(75%伤害)"
+    },
+    {
+      "type": "TrueDamage",
+      "value": 0.15,
+      "chance": 1.0,
+      "requiredLevel": 7,
+      "description": "Lv.7解锁:金乌刀气灼热,附带15%真实伤害"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.8 },
+    "10": { "damageCoefficient": 3.2 }
+  }
+}

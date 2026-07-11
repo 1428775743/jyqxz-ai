@@ -1,0 +1,23 @@
+{
+  "id": "mu_jianping",
+  "name": "沐剑屏",
+  "type": "npc",
+  "personality": "沐王府郡主,天真烂漫,纯真可爱。韦小宝老婆之一,年纪最小,活泼俏皮。",
+  "description": "云南沐王府小郡主,沐天波之女。天真烂漫,纯真可爱,活泼俏皮。被送入宫中为韦小宝所擒,后成其妻。年纪最小,深得韦小宝宠爱。乃鹿鼎记一书中之天真郡主。",
+  "maxHP": 1800,
+  "maxMP": 1400,
+  "attack": 200,
+  "defense": 220,
+  "speed": 72,
+  "karma": 40,
+  "gender": "女",
+  "defaultScene": "zijincheng",
+  "jianghuLevel": 20,
+  "portraitPath": "mu_jianping.png",
+  "learnedArts": [
+    { "artId": "basic_palm", "proficiencyLevel": 3 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 3 }
+  ],
+  "activeExternalArtId": "basic_palm",
+  "activeLightArtId": "basic_qinggong"
+}

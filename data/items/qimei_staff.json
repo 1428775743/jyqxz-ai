@@ -1,0 +1,14 @@
+{
+  "id": "qimei_staff",
+  "name": "齐眉棍",
+  "description": "齐眉白蜡棍,韧性十足,挑拨劈扫皆宜,少林俗家弟子的入门兵刃。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "staff",
+  "attackBonus": 25,
+  "defenseBonus": 0,
+  "value": 120,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

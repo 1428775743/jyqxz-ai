@@ -1,0 +1,45 @@
+{
+  "id": "ren_yingying",
+  "name": "任盈盈",
+  "type": "npc",
+  "personality": "外冷内热,清丽绝俗,有圣姑之尊却不喜教中权谋。重情重义,为令狐冲可舍一切。善抚琴,音律超凡。",
+  "description": "日月神教圣姑,前教主任我行之女。容貌清丽,性情外冷内热,与令狐冲合奏《笑傲江湖》一曲而结缘。虽出身魔教,却心怀正念,屡助令狐冲脱困,最终归隐琴箫相伴。",
+  "maxHP": 2800,
+  "maxMP": 2200,
+  "attack": 300,
+  "defense": 200,
+  "speed": 75,
+  "relations": {
+    "linghu_chong": "Spouse",
+    "ren_woxing": "父女"
+  },
+  "factionId": "riyue",
+  "karma": 30,
+  "gender": "女",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "heimuya_scene",
+  "schedule": {
+    "清晨": "heimuya_scene",
+    "白天": "heimuya_scene",
+    "黄昏": "heimuya_scene",
+    "夜晚": "heimuya_scene"
+  },
+  "jianghuLevel": 30,
+  "craftSkills": {
+    "art": 80,
+    "forging": 5,
+    "mining": 5,
+    "gathering": 15,
+    "medicine": 30
+  },
+  "portraitPath": "ren_yingying.png",
+  "learnedArts": [
+    { "artId": "mingjiao_basic_internal", "proficiencyLevel": 6 },
+    { "artId": "mojiao_zhang", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "mojiao_zhang",
+  "activeLightArtId": "basic_qinggong"
+}

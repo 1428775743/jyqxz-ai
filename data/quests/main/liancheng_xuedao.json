@@ -1,0 +1,72 @@
+{
+  "id": "liancheng_xuedao",
+  "name": "连城诀·血刀",
+  "type": "chain",
+  "triggerNpcId": "shui_sheng",
+  "minFavorabilityToOffer": 0,
+  "relatedNpcIds": ["xuedao_laozu", "bao_xiang", "shui_dai", "hua_tiegan"],
+  "description": "藏边雪谷之中,血刀老祖挟水笙困守,落花流水四侠围攻反为其所败。水笙求救于你,助落花流水剿灭血刀老祖,可获血刀大法与血刀一柄。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "shui_sheng", "lines": ["这位侠士救命!我水笙,被血刀老祖掳至此处。", "家父水岱与落花流水众侠正围剿此獠,奈何血刀大法诡异绝伦..."] },
+      { "speaker": "玩家", "lines": ["姑娘莫慌,我既遇此事,定当相助。"] },
+      { "speaker": "shui_sheng", "lines": ["血刀老祖狠辣好色,其徒宝象亦在谷中。", "侠士若能助我父众剿灭此獠,水笙感激不尽!"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "enter_xuegu",
+      "actionType": "go",
+      "targetScene": "xuegu",
+      "description": "赴藏边雪谷,水笙被血刀门所掳,求你相助。",
+      "aiHint": "玩家随你入雪谷,你被血刀老祖所掳,困于此处。你刚烈贞烈,虽处险境亦不屈。你言血刀老祖狠辣,其徒宝象凶横,望玩家助你父水岱与众侠剿灭此獠。你对玩家由疑转敬。",
+      "reward": { "jianghuExp": 150 }
+    },
+    {
+      "id": "fight_baoxiang",
+      "actionType": "fight",
+      "targetNPC": "bao_xiang",
+      "description": "血刀门弟子宝象拦路,出手败之。",
+      "aiHint": "你乃宝象,血刀老祖之徒。你见玩家来犯,凶横拦路。你武功不高却嗜杀成性,出手狠辣。你言玩家找死,血刀门岂是容人放肆之处。",
+      "reward": { "jianghuExp": 250, "reputationBonus": 100 }
+    },
+    {
+      "id": "luohua_liushui",
+      "actionType": "talk",
+      "targetNPC": "shui_dai",
+      "description": "水岱等落花流水四侠赶到,合议围剿血刀老祖。",
+      "aiHint": "你乃水岱,江南大侠,落花流水之一。你与众侠赶到雪谷,见玩家已败宝象,甚为赞赏。你言血刀老祖武功诡异,需合力围剿。你刚正豪迈,言落花流水之名,誓除血刀老祖。你对玩家以侠士相称,邀其共战。",
+      "reward": { "jianghuExp": 200, "karmaBonus": 5 }
+    },
+    {
+      "id": "decisive_xuedao",
+      "actionType": "fight",
+      "targetNPC": "xuedao_laozu",
+      "description": "雪谷决战血刀老祖,以血刀大法之诡异,合力诛之。",
+      "aiHint": "你乃血刀老祖,西藏血刀门掌门。你以一己之力斗落花流水四侠,诡异绝伦。你见玩家助阵,冷笑相迎。你狠辣好色,刀法诡谲,然亦赏玩家胆气。你言天下英雄不过如此,血刀一出谁与争锋。战败后你仍桀骜不驯。",
+      "reward": { "martialArtId": "xueying_bu", "jianghuExp": 400 }
+    },
+    {
+      "id": "shuisheng_thanks",
+      "actionType": "talk",
+      "targetNPC": "shui_sheng",
+      "description": "血刀老祖伏诛,水笙致谢,花铁干卑躬求饶。",
+      "aiHint": "血刀老祖伏诛,你获救于玩家。你刚烈贞烈,郑重致谢,对玩家由敬生情。你言花铁干于雪谷中卑躬屈膝、折节事敌,令人不齿。你提及表哥汪啸风,语气复杂。你对玩家以恩人相称。",
+      "reward": { "jianghuExp": 200, "reputationBonus": 150 }
+    }
+  ],
+  "reward": {
+    "martialArtId": "xuedao_dafa",
+    "jianghuExp": 600,
+    "reputationBonus": 500,
+    "karmaBonus": 15,
+    "items": [ { "itemId": "xuedao_blade", "quantity": 1 } ]
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "shui_sheng", "lines": ["恩公大恩大德,水笙没齿难忘。", "这血刀老祖之血刀大法与血刀,便请恩公收下,以除江湖之害。"] },
+      { "speaker": "玩家", "lines": ["姑娘客气,除恶务尽乃我辈本分。", "血刀大法...虽诡异,亦可用之正道。"] }
+    ]
+  }
+}

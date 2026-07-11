@@ -1,0 +1,26 @@
+{
+  "id": "xiao_yuanshan",
+  "name": "萧远山",
+  "type": "npc",
+  "personality": "隐忍复仇,刚烈决绝。三十年隐姓埋名,只为查清当年雁门关血案真相。",
+  "description": "契丹人,乔峰(萧峰)之父。三十年前携妻儿过雁门关,遭中原武林伏击,妻子惨死,自此投身少林,隐姓埋名苦修武功,誓要查清幕后主使、血债血偿。武功深不可测,与慕容博齐名,皆是少室山大战的关键人物。",
+  "maxHP": 5400,
+  "maxMP": 3400,
+  "attack": 860,
+  "defense": 500,
+  "speed": 82,
+  "karma": 20,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 58,
+  "portraitPath": "xiao_yuanshan.png",
+  "learnedArts": [
+    { "artId": "yijin_jing", "proficiencyLevel": 8 },
+    { "artId": "xianglong_18", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "yijin_jing",
+  "activeExternalArtId": "xianglong_18",
+  "activeLightArtId": "basic_qinggong"
+}

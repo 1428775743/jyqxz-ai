@@ -1,0 +1,17 @@
+{
+  "id": "shenxing_baibian",
+  "name": "神行百变",
+  "type": "light",
+  "description": "铁剑门木桑道长所传上乘轻功,身形百变,移形换影,瞬息可跨越数丈。修习者来去无踪,敌人难以捉摸,可避万般攻势。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "speedBonusPerLevel": 8,
+  "effects": [
+    {
+      "type": "Evasion",
+      "value": 0.25,
+      "chance": 1.0,
+      "description": "神行难捉摸:25%概率闪避来袭攻击"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "jade_pendant",
+  "name": "碧玉佩",
+  "description": "一块温润的玉佩，适合赠送给有雅之人。",
+  "type": "Gift",
+  "value": 300,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

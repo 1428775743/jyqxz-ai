@@ -1,0 +1,10 @@
+{
+  "id": "hengshan_scene",
+  "name": "恒山",
+  "description": "北岳恒山，山势险峻。恒山派以剑法精妙著称，多收女弟子。",
+  "region": "恒山",
+  "backgroundImagePath": "assets/scenes/hengshan_scene.jpg",
+  "connectedScenes": ["hengshan_backhill"],
+  "defaultNPCs": [],
+  "isSpecial": false
+}

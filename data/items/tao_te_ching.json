@@ -1,0 +1,11 @@
+{
+  "id": "tao_te_ching",
+  "name": "道德经",
+  "description": "老子所著道家经典，诵读可悟道心。",
+  "type": "Consumable",
+  "value": 200,
+  "stackable": true,
+  "quantity": 1,
+  "buddhistChange": 15,
+  "rarity": "uncommon"
+}

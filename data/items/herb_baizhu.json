@@ -1,0 +1,10 @@
+{
+  "id": "herb_baizhu",
+  "name": "白术",
+  "description": "山野常见草药,健脾益气,药铺常用。",
+  "type": "Material",
+  "value": 8,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

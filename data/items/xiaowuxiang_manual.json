@@ -1,0 +1,11 @@
+{
+  "id": "xiaowuxiang_manual",
+  "name": "小无相功秘籍",
+  "description": "逍遥派不传之秘,以无形无相之心催动真气,可模拟天下各派武功而不露本相。鸠摩智曾以此功强催少林绝技。",
+  "type": "Manual",
+  "value": 4000,
+  "stackable": false,
+  "containedArtIds": ["xiaowuxiang_gong"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

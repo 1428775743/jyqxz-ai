@@ -1,0 +1,9 @@
+{
+  "id": "fire_ore",
+  "name": "炎阳石",
+  "description": "蕴含火灵之力的珍稀矿石，通体赤红，锻造的兵器炽热难当。",
+  "type": "Material",
+  "value": 800,
+  "stackable": true,
+  "quantity": 1
+}

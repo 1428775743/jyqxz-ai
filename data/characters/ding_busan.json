@@ -1,0 +1,25 @@
+{
+  "id": "ding_busan",
+  "name": "丁不三",
+  "type": "npc",
+  "personality": "丁家老大,外号杀人名医,狠辣诡谲。亦正亦邪,行事乖张。擅丁家擒拿手与炎炎功。",
+  "description": "丁不三,丁家老大,外号杀人名医。狠辣诡谲,行事乖张,杀人如麻却亦通医术。擅丁家擒拿手与炎炎功。丁珰之祖父。乃侠客行中一亦正亦邪之老怪。",
+  "maxHP": 3400,
+  "maxMP": 2400,
+  "attack": 460,
+  "defense": 360,
+  "speed": 76,
+  "karma": -30,
+  "gender": "男",
+  "defaultScene": "motianya",
+  "jianghuLevel": 45,
+  "portraitPath": "ding_busan.png",
+  "learnedArts": [
+    { "artId": "ding_qinna", "proficiencyLevel": 6 },
+    { "artId": "yanyan_gong", "proficiencyLevel": 5 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "yanyan_gong",
+  "activeExternalArtId": "ding_qinna",
+  "activeLightArtId": "basic_qinggong"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "quanzhen",
+  "name": "全真教",
+  "description": "天下玄门正宗,王重阳所创。门下全真七子各怀绝技,天罡北斗阵可抗衡五绝。教规森严,讲究清静无为,抱元守一。",
+  "leaderId": "qiu_chuji",
+  "sceneId": "quanzhen_hall",
+  "availableArts": [
+    "quanzhen_neigong",
+    "quanzhen_jianfa",
+    "tian_gang_beidou"
+  ],
+  "joinKarmaMin": 20,
+  "joinKarmaMax": 100,
+  "alliedFactions": {},
+  "enemyFactions": {
+    "riyue": "正邪不两立",
+    "gumu": "宿敌"
+  },
+  "alignment": "正派"
+}

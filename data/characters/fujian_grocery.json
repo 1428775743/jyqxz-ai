@@ -1,0 +1,46 @@
+{
+  "id": "fujian_grocery",
+  "name": "林老板(杂货)",
+  "type": "npc",
+  "personality": "热情健谈，一口闽南腔，爱讲海上奇闻",
+  "description": "福建街市的杂货老板，经营闽南茶货与南海海味特产。",
+  "maxHP": 280,
+  "maxMP": 90,
+  "attack": 18,
+  "defense": 12,
+  "speed": 28,
+  "relations": {},
+  "factionId": null,
+  "karma": 15,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "fujian_street",
+  "schedule": {
+    "清晨": "fujian_street",
+    "白天": "fujian_street",
+    "黄昏": "fujian_street",
+    "夜晚": "fujian_street"
+  },
+  "npcRole": "grocery_merchant",
+  "jianghuLevel": 1,
+  "shopFixedItems": [
+    "rice",
+    "salt",
+    "candle",
+    "rope",
+    "tieguanyin_tea",
+    "fish"
+  ],
+  "shopRandomItems": [
+    "yanwo",
+    "silk",
+    "honey",
+    "wild_mushroom",
+    "rabbit_fur"
+  ],
+  "craftSkills": {
+    "gathering": 20,
+    "medicine": 10
+  },
+  "learnedArts": []
+}

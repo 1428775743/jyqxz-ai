@@ -1,0 +1,9 @@
+{
+  "id": "tangshi_xuanji",
+  "name": "唐诗选辑",
+  "description": "一本陈旧之唐诗选集,书页间暗藏连城诀密码。丁典所赠,需对照连城诀方可参透其中宝藏之秘。",
+  "type": "QuestItem",
+  "value": 100,
+  "stackable": false,
+  "rarity": "uncommon"
+}

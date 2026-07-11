@@ -1,0 +1,10 @@
+{
+  "id": "yangzhou",
+  "name": "扬州",
+  "description": "扬州城,烟花繁华之地。韦小宝故乡,丽春院所在。陈近南于此收徒,九难师太亦曾驻足。瘦西湖畔,盐商云集,三教九流汇聚。",
+  "region": "江南",
+  "backgroundImagePath": "assets/scenes/yangzhou.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["chen_jinnan", "jiu_nan", "shuang_er", "yangzhou_grocery"],
+  "isSpecial": false
+}

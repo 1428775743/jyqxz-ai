@@ -1,0 +1,39 @@
+{
+  "id": "shi_potian",
+  "name": "石破天",
+  "type": "npc",
+  "personality": "狗杂种出身,淳朴无争,赤子之心。不识字却机缘深厚,悟性超绝。对人毫无心机,却常得奇遇,参悟太玄经而成天下第一。",
+  "description": "自幼被称狗杂种,不知父母。淳朴无争,赤子之心,不识字却悟性超绝。机缘巧合得玄铁令、上侠客岛,参悟太玄经而成天下第一。乃侠客行一书之主角,以无心无争之心,成就绝世武学。",
+  "equippedWeaponId": "iron_fist_gauntlet",
+  "maxHP": 3800,
+  "maxMP": 3200,
+  "attack": 520,
+  "defense": 400,
+  "speed": 80,
+  "karma": 50,
+  "gender": "男",
+  "defaultScene": "xiake_dao",
+  "jianghuLevel": 45,
+  "portraitPath": "shi_potian.png",
+  "learnedArts": [
+    {
+      "artId": "taixuan_jing",
+      "proficiencyLevel": 10
+    },
+    {
+      "artId": "tanzhi_shentong",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "yanyan_gong",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "caoshang_fei",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "taixuan_jing",
+  "activeExternalArtId": "tanzhi_shentong",
+  "activeLightArtId": "caoshang_fei"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "qiangshen_dan",
+  "name": "强身丹",
+  "type": "Consumable",
+  "description": "服药后体魄强健,气血上限+15%,持续1日。药buff,与同类互斥。",
+  "value": 180,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "maxhp",
+  "buffValue": 0.15,
+  "buffDurationDays": 1,
+  "combatUsable": false
+}

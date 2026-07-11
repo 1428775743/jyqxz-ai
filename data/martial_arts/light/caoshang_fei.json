@@ -1,0 +1,10 @@
+{
+  "id": "caoshang_fei",
+  "name": "草上飞",
+  "type": "light",
+  "description": "江湖游侠常练身法,踏草疾行,行迹难寻。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "speedBonusPerLevel": 2,
+  "effects": []
+}

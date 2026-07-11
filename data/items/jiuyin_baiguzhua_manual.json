@@ -1,0 +1,11 @@
+{
+  "id": "jiuyin_baiguzhua_manual",
+  "name": "九阴白骨爪秘籍",
+  "description": "九阴真经下卷所载爪法的残篇,以十指摧敌首骨。虽为九阴真经之末流,亦已可横行江湖。古墓逃出时获得,弱于全本九阴真经。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["jiuyin_jian"],
+  "prerequisite": {},
+  "rarity": "rare"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "songshan_inn",
+  "name": "嵩山客栈",
+  "description": "嵩山镇上最大的客栈，令狐冲常在此饮酒。",
+  "region": "嵩山",
+  "backgroundImagePath": "assets/scenes/songshan_inn.jpg",
+  "connectedScenes": ["songshan_town"],
+  "defaultNPCs": ["songshan_innkeeper", "zhao_wine"],
+  "isSpecial": false
+}

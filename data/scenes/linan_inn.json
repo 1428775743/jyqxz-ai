@@ -1,0 +1,13 @@
+{
+  "id": "linan_inn",
+  "name": "临安客栈",
+  "description": "临安城中最好的客栈，往来客商、江湖好汉多在此歇脚。小二热情好客，酒菜丰盛，价格公道。",
+  "region": "临安",
+  "backgroundImagePath": "assets/scenes/linan_inn.jpg",
+  "connectedScenes": ["linan_street"],
+  "defaultNPCs": [],
+  "factionId": null,
+  "isSpecial": false,
+  "craftLessons": [],
+  "martialLessons": []
+}

@@ -1,0 +1,10 @@
+{
+  "id": "leather",
+  "name": "兽皮",
+  "description": "经过简单鞣制的兽皮，可裁制衣物护甲。",
+  "type": "Material",
+  "value": 25,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

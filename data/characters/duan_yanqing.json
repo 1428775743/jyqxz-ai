@@ -1,0 +1,26 @@
+{
+  "id": "duan_yanqing",
+  "name": "段延庆",
+  "type": "npc",
+  "personality": "阴鸷狠辣,执念深重,自称天下第一恶人。残躯之下,仍存段氏皇族傲气。",
+  "description": "原大理国太子,遭变残废,双腿断折,面毁语艰,以双杖代步、腹语交谈。为四大恶人之首,修段氏一阳指却练至邪途。一生执念夺回皇位,然心底深处仍系大理段氏血脉。武功高强,心狠手辣。",
+  "maxHP": 4200,
+  "maxMP": 3000,
+  "attack": 700,
+  "defense": 420,
+  "speed": 60,
+  "karma": -10,
+  "gender": "男",
+  "isHidden": true,
+  "defaultScene": "shaoshishan",
+  "jianghuLevel": 48,
+  "portraitPath": "duan_yanqing.png",
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 7 },
+    { "artId": "yiyang_zhi", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "yiyang_zhi",
+  "activeLightArtId": "basic_qinggong"
+}

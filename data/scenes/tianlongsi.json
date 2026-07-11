@@ -1,0 +1,14 @@
+{
+  "id": "tianlongsi",
+  "name": "天龙寺",
+  "description": "大理国皇家寺院,段氏武学圣地。古刹深幽,钟磬悠扬,枯荣大师与诸本高僧在此参禅修武。六脉神剑剑谱与一阳指传承皆藏于此。",
+  "region": "大理",
+  "backgroundImagePath": "assets/scenes/tianlongsi.jpg",
+  "connectedScenes": ["dali_scene"],
+  "defaultNPCs": [],
+  "factionId": "dali_duan",
+  "isSpecial": true,
+  "martialLessons": [
+    { "artId": "yiyang_zhi", "cost": 600 }
+  ]
+}

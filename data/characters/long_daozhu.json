@@ -1,0 +1,26 @@
+{
+  "id": "long_daozhu",
+  "name": "龙岛主",
+  "type": "npc",
+  "personality": "侠客岛主,深不可测,武学宗师。与木岛主共参太玄经,赏善罚恶,邀天下高手饮腊八粥。温和睿智,心怀天下。",
+  "description": "侠客岛之主,与木岛主共参侠客岛石壁太玄经数十年。武学深不可测,太玄经已至化境。每十年邀天下高手上岛饮腊八粥,赏善罚恶。温和睿智,心怀天下武学。乃侠客行中一宗师。",
+  "maxHP": 4400,
+  "maxMP": 3600,
+  "attack": 680,
+  "defense": 460,
+  "speed": 85,
+  "karma": 40,
+  "gender": "男",
+  "defaultScene": "xiake_dao",
+  "jianghuLevel": 55,
+  "isSectLeader": true,
+  "portraitPath": "long_daozhu.png",
+  "learnedArts": [
+    { "artId": "taixuan_jing", "proficiencyLevel": 7 },
+    { "artId": "tanzhi_shentong", "proficiencyLevel": 6 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 6 }
+  ],
+  "activeInternalArtId": "taixuan_jing",
+  "activeExternalArtId": "tanzhi_shentong",
+  "activeLightArtId": "basic_qinggong"
+}

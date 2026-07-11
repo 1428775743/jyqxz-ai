@@ -1,0 +1,10 @@
+{
+  "id": "qingcheng_pai",
+  "name": "青城派",
+  "description": "青城山道家圣地,本应清静无为,如今却被余沧海一人掌控,行事乖戾。山门下青松翠柏,殿内陈设却透着一股阴狠之气。",
+  "region": "青城",
+  "backgroundImagePath": "assets/scenes/qingcheng_pai.jpg",
+  "connectedScenes": [],
+  "defaultNPCs": ["yu_canghai", "qingcheng_disciple_1", "qingcheng_disciple_2", "qingcheng_disciple_3"],
+  "isSpecial": false
+}

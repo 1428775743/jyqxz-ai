@@ -1,0 +1,35 @@
+{
+  "id": "bandit_medium_2",
+  "name": "黑风岭刀手",
+  "type": "npc",
+  "personality": "凶悍残忍，杀人不眨眼",
+  "description": "黑风岭核心打手，一柄鬼头刀染过不少江湖客的血。",
+  "maxHP": 380,
+  "maxMP": 100,
+  "attack": 58,
+  "defense": 28,
+  "speed": 42,
+  "relations": {},
+  "factionId": null,
+  "karma": -55,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 11,
+  "portraitPath": "bandit_medium_2.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 5
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}

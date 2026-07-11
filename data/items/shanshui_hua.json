@@ -1,0 +1,12 @@
+{
+  "id": "shanshui_hua",
+  "name": "山水画卷",
+  "description": "名家手笔的青绿山水，层峦叠嶂云烟掩映，意境深远，悬于书房可添雅致。",
+  "type": "Gift",
+  "value": 120,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

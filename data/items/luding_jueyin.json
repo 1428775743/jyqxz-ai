@@ -1,0 +1,9 @@
+{
+  "id": "luding_jueyin",
+  "name": "鹿鼎公爵印",
+  "description": "康熙帝封韦小宝为鹿鼎公之印信,乃朝廷一等爵位之证。持此印者,如朕亲临,可调动兵马。乃鹿鼎记一书中之权柄象征。",
+  "type": "QuestItem",
+  "value": 0,
+  "stackable": false,
+  "rarity": "legendary"
+}

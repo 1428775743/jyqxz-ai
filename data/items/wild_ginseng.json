@@ -1,0 +1,10 @@
+{
+  "id": "wild_ginseng",
+  "name": "野山参",
+  "description": "深山老林中挖到的野山参，药效远胜人工种植。",
+  "type": "Material",
+  "value": 200,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "rare"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "wan_gui",
+  "name": "万圭",
+  "type": "npc",
+  "personality": "阴险嫉妒,心胸狭隘,贪恋美色与财宝。为夺戚芳与连城诀,不择手段陷害狄云。",
+  "description": "万震山之子,戚长发之徒。为夺戚芳,与父设毒计陷害狄云入狱。后为连城诀宝藏与父反目,终死于连城诀之祸。阴险小人,罪有应得。",
+  "maxHP": 2000,
+  "maxMP": 1500,
+  "attack": 230,
+  "defense": 220,
+  "speed": 58,
+  "karma": -20,
+  "gender": "男",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 25,
+  "portraitPath": "wan_gui.png",
+  "learnedArts": [
+    {
+      "artId": "tangshi_jianfa",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeExternalArtId": "tangshi_jianfa",
+  "activeInternalArtId": "basic_qigong"
+}

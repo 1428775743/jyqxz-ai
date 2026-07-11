@@ -1,0 +1,45 @@
+{
+  "id": "huashan_test",
+  "name": "师门考验·诛田伯光",
+  "type": "chain",
+  "triggerNpcId": "yue_buqun",
+  "requireSameFaction": true,
+  "minFavorabilityToOffer": 50,
+  "minAnyArtLevel": 5,
+  "relatedNpcIds": ["linghu_chong", "tian_bo_guang"],
+  "description": "岳掌门告诉你,采花贼田伯光近来在华山附近为非作歹,玷污了五岳清誉。师父令你前往后山,擒杀此贼,以正门风。",
+  "difficulty": "hard",
+  "steps": [
+    {
+      "id": "defeat_tianbo",
+      "actionType": "fight",
+      "targetNPC": "tian_bo_guang",
+      "description": "前往华山后山,寻到田伯光,与之一战。",
+      "aiHint": "玩家尚未击败田伯光,师门考验未过,你绝不能传授紫霞神功——这是华山镇派内功,必须等他立功。可适当询问玩家是否找到田伯光。",
+      "reward": { "jianghuExp": 80 }
+    },
+    {
+      "id": "kill_tianbo",
+      "actionType": "kill",
+      "targetNPC": "tian_bo_guang",
+      "description": "田伯光罪孽深重,定要将他斩草除根,以正门风。",
+      "aiHint": "玩家已击败田伯光,现正面临是否取其性命。你内心希望玩家斩草除根——田伯光是采花贼,留着是江湖祸害。若玩家此时来询问可点明态度。",
+      "reward": { "jianghuExp": 100, "karmaBonus": -5 }
+    },
+    {
+      "id": "report_back",
+      "actionType": "talk",
+      "targetNPC": "yue_buqun",
+      "description": "回华山向岳掌门复命。",
+      "aiHint": "玩家已诛杀田伯光并前来复命,你应大为赞许,认其有担当、有手段。好感度+40。考虑将华山镇派内功紫霞神功(zixia_shengong)传授于他。",
+      "reward": { "jianghuExp": 100, "reputationBonus": 100 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 200,
+    "goldBonus": 500,
+    "reputationBonus": 200,
+    "factionContributionBonus": 100,
+    "factionIdForContribution": "huashan"
+  }
+}

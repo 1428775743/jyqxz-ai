@@ -1,0 +1,17 @@
+{
+  "id": "wen_yi",
+  "name": "温仪",
+  "type": "npc",
+  "personality": "温家大小姐,温婉贞静,痴恋夏雪宜至死不渝。遭家族囚禁,仍守金蛇秘笈之秘,命运悲苦。",
+  "description": "温家大小姐,与金蛇郎君夏雪宜相恋,私定终身,诞下青青。遭温家五老囚禁多年,仍痴心不改。知晓金蛇秘笈与宝藏之秘,却宁死不屈。温婉贞静,命运悲苦,乃碧血剑中最令人扼腕之女子。",
+  "maxHP": 1000,
+  "maxMP": 500,
+  "attack": 60,
+  "defense": 80,
+  "speed": 45,
+  "karma": 50,
+  "gender": "女",
+  "defaultScene": "shiliang",
+  "jianghuLevel": 10,
+  "portraitPath": "wen_yi.png"
+}

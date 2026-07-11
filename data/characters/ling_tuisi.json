@@ -1,0 +1,34 @@
+{
+  "id": "ling_tuisi",
+  "name": "凌退思",
+  "type": "npc",
+  "personality": "荆州知府,伪善阴毒,贪婪无度。为连城诀宝藏,不惜毒杀女儿恋人,活埋亲生女儿。文人皮囊,蛇蝎心肠。",
+  "description": "荆州知府,凌霜华之父。为夺连城诀宝藏,以金波旬花之毒毒害丁典,又将女儿凌霜华活埋于棺。机关算尽,终因觊觎宝藏中毒身亡,机关算尽太聪明,反误了卿卿性命。",
+  "maxHP": 2800,
+  "maxMP": 2200,
+  "attack": 370,
+  "defense": 330,
+  "speed": 60,
+  "karma": -40,
+  "gender": "男",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 38,
+  "portraitPath": "ling_tuisi.png",
+  "learnedArts": [
+    {
+      "artId": "tangshi_jianfa",
+      "proficiencyLevel": 4
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 3
+    },
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 4
+    }
+  ],
+  "activeExternalArtId": "tangshi_jianfa",
+  "activeLightArtId": "basic_qinggong",
+  "activeInternalArtId": "basic_qigong"
+}

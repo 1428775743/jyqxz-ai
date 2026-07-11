@@ -1,0 +1,14 @@
+{
+  "id": "iron_fist_gauntlet",
+  "name": "铁拳套",
+  "description": "粗铁所铸拳套,缠以麻绳,赤手搏斗时护指增力,市井武人常用之物。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "fist",
+  "attackBonus": 15,
+  "defenseBonus": 0,
+  "value": 80,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

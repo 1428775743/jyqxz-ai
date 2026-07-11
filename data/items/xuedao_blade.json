@@ -1,0 +1,14 @@
+{
+  "id": "xuedao_blade",
+  "name": "血刀",
+  "description": "血刀门镇派宝刀,刀身殷红如血,饮血无数,煞气逼人。刀法配合此刀更增诡谲狠辣,血刀门掌门信物。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "blade",
+  "attackBonus": 90,
+  "defenseBonus": 0,
+  "value": 4000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "legendary"
+}

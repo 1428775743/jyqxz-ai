@@ -1,0 +1,38 @@
+{
+  "id": "baixiao_dali",
+  "name": "百晓阁门人·段白衣",
+  "type": "npc",
+  "personality": "儒雅机敏,记性过人,江湖人物无论贵贱,行踪尽在心中。说话慢条斯理,但消息灵通。",
+  "description": "百晓阁驻大理的探子门人。百晓阁是江湖中专门收集武林人物行踪的隐秘组织,门人遍布各大主城,记录江湖人物的一举一动。付些银两,便可请他打听某人在何处。他对武林人物如数家珍,但绝不泄露门派机密与不义之事。",
+  "portraitPath": "baixiao_dali.png",
+  "maxHP": 800,
+  "maxMP": 400,
+  "attack": 80,
+  "defense": 60,
+  "speed": 70,
+  "relations": {},
+  "factionId": null,
+  "karma": 60,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "npcRole": "baixiao_informer",
+  "defaultScene": "dali_scene",
+  "schedule": {
+    "清晨": "dali_scene",
+    "白天": "dali_scene",
+    "黄昏": "dali_scene",
+    "夜晚": "dali_scene"
+  },
+  "jianghuLevel": 8,
+  "craftSkills": {
+    "art": 40,
+    "medicine": 20
+  },
+  "learnedArts": [
+    { "artId": "basic_qigong", "proficiencyLevel": 4 },
+    { "artId": "basic_sword", "proficiencyLevel": 3 }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_sword"
+}

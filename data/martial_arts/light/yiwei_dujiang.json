@@ -1,0 +1,17 @@
+{
+  "id": "yiwei_dujiang",
+  "name": "一苇渡江",
+  "type": "light",
+  "description": "达摩祖师所创,踏苇即可渡江,身轻如毛,内蕴禅意,可化解外力。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "speedBonusPerLevel": 6,
+  "effects": [
+    {
+      "type": "PassiveDamageReduction",
+      "value": 0.05,
+      "chance": 1.0,
+      "description": "被动:受到的伤害减少5%"
+    }
+  ]
+}

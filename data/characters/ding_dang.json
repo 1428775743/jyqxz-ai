@@ -1,0 +1,23 @@
+{
+  "id": "ding_dang",
+  "name": "丁珰",
+  "type": "npc",
+  "personality": "丁不三孙女,机灵刁蛮,娇纵任性。钟情石中玉,后误认石破天,亦倾心。机敏多变,亦正亦邪。",
+  "description": "丁不三之孙女,小名丁珰。机灵刁蛮,娇纵任性,擅丁家擒拿手。钟情于石中玉,后误认石破天为石中玉,亦对其倾心。机敏多变,常惹是非,却亦重情。乃侠客行中一刁蛮女子。",
+  "maxHP": 2000,
+  "maxMP": 1500,
+  "attack": 240,
+  "defense": 220,
+  "speed": 78,
+  "karma": 15,
+  "gender": "女",
+  "defaultScene": "motianya",
+  "jianghuLevel": 28,
+  "portraitPath": "ding_dang.png",
+  "learnedArts": [
+    { "artId": "ding_qinna", "proficiencyLevel": 3 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 4 }
+  ],
+  "activeExternalArtId": "ding_qinna",
+  "activeLightArtId": "basic_qinggong"
+}

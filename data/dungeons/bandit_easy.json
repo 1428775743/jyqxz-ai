@@ -1,0 +1,22 @@
+{
+  "id": "bandit_easy",
+  "name": "山道剿匪",
+  "description": "本地山道近来贼匪猖獗,行商难安。剿之以正风气。",
+  "type": "bandit",
+  "rounds": [
+    {
+      "opponentPool": ["bandit_easy_1", "bandit_easy_2"],
+      "count": 2,
+      "triggerDialogue": true
+    },
+    {
+      "opponentPool": ["bandit_easy_1", "bandit_easy_2"],
+      "count": 2,
+      "triggerDialogue": true
+    }
+  ],
+  "reward": { "gold": 80, "reputation": 50 },
+  "onFail": { "type": "deductGold", "amount": 30 },
+  "staminaCost": 20,
+  "timeCostHours": 2
+}

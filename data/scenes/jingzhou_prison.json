@@ -1,0 +1,10 @@
+{
+  "id": "jingzhou_prison",
+  "name": "荆州大牢",
+  "description": "荆州府大牢,阴暗潮湿。丁典、狄云曾囚禁于此,连城诀之秘在此流转。墙厚门重,冤魂无数。",
+  "region": "荆州",
+  "backgroundImagePath": "assets/scenes/jingzhou_prison.jpg",
+  "connectedScenes": ["jingzhou_city"],
+  "defaultNPCs": ["ding_dian", "di_yun"],
+  "isSpecial": true
+}

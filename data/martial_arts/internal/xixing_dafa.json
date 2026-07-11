@@ -1,0 +1,30 @@
+{
+  "id": "xixing_dafa",
+  "name": "吸星大法",
+  "type": "internal",
+  "description": "天魔老祖任我行所创魔教绝学,可吸取他人内力为己用。攻击时夺敌真元,化为自身内息。修炼之人内力深不可测,但需法门压制反噬。",
+  "maxLevel": 10,
+  "rarity": "legendary",
+  "cooldown": 3,
+  "mpCost": 80,
+  "hpBonusPerLevel": 200,
+  "mpBonusPerLevel": 500,
+  "attackBonusPerLevel": 50,
+  "defenseBonusPerLevel": 20,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.12,
+      "chance": 1.0,
+      "description": "被动:每回合恢复12%最大内力(吸取空气真元)"
+    },
+    {
+      "type": "DrainMP",
+      "value": 0.10,
+      "chance": 0.6,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:60%概率夺取对方10%最大内力转为自身"
+    }
+  ],
+  "levelBonuses": {}
+}

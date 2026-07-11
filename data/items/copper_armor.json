@@ -1,0 +1,13 @@
+{
+  "id": "copper_armor",
+  "name": "铜甲",
+  "description": "铜片打制的护甲，色泽金黄，防护尚可，江湖武人常用。",
+  "type": "Equipment",
+  "equipSlot": "armor",
+  "attackBonus": 0,
+  "defenseBonus": 20,
+  "value": 100,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "common"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "beiming_shengong",
+  "name": "北冥神功",
+  "type": "internal",
+  "description": "逍遥派至高无上内功心法。修成后丹田气海如北冥之水,汪洋恣肆,取之不竭。可纳百川而化敌之内力为己用,真气护体,海纳百川,反弹敌攻。",
+  "maxLevel": 10,
+  "rarity": "mythic",
+  "cooldown": 4,
+  "mpCost": 120,
+  "hpBonusPerLevel": 300,
+  "mpBonusPerLevel": 700,
+  "attackBonusPerLevel": 35,
+  "defenseBonusPerLevel": 30,
+  "effects": [
+    {
+      "type": "MPRecover",
+      "value": 0.20,
+      "chance": 1.0,
+      "description": "内力汪洋:每回合恢复20%内力"
+    },
+    {
+      "type": "FlatDamageReduction",
+      "value": 120,
+      "chance": 1.0,
+      "description": "北冥真气护体:受到攻击时固定减伤120"
+    },
+    {
+      "type": "ReflectDamage",
+      "value": 0.3,
+      "chance": 0.5,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁:海纳百川,50%概率反弹30%伤害"
+    }
+  ],
+  "levelBonuses": {}
+}

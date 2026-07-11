@@ -1,0 +1,31 @@
+{
+  "id": "yuxiao_jianfa",
+  "name": "玉箫剑法",
+  "type": "external",
+  "description": "桃花岛黄药师所创剑法,剑式飘逸如玉箫声咽,暗含音律宫商。剑锋所至,似有箫声扰人心神,令敌手神魂颠倒之际取其性命。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.9,
+  "critChance": 0.25,
+  "cooldown": 1,
+  "mpCost": 35,
+  "effects": [
+    {
+      "type": "DrainMP",
+      "value": 0.08,
+      "chance": 0.4,
+      "description": "箫声扰神:40%概率消耗对方8%内力"
+    },
+    {
+      "type": "Stun",
+      "value": 0.1,
+      "chance": 0.1,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:10%概率以箫音制人(眩晕)"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.1 },
+    "10": { "damageCoefficient": 2.5 }
+  }
+}

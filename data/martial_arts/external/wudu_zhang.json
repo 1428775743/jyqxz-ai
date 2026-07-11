@@ -1,0 +1,30 @@
+{
+  "id": "wudu_zhang",
+  "name": "五毒掌",
+  "type": "external",
+  "description": "李莫愁入门掌法,以五毒之力催动掌风,阴毒诡异。虽非上乘武功,却胜在狠辣,常人难以招架。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.8,
+  "critChance": 0.15,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.12,
+      "chance": 0.3,
+      "description": "五毒入体:30%概率附加流血"
+    },
+    {
+      "type": "DrainMP",
+      "value": 0.05,
+      "chance": 0.3,
+      "description": "30%概率吸取对方5%内力"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.0 },
+    "10": { "damageCoefficient": 2.3 }
+  }
+}

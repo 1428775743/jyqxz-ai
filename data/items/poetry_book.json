@@ -1,0 +1,12 @@
+{
+  "id": "poetry_book",
+  "name": "唐诗三百首",
+  "description": "精选唐代名篇，吟诗作赋之良伴。",
+  "type": "Gift",
+  "value": 80,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 12,
+  "giftPreference": "文人",
+  "rarity": "common"
+}

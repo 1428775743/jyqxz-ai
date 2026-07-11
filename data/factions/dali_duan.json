@@ -1,0 +1,17 @@
+{
+  "id": "dali_duan",
+  "name": "大理段氏",
+  "description": "大理国皇族,世代传承一阳指与六脉神剑两大指法绝学。以指力点穴、无形剑气名震天下,乃江湖首屈一指的武学世家。",
+  "leaderId": "duan_zhengchun",
+  "sceneId": "dali_scene",
+  "availableArts": [
+    "yiyang_zhi",
+    "liumai_shenjian",
+    "lingbo_weibu"
+  ],
+  "joinKarmaMin": 0,
+  "joinKarmaMax": 100,
+  "alliedFactions": {},
+  "enemyFactions": {},
+  "alignment": "正派"
+}

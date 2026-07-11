@@ -1,0 +1,44 @@
+# 编译产物
+**/bin/
+**/obj/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# 构建结果
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
+
+# 本地配置、密钥与玩家数据（运行时数据默认位于 %AppData%\AutoWuxia）
+.env
+.env.*
+!.env.example
+ai_config.json
+audio_config.json
+display_config.json
+saves/
+logs/
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 打包发布产物(见 PACKAGING.md,dist/ 为构建产物不入库)
+dist/

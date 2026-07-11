@@ -1,0 +1,12 @@
+{
+  "id": "shu_jin",
+  "name": "蜀锦",
+  "description": "成都织造的蜀地锦缎，色彩斑斓纹理精美，千金难求，上等礼赠之物。",
+  "type": "Gift",
+  "value": 110,
+  "stackable": true,
+  "quantity": 1,
+  "giftFavorBonus": 12,
+  "giftPreference": "文人",
+  "rarity": "uncommon"
+}

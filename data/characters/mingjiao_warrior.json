@@ -1,0 +1,55 @@
+{
+  "id": "mingjiao_warrior",
+  "name": "明教护法韦一笑",
+  "type": "npc",
+  "personality": "阴冷诡异，轻功天下第一，行事亦正亦邪",
+  "description": "明教四大法王之一，青翼蝠王，轻功卓绝，但需吸食人血压制寒毒。",
+  "maxHP": 2600,
+  "maxMP": 1200,
+  "attack": 320,
+  "defense": 200,
+  "speed": 75,
+  "relations": {},
+  "factionId": "mingjiao",
+  "karma": 10,
+  "gender": "男",
+  "hiddenPower": true,
+  "isSectLeader": false,
+  "npcRole": "quest_giver",
+  "defaultScene": "xiangyang_cheng",
+  "schedule": {
+    "清晨": "xiangyang_cheng",
+    "白天": "xiangyang_cheng",
+    "黄昏": "xiangyang_cheng",
+    "夜晚": "xiangyang_cheng"
+  },
+  "jianghuLevel": 25,
+  "craftSkills": {
+    "art": 10,
+    "forging": 20,
+    "mining": 15,
+    "gathering": 5,
+    "medicine": 25
+  },
+  "portraitPath": "mingjiao_warrior.png",
+  "learnedArts": [
+    {
+      "artId": "mingjiao_basic_internal",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "mingjiao_jiuzhuan",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "mingjiao_basic_fist",
+      "proficiencyLevel": 5
+    },
+    {
+      "artId": "shenghuo_ling",
+      "proficiencyLevel": 7
+    }
+  ],
+  "activeInternalArtId": "mingjiao_jiuzhuan",
+  "activeExternalArtId": "shenghuo_ling"
+}

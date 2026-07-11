@@ -1,0 +1,15 @@
+{
+  "id": "yijinjing_manual",
+  "name": "易筋经秘籍",
+  "description": "少林镇寺之宝，记载无上内功心法。",
+  "type": "Manual",
+  "value": 10000,
+  "stackable": false,
+  "containedArtIds": ["yijin_jing"],
+  "prerequisite": {
+    "requiredFaction": "shaolin",
+    "requiredKarma": 60,
+    "requiredBuddhist": 50
+  },
+  "rarity": "legendary"
+}

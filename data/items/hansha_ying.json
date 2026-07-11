@@ -1,0 +1,14 @@
+{
+  "id": "hansha_ying",
+  "name": "含沙射影",
+  "description": "韦小宝所藏暗器,藏于袖中,机括一发,淬毒细针如射影而出,防不胜防。乃韦小宝保命绝招之一。",
+  "type": "Equipment",
+  "equipSlot": "weapon",
+  "weaponType": "special",
+  "attackBonus": 50,
+  "defenseBonus": 0,
+  "value": 2000,
+  "stackable": false,
+  "quantity": 1,
+  "rarity": "epic"
+}

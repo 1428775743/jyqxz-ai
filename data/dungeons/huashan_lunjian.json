@@ -1,0 +1,12 @@
+{
+  "id": "huashan_lunjian",
+  "name": "华山论剑",
+  "description": "华山之巅,群雄毕至。十位绝顶高手车轮鏖战,胜者为天下第一。此战之后,江湖再无遗憾。",
+  "type": "huashan_lunjian",
+  "rounds": [],
+  "reward": { "gold": 1000, "reputation": 500 },
+  "onFail": { "type": "gameOver", "amount": 0 },
+  "staminaCost": 60,
+  "timeCostHours": 6,
+  "opponentStatMultiplier": 1.2
+}

@@ -1,0 +1,44 @@
+{
+  "id": "chen_medicine",
+  "name": "陈药师(药商)",
+  "type": "npc",
+  "personality": "温文尔雅，医者仁心",
+  "description": "嵩山镇上的药铺老板，精通药理，常为伤者配药。",
+  "maxHP": 400,
+  "maxMP": 200,
+  "attack": 25,
+  "defense": 20,
+  "speed": 35,
+  "relations": {},
+  "factionId": null,
+  "karma": 30,
+  "gender": "男",
+  "hiddenPower": false,
+  "defaultScene": "songshan_town",
+  "schedule": {
+    "清晨": "songshan_town",
+    "白天": "songshan_town",
+    "黄昏": "songshan_town",
+    "夜晚": "songshan_town"
+  },
+  "npcRole": "medicine_merchant",
+  "jianghuLevel": 2,
+  "shopFixedItems": [
+    "healing_pill_small",
+    "healing_pill_large",
+    "mp_pill",
+    "juli_dan"
+  ],
+  "shopRandomItems": [
+    "mp_pill_large",
+    "tiegu_dan",
+    "qiangshen_dan",
+    "huoxue_dan",
+    "ningshen_dan"
+  ],
+  "craftSkills": {
+    "medicine": 70
+  },
+  "portraitPath": "chen_medicine.png",
+  "learnedArts": []
+}

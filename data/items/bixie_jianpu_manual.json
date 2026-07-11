@@ -1,0 +1,11 @@
+{
+  "id": "bixie_jianpu_manual",
+  "name": "辟邪剑谱",
+  "description": "林家祖传剑谱,藏于福威镖局袈裟之中。出招迅捷诡异,世间罕有。修炼前必先自宫,否则走火入魔而亡。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["bixie_jianfa"],
+  "prerequisite": {},
+  "rarity": "legendary"
+}

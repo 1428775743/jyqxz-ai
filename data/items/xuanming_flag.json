@@ -1,0 +1,12 @@
+{
+  "id": "xuanming_flag",
+  "name": "玄冥令",
+  "description": "玄冥二老的信物,令牌上刻玄冥二字,持之可号令玄冥一脉门人。阴森寒气逼人。",
+  "type": "Gift",
+  "value": 500,
+  "stackable": false,
+  "quantity": 1,
+  "giftFavorBonus": 15,
+  "giftPreference": "武者",
+  "rarity": "rare"
+}

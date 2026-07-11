@@ -1,0 +1,23 @@
+{
+  "id": "zuoyou_hubo",
+  "name": "左右互搏",
+  "type": "internal",
+  "description": "老顽童周伯通困于桃花岛时为解寂寞所创,左手画圆,右手画方,分心二用。修成后可双手各使一路武功,出手次数倍增,天下独此一人。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "cooldown": 3,
+  "mpCost": 60,
+  "hpBonusPerLevel": 150,
+  "mpBonusPerLevel": 400,
+  "attackBonusPerLevel": 40,
+  "defenseBonusPerLevel": 20,
+  "effects": [
+    {
+      "type": "PermanentExtraAction",
+      "value": 1,
+      "chance": 1.0,
+      "description": "分心二用:每回合出手读条归50,等效多一次出手(核心特性)"
+    }
+  ],
+  "levelBonuses": {}
+}

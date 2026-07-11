@@ -1,0 +1,24 @@
+{
+  "id": "riyue",
+  "name": "日月神教",
+  "description": "盘踞太行山黑木崖的邪教组织,教主东方不败修炼葵花宝典,武功冠绝天下。教众称教主'文成武德,千秋万载,一统江湖'。",
+  "leaderId": "yang_liantin",
+  "sceneId": "heimuya_scene",
+  "availableArts": [
+    "mingjiao_basic_internal",
+    "mojiao_zhang",
+    "kuihua_baodian",
+    "kuihua_xiuhuazhen",
+    "kuihua_shenfa",
+    "xixing_dafa"
+  ],
+  "joinKarmaMin": -100,
+  "joinKarmaMax": 50,
+  "alliedFactions": {},
+  "enemyFactions": {
+    "shaolin": "正邪不两立",
+    "wudang": "正邪不两立",
+    "huashan": "宿敌"
+  },
+  "alignment": "邪派"
+}

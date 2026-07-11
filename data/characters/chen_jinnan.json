@@ -1,0 +1,24 @@
+{
+  "id": "chen_jinnan",
+  "name": "陈近南",
+  "type": "npc",
+  "personality": "天地会总舵主,碧血丹心,反清复明。凝血神抓天下少有,为人忠义,韦小宝之师。文武双全,国之栋梁。",
+  "description": "原名陈永华,天地会总舵主,韦小宝之师。凝血神抓天下少有,文武双全,碧血丹心。一生矢志反清复明,辅佐郑氏。后为郑克塽所害,含恨而终。乃鹿鼎记一书中之一代大侠。",
+  "maxHP": 4000,
+  "maxMP": 2800,
+  "attack": 540,
+  "defense": 400,
+  "speed": 78,
+  "karma": 45,
+  "gender": "男",
+  "defaultScene": "yangzhou",
+  "jianghuLevel": 48,
+  "isSectLeader": true,
+  "portraitPath": "chen_jinnan.png",
+  "learnedArts": [
+    { "artId": "ningxue_shenzhua", "proficiencyLevel": 7 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeExternalArtId": "ningxue_shenzhua",
+  "activeLightArtId": "basic_qinggong"
+}

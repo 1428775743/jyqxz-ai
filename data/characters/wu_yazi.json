@@ -1,0 +1,30 @@
+{
+  "id": "wu_yazi",
+  "name": "无崖子",
+  "type": "npc",
+  "personality": "超然物外,学识渊博,临终传道,寄望传人重振逍遥派。残年之身,胸中自有丘壑。",
+  "description": "逍遥派掌门,无崖子。琴棋书画、医卜星相无一不精,武功更是登峰造极。遭弟子丁春秋暗算,残瘫多年,隐于灵鹫宫。等候有缘人破解珍珑棋局,欲将毕生功力与北冥神功倾囊相授,托付逍遥派基业。",
+  "maxHP": 5000,
+  "maxMP": 4500,
+  "attack": 700,
+  "defense": 500,
+  "speed": 60,
+  "factionId": "xiaoyao",
+  "karma": 50,
+  "gender": "男",
+  "isSectLeader": true,
+  "hiddenPower": true,
+  "isHidden": true,
+  "defaultScene": "lingjiugong",
+  "jianghuLevel": 60,
+  "portraitPath": "wu_yazi.png",
+  "learnedArts": [
+    { "artId": "beiming_shengong", "proficiencyLevel": 9 },
+    { "artId": "tianshan_zhemei", "proficiencyLevel": 7 },
+    { "artId": "xiaowuxiang_gong", "proficiencyLevel": 8 },
+    { "artId": "basic_qinggong", "proficiencyLevel": 5 }
+  ],
+  "activeInternalArtId": "beiming_shengong",
+  "activeExternalArtId": "tianshan_zhemei",
+  "activeLightArtId": "basic_qinggong"
+}

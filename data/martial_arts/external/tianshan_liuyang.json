@@ -1,0 +1,31 @@
+{
+  "id": "tianshan_liuyang",
+  "name": "天山六阳掌",
+  "type": "external",
+  "description": "灵鹫宫阳刚掌法,六路掌力纯阳刚猛,掌风所至可震退强敌、慑人心神。与天山折梅手一刚一柔,相辅相成,掌力修至深处可一掌定身。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.0,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 50,
+  "effects": [
+    {
+      "type": "Knockback",
+      "value": 0.2,
+      "chance": 0.4,
+      "description": "阳刚掌力:40%概率击退对方(延缓出手)"
+    },
+    {
+      "type": "Stun",
+      "value": 1.0,
+      "chance": 0.2,
+      "requiredLevel": 5,
+      "description": "Lv.5解锁:掌力震慑,20%概率定身"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.3 },
+    "10": { "damageCoefficient": 2.6 }
+  }
+}

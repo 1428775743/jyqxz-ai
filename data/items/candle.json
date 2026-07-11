@@ -1,0 +1,10 @@
+{
+  "id": "candle",
+  "name": "蜡烛",
+  "description": "红蜡烛一束，夜间照明必备。",
+  "type": "Material",
+  "value": 3,
+  "stackable": true,
+  "quantity": 1,
+  "rarity": "common"
+}

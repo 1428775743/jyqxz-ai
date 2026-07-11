@@ -1,0 +1,14 @@
+{
+  "id": "lurong_dunji",
+  "name": "鹿茸炖鸡",
+  "type": "Consumable",
+  "description": "鹿茸老母鸡慢炖，大补气血，食后气血上限+20%，持续1日。食buff。",
+  "value": 350,
+  "stackable": true,
+  "rarity": "rare",
+  "buffType": "maxhp",
+  "buffValue": 0.20,
+  "buffDurationDays": 1,
+  "combatUsable": false,
+  "isFood": true
+}

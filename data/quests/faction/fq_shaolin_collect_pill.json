@@ -1,0 +1,22 @@
+{
+  "id": "fq_shaolin_collect_pill",
+  "name": "为药堂送疗伤药",
+  "type": "faction",
+  "description": "少林药堂存药短缺,需江湖人代为采购小还丹三粒,以备应急。",
+  "factionId": "shaolin",
+  "issuerNpcId": "chen_medicine",
+  "difficulty": "easy",
+  "requiredItems": [
+    { "itemId": "healing_pill_small", "quantity": 3 }
+  ],
+  "steps": [
+    { "id": "submit", "description": "向药堂陈大夫提交小还丹 x3", "actionType": "submit" }
+  ],
+  "reward": {
+    "goldBonus": 40,
+    "reputationBonus": 15,
+    "factionContributionBonus": 12,
+    "factionIdForContribution": "shaolin",
+    "jianghuExp": 5
+  }
+}

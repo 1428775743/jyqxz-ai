@@ -1,0 +1,12 @@
+{
+  "id": "heiyu_duanxu",
+  "name": "黑玉断续丹",
+  "type": "Consumable",
+  "description": "续骨生肌的奇药,服下回血3000、回内1000。可在战斗中使用。",
+  "value": 1500,
+  "stackable": true,
+  "rarity": "epic",
+  "hpRecovery": 3000,
+  "mpRecovery": 1000,
+  "combatUsable": true
+}

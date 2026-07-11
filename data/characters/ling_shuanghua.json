@@ -1,0 +1,18 @@
+{
+  "id": "ling_shuanghua",
+  "name": "凌霜华",
+  "type": "npc",
+  "personality": "贞烈痴情,温婉秀慧,外柔内刚。与丁典相恋,为守连城诀秘密,自毁容貌,终被生父活埋,至死不渝。",
+  "description": "荆州知府凌退思之女,与丁典于荆州菊花会上一见钟情。为守连城诀秘密,被父逼迫自毁容貌,终被活埋于棺中,手刻连城诀于棺盖而亡。贞烈痴情,令人扼腕。",
+  "maxHP": 600,
+  "maxMP": 300,
+  "attack": 30,
+  "defense": 40,
+  "speed": 40,
+  "karma": 60,
+  "gender": "女",
+  "defaultScene": "jingzhou_city",
+  "jianghuLevel": 5,
+  "portraitPath": "ling_shuanghua.png",
+  "isHidden": true
+}

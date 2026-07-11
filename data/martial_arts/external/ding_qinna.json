@@ -1,0 +1,30 @@
+{
+  "id": "ding_qinna",
+  "name": "丁家擒拿手",
+  "type": "external",
+  "description": "丁不三、丁不四所传擒拿手法,招式诡变,专攻关节要穴。看似平平无奇,实则阴狠毒辣,中者骨断筋折。乃丁家一脉之看家本领。",
+  "maxLevel": 10,
+  "rarity": "rare",
+  "damageCoefficient": 1.8,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 30,
+  "effects": [
+    {
+      "type": "DoubleStrike",
+      "value": 0.6,
+      "chance": 0.2,
+      "description": "擒拿连变:20%概率连击(60%伤害)"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.2,
+      "chance": 1.0,
+      "description": "擒拿诡变:无视20%防御"
+    }
+  ],
+  "levelBonuses": {
+    "3": { "damageCoefficient": 1.95 },
+    "6": { "damageCoefficient": 2.1 }
+  }
+}

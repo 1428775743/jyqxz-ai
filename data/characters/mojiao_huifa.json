@@ -1,0 +1,55 @@
+{
+  "id": "mojiao_huifa",
+  "name": "魔教护法贾布",
+  "type": "npc",
+  "personality": "严厉刻板,治学严谨,虽属魔教却讲求规矩。教徒甚严,绝不徇私。",
+  "description": "日月神教传功护法,负责教中弟子的武学修习。专司传授本教所有武功,武学渊博。",
+  "maxHP": 3000,
+  "maxMP": 1800,
+  "attack": 380,
+  "defense": 240,
+  "speed": 78,
+  "relations": {
+    "yang_liantin": "Friend"
+  },
+  "factionId": "riyue",
+  "karma": -10,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isTrainer": true,
+  "npcRole": "quest_giver",
+  "defaultScene": "heimuya_scene",
+  "schedule": {
+    "清晨": "heimuya_scene",
+    "白天": "heimuya_scene",
+    "黄昏": "heimuya_scene",
+    "夜晚": "heimuya_scene"
+  },
+  "jianghuLevel": 22,
+  "craftSkills": {
+    "art": 60,
+    "forging": 15,
+    "mining": 10,
+    "gathering": 10,
+    "medicine": 25
+  },
+  "portraitPath": "mojiao_huifa.png",
+  "learnedArts": [
+    {
+      "artId": "mingjiao_basic_internal",
+      "proficiencyLevel": 7
+    },
+    {
+      "artId": "mojiao_zhang",
+      "proficiencyLevel": 8
+    },
+    {
+      "artId": "basic_qinggong",
+      "proficiencyLevel": 6
+    }
+  ],
+  "activeInternalArtId": "mingjiao_basic_internal",
+  "activeExternalArtId": "mojiao_zhang",
+  "activeLightArtId": "basic_qinggong"
+}

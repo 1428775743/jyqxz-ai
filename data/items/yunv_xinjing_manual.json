@@ -1,0 +1,11 @@
+{
+  "id": "yunv_xinjing_manual",
+  "name": "玉女心经秘籍",
+  "description": "古墓派镇派内功心法图谱,林朝英所创。修习者内力阴柔绵长,专克全真武功。须与玉女剑法合修方有大成。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["yunv_xinjing"],
+  "prerequisite": {},
+  "rarity": "epic"
+}

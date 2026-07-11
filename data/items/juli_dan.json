@@ -1,0 +1,13 @@
+{
+  "id": "juli_dan",
+  "name": "聚力丹",
+  "type": "Consumable",
+  "description": "服药后真气凝聚,攻击+15%,持续1日。药buff,与同类互斥。",
+  "value": 200,
+  "stackable": true,
+  "rarity": "uncommon",
+  "buffType": "atk",
+  "buffValue": 0.15,
+  "buffDurationDays": 1,
+  "combatUsable": false
+}

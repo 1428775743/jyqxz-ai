@@ -1,0 +1,10 @@
+{
+  "id": "shaoshishan",
+  "name": "少室山",
+  "description": "嵩山之畔,少林寺所在之山。山势雄浑,古刹钟声。当年少室山大战,乔峰、段誉、虚竹三兄弟齐聚于此,力抗慕容复、游坦之、丁春秋、鸠摩智,萧远山、慕容博恩怨了断,扫地僧化解,乃江湖一段传奇。",
+  "region": "嵩山",
+  "backgroundImagePath": "assets/scenes/shaoshishan.jpg",
+  "connectedScenes": ["shaolin_hall", "songshan_backhill"],
+  "defaultNPCs": ["qiao_feng"],
+  "isSpecial": true
+}

@@ -1,0 +1,29 @@
+{
+  "id": "librarian_chen",
+  "name": "陈书吏",
+  "type": "npc",
+  "personality": "藏书阁的老书吏，博学多才，性情温和。对武林掌故了如指掌，但自己并不会武功。喜欢和读书人、习武者交流，分享书中见闻。",
+  "description": "陈书吏在临安藏书阁任职三十余年，虽不会武功，却博览武学典籍，对各大门派的武功路数颇有了解。他常给来访的武林人士讲述书中记载的武学心得和江湖掌故，为人低调谦逊。",
+  "maxHP": 100,
+  "maxMP": 30,
+  "attack": 2,
+  "defense": 2,
+  "speed": 10,
+  "relations": {},
+  "factionId": null,
+  "karma": 80,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "defaultScene": "linan_library",
+  "schedule": {
+    "清晨": "linan_library",
+    "白天": "linan_library",
+    "黄昏": "linan_library",
+    "夜晚": "linan_inn"
+  },
+  "jianghuLevel": 1,
+  "craftSkills": {},
+  "portraitPath": "librarian_chen.png",
+  "learnedArts": []
+}

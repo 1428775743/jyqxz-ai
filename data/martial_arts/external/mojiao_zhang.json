@@ -1,0 +1,22 @@
+{
+  "id": "mojiao_zhang",
+  "name": "魔教掌法",
+  "type": "external",
+  "description": "日月神教入门掌法,招式狠辣,讲究一击毙命,不留余地。",
+  "maxLevel": 10,
+  "rarity": "uncommon",
+  "damageCoefficient": 1.4,
+  "critChance": 0.15,
+  "cooldown": 1,
+  "mpCost": 18,
+  "effects": [
+    {
+      "type": "Bleed",
+      "value": 0.08,
+      "chance": 0.25,
+      "requiredLevel": 4,
+      "description": "Lv.4解锁:25%概率附加流血"
+    }
+  ],
+  "levelBonuses": {}
+}

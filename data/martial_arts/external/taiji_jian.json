@@ -1,0 +1,37 @@
+{
+  "id": "taiji_jian",
+  "name": "太极剑",
+  "type": "external",
+  "description": "武当派绝学,张三丰晚年所创,与太极拳相辅相成。剑法以柔克刚,后发制人,剑意绵绵不绝,守势如山。修至大成者,剑圆转如意,敌未发而我先制,反守为攻。",
+  "maxLevel": 10,
+  "rarity": "epic",
+  "damageCoefficient": 2.0,
+  "critChance": 0.2,
+  "cooldown": 1,
+  "mpCost": 45,
+  "effects": [
+    {
+      "type": "CounterAttack",
+      "value": 0.5,
+      "chance": 0.3,
+      "description": "后发制人:30%概率借势反击对手"
+    },
+    {
+      "type": "Evasion",
+      "value": 0.15,
+      "chance": 0.15,
+      "description": "剑势圆转:被攻击时15%概率闪避"
+    },
+    {
+      "type": "IgnoreDefense",
+      "value": 0.2,
+      "chance": 0.6,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁:60%概率无视20%防御"
+    }
+  ],
+  "levelBonuses": {
+    "5": { "damageCoefficient": 2.4 },
+    "10": { "damageCoefficient": 2.8 }
+  }
+}

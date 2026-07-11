@@ -1,0 +1,35 @@
+{
+  "id": "bandit_easy_2",
+  "name": "山贼小六",
+  "type": "npc",
+  "personality": "好吃懒做，狐假虎威",
+  "description": "倚仗几个同伙在山道上拦路要银子。",
+  "maxHP": 220,
+  "maxMP": 50,
+  "attack": 28,
+  "defense": 18,
+  "speed": 32,
+  "relations": {},
+  "factionId": null,
+  "karma": -45,
+  "gender": "男",
+  "hiddenPower": false,
+  "isSectLeader": false,
+  "isHidden": true,
+  "defaultScene": "",
+  "schedule": {},
+  "jianghuLevel": 5,
+  "portraitPath": "bandit_easy_2.png",
+  "learnedArts": [
+    {
+      "artId": "basic_qigong",
+      "proficiencyLevel": 2
+    },
+    {
+      "artId": "basic_palm",
+      "proficiencyLevel": 3
+    }
+  ],
+  "activeInternalArtId": "basic_qigong",
+  "activeExternalArtId": "basic_palm"
+}
