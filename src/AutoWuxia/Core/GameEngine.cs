@@ -1234,6 +1234,27 @@ public class GameEngine
         }
         if (added) Log("存档补全:补入新增 NPC/场景/门派(含各城杂货铺)");
 
+        // 旧版本推进链式任务时未把 ConfigManager 传给节点奖励，数值奖励已发放，
+        // 但需要配置创建的武功会遗漏。按已完成步骤幂等补回，不重复发放阅历/银两。
+        int restoredQuestArts = 0;
+        foreach (var quest in state.Player.QuestLog)
+        {
+            int completedSteps = Math.Min(quest.CurrentStepIndex, quest.Steps.Count);
+            for (int i = 0; i < completedSteps; i++)
+            {
+                var artId = quest.Steps[i].Reward?.MartialArtId;
+                if (string.IsNullOrEmpty(artId) || state.Player.LearnedArts.Any(a => a.Id == artId))
+                    continue;
+
+                var art = Config.CreateMartialArt(artId);
+                if (art == null) continue;
+                state.Player.LearnArt(art);
+                restoredQuestArts++;
+            }
+        }
+        if (restoredQuestArts > 0)
+            Log($"存档修复:补回已完成任务节点遗漏的武功 {restoredQuestArts} 门");
+
         // ── 版本化迁移(破坏性数据结构改动,按版本号逐步执行) ──
         // 每次破坏性改动:GameState.CurrentSaveVersion +1,在此加 if (state.SaveVersion < N) { ... } 块。
         // if (state.SaveVersion < 1)
