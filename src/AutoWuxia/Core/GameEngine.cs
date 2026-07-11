@@ -837,7 +837,6 @@ public class GameEngine
         if (PostCombat != null) return;
 
         State.Player.Rest(8);
-        State.Player.BaseAttack += 2;
 
         // NPC也恢复状态
         foreach (var npc in State.AllNPCs.Values)
