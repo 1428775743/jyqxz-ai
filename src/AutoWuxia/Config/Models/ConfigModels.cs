@@ -261,6 +261,7 @@ public class MartialArtConfig
     public double CritChance { get; set; }
     public int Cooldown { get; set; }
     public int MPCost { get; set; }
+    public double MPCostPercent { get; set; }
     public int HPBonusPerLevel { get; set; }
     public int MPBonusPerLevel { get; set; }
     public int AttackBonusPerLevel { get; set; }

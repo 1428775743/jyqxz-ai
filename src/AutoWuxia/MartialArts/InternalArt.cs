@@ -26,6 +26,7 @@ public class InternalArt : MartialArtBase
             Rarity = string.IsNullOrEmpty(config.Rarity) ? "common" : config.Rarity,
             Cooldown = config.Cooldown,
             MPCost = config.MPCost,
+            MPCostPercent = config.MPCostPercent,
             HPBonusPerLevel = config.HPBonusPerLevel,
             MPBonusPerLevel = config.MPBonusPerLevel,
             AttackBonusPerLevel = config.AttackBonusPerLevel,
@@ -38,8 +39,16 @@ public class InternalArt : MartialArtBase
         return art;
     }
 
+    public int GetMPCost(int totalMaxMP)
+        => Math.Max(MPCost, (int)Math.Ceiling(totalMaxMP * MPCostPercent));
+
+    public string GetMPCostDescription()
+        => MPCostPercent > 0
+            ? $"至少{MPCost}（或最大内力的{MPCostPercent:P0}，取较高值）"
+            : MPCost.ToString();
+
     public override string GetSummary()
     {
-        return $"{Name}[{RarityName}] Lv.{Level} | 血+{GetHPBonus()} 内+{GetMPBonus()} 攻+{GetAttackBonus()} 防+{GetDefenseBonus()} | CD{Cooldown}回 MP{MPCost} | 熟练度{Proficiency}";
+        return $"{Name}[{RarityName}] Lv.{Level} | 血+{GetHPBonus()} 内+{GetMPBonus()} 攻+{GetAttackBonus()} 防+{GetDefenseBonus()} | CD{Cooldown}回 MP{GetMPCostDescription()} | 熟练度{Proficiency}";
     }
 }

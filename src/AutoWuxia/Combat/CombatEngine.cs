@@ -29,6 +29,7 @@ public class CombatEngine
     /// <summary>玩家上一次用辟邪类武功(ExtraActionNextRound),下次出手从 400 开始</summary>
     private bool _playerHalfReset;
     private bool _opponentHalfReset;
+    private readonly Dictionary<CharacterBase, int> _mpSiphonedThisRound = new();
 
     /// <summary>对外暴露读条进度(0..1000),UI 用</summary>
     public double PlayerCharge => _playerCharge;
@@ -169,11 +170,12 @@ public class CombatEngine
         if (Player.ActiveInternalArt != null)
         {
             var art = Player.ActiveInternalArt;
+            int mpCost = art.GetMPCost(Player.GetTotalMaxMP());
             skills.Add(new SkillOption
             {
                 Name = art.Name,
-                IsAvailable = art.IsReady && Player.CurrentMP >= art.MPCost,
-                MPCost = art.MPCost,
+                IsAvailable = art.IsReady && Player.CurrentMP >= mpCost,
+                MPCost = mpCost,
                 CooldownLeft = art.CurrentCooldown,
                 Art = art,
                 IsInternal = true
@@ -217,6 +219,7 @@ public class CombatEngine
         var logs = new List<string>();
         var skills = GetPlayerSkills();
         Round++;
+        _mpSiphonedThisRound.Clear();
 
         // 记录回合开始
         logs.Add($"═══ 第{Round}回合 ═══");
@@ -295,11 +298,12 @@ public class CombatEngine
                 }
                 else if (chosen.IsInternal && chosen.Art is InternalArt intArt)
                 {
-                    Player.CurrentMP -= intArt.MPCost;
+                    int mpCost = intArt.GetMPCost(Player.GetTotalMaxMP());
+                    Player.CurrentMP -= mpCost;
                     intArt.UseSkill();
                     int defBoost = (int)(intArt.GetDefenseBonus() * intArt.GetProficiencyDamageMultiplier());
                     Player.AddTempBuff("defense_boost", defBoost);
-                    var intLogs = new List<string> { $"{Player.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！(消耗{intArt.MPCost}内力)" };
+                    var intLogs = new List<string> { $"{Player.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！(消耗{mpCost}内力)" };
                     ApplyInternalSkillBuffs(Player, intArt, intLogs);
                     logs.AddRange(intLogs);
                     GainArtProficiencyForPlayer(intArt, 3);
@@ -399,7 +403,14 @@ public class CombatEngine
             }
         }
 
+        ApplyMPShield(defender, damageResult);
+
         int actualDmg = DealCombatDamage(defender, damageResult.ActualDamage);
+
+        // 北冥类吸功只在攻击真正命中后结算。攻击吸功要求造成伤害；受击吸功即使护盾全挡也能触发。
+        if (actualDmg > 0)
+            ApplyMPSiphon(attacker, defender, EffectType.SiphonMPOnHit, 0.02, damageResult);
+        ApplyMPSiphon(defender, attacker, EffectType.SiphonMPOnHurt, 0.01, damageResult);
 
         if (attacker == Player)
             Result.PlayerDamageDealt += actualDmg;
@@ -591,19 +602,28 @@ public class CombatEngine
     {
         var npc = Opponent;
 
-        // NPC AI: 优先使用内功提升防御（低血量时）
+        // NPC AI：低血量时运功防御；拥有内力护盾/吸功强化的内功会更积极地主动运功。
+        bool hasTacticalInternal = npc.ActiveInternalArt?.Effects.Any(e =>
+            e.IsUnlocked(npc.ActiveInternalArt.Level) &&
+            e.Type is EffectType.MPShield or EffectType.SiphonMPOnHit or EffectType.SiphonMPOnHurt) == true;
+        bool shouldUseInternal = npc.CurrentHP < npc.GetTotalMaxHP() * 0.4
+            || (hasTacticalInternal
+                && !npc.HasTimedBuff("mp_shield_boost")
+                && !npc.HasTimedBuff("mp_siphon_boost")
+                && Random.Shared.NextDouble() < 0.35);
         if (npc.ActiveInternalArt != null && npc.ActiveInternalArt.IsReady
-            && npc.CurrentMP >= npc.ActiveInternalArt.MPCost
-            && npc.CurrentHP < npc.GetTotalMaxHP() * 0.4
+            && npc.CurrentMP >= npc.ActiveInternalArt.GetMPCost(npc.GetTotalMaxMP())
+            && shouldUseInternal
             && Random.Shared.NextDouble() < 0.5)
         {
             var intArt = npc.ActiveInternalArt;
-            npc.CurrentMP -= intArt.MPCost;
+            int mpCost = intArt.GetMPCost(npc.GetTotalMaxMP());
+            npc.CurrentMP -= mpCost;
             intArt.UseSkill();
             int defBoost = (int)(intArt.GetDefenseBonus() * intArt.GetProficiencyDamageMultiplier());
             npc.AddTempBuff("defense_boost", defBoost);
             intArt.GainProficiency(5);
-            var npcLogs = new List<string> { $"{npc.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！" };
+            var npcLogs = new List<string> { $"{npc.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！(消耗{mpCost}内力)" };
             ApplyInternalSkillBuffs(npc, intArt, npcLogs);
             return string.Join("\n  ↳ ", npcLogs);
         }
@@ -686,8 +706,74 @@ public class CombatEngine
                     character.AddTimedBuff("reflect_damage", (int)(effect.Value * 100), 2);
                     logs.Add($"{character.Name}获得反弹{(int)(effect.Value * 100)}%(2回合)");
                     break;
+                case EffectType.MPShield:
+                    character.AddTimedBuff("mp_shield_boost", 15, 2);
+                    logs.Add($"{character.Name}气海大开，内力护盾额外抵消15%伤害(2回合)");
+                    break;
+                case EffectType.SiphonMPOnHit:
+                case EffectType.SiphonMPOnHurt:
+                    if (!character.HasTimedBuff("mp_siphon_boost"))
+                    {
+                        character.AddTimedBuff("mp_siphon_boost", 50, 2);
+                        logs.Add($"{character.Name}运转海纳百川，吸取内力效率提高50%(2回合)");
+                    }
+                    break;
             }
         }
+    }
+
+    private static void ApplyMPShield(CharacterBase defender, DamageResult result)
+    {
+        var art = defender.ActiveInternalArt;
+        if (art == null || defender.CurrentMP <= 0) return;
+
+        double shieldRate = art.Effects
+            .Where(e => e.Type == EffectType.MPShield && e.IsUnlocked(art.Level))
+            .Sum(e => e.Value);
+        if (shieldRate <= 0) return;
+
+        shieldRate += defender.GetTimedBuffValue("mp_shield_boost") / 100.0;
+        shieldRate = Math.Min(0.90, shieldRate);
+        int reducibleDamage = Math.Max(0, result.ActualDamage - result.TrueDamage);
+        int mpSpent = Math.Min(defender.CurrentMP, (int)(reducibleDamage * shieldRate));
+        if (mpSpent <= 0) return;
+
+        defender.CurrentMP -= mpSpent;
+        result.ActualDamage = Math.Max(0, result.ActualDamage - mpSpent);
+        result.TriggeredEffects.Add($"{art.Name}耗内{mpSpent}抵消{mpSpent}伤害");
+    }
+
+    private void ApplyMPSiphon(CharacterBase siphoner, CharacterBase target, EffectType trigger,
+        double singleCapRate, DamageResult result)
+    {
+        var art = siphoner.ActiveInternalArt;
+        if (art == null || target.CurrentMP <= 0) return;
+
+        double rate = art.Effects
+            .Where(e => e.Type == trigger && e.IsUnlocked(art.Level))
+            .Sum(e => e.Value);
+        if (rate <= 0) return;
+
+        rate *= 1 + siphoner.GetTimedBuffValue("mp_siphon_boost") / 100.0;
+        double mpResist = target.ActiveInternalArt?.Effects
+            .Where(e => e.Type == EffectType.MPResist && e.IsUnlocked(target.ActiveInternalArt.Level))
+            .Sum(e => e.Value) ?? 0;
+        mpResist = Math.Clamp(mpResist, 0, 1);
+
+        int maxMP = siphoner.GetTotalMaxMP();
+        int singleCap = Math.Max(1, (int)(maxMP * singleCapRate));
+        int roundCap = Math.Max(1, (int)(maxMP * 0.08));
+        int alreadySiphoned = _mpSiphonedThisRound.GetValueOrDefault(siphoner, 0);
+        int storage = Math.Max(0, maxMP - siphoner.CurrentMP);
+        int amount = (int)(target.CurrentMP * rate * (1 - mpResist));
+        amount = Math.Min(amount, Math.Min(singleCap, Math.Min(roundCap - alreadySiphoned, storage)));
+        if (amount <= 0) return;
+
+        target.CurrentMP -= amount;
+        siphoner.RecoverMP(amount);
+        _mpSiphonedThisRound[siphoner] = alreadySiphoned + amount;
+        string source = trigger == EffectType.SiphonMPOnHit ? "攻敌" : "受击";
+        result.TriggeredEffects.Add($"{art.Name}{source}吸取{amount}内力" + (mpResist > 0 ? $"(被抵抗{mpResist:P0})" : ""));
     }
 
     /// <summary>

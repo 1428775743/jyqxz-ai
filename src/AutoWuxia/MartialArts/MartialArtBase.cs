@@ -13,6 +13,12 @@ public enum EffectType
     Bleed,
     MPRecover,
     MPResist,
+    /// <summary>成功造成伤害时，将目标内力转移给自己。</summary>
+    SiphonMPOnHit,
+    /// <summary>受到一次未闪避的攻击时，将攻击者内力转移给自己。</summary>
+    SiphonMPOnHurt,
+    /// <summary>消耗自身内力抵消一部分非真实伤害。</summary>
+    MPShield,
     /// <summary>被攻击时概率自动反击一次</summary>
     CounterAttack,
     /// <summary>按比例减少受到的伤害（TimedBuff）</summary>
@@ -194,6 +200,8 @@ public abstract class MartialArtBase
     public int Cooldown { get; set; }
     public int CurrentCooldown { get; set; }
     public int MPCost { get; set; }
+    /// <summary>按最大内力计算的技能消耗比例；最终消耗取固定值与比例值中的较大者。</summary>
+    public double MPCostPercent { get; set; }
     public bool IsReady => CurrentCooldown == 0;
 
     public void UseSkill()

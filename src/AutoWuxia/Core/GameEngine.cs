@@ -1296,6 +1296,29 @@ public class GameEngine
             }
         }
 
+        if (state.SaveVersion < 4)
+        {
+            // v4：北冥神功从无条件回内改为吸功与内力护盾。旧档保存的是武功快照，需刷新配置。
+            foreach (var character in state.AllNPCs.Values.Cast<CharacterBase>()
+                         .Prepend(state.Player))
+            {
+                int learnedIndex = character.LearnedArts.FindIndex(a => a.Id == "beiming_shengong");
+                if (learnedIndex < 0) continue;
+                if (Config.CreateMartialArt("beiming_shengong") is not AutoWuxia.MartialArts.InternalArt refreshed) continue;
+
+                var old = character.LearnedArts[learnedIndex];
+                refreshed.Proficiency = old.Proficiency;
+                refreshed.CurrentCooldown = old.CurrentCooldown;
+                character.LearnedArts[learnedIndex] = refreshed;
+
+                if (character.ActiveInternalArt?.Id == refreshed.Id)
+                    character.ActiveInternalArt = refreshed;
+                for (int i = 0; i < character.AuxiliaryInternalArts.Count; i++)
+                    if (character.AuxiliaryInternalArts[i].Id == refreshed.Id)
+                        character.AuxiliaryInternalArts[i] = refreshed;
+            }
+        }
+
         state.SaveVersion = GameState.CurrentSaveVersion;
     }
 

@@ -2473,7 +2473,7 @@ public class MainForm : Form
                 artsDetailBox.AppendText($"MP加成：+{intArt.GetMPBonus()}\n");
                 artsDetailBox.AppendText($"攻击加成：+{intArt.GetAttackBonus()}\n");
                 artsDetailBox.AppendText($"防御加成：+{intArt.GetDefenseBonus()}\n");
-                artsDetailBox.AppendText($"冷却：{intArt.Cooldown}回合  内力消耗：{intArt.MPCost}\n");
+                artsDetailBox.AppendText($"冷却：{intArt.Cooldown}回合  内力消耗：{intArt.GetMPCostDescription()}\n");
             }
 
             if (art.Effects.Count > 0)
@@ -2947,7 +2947,7 @@ public class MainForm : Form
             artsDetailBox.AppendText($"MP加成：+{intArt.GetMPBonus()}\n");
             artsDetailBox.AppendText($"攻击加成：+{intArt.GetAttackBonus()}\n");
             artsDetailBox.AppendText($"防御加成：+{intArt.GetDefenseBonus()}\n");
-            artsDetailBox.AppendText($"冷却：{intArt.Cooldown}回合  内力消耗：{intArt.MPCost}\n");
+            artsDetailBox.AppendText($"冷却：{intArt.Cooldown}回合  内力消耗：{intArt.GetMPCostDescription()}\n");
         }
         else if (art is LightArt la)
         {
