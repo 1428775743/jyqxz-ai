@@ -1912,6 +1912,13 @@ public class MainForm : Form
 
     private async void CheckMonthlyUpdate()
     {
+        // AI 回调链可能从工作线程进入；进度窗体必须在主窗体 UI 线程创建。
+        if (InvokeRequired)
+        {
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke((Action)CheckMonthlyUpdate);
+            return;
+        }
         GameLogger.Info($"CheckMonthlyUpdate: inProgress={_monthlyUpdateInProgress}, needsUpdate={_engine.NeedsMonthlyUpdate()}, day={_engine.State.GameTime.Day}, inCombat={_engine.IsInCombat}, postCombat={_engine.HasPostCombatChoices}");
 
         if (_monthlyUpdateInProgress) return;
@@ -2017,6 +2024,13 @@ public class MainForm : Form
 
     private async void CheckQuarterlyUpdate()
     {
+        // Show(owner) 要求子窗体与 MainForm 在同一线程创建，否则会出现跨线程父子控件异常。
+        if (InvokeRequired)
+        {
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke((Action)CheckQuarterlyUpdate);
+            return;
+        }
         if (_quarterlyUpdateInProgress) return;
         if (!_engine.NeedsQuarterlyUpdate()) return;
         if (_engine.IsInCombat || _engine.HasPostCombatChoices || _monthlyUpdateInProgress)

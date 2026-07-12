@@ -74,7 +74,8 @@ public class AnnualProgressForm : Form
     {
         if (InvokeRequired)
         {
-            BeginInvoke(() => AppendLog(message, color));
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke(() => AppendLog(message, color));
             return;
         }
 
@@ -89,7 +90,8 @@ public class AnnualProgressForm : Form
     {
         if (InvokeRequired)
         {
-            BeginInvoke(() => SetStatus(status));
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke(() => SetStatus(status));
             return;
         }
         _statusLabel.Text = status;
@@ -99,7 +101,8 @@ public class AnnualProgressForm : Form
     {
         if (InvokeRequired)
         {
-            BeginInvoke(() => AgentFinished(summary));
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke(() => AgentFinished(summary));
             return;
         }
 
@@ -128,7 +131,8 @@ public class AnnualProgressForm : Form
     {
         if (InvokeRequired)
         {
-            BeginInvoke(() => AgentError(error));
+            if (!IsDisposed && IsHandleCreated)
+                BeginInvoke(() => AgentError(error));
             return;
         }
 
