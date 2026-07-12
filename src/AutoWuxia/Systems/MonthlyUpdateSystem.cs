@@ -327,6 +327,11 @@ public class MonthlyUpdateSystem
     {
         // 阅历成长已交由 AI 通过 update_npc_skills 的 jianghuExpGain 参数设置,此处不重复发放。
 
+        // 作者君首次与玩家相识后便云游四方。放在月度后处理阶段执行，
+        // 即使 Agent 未安排到他，也不会长期停留在同一处。
+        if (state.AuthorIntroduced && AuthorJunSystem.Relocate(state))
+            OnToolResult?.Invoke("【江湖逸闻】作者君又收起稿纸，往别处寻故事去了。");
+
         // 仇敌寻仇:与玩家为仇敌(Enemy)的NPC,本月主动寻仇至玩家当前场景
         var playerScene = state.CurrentSceneId;
         if (!string.IsNullOrEmpty(playerScene))

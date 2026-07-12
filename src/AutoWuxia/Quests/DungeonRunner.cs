@@ -41,6 +41,18 @@ public class DungeonRunner
     /// <summary>是否为华山论剑终章副本(影响 UI 收尾与是否进入结束画面)。</summary>
     public bool IsHuashanLunjian { get; set; }
 
+    /// <summary>Whether this runner is the full-rest, dialogue-driven Wulin Conference.</summary>
+    public bool IsWulinConference { get; set; }
+
+    /// <summary>Optional display name for tournament progress.</summary>
+    public string? EventTitle { get; set; }
+
+    /// <summary>Restore the player to full HP and MP before every fight.</summary>
+    public bool RestorePlayerBeforeEachBattle { get; set; }
+
+    /// <summary>Uniform multiplier for dynamically created tournament opponents.</summary>
+    public double OpponentStatMultiplier { get; set; } = 1.0;
+
     /// <summary>扁平对手列表(华山论剑用):非空时 Start() 以此作为单轮 10 人,忽略配置 Rounds。</summary>
     public List<NPC>? FlatOpponents { get; set; }
 
@@ -101,6 +113,12 @@ public class DungeonRunner
                 _opponentsByRound.Add(opponents);
             }
         }
+        if (OpponentStatMultiplier > 1.0)
+        {
+            foreach (var opponent in _opponentsByRound.SelectMany(round => round))
+                ApplyOpponentMultiplier(opponent, OpponentStatMultiplier);
+        }
+
         EventSystem.Instance.Publish(GameEvents.DungeonStarted,
             new Dictionary<string, object?> { { "dungeonId", Dungeon.Id } });
     }
@@ -132,6 +150,11 @@ public class DungeonRunner
         }
 
         CurrentOpponent = roundList[OpponentIndexInRound];
+        if (RestorePlayerBeforeEachBattle)
+        {
+            Player.CurrentHP = Player.GetTotalMaxHP();
+            Player.CurrentMP = Player.GetTotalMaxMP();
+        }
         // 副本不算切磋(可杀 NPC,不需要隐藏实力机制干扰)
         CurrentEngine = new CombatEngine(Player, CurrentOpponent, isSpar: false);
         return CurrentEngine;
@@ -172,8 +195,18 @@ public class DungeonRunner
                 ? _opponentsByRound[RoundIndex].Count : 0,
             Opponent = CurrentOpponent,
             // 华山论剑每场胜后都让败将说一句
-            TriggerDialogue = IsHuashanLunjian || (GetCurrentRoundConfig()?.TriggerDialogue ?? false)
+            TriggerDialogue = IsHuashanLunjian || IsWulinConference || (GetCurrentRoundConfig()?.TriggerDialogue ?? false)
         };
+    }
+
+    private static void ApplyOpponentMultiplier(NPC npc, double multiplier)
+    {
+        npc.MaxHP = (int)Math.Round(npc.MaxHP * multiplier, MidpointRounding.AwayFromZero);
+        npc.CurrentHP = npc.MaxHP;
+        npc.MaxMP = (int)Math.Round(npc.MaxMP * multiplier, MidpointRounding.AwayFromZero);
+        npc.CurrentMP = npc.MaxMP;
+        npc.BaseAttack = (int)Math.Round(npc.BaseAttack * multiplier, MidpointRounding.AwayFromZero);
+        npc.BaseDefense = (int)Math.Round(npc.BaseDefense * multiplier, MidpointRounding.AwayFromZero);
     }
 
     /// <summary>

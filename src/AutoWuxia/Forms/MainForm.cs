@@ -714,6 +714,22 @@ public class MainForm : Form
         talkBtn.Click += async (_, _) => await OpenDialogueForm(npc);
         _npcActionPanel.Controls.Add(talkBtn);
 
+        if (npc.Id == EndgameSystem.AuthorId && _engine.State.AuthorIntroduced)
+        {
+            if (EndgameSystem.CanRetireWealthily(_engine.State.Player))
+            {
+                var wealthBtn = MakeButton("申请富甲归隐", new Point(0, 0), WuxiaTheme.S(105, 35), Color.FromArgb(185, 145, 65));
+                wealthBtn.Click += (_, _) => ApplyRetirementEnding(EndingType.WealthyRetirement);
+                _npcActionPanel.Controls.Add(wealthBtn);
+            }
+            if (EndgameSystem.CanRetireWithSpouse(_engine.State))
+            {
+                var retireBtn = MakeButton("申请携侣归隐", new Point(0, 0), WuxiaTheme.S(105, 35), WuxiaTheme.Success);
+                retireBtn.Click += (_, _) => ApplyRetirementEnding(EndingType.SecludedRetirement);
+                _npcActionPanel.Controls.Add(retireBtn);
+            }
+        }
+
         // 门派执事：接取任务
         if (npc.NpcRole == "quest_giver" && !string.IsNullOrEmpty(npc.FactionId))
         {
@@ -746,14 +762,23 @@ public class MainForm : Form
         else
         {
             // 切磋按钮
-            var sparBtn = MakeButton("切磋", new Point(0, 0), WuxiaTheme.S(105, 35));
-            sparBtn.Click += (_, _) => StartCombatWithNPC(npc, isSpar: true);
-            _npcActionPanel.Controls.Add(sparBtn);
+            if (npc.Id == EndgameSystem.AuthorId && !_engine.State.AuthorIntroduced)
+            {
+                var hintBtn = MakeButton("先与他对话", new Point(0, 0), WuxiaTheme.S(105, 35));
+                hintBtn.Enabled = false;
+                _npcActionPanel.Controls.Add(hintBtn);
+            }
+            else
+            {
+                var sparBtn = MakeButton("切磋", new Point(0, 0), WuxiaTheme.S(105, 35));
+                sparBtn.Click += (_, _) => StartCombatWithNPC(npc, isSpar: true);
+                _npcActionPanel.Controls.Add(sparBtn);
 
-            // 挑战按钮
-            var combatBtn = MakeButton("挑战", new Point(0, 0), WuxiaTheme.S(105, 35), WuxiaTheme.Danger);
-            combatBtn.Click += (_, _) => StartCombatWithNPC(npc, isSpar: false, playerInitiated: true);
-            _npcActionPanel.Controls.Add(combatBtn);
+                // 挑战按钮
+                var combatBtn = MakeButton("挑战", new Point(0, 0), WuxiaTheme.S(105, 35), WuxiaTheme.Danger);
+                combatBtn.Click += (_, _) => StartCombatWithNPC(npc, isSpar: false, playerInitiated: true);
+                _npcActionPanel.Controls.Add(combatBtn);
+            }
         }
 
         // 查看详情
@@ -802,6 +827,12 @@ public class MainForm : Form
     {
         if (_engine.PostCombat != null) return;
 
+        if (npc.Id == EndgameSystem.AuthorId && !_engine.State.AuthorIntroduced)
+        {
+            OpenAuthorIntro(npc);
+            return;
+        }
+
         GameLogger.Info($"[操作] 对话NPC: {npc.Id}");
 
         // 显示等待弹窗
@@ -841,7 +872,118 @@ public class MainForm : Form
         // 对话结束后尝试自动推进已接任务的步骤(无弹窗)
         TryAutoAdvanceQuests("talk", npc.Id);
 
+        if (npc.Id == EndgameSystem.AuthorId)
+            TryOfferTrueHuashanAfterDialogue();
+
         RefreshAll();
+    }
+
+    private void OpenAuthorIntro(NPC author)
+    {
+        StoryDialogueForm.Show(this, AuthorJunSystem.BuildIntroScript(), _engine.State, () =>
+        {
+            _engine.State.AuthorIntroduced = true;
+            RelationshipSystem.Interact(_engine.State.Player, author, 10);
+            AuthorJunSystem.Relocate(_engine.State);
+            _engine.UpdateSceneNPCsExternal();
+            _logBox.AppendSuccess("你与作者君相识。他已云游而去，往后会随每月江湖演化改换行踪。");
+        });
+        RefreshAll();
+    }
+
+    private void TryOfferTrueHuashanAfterDialogue()
+    {
+        if (!EndgameSystem.CanChallengeTrueHuashan(_engine.State)
+            || EndgameSystem.IsEndingCompleted(_engine.State, EndingType.TrueHuashan))
+            return;
+
+        const string questId = "main_true_huashan_lunjian";
+        if (_engine.State.Player.QuestLog.Any(q => q.Id == questId)) return;
+
+        var script = new Quests.DialogueScript
+        {
+            Lines =
+            {
+                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "你真没开挂？既然如此，真正的华山论剑，便不让给你了。", "乔峰、东方不败、张三丰与我会在山巅候你。何时赴约，由你自己决定。" } },
+                new Quests.DialogueLine { Speaker = "旁白", Lines = { "作者君将一封烫金请柬递到你手中。" } }
+            }
+        };
+        StoryDialogueForm.Show(this, script, _engine.State, () =>
+        {
+            _engine.State.Player.AddQuest(new Quests.DungeonQuest
+            {
+                Id = questId,
+                Name = "真·华山论剑",
+                Description = "作者君相邀，真正的华山之巅将迎战乔峰、东方不败、张三丰与作者君。可在任务列表中自行决定何时登山。",
+                DungeonId = "true_huashan_lunjian",
+                Difficulty = "legendary",
+                Steps = { new Quests.QuestStep { Id = "true_duel", Description = "前往真华山，问道四绝", ActionType = "dungeon" } }
+            });
+            _logBox.AppendSuccess("接受任务：真·华山论剑（可在任务列表中随时进入）。");
+        });
+    }
+
+    private void StartTrueHuashanEnding(bool skipConfirmation = false)
+    {
+        if (!EndgameSystem.CanChallengeTrueHuashan(_engine.State)) return;
+        var runner = _engine.CreateTrueHuashanRunner();
+        if (runner == null)
+        {
+            MessageBox.Show(this, "真·华山论剑的对手配置不完整。", "无法赴约", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+        if (_engine.State.Player.Stamina < runner.Dungeon.StaminaCost)
+        {
+            MessageBox.Show(this, $"体力不足（需要 {runner.Dungeon.StaminaCost}，当前 {_engine.State.Player.Stamina}）。", "无法赴约", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+        if (!skipConfirmation && !WuxiaConfirmBox.Show(this, "真·华山论剑",
+                "乔峰、东方不败、张三丰与作者君将依次出手。\n此战为不间断车轮战，败北即告终局。\n\n是否登上真华山？",
+                "登顶", "再备一备", WuxiaConfirmStyle.Danger))
+            return;
+
+        using var form = new DungeonForm(runner, _engine);
+        WuxiaTheme.ApplyScaling(form);
+        form.ShowDialog(this);
+        if (form.DialogResult == DialogResult.Abort)
+        {
+            MessageBox.Show(this, "真·华山论剑败北。胜败乃兵家常事，待来日再续江湖。",
+                "江湖终局", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ReturnToStart = true;
+            Close();
+            return;
+        }
+        if (form.FinalOutcome != Quests.DungeonOutcome.Victory) return;
+
+        EndgameSystem.CompleteEnding(_engine.State, EndingType.TrueHuashan);
+        ShowEndingAndReturn(EndingType.TrueHuashan, runner.DefeatedOpponents);
+    }
+
+    private void ApplyRetirementEnding(EndingType type)
+    {
+        bool eligible = type == EndingType.WealthyRetirement
+            ? EndgameSystem.CanRetireWealthily(_engine.State.Player)
+            : EndgameSystem.CanRetireWithSpouse(_engine.State);
+        if (!eligible) return;
+
+        var definition = EndgameSystem.GetDefinition(type);
+        if (!WuxiaConfirmBox.Show(this, "向作者君申请归隐",
+                $"作者君放下纸笔，问道：\n\n“{definition.Subtitle}。你当真要为这一段江湖落笔吗？”",
+                "就此归隐", "还想再走走", WuxiaConfirmStyle.Neutral))
+            return;
+
+        EndgameSystem.CompleteEnding(_engine.State, type);
+        ShowEndingAndReturn(type, Array.Empty<NPC>());
+    }
+
+    private void ShowEndingAndReturn(EndingType type, IReadOnlyList<NPC> defeatedOpponents)
+    {
+        using var ending = new EndingForm(_engine, defeatedOpponents, type);
+        WuxiaTheme.ApplyScaling(ending);
+        ending.ShowDialog(this);
+        if (!ending.ReturnToStart) return;
+        ReturnToStart = true;
+        Close();
     }
 
     /// <summary>
@@ -1489,7 +1631,8 @@ public class MainForm : Form
 
     // ── 战斗 ──
 
-    private void StartCombatWithNPC(NPC npc, bool isSpar, IWin32Window? owner = null, bool playerInitiated = false)
+    private void StartCombatWithNPC(NPC npc, bool isSpar, IWin32Window? owner = null, bool playerInitiated = false,
+        bool forceGameOverOnDefeat = false, Action? onStoryVictory = null)
     {
         if (_engine.PostCombat != null) return;
 
@@ -1528,7 +1671,7 @@ public class MainForm : Form
 
         GameLogger.Info($"[操作] {combatType}NPC: {npcId}");
 
-        var combat = _engine.StartCombat(npcId, isSpar);
+        var combat = _engine.StartCombat(npcId, isSpar, forceGameOverOnDefeat);
         if (combat == null) return;
 
         var combatForm = new CombatForm(combat, _engine);
@@ -1539,10 +1682,59 @@ public class MainForm : Form
         if (combat.Result.Outcome == CombatOutcome.PlayerWin)
         {
             TryAutoAdvanceQuests("fight", npcId);
-            ShowPostCombatChoiceDialog();
+            if (isSpar && npcId == EndgameSystem.AuthorId)
+                HandleAuthorSparVictory();
+            if (onStoryVictory != null)
+                onStoryVictory();
+            else
+                ShowPostCombatChoiceDialog();
+        }
+        else if (forceGameOverOnDefeat)
+        {
+            MessageBox.Show(this,
+                "你败于东方不败之手，黑木崖上的风雪掩去了最后的足迹。\n\n江湖之路，到此为止。",
+                "游戏结束", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            ReturnToStart = true;
+            Close();
+            return;
         }
 
         RefreshAll();
+    }
+
+    private void HandleAuthorSparVictory()
+    {
+        _engine.State.AuthorSparWins++;
+        _logBox.AppendSuccess($"你在与作者君的切磋中取胜（{_engine.State.AuthorSparWins}/20）。");
+        if (_engine.State.AuthorSparWins < 20 || _engine.State.AuthorMythicRewardClaimed)
+            return;
+
+        var script = new Quests.DialogueScript
+        {
+            Lines =
+            {
+                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "二十次了。你真没开挂？", "好吧，我信了。既然你能把许多道路走成一条路，便自己挑几笔，写两门只属于你的武功。" } },
+                new Quests.DialogueLine { Speaker = "旁白", Lines = { "作者君摊开一卷空白的书页，词条如星火般浮现。" } }
+            }
+        };
+        StoryDialogueForm.Show(this, script, _engine.State);
+        ShowMythicArtForge();
+    }
+
+    private void ShowMythicArtForge()
+    {
+        using var forge = new MythicArtForgeForm();
+        if (forge.ShowDialog(this) != DialogResult.OK
+            || forge.ForgedInternalArt == null || forge.ForgedExternalArt == null)
+            return;
+
+        var player = _engine.State.Player;
+        player.LearnArt(forge.ForgedInternalArt);
+        player.LearnArt(forge.ForgedExternalArt);
+        _engine.State.AuthorMythicRewardClaimed = true;
+        player.AddLifeEvent(_engine.State.GameTime.Day, AutoWuxia.Characters.LifeEventType.Major,
+            $"在作者君见证下铸成神话武学《{forge.ForgedInternalArt.Name}》与《{forge.ForgedExternalArt.Name}》。" );
+        _logBox.AppendSuccess($"获得神话内功《{forge.ForgedInternalArt.Name}》与神话外功《{forge.ForgedExternalArt.Name}》！可在武学装备中配置。" );
     }
 
     private void ShowPostCombatChoiceDialog()
@@ -1555,12 +1747,14 @@ public class MainForm : Form
         {
             case PostCombatChoice.Kill:
                 _engine.PostCombatKill();
+                TryAutoAdvanceQuests("kill", npc.Id);
                 break;
             case PostCombatChoice.Humiliate:
                 _engine.PostCombatHumiliate();
                 break;
             case PostCombatChoice.Spare:
                 _engine.PostCombatSpare();
+                TryAutoAdvanceQuests("spare", npc.Id);
                 break;
         }
     }
@@ -1618,8 +1812,8 @@ public class MainForm : Form
         // 检查月度更新
         CheckMonthlyUpdate();
 
-        // 检查年度大事件生成(月度之后)
-        CheckAnnualUpdate();
+        // 检查季度剧情任务生成（月度更新之后）
+        CheckQuarterlyUpdate();
 
         // 检查玩家死亡
         if (_engine.PlayerIsDead)
@@ -1819,20 +2013,20 @@ public class MainForm : Form
         }
     }
 
-    private bool _annualUpdateInProgress;
+    private bool _quarterlyUpdateInProgress;
 
-    private async void CheckAnnualUpdate()
+    private async void CheckQuarterlyUpdate()
     {
-        if (_annualUpdateInProgress) return;
-        if (!_engine.NeedsAnnualUpdate()) return;
+        if (_quarterlyUpdateInProgress) return;
+        if (!_engine.NeedsQuarterlyUpdate()) return;
         if (_engine.IsInCombat || _engine.HasPostCombatChoices || _monthlyUpdateInProgress)
         {
-            GameLogger.Info("年度更新被战斗/月度状态延迟");
+            GameLogger.Info("季度剧情生成被战斗/月度状态延迟");
             return;
         }
 
-        GameLogger.Info("年度大事件生成触发！");
-        _annualUpdateInProgress = true;
+        GameLogger.Info("季度剧情生成触发！");
+        _quarterlyUpdateInProgress = true;
 
         var progressForm = new AnnualProgressForm();
 
@@ -1840,7 +2034,7 @@ public class MainForm : Form
         {
             if (progressForm.IsDisposed) return;
             if (msg.Contains("沉思") || msg.Contains("思考中"))
-                progressForm.AppendLog("年度演化中...", Color.FromArgb(150, 150, 170));
+                progressForm.AppendLog("季度演化中...", Color.FromArgb(150, 150, 170));
             progressForm.SetStatus(msg);
         }
         void OnToolResult(string msg)
@@ -1868,25 +2062,25 @@ public class MainForm : Form
         try
         {
             _logBox.AppendText("═══════════════════════════════");
-            _logBox.AppendText("  岁末年初，江湖似有大事将起...");
+            _logBox.AppendText("  季末风云变幻，江湖似有新的故事将起...");
 
             progressForm.Show(this);
-            progressForm.SetStatus("正在酝酿江湖大事件...");
+            progressForm.SetStatus("正在编织季度剧情...");
             Application.DoEvents();
 
             string summary;
             try
             {
-                summary = await _engine.TriggerAnnualUpdate();
+                summary = await _engine.TriggerQuarterlyUpdate();
             }
             catch (Exception ex2)
             {
-                GameLogger.Error("TriggerAnnualUpdate异常", ex2);
-                summary = "这一年江湖风平浪静。";
+                GameLogger.Error("TriggerQuarterlyUpdate异常", ex2);
+                summary = "这一季江湖风平浪静。";
             }
 
             if (!progressForm.IsDisposed && !progressForm.IsComplete)
-                progressForm.AgentFinished(summary ?? "年度大事件已生。");
+                progressForm.AgentFinished(summary ?? "季度剧情已定稿。");
 
             while (!progressForm.IsDisposed && progressForm.Visible)
                 await Task.Delay(100);
@@ -1895,8 +2089,8 @@ public class MainForm : Form
         }
         catch (Exception ex)
         {
-            GameLogger.Error("年度更新异常", ex);
-            _logBox.AppendText($"[年度更新出错: {ex.Message}]");
+            GameLogger.Error("季度剧情生成异常", ex);
+            _logBox.AppendText($"[季度剧情生成出错: {ex.Message}]");
         }
         finally
         {
@@ -1905,7 +2099,7 @@ public class MainForm : Form
             _engine.AnnualUpdateSystem.OnAgentFinish -= OnAgentFinish;
             _engine.AnnualUpdateSystem.OnAgentError -= OnAgentError;
             if (!progressForm.IsDisposed) progressForm.Dispose();
-            _annualUpdateInProgress = false;
+            _quarterlyUpdateInProgress = false;
         }
     }
 
@@ -2098,6 +2292,27 @@ public class MainForm : Form
             if (scene == null || _sceneListBox.SelectedIndex < 0) return;
             if (_sceneListBox.SelectedIndex >= scene.ConnectedSceneIds.Count) return;
             var targetId = scene.ConnectedSceneIds[_sceneListBox.SelectedIndex];
+
+            // 武林大会声望八千开放；原华山论剑仍保留一万声望门槛。
+            if (_engine.State.Player.Reputation >= 8000 && !_engine.State.WulinConferenceInvited)
+            {
+                _engine.State.WulinConferenceInvited = true;
+                MessageBox.Show(this,
+                    "武林盟书：\n\n群贤齐聚，欲以论道定盟。阁下声望已动江湖，特请赴武林大会一会诸位一流高手。\n\n（每战后可论道，下一战均满状态开始。）",
+                    "武林大会", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (_engine.Config.Dungeons.ContainsKey("wulin_conference"))
+                {
+                    _engine.State.Player.AddQuest(new Quests.DungeonQuest
+                    {
+                        Id = "main_wulin_conference",
+                        Name = "武林大会",
+                        Description = "声望八千，群贤相邀。逐一印证武学后，可自行决定是否接下武林盟主之位。",
+                        DungeonId = "wulin_conference",
+                        Difficulty = "hard",
+                        Steps = { new Quests.QuestStep { Id = "conference", Description = "赴武林大会，与群贤逐一论武", ActionType = "dungeon" } }
+                    });
+                }
+            }
 
             // 华山论剑触发: 声望 ≥ 10000 且未邀请过
             if (_engine.State.Player.Reputation >= 10000 && !_engine.State.HuashanInvited)
@@ -2720,12 +2935,67 @@ public class MainForm : Form
     /// </summary>
     private void TryAutoAdvanceQuests(string actionType, string? targetId)
     {
+        var xiaojiaoQuest = _engine.State.Player.QuestLog.FirstOrDefault(q =>
+            q.Id == "xiaojiao_challenge_dongfang" && q.Status == Quests.QuestStatus.InProgress);
+        var previousXiaojiaoStepId = xiaojiaoQuest?.CurrentStep?.Id;
         var (logs, dialogues) = QuestAutoAdvance.TryAdvanceAll(_engine.State.Player, actionType, targetId, _engine.Config);
         foreach (var log in logs)
             _logBox.AppendSuccess(log);
         // 步骤完成时播放剧情对话(逐段播放)
         foreach (var script in dialogues)
             StoryDialogueForm.Show(this, script, _engine.State, null);
+
+        var currentXiaojiaoStepId = xiaojiaoQuest?.CurrentStep?.Id;
+        if (previousXiaojiaoStepId == "ask_yingying" && currentXiaojiaoStepId == "rescue_ren_woxing")
+            RevealMadRenWoxing();
+        else if (previousXiaojiaoStepId == "rescue_ren_woxing" && currentXiaojiaoStepId == "go_heimuya_backhill")
+            ShowRenWoxingRecovery();
+    }
+
+    private void RevealMadRenWoxing()
+    {
+        if (!_engine.State.AllNPCs.TryGetValue("ren_woxing", out var ren)) return;
+
+        ren.Name = "神志不清的任我行";
+        ren.Personality = "神智错乱，时而狂笑，时而低语，仍以本能抗拒外人靠近。";
+        ren.Description = "被囚禁十二年后刚被救出的日月神教前教主，体内真气冲突，神志尚未清明。任盈盈将他藏在黑木崖总坛的一处密室中，盼有人能助他恢复。";
+        ren.DefaultSceneId = "heimuya_scene";
+        ren.Schedule = new Dictionary<string, string>
+        {
+            ["清晨"] = "heimuya_scene", ["白天"] = "heimuya_scene",
+            ["黄昏"] = "heimuya_scene", ["夜晚"] = "heimuya_scene"
+        };
+        ren.CurrentHP = Math.Max(1, ren.GetTotalMaxHP() / 3);
+        ren.CurrentMP = Math.Max(0, ren.GetTotalMaxMP() / 4);
+        ren.IsHidden = false;
+        _engine.UpdateSceneNPCsExternal();
+        _logBox.AppendSuccess("任盈盈带你进入总坛密室：神志不清的任我行正在其中挣扎。") ;
+    }
+
+    private void ShowRenWoxingRecovery()
+    {
+        if (!_engine.State.AllNPCs.TryGetValue("ren_woxing", out var ren)) return;
+
+        var script = new Quests.DialogueScript
+        {
+            Lines =
+            {
+                new Quests.DialogueLine { Speaker = "ren_woxing", Lines = { "……东方不败……十二年……", "哈哈哈！吸星大法岂是你们困得住的！" } },
+                new Quests.DialogueLine { Speaker = "玩家", Lines = { "任前辈，凝神守一。我助你理顺逆乱的真气。" } },
+                new Quests.DialogueLine { Speaker = "旁白", Lines = { "你以真气护住任我行心脉，又在任盈盈指引下助他压下反噬。许久之后，他眼中的混沌渐渐散去。" } }
+            }
+        };
+        StoryDialogueForm.Show(this, script, _engine.State, () =>
+        {
+            ren.Name = "任我行";
+            ren.Personality = "霸气外露，豪情万丈，一代枭雄。野心勃勃，睚眦必报，但对真心相待者亦有情义。";
+            ren.Description = "日月神教前教主，吸星大法的创始人。十二年前被东方不败篡位囚禁，如今神志已复，誓要夺回属于自己的黑木崖。";
+            ren.CurrentHP = ren.GetTotalMaxHP();
+            ren.CurrentMP = ren.GetTotalMaxMP();
+            ren.IsHidden = false;
+            _engine.UpdateSceneNPCsExternal();
+            _logBox.AppendSuccess("任我行恢复神志，决定留在黑木崖总坛坐镇，等候与你一同清算东方不败。") ;
+        });
     }
 
     /// <summary>
@@ -2736,7 +3006,60 @@ public class MainForm : Form
     {
         if (string.IsNullOrEmpty(sceneId)) return;
         TryAutoAdvanceQuests("go", sceneId);
+        TryStartXiaojiaoDongfangFinalBattle(sceneId);
         OfferSceneTriggeredQuests(sceneId);
+    }
+
+    private void TryStartXiaojiaoDongfangFinalBattle(string sceneId)
+    {
+        if (sceneId != "heimuya_backhill") return;
+
+        var quest = _engine.State.Player.QuestLog.FirstOrDefault(q =>
+            q.Id == "xiaojiao_challenge_dongfang" && q.Status == Quests.QuestStatus.InProgress);
+        if (quest?.CurrentStep?.Id != "fight_dongfang") return;
+
+        if (_engine.State.Player.Stamina < StaminaSystem.CombatCost)
+        {
+            _logBox.AppendWarning($"黑木崖后山杀气骤起，但你体力不足（需要 {StaminaSystem.CombatCost:F0}），只得先行退避。养足体力后再次前来。") ;
+            return;
+        }
+        if (!_engine.State.AllNPCs.TryGetValue("dongfang_bubai", out var dongfang) || !dongfang.IsAlive)
+            return;
+
+        dongfang.IsHidden = false;
+        _engine.UpdateSceneNPCsExternal();
+        _logBox.AppendWarning("后山红影一闪，东方不败已拦住去路——此战没有退路！") ;
+        StartCombatWithNPC(dongfang, isSpar: false, owner: this, playerInitiated: false,
+            forceGameOverOnDefeat: true, onStoryVictory: ResolveXiaojiaoDongfangVictory);
+    }
+
+    private void ResolveXiaojiaoDongfangVictory()
+    {
+        _engine.ResolveStoryOpponentDefeat("dongfang_bubai");
+        if (_engine.State.AllNPCs.TryGetValue("ren_woxing", out var ren))
+        {
+            ren.IsHidden = false;
+            ren.DefaultSceneId = "heimuya_scene";
+            ren.Schedule = new Dictionary<string, string>
+            {
+                ["清晨"] = "heimuya_scene", ["白天"] = "heimuya_scene",
+                ["黄昏"] = "heimuya_scene", ["夜晚"] = "heimuya_scene"
+            };
+            ren.GetRelation(_engine.State.Player.Id).ChangeFavorability(30);
+        }
+
+        var script = new Quests.DialogueScript
+        {
+            Lines =
+            {
+                new Quests.DialogueLine { Speaker = "旁白", Lines = { "东方不败真气溃散，借着崖间迷雾遁去，自此隐没江湖。" } },
+                new Quests.DialogueLine { Speaker = "ren_woxing", Lines = { "这一战，多亏了你。黑木崖暂由我留下坐镇，日后若有风云，再与少侠共饮。" } },
+                new Quests.DialogueLine { Speaker = "linghu_chong", Lines = { "任前辈既已无恙，这一页恩怨便暂且翻过。兄台今日之举，令狐冲佩服。" } }
+            }
+        };
+        StoryDialogueForm.Show(this, script, _engine.State);
+        _logBox.AppendSuccess("东方不败战败后隐匿，不再出现在大地图；任我行留在黑木崖总坛。") ;
+        _engine.UpdateSceneNPCsExternal();
     }
 
     /// <summary>进入场景时自动接取 triggerSceneId==sceneId 的链式任务(弹委托框)。</summary>
@@ -2847,7 +3170,7 @@ public class MainForm : Form
         foreach (var (id, cfg) in _engine.Config.Quests)
             TryOffer(cfg);
 
-        // 2. 运行时任务池(年度AI生成的大事件)
+        // 2. 运行时任务池（季度 Agent 生成的大事件）
         foreach (var cfg in _engine.State.RuntimeQuests)
             TryOffer(cfg);
 
@@ -2859,7 +3182,7 @@ public class MainForm : Form
     /// </summary>
     private void AcceptChainQuest(string questId, NPC npc)
     {
-        // 先查配置文件任务,再查运行时任务池(年度AI生成的大事件)
+        // 先查配置文件任务，再查运行时任务池（季度 Agent 生成的大事件）
         Config.Models.QuestConfig? cfg = null;
         if (!_engine.Config.Quests.TryGetValue(questId, out cfg))
             cfg = _engine.State.RuntimeQuests.FirstOrDefault(q => q.Id == questId);
@@ -2895,9 +3218,8 @@ public class MainForm : Form
                 _logBox.AppendSuccess("（杨代教主低声道:东方教主就在崖后,前去拜见吧。）");
                 break;
             case "xiaojiao_challenge_dongfang":
-                // 非日月神教路线：令狐冲引荐后，东方不败在黑木崖后山现身。
-                RevealNpc("dongfang_bubai");
-                _logBox.AppendSuccess("（令狐冲低声道:东方不败已现身黑木崖后山，若要一试天下第一的武功，便去吧。）");
+                // 非日月神教路线：先救回任我行，最后抵达后山才触发与东方不败的强制决战。
+                _logBox.AppendSuccess("（令狐冲低声道：任前辈被囚多年，神志未复。先救他出来，才有与东方不败决战的机会。）");
                 break;
             case "tianlong_qiaofeng":
                 // 乔峰线:段延庆与萧远山现身少室山(供身世线交手)
@@ -3131,6 +3453,26 @@ public class MainForm : Form
             var contribStr = string.Join("  ", p.FactionContributions.Select(kv => $"{kv.Key}:{kv.Value}"));
             infoBox.AppendText($"门派贡献：{contribStr}\n");
         }
+
+        // 关系是双向保存的；兼容旧存档中仅一侧记录关系的情况，并支持多个配偶/结拜对象。
+        var spouses = new List<string>();
+        var swornBrothers = new List<string>();
+        foreach (var npc in _engine.State.AllNPCs.Values.OrderBy(npc => npc.Name, StringComparer.CurrentCulture))
+        {
+            var playerRelationType = p.Relations.TryGetValue(npc.Id, out var playerRelation)
+                ? playerRelation.Type : (RelationType?)null;
+            var npcRelationType = npc.Relations.TryGetValue(p.Id, out var npcRelation)
+                ? npcRelation.Type : (RelationType?)null;
+            var name = npc.IsAlive ? npc.Name : $"{npc.Name}（已故）";
+
+            if (playerRelationType == RelationType.Spouse || npcRelationType == RelationType.Spouse)
+                spouses.Add(name);
+            else if (playerRelationType == RelationType.SwornBrother || npcRelationType == RelationType.SwornBrother)
+                swornBrothers.Add(name);
+        }
+        infoBox.AppendText("── 关系 ──\n");
+        infoBox.AppendText($"配偶：{(spouses.Count > 0 ? string.Join("、", spouses) : "无")}\n");
+        infoBox.AppendText($"结拜：{(swornBrothers.Count > 0 ? string.Join("、", swornBrothers) : "无")}\n");
         infoBox.AppendText("\n");
         var pAtk = p.EquippedWeapon?.AttackBonus ?? 0;
         var pDef = p.EquippedArmor?.DefenseBonus ?? 0;

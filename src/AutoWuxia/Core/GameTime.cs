@@ -41,12 +41,15 @@ public class GameTime
 
     public const int DaysPerMonth = 30;
     public const int MonthsPerYear = 12;
+    public const int MonthsPerQuarter = 3;
 
     public int Month => (Day - 1) / DaysPerMonth + 1;
     public int DayInMonth => (Day - 1) % DaysPerMonth + 1;
     public int Year => (Month - 1) / MonthsPerYear + 1;
+    public int Quarter => ((Month - 1) % MonthsPerYear) / MonthsPerQuarter + 1;
     public string MonthDisplay => $"第{Month}月 第{DayInMonth}天";
     public string YearDisplay => $"第{Year}年 第{Month}月";
+    public string QuarterDisplay => $"第{Year}年 第{Quarter}季度";
 
     /// <summary>年内第几天（1~360，用于"n年n天"显示）。</summary>
     public int DayInYear => (Day - 1) % (DaysPerMonth * MonthsPerYear) + 1;
@@ -75,6 +78,15 @@ public class GameTime
     {
         int prevYear = ((previousDay - 1) / DaysPerMonth + 1 - 1) / MonthsPerYear + 1;
         return Year > prevYear;
+    }
+
+    /// <summary>是否跨入新的季度（每三个月一个季度）。</summary>
+    public bool IsNewQuarter(int previousDay)
+    {
+        int daysPerQuarter = DaysPerMonth * MonthsPerQuarter;
+        int previousQuarterIndex = (Math.Max(1, previousDay) - 1) / daysPerQuarter;
+        int currentQuarterIndex = (Day - 1) / daysPerQuarter;
+        return currentQuarterIndex > previousQuarterIndex;
     }
 
     public bool IsNewDay(int previousDay) => Day > previousDay;

@@ -1,0 +1,12 @@
+{
+  "id": "true_huashan_lunjian",
+  "name": "真·华山论剑",
+  "description": "真正的华山之巅，四位站在时代尽头的高手轮番出手。此战不为名利，只问武道尽头。",
+  "type": "true_huashan_lunjian",
+  "rounds": [],
+  "reward": { "gold": 0, "reputation": 0 },
+  "onFail": { "type": "gameOver", "amount": 0 },
+  "staminaCost": 80,
+  "timeCostHours": 8,
+  "opponentStatMultiplier": 1.3
+}

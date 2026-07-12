@@ -1,7 +1,7 @@
 namespace AutoWuxia.Forms;
 
 /// <summary>
-/// 年度大事件进度弹窗 - 显示年度 Agent 生成剧情任务的过程(玩家视角)
+/// 季度剧情进度弹窗 - 显示季度 Agent 生成剧情任务的过程(玩家视角)
 /// </summary>
 public class AnnualProgressForm : Form
 {
@@ -14,7 +14,7 @@ public class AnnualProgressForm : Form
 
     public AnnualProgressForm()
     {
-        Text = "江湖风云 - 年度大事件";
+        Text = "江湖风云 - 季度剧情";
         Size = new Size(680, 560);
         StartPosition = FormStartPosition.CenterParent;
         FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -28,7 +28,7 @@ public class AnnualProgressForm : Form
 
         _statusLabel = new Label
         {
-            Text = "岁末年初，江湖暗流涌动，似有大事将起...",
+            Text = "季末风云变幻，似有新的故事将起...",
             Font = WuxiaTheme.UiFont(12f, FontStyle.Bold),
             ForeColor = Color.FromArgb(255, 215, 120),
             BackColor = Color.Transparent,
@@ -106,14 +106,14 @@ public class AnnualProgressForm : Form
         if (IsComplete) return;
         IsComplete = true;
         _summary = summary;
-        _statusLabel.Text = "年度大事件已生";
+        _statusLabel.Text = "季度剧情已定稿";
         _statusLabel.ForeColor = Color.FromArgb(120, 220, 120);
 
         _logBox.AppendText("\n");
         _logBox.SelectionStart = _logBox.TextLength;
         _logBox.SelectionColor = Color.FromArgb(255, 215, 120);
         _logBox.SelectionFont = new Font(WuxiaTheme.UiFont(10f), FontStyle.Bold);
-        _logBox.AppendText("═══ 年度江湖纪事 ═══\n");
+        _logBox.AppendText("═══ 季度江湖纪事 ═══\n");
 
         _logBox.SelectionStart = _logBox.TextLength;
         _logBox.SelectionColor = Color.FromArgb(240, 230, 200);
@@ -134,7 +134,7 @@ public class AnnualProgressForm : Form
 
         AppendLog($"异常: {error}", Color.FromArgb(255, 120, 120));
         IsComplete = true;
-        _statusLabel.Text = "年度演化出错";
+        _statusLabel.Text = "季度演化出错";
         _statusLabel.ForeColor = Color.FromArgb(255, 120, 120);
         _confirmButton.Enabled = true;
     }

@@ -1,0 +1,39 @@
+{
+  "id": "author_jun",
+  "name": "作者君",
+  "type": "npc",
+  "personality": "谈笑随和，言语偶有天外之意；看似只是刘家村的闲人，实则遍览百家武学，喜欢与真正的强者论道。",
+  "description": "一位来历不明的青年，自称只是个写故事的人。其所学驳杂到近乎荒诞，却每一门都已臻化境。",
+  "maxHP": 8800,
+  "maxMP": 10000,
+  "attack": 1120,
+  "defense": 920,
+  "speed": 125,
+  "relations": {},
+  "karma": 50,
+  "gender": "男",
+  "hiddenPower": true,
+  "defaultScene": "liujiacun_scene",
+  "schedule": {
+    "清晨": "liujiacun_scene",
+    "白天": "liujiacun_scene",
+    "黄昏": "liujiacun_scene",
+    "夜晚": "liujiacun_scene"
+  },
+  "jianghuLevel": 88,
+  "craftSkills": {
+    "art": 100,
+    "forging": 80,
+    "medicine": 80
+  },
+  "learnedArts": [
+    { "artId": "taixuan_jing", "proficiencyLevel": 10 },
+    { "artId": "taiji_quan", "proficiencyLevel": 10 },
+    { "artId": "dugu_jiujian", "proficiencyLevel": 10 },
+    { "artId": "liumai_shenjian", "proficiencyLevel": 10 },
+    { "artId": "lingbo_weibu", "proficiencyLevel": 10 }
+  ],
+  "activeInternalArtId": "taixuan_jing",
+  "activeExternalArtId": "liumai_shenjian",
+  "activeLightArtId": "lingbo_weibu"
+}

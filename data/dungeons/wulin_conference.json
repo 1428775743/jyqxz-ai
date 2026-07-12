@@ -1,0 +1,19 @@
+{
+  "id": "wulin_conference",
+  "name": "武林大会",
+  "description": "群贤毕至，华山会盟。你将依次与江湖一流高手切磋印证，每一战后都有片刻论道；下一战开始前，双方均会调息至全盛。",
+  "type": "wulin_conference",
+  "rounds": [
+    { "opponentCharacterId": "qiao_feng", "count": 1, "triggerDialogue": true },
+    { "opponentCharacterId": "huang_yaoshi", "count": 1, "triggerDialogue": true },
+    { "opponentCharacterId": "yang_guo", "count": 1, "triggerDialogue": true },
+    { "opponentCharacterId": "guo_jing", "count": 1, "triggerDialogue": true },
+    { "opponentCharacterId": "zhang_wuji", "count": 1, "triggerDialogue": true },
+    { "opponentCharacterId": "zhou_botong", "count": 1, "triggerDialogue": true }
+  ],
+  "reward": { "gold": 5000, "reputation": 1000 },
+  "onFail": { "type": "deductHP", "amount": 0 },
+  "staminaCost": 50,
+  "timeCostHours": 8,
+  "opponentStatMultiplier": 1.15
+}

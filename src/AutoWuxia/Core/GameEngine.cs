@@ -44,6 +44,9 @@ public class GameEngine
     /// </summary>
     public string? PendingNPCVictoryOpponentId { get; private set; }
 
+    /// <summary>剧情强制决战的对手 ID；该战若败，跳过 AI 处置并直接判定游戏结束。</summary>
+    private string? _forcedGameOverOpponentId;
+
     public bool IsInCombat => CurrentCombat != null;
     public bool HasPostCombatChoices => PostCombat != null && PostCombat.Phase != PostCombatPhase.None;
     /// <summary>玩家是否已死亡（健康度耗尽）</summary>
@@ -177,6 +180,53 @@ public class GameEngine
         {
             IsHuashanLunjian = true,
             FlatOpponents = opponents
+        };
+    }
+
+    /// <summary>构建声望八千解锁的武林大会：每一场均满状态开始，并保留战后论道。</summary>
+    public Quests.DungeonRunner? CreateWulinConferenceRunner()
+    {
+        if (!Config.Dungeons.TryGetValue("wulin_conference", out var dCfg)) return null;
+        var dungeon = Quests.Dungeon.FromConfig(dCfg);
+        return new Quests.DungeonRunner(dungeon, State.Player, Config, AI, State.GameTime, GetCurrentScene())
+        {
+            IsWulinConference = true,
+            EventTitle = "武林大会",
+            RestorePlayerBeforeEachBattle = true,
+            OpponentStatMultiplier = dCfg.OpponentStatMultiplier
+        };
+    }
+
+    /// <summary>构建作者君开启的真·华山论剑，固定迎战四位时代绝顶高手。</summary>
+    public Quests.DungeonRunner? CreateTrueHuashanRunner()
+    {
+        if (!Config.Dungeons.TryGetValue("true_huashan_lunjian", out var dCfg)) return null;
+
+        var opponents = new List<NPC>();
+        foreach (var id in new[] { "qiao_feng", "dongfang_bubai", "zhang_sanfeng", EndgameSystem.AuthorId })
+        {
+            try
+            {
+                var npc = Config.CreateNPC(id);
+                npc.IsHidden = true;
+                opponents.Add(npc);
+            }
+            catch
+            {
+                // 配置缺失时跳过单个对手，避免整个存档无法继续。
+            }
+        }
+        if (opponents.Count != 4) return null;
+
+        var player = State.Player;
+        player.CurrentHP = player.GetTotalMaxHP();
+        player.CurrentMP = player.GetTotalMaxMP();
+        return new Quests.DungeonRunner(Quests.Dungeon.FromConfig(dCfg), player, Config, AI, State.GameTime, GetCurrentScene())
+        {
+            IsHuashanLunjian = true,
+            EventTitle = "真·华山论剑",
+            FlatOpponents = opponents,
+            OpponentStatMultiplier = dCfg.OpponentStatMultiplier
         };
     }
 
@@ -326,7 +376,7 @@ public class GameEngine
 
     // ── 战斗系统 ──
 
-    public CombatEngine? StartCombat(string npcId, bool isSpar = false)
+    public CombatEngine? StartCombat(string npcId, bool isSpar = false, bool forceGameOverOnDefeat = false)
     {
         Logger.Info($"StartCombat: {npcId} isSpar={isSpar}");
         if (!State.AllNPCs.TryGetValue(npcId, out var npc) || !npc.IsAlive)
@@ -341,6 +391,8 @@ public class GameEngine
 
         double timeCost = isSpar ? 1 : 2;
         State.GameTime.Advance(timeCost);
+
+        _forcedGameOverOpponentId = forceGameOverOnDefeat && !isSpar ? npcId : null;
 
         // 切磋:战前快照 HP/MP,战后恢复(切磋不掉血)
         if (isSpar)
@@ -460,7 +512,7 @@ public class GameEngine
                 Log("切磋胜利！你技高一筹。");
                 if (opponent != null)
                 {
-                    RelationshipSystem.Interact(State.Player, opponent, 5);
+                    RelationshipSystem.Interact(State.Player, opponent, 1);
                     if (hiddenPower)
                         Log($"{opponent.Name}笑道：\"阁下武功不错，我只是随意比划了几招。\"");
                     else
@@ -473,7 +525,7 @@ public class GameEngine
                 {
                     if (hiddenPower)
                         Log($"{opponent.Name}似乎并未使出全力...");
-                    RelationshipSystem.Interact(State.Player, opponent, 3);
+                    RelationshipSystem.Interact(State.Player, opponent, 1);
                 }
                 State.Player.CurrentHP = Math.Max(1, State.Player.CurrentHP);
                 break;
@@ -530,6 +582,14 @@ public class GameEngine
         {
             Log("你被击败了...");
             ApplyDefeatConsequence(null, 0);
+            return;
+        }
+
+        if (string.Equals(_forcedGameOverOpponentId, npcId, StringComparison.Ordinal))
+        {
+            _forcedGameOverOpponentId = null;
+            Log($"{npc.Name}冷冷道：\"黑木崖不是你该来的地方。\"");
+            KillPlayer(npc);
             return;
         }
 
@@ -722,6 +782,27 @@ public class GameEngine
     {
         PostCombat = null;
         UpdateSceneNPCs();
+    }
+
+    /// <summary>
+    /// 剧情决战获胜后的特殊收束：对手并未死亡，而是败走隐匿，
+    /// 因此不再出现在大地图；华山论剑等副本会从配置创建独立对手，不受影响。
+    /// </summary>
+    public void ResolveStoryOpponentDefeat(string npcId)
+    {
+        if (!State.AllNPCs.TryGetValue(npcId, out var npc)) return;
+
+        npc.IsAlive = true;
+        npc.CurrentHP = Math.Max(1, npc.GetTotalMaxHP() / 5);
+        npc.IsHidden = true;
+        npc.AddLifeEvent(State.GameTime.Day, LifeEventType.Combat, $"败于{State.Player.Name}后遁走隐匿。");
+        State.Player.AddLifeEvent(State.GameTime.Day, LifeEventType.Combat, $"在剧情决战中击败{npc.Name}。");
+        _forcedGameOverOpponentId = null;
+
+        if (PostCombat?.DefeatedNPCId == npcId)
+            ClearPostCombat();
+        else
+            UpdateSceneNPCs();
     }
 
     // ── 门派系统 ──
@@ -1199,6 +1280,10 @@ public class GameEngine
     /// </summary>
     private void MigrateSave(GameState state)
     {
+        // 季度 Agent 取代年度 Agent：旧存档保留上次大事件时间，避免读档后立刻重复触发。
+        if (state.LastQuarterlyUpdateDay <= 0 && state.LastAnnualUpdateDay > 0)
+            state.LastQuarterlyUpdateDay = state.LastAnnualUpdateDay;
+
         // ── 幂等补全:每次加载都补入配置新增的 NPC/场景/门派 ──
         // 旧档 AllNPCs/AllScenes/AllFactions 是快照,缺后续新增内容;只补缺失、不覆盖已有(保留玩家进度)。
         // 加新 NPC/城镇/门派时无需 bump 版本,旧档加载自动兼容。
@@ -1384,33 +1469,33 @@ public class GameEngine
         return summary;
     }
 
-    // ── 年度更新(大事件生成) ──
+    // ── 季度更新（剧情任务链生成） ──
 
-    public bool NeedsAnnualUpdate()
+    public bool NeedsQuarterlyUpdate()
     {
-        return AnnualUpdateSystem.ShouldTriggerAnnual(State);
+        return AnnualUpdateSystem.ShouldTriggerQuarterly(State);
     }
 
-    public async Task<string> TriggerAnnualUpdate()
+    public async Task<string> TriggerQuarterlyUpdate()
     {
         Log("════════════════════════════════");
-        Log($"    【年度风云】{State.GameTime.YearDisplay}");
+        Log($"    【季度风云】{State.GameTime.QuarterDisplay}");
         Log("════════════════════════════════");
-        Log("岁末年初，江湖暗流涌动，似有大事将起...");
+        Log("季末风云变幻，江湖似有新的故事将起...");
 
         string summary;
         try
         {
-            summary = await AnnualUpdateSystem.ExecuteAnnualUpdate(State);
+            summary = await AnnualUpdateSystem.ExecuteQuarterlyUpdate(State);
         }
         catch (Exception ex)
         {
-            GameLogger.AI($"年度Agent异常: {ex.Message}");
-            summary = "这一年江湖风平浪静，并无大事发生。";
+            GameLogger.AI($"季度Agent异常: {ex.Message}");
+            summary = "这一季江湖风平浪静，并无新的故事线展开。";
         }
 
         Log(summary);
-        State.LastAnnualUpdateDay = State.GameTime.Day;
+        State.LastQuarterlyUpdateDay = State.GameTime.Day;
         Log("");
         return summary;
     }

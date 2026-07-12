@@ -22,6 +22,10 @@ public static class HuashanLunjianBuilder
     private const int EvilKarmaThreshold = 30;
     /// <summary>车轮战人数</summary>
     public const int GauntletSize = 10;
+    private const int EarlyOpponentCount = 7;
+    private const int LateOpponentCount = 2;
+    private const int LateOpponentMinLevel = 50;
+    private const int FinalBossMinLevel = 55;
 
     /// <summary>
     /// 构建华山论剑对手列表。
@@ -40,41 +44,71 @@ public static class HuashanLunjianBuilder
             .ToList();
 
         // 关系优先:玩家关系网中非"素不相识"的候选,按|好感|降序(爱恨皆算"有瓜葛")
-        var related = candidates
-            .Where(c => player.Relations.TryGetValue(c.Id, out var rel) && rel.Type != RelationType.Stranger)
-            .OrderByDescending(c => Math.Abs(player.Relations[c.Id].Favorability))
-            .ToList();
-
         var chosen = new List<CharacterConfig>();
         var used = new HashSet<string>();
+
+        // The final opponent is selected before relation priority, ensuring that
+        // the strongest eligible contender always closes the gauntlet.
+        var finalBoss = candidates
+            .Where(c => c.JianghuLevel >= FinalBossMinLevel)
+            .OrderByDescending(c => c.JianghuLevel)
+            .ThenByDescending(c => c.Attack + c.Defense)
+            .ThenByDescending(c => c.MaxHP)
+            .FirstOrDefault();
+        if (finalBoss != null)
+            used.Add(finalBoss.Id);
+
+        // Reserve the Lv.50+ slots before relationship selection so that the
+        // eighth and ninth fights cannot be displaced by familiar opponents.
+        var lateOpponents = candidates
+            .Where(c => !used.Contains(c.Id) && c.JianghuLevel >= LateOpponentMinLevel)
+            .OrderByDescending(c => c.JianghuLevel)
+            .ThenByDescending(c => c.Attack + c.Defense)
+            .ThenByDescending(c => c.MaxHP)
+            .Take(LateOpponentCount)
+            .ToList();
+        foreach (var c in lateOpponents)
+            used.Add(c.Id);
+
+        var related = candidates
+            .Where(c => !used.Contains(c.Id))
+            .Where(c => player.Relations.TryGetValue(c.Id, out var rel) && rel.Type != RelationType.Stranger)
+            .OrderByDescending(c => Math.Abs(player.Relations[c.Id].Favorability))
+            .ThenByDescending(c => c.JianghuLevel)
+            .ToList();
         foreach (var c in related)
         {
             chosen.Add(c);
             used.Add(c.Id);
-            if (chosen.Count >= GauntletSize) break;
+            if (chosen.Count >= EarlyOpponentCount) break;
         }
 
         // 不足则从剩余候选按阅历降序补足(取最强者补位)
-        if (chosen.Count < GauntletSize)
+        if (chosen.Count < EarlyOpponentCount)
         {
             var fillers = candidates
                 .Where(c => !used.Contains(c.Id))
                 .OrderByDescending(c => c.JianghuLevel)
+                .ThenByDescending(c => c.Attack + c.Defense)
+                .ThenByDescending(c => c.MaxHP)
                 .ToList();
             foreach (var c in fillers)
             {
                 chosen.Add(c);
                 used.Add(c.Id);
-                if (chosen.Count >= GauntletSize) break;
+                if (chosen.Count >= EarlyOpponentCount) break;
             }
         }
 
         // 排序:阅历升序(弱→强,末位最终Boss),同阅历档随机洗牌
-        var ordered = chosen
+        var ordered = chosen.Take(EarlyOpponentCount)
             .GroupBy(c => c.JianghuLevel)
             .SelectMany(g => g.OrderBy(_ => Random.Shared.Next()))
             .OrderBy(c => c.JianghuLevel)
             .ToList();
+        ordered.AddRange(lateOpponents.OrderBy(c => c.JianghuLevel));
+        if (finalBoss != null)
+            ordered.Add(finalBoss);
 
         // 实例化 + 属性放大 + 标记隐藏(临时副本对手,不污染场景 NPC 列表)
         var result = new List<NPC>();

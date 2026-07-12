@@ -1,39 +1,69 @@
 {
   "id": "xiaojiao_challenge_dongfang",
-  "name": "笑傲·黑木崖问剑",
+  "name": "笑傲·营救任我行",
   "type": "chain",
   "triggerNpcId": "linghu_chong",
   "excludeFactionId": "riyue",
   "minAnyArtLevel": 5,
   "exclusiveWithQuestIds": ["riyue_dongfang_test", "xiaojiao_evil"],
   "relatedNpcIds": ["dongfang_bubai", "ren_woxing", "xiang_wentian", "ren_yingying"],
-  "description": "你已加入其他门派或正云游四方，无法参与日月神教内部的黑木崖之变。令狐冲却告知你，东方不败近来现身黑木崖后山。若想印证武学，可前往挑战这位天下第一高手。",
+  "description": "你未加入日月神教，无法参与教内晋升。令狐冲却私下找你商议：任我行被囚十二年，刚脱困时神志不清，任盈盈正将他藏在黑木崖。你须潜入总坛打探消息，助任我行恢复，再赴后山迎战东方不败。",
   "difficulty": "hard",
   "introDialogue": {
     "lines": [
-      { "speaker": "linghu_chong", "lines": ["东方不败武功诡谲，江湖中少有人敢直面其锋。", "你若真要去黑木崖问剑，令狐冲敬你这份胆气。"] }
+      { "speaker": "linghu_chong", "lines": ["任教主被东方不败囚禁十二年，虽已脱困，神志却仍受真气反噬。", "盈盈将他藏在黑木崖中。我一人难以周全，想请兄台与我一道救他出来。"] },
+      { "speaker": "玩家", "lines": ["任前辈既遭此劫，在下愿随令狐兄走这一遭。"] }
     ]
   },
   "steps": [
     {
-      "id": "hear_challenge",
+      "id": "hear_rescue_plan",
       "actionType": "talk",
       "targetNPC": "linghu_chong",
-      "description": "与令狐冲商议黑木崖问剑之事。",
+      "description": "与令狐冲商议营救任我行的计划。",
       "reward": { "jianghuExp": 120 }
     },
     {
-      "id": "go_heimuya",
+      "id": "reach_heimuya",
+      "actionType": "go",
+      "targetScene": "heimuya_scene",
+      "description": "前往黑木崖总坛，在日月神教眼皮底下探听消息。",
+      "reward": { "jianghuExp": 120 }
+    },
+    {
+      "id": "ask_yingying",
+      "actionType": "talk",
+      "targetNPC": "ren_yingying",
+      "description": "与任盈盈打探任我行的下落和后山消息。",
+      "aiHint": "你忧心父亲被囚十二年后神志不清，又不愿轻信外人。确认玩家受令狐冲所托后，说明父亲被藏在总坛密室，并请玩家助他压下真气反噬。",
+      "reward": { "jianghuExp": 180 },
+      "dialogue": {
+        "lines": [
+          { "speaker": "ren_yingying", "lines": ["爹爹刚脱困时，体内异种真气冲撞，至今神志不清。", "我将他藏在总坛密室，若你真能助他恢复，盈盈必铭记此恩。"] },
+          { "speaker": "玩家", "lines": ["任姑娘带路吧。先救任前辈，再论东方不败。"] }
+        ]
+      }
+    },
+    {
+      "id": "rescue_ren_woxing",
+      "actionType": "talk",
+      "targetNPC": "ren_woxing",
+      "description": "进入总坛密室，救治神志不清的任我行，助他恢复神志。",
+      "aiHint": "你刚从囚禁中脱困，体内异种真气反噬，神智混乱。面对玩家时先本能戒备，随后在其帮助下逐渐恢复清醒。",
+      "reward": { "jianghuExp": 420, "reputationBonus": 180 }
+    },
+    {
+      "id": "go_heimuya_backhill",
       "actionType": "go",
       "targetScene": "heimuya_backhill",
-      "description": "前往黑木崖后山，寻找东方不败。",
+      "description": "循线索前往黑木崖后山，与恢复神志的任我行一同面对东方不败。抵达即会触发决战。",
       "reward": { "jianghuExp": 180 }
     },
     {
       "id": "fight_dongfang",
       "actionType": "fight",
       "targetNPC": "dongfang_bubai",
-      "description": "挑战东方不败，印证自身武学。",
+      "description": "黑木崖后山决战东方不败（此战战败即游戏结束）。",
       "reward": { "jianghuExp": 600, "reputationBonus": 600 }
     }
   ],
@@ -45,7 +75,7 @@
   },
   "completeDialogue": {
     "lines": [
-      { "speaker": "旁白", "lines": ["黑木崖一战传遍江湖。无论你最后如何处置东方不败，敢向天下第一问剑，已足令群雄侧目。"] }
+      { "speaker": "旁白", "lines": ["黑木崖一战传遍江湖。东方不败战败遁隐，任我行留在总坛坐镇。你救人、破局、决战一气呵成，群雄无不侧目。"] }
     ]
   }
 }

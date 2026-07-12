@@ -314,8 +314,8 @@ public class DungeonForm : Form
             return;
         }
         var snap = _runner.GetSnapshot();
-        if (_runner.IsHuashanLunjian)
-            AppendLog($"═══ 华山论剑 · 第 {snap.OpponentIndex + 1} / {snap.OpponentTotalInRound} 位绝顶高手 ═══");
+        if (!string.IsNullOrEmpty(_runner.EventTitle))
+            AppendLog($"═══ {_runner.EventTitle} · 第 {snap.OpponentIndex + 1} / {snap.OpponentTotalInRound} 位绝顶高手 ═══");
         else
             AppendLog($"═══ 第 {snap.RoundIndex + 1} 轮 / 共 {snap.RoundCount} 轮 - 第 {snap.OpponentIndex + 1} / {snap.OpponentTotalInRound} 名对手 ═══");
         AppendLog($"对手登场:{snap.Opponent?.Name}");
@@ -328,8 +328,8 @@ public class DungeonForm : Form
         var snap = _runner.GetSnapshot();
         _progressLabel.Text = snap.RoundIndex < 0
             ? "副本进度:准备中"
-            : _runner.IsHuashanLunjian
-                ? $"华山论剑 · 第 {snap.OpponentIndex + 1}/{snap.OpponentTotalInRound} 位绝顶高手"
+            : !string.IsNullOrEmpty(_runner.EventTitle)
+                ? $"{_runner.EventTitle} · 第 {snap.OpponentIndex + 1}/{snap.OpponentTotalInRound} 位绝顶高手"
                 : $"副本进度:第 {snap.RoundIndex + 1}/{snap.RoundCount} 轮 · 对手 {snap.OpponentIndex + 1}/{snap.OpponentTotalInRound}";
 
         var p = _runner.Player;

@@ -7,7 +7,7 @@ using AutoWuxia.Core;
 namespace AutoWuxia.Systems;
 
 /// <summary>
-/// 年度 Agent 的剧情编辑器工具集 —— 让 AI 像编辑器一样拼装/修改长链式剧情任务(江湖大事件)。
+/// 季度 Agent 的剧情编辑器工具集 —— 让 AI 像编辑器一样拼装/修改可完整游玩的长链式剧情任务。
 /// 工作流: create_story_quest(建骨架) → add_quest_step(插步骤) → update/remove(打磨) → finalize(定稿入可接取池)。
 /// 所有引用(NPC/场景/武功/物品)均经防幻觉校验,失败返回错误让AI重试。
 /// 每个工具返回 JSON 含 narration 字段(玩家视角文案),供进度窗体显示。
@@ -19,6 +19,14 @@ public class AnnualAgentTools
 
     /// <summary>正在编辑中的草稿任务(Key=questId)。定稿后从草稿移除,加入 State.RuntimeQuests。</summary>
     private readonly Dictionary<string, QuestConfig> _drafts = new();
+
+    /// <summary>本次季度生成已成功定稿的任务数；季度 Agent 必须恰好生成一条。</summary>
+    public int FinalizedQuestCount { get; private set; }
+
+    private static readonly HashSet<string> SupportedActionTypes = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "talk", "fight", "spar", "kill", "spare", "go", "mine", "submit"
+    };
 
     public AnnualAgentTools(GameState state, ConfigManager config)
     {
@@ -62,7 +70,7 @@ public class AnnualAgentTools
         }
         catch (Exception ex)
         {
-            GameLogger.AI($"[年度工具异常] {toolName}: {ex.Message}");
+            GameLogger.AI($"[季度工具异常] {toolName}: {ex.Message}");
             return $"{{\"error\": \"工具执行失败: {ex.Message}\"}}";
         }
     }
@@ -74,21 +82,19 @@ public class AnnualAgentTools
         return new ToolDefinition
         {
             Name = "create_story_quest",
-            Description = "创建一个江湖大事件剧情任务的骨架(空步骤)。后续用 add_quest_step 逐步添加步骤。questId需全局唯一,如 event_xxx。",
+            Description = "创建本季度唯一的一条剧情任务骨架（空步骤）。后续用 add_quest_step 逐步添加步骤。questId必须全局唯一且以quarter_开头，如quarter_taohua_mystery；创建时必须给出有效最终奖励。",
             Parameters = new
             {
                 type = "object",
                 properties = new
                 {
-                    questId = new { type = "string", description = "任务唯一ID,如 event_taohua_mystery" },
+                    questId = new { type = "string", description = "任务唯一ID，必须以quarter_开头，如quarter_taohua_mystery" },
                     name = new { type = "string", description = "任务中文名,如 桃花岛之谜" },
                     description = new { type = "string", description = "任务总体描述(剧情背景)" },
                     triggerNpcId = new { type = "string", description = "触发该任务的NPC ID(必须现存,玩家与之对话可接取)" },
-                    difficulty = new { type = "string", description = "难度 easy/normal/hard" },
-                    minFavorability = new { type = "integer", description = "接取所需最低好感度(0-100),默认0" },
+                    difficulty = new { type = "string", description = "难度 easy/normal/hard/legendary" },
+                    minFavorability = new { type = "integer", description = "接取所需最低好感度（不可高于该NPC当前好感度），默认0" },
                     relatedNpcIds = new { type = "array", items = new { type = "string" }, description = "关联NPC ID列表(对话时知情但不知详情)" },
-                    prerequisiteQuestIds = new { type = "array", items = new { type = "string" }, description = "前置任务ID列表(须全部完成才可接取,用于多线汇聚)" },
-                    exclusiveWithQuestIds = new { type = "array", items = new { type = "string" }, description = "互斥任务ID列表(任一已在玩家任务日志则本任务不可接取,用于正/恶线互斥)" },
                     finalReward = new
                     {
                         type = "object",
@@ -103,7 +109,7 @@ public class AnnualAgentTools
                         }
                     }
                 },
-                required = new[] { "questId", "name", "description", "triggerNpcId" }
+                required = new[] { "questId", "name", "description", "triggerNpcId", "finalReward" }
             }
         };
     }
@@ -118,10 +124,33 @@ public class AnnualAgentTools
 
         if (string.IsNullOrEmpty(questId) || string.IsNullOrEmpty(name))
             return Err("questId和name不能为空");
+        if (!questId.StartsWith("quarter_", StringComparison.Ordinal))
+            return Err("季度剧情任务的questId必须以quarter_开头");
+        if (_drafts.Count > 0 || FinalizedQuestCount > 0)
+            return Err("每季度只能创建并定稿一条剧情任务链");
         if (_drafts.ContainsKey(questId) || QuestIdExists(questId))
             return Err($"questId已存在: {questId}");
         if (!NpcExists(triggerNpcId))
             return Err($"触发NPC不存在: {triggerNpcId}(用query_world_elements查可用NPC)");
+
+        var difficulty = args.TryGetProperty("difficulty", out var difficultyEl)
+            ? difficultyEl.GetString() ?? "normal" : "normal";
+        if (difficulty is not ("easy" or "normal" or "hard" or "legendary"))
+            return Err("difficulty只可为 easy/normal/hard/legendary");
+        int minFavorability = args.TryGetProperty("minFavorability", out var favorEl) ? favorEl.GetInt32() : 0;
+        if (minFavorability is < 0 or > 50)
+            return Err("minFavorability必须在0-50之间，避免任务无法接取");
+        var currentFavorability = _state.AllNPCs[triggerNpcId].GetRelation(_state.Player.Id).Favorability;
+        if (minFavorability > currentFavorability)
+            return Err($"minFavorability不能高于触发NPC当前好感度({currentFavorability})，否则任务无法立刻接取");
+        if (args.TryGetProperty("prerequisiteQuestIds", out var prereqEl) && prereqEl.ValueKind == JsonValueKind.Array && prereqEl.GetArrayLength() > 0)
+            return Err("季度剧情必须独立可接取，不支持前置任务");
+        if (args.TryGetProperty("exclusiveWithQuestIds", out var exclusiveEl) && exclusiveEl.ValueKind == JsonValueKind.Array && exclusiveEl.GetArrayLength() > 0)
+            return Err("季度剧情不支持互斥任务分支");
+        if (!args.TryGetProperty("finalReward", out var rewardEl) || rewardEl.ValueKind != JsonValueKind.Object)
+            return Err("finalReward不能为空，季度剧情必须在创建时确定有意义的最终奖励");
+        var rewardError = ValidateRewardReferences(rewardEl);
+        if (rewardError != null) return Err(rewardError);
 
         var cfg = new QuestConfig
         {
@@ -130,29 +159,29 @@ public class AnnualAgentTools
             Type = "chain",
             Description = desc,
             TriggerNpcId = triggerNpcId,
-            Difficulty = args.TryGetProperty("difficulty", out var d) ? d.GetString() ?? "normal" : "normal",
-            MinFavorabilityToOffer = args.TryGetProperty("minFavorability", out var f) ? f.GetInt32() : 0,
+            Difficulty = difficulty,
+            MinFavorabilityToOffer = minFavorability,
             RelatedNpcIds = args.TryGetProperty("relatedNpcIds", out var r) && r.ValueKind == JsonValueKind.Array
                 ? r.EnumerateArray().Select(x => x.GetString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList()
                 : new List<string>(),
-            PrerequisiteQuestIds = args.TryGetProperty("prerequisiteQuestIds", out var pre) && pre.ValueKind == JsonValueKind.Array
-                ? pre.EnumerateArray().Select(x => x.GetString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList()
-                : new List<string>(),
-            ExclusiveWithQuestIds = args.TryGetProperty("exclusiveWithQuestIds", out var ex) && ex.ValueKind == JsonValueKind.Array
-                ? ex.EnumerateArray().Select(x => x.GetString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList()
-                : new List<string>()
+            PrerequisiteQuestIds = new List<string>(),
+            ExclusiveWithQuestIds = new List<string>()
         };
 
+        if (cfg.RelatedNpcIds.Any(id => !NpcExists(id)))
+            return Err("relatedNpcIds含有不可互动的NPC");
+        if (cfg.PrerequisiteQuestIds.Any(id => !QuestReferenceExists(id)))
+            return Err("prerequisiteQuestIds含有不存在的任务ID");
+        if (cfg.ExclusiveWithQuestIds.Any(id => !QuestReferenceExists(id)))
+            return Err("exclusiveWithQuestIds含有不存在的任务ID");
+
         // 解析最终奖励
-        if (args.TryGetProperty("finalReward", out var rw) && rw.ValueKind == JsonValueKind.Object)
-        {
-            cfg.Reward = ParseReward(rw);
-        }
-        if (cfg.Reward == null)
-            cfg.Reward = new QuestRewardConfig();
+        cfg.Reward = ParseReward(rewardEl);
+        if (!HasMeaningfulReward(cfg.Reward))
+            return Err("finalReward至少要包含一项有效奖励（银两、阅历、声望、武功或物品）");
 
         _drafts[questId] = cfg;
-        GameLogger.AI($"[年度] 创建任务骨架: {name}({questId}) 触发={triggerNpcId}");
+        GameLogger.AI($"[季度] 创建任务骨架: {name}({questId}) 触发={triggerNpcId}");
 
         return Json(new
         {
@@ -168,7 +197,7 @@ public class AnnualAgentTools
         return new ToolDefinition
         {
             Name = "add_quest_step",
-            Description = "向任务添加一个步骤节点。actionType: talk(对话NPC)/fight(战胜NPC)/go(到达场景)/kill(杀死)/spare(放过)/meditate(场景面壁)/mine(场景挖矿)/submit(提交物品)/dungeon(进副本)。targetNPC/targetScene/reward按actionType填写。insertIndex可选(插入位置,不填末尾追加)。",
+            Description = "向任务添加一个可实际完成的步骤。actionType仅可为 talk(对话NPC)/fight(战胜NPC)/spar(切磋胜利)/kill(战后杀死)/spare(战后放过)/go(到达场景)/mine(场景挖矿)/submit(提交物品)。talk/fight/spar/kill/spare必须有targetNPC；go/mine必须有targetScene；submit必须有requiredItems且物品须由玩家当前持有。季度剧情任务不支持dungeon或meditate步骤。",
             Parameters = new
             {
                 type = "object",
@@ -177,10 +206,16 @@ public class AnnualAgentTools
                     questId = new { type = "string" },
                     stepId = new { type = "string", description = "步骤唯一ID,如 step_meet" },
                     description = new { type = "string", description = "步骤描述(玩家可见)" },
-                    actionType = new { type = "string", description = "talk/fight/go/kill/spare/meditate/mine/submit/dungeon" },
+                    actionType = new { type = "string", description = "talk/fight/spar/kill/spare/go/mine/submit" },
                     targetNPC = new { type = "string", description = "目标NPC ID(talk/fight/kill等用,须现存)" },
                     targetScene = new { type = "string", description = "目标场景ID(go/meditate/mine用,须现存)" },
                     aiHint = new { type = "string", description = "给发布者/目标NPC的剧情态度提示(可选)" },
+                    requiredItems = new
+                    {
+                        type = "array",
+                        description = "仅 submit 步骤使用：玩家需提交的现存物品，结构[{itemId,quantity}]",
+                        items = new { type = "object", properties = new { itemId = new { type = "string" }, quantity = new { type = "integer" } } }
+                    },
                     insertIndex = new { type = "integer", description = "插入位置(0=最前,不填=末尾追加)" },
                     reward = new
                     {
@@ -215,13 +250,26 @@ public class AnnualAgentTools
         var targetNPC = args.TryGetProperty("targetNPC", out var tn) ? tn.GetString() : null;
         var targetScene = args.TryGetProperty("targetScene", out var ts) ? ts.GetString() : null;
 
-        // 防幻觉校验
+        if (string.IsNullOrWhiteSpace(stepId) || string.IsNullOrWhiteSpace(desc))
+            return Err("stepId和description不能为空");
+        if (!SupportedActionTypes.Contains(actionType))
+            return Err("actionType只可为 talk/fight/spar/kill/spare/go/mine/submit；季度剧情任务不支持dungeon或meditate");
         if (!string.IsNullOrEmpty(targetNPC) && !NpcExists(targetNPC))
             return Err($"targetNPC不存在: {targetNPC}");
         if (!string.IsNullOrEmpty(targetScene) && !SceneExists(targetScene))
             return Err($"targetScene不存在: {targetScene}");
         if (cfg.Steps.Any(s => s.Id == stepId))
             return Err($"stepId已存在: {stepId}");
+
+        var requiredItems = ParseRequiredItems(args, out var requiredItemsError);
+        if (requiredItemsError != null) return Err(requiredItemsError);
+        var stepValidationError = ValidateStep(actionType, targetNPC, targetScene, requiredItems);
+        if (stepValidationError != null) return Err(stepValidationError);
+        if (args.TryGetProperty("reward", out var rewardEl) && rewardEl.ValueKind == JsonValueKind.Object)
+        {
+            var rewardError = ValidateRewardReferences(rewardEl);
+            if (rewardError != null) return Err(rewardError);
+        }
 
         var step = new QuestStepConfig
         {
@@ -230,7 +278,8 @@ public class AnnualAgentTools
             ActionType = actionType,
             TargetNPC = targetNPC,
             TargetScene = targetScene,
-            AiHint = args.TryGetProperty("aiHint", out var ah) ? ah.GetString() : null
+            AiHint = args.TryGetProperty("aiHint", out var ah) ? ah.GetString() : null,
+            RequiredItems = requiredItems
         };
         if (args.TryGetProperty("reward", out var rw) && rw.ValueKind == JsonValueKind.Object)
             step.Reward = ParseReward(rw);
@@ -246,7 +295,7 @@ public class AnnualAgentTools
         }
 
         var npcName = !string.IsNullOrEmpty(targetNPC) ? GetNpcName(targetNPC) : "";
-        GameLogger.AI($"[年度] {cfg.Name} 添加步骤 {stepId}({actionType}) 共{cfg.Steps.Count}步");
+        GameLogger.AI($"[季度] {cfg.Name} 添加步骤 {stepId}({actionType}) 共{cfg.Steps.Count}步");
 
         return Json(new
         {
@@ -317,6 +366,7 @@ public class AnnualAgentTools
                     targetNPC = new { type = "string" },
                     targetScene = new { type = "string" },
                     aiHint = new { type = "string" },
+                    requiredItems = new { type = "array", items = new { type = "object" } },
                     reward = new { type = "object" }
                 },
                 required = new[] { "questId", "stepId" }
@@ -335,23 +385,35 @@ public class AnnualAgentTools
         var step = cfg.Steps.FirstOrDefault(s => s.Id == stepId);
         if (step == null) return Err($"步骤不存在: {stepId}");
 
-        if (args.TryGetProperty("description", out var d)) step.Description = d.GetString() ?? step.Description;
-        if (args.TryGetProperty("actionType", out var at)) step.ActionType = at.GetString() ?? step.ActionType;
-        if (args.TryGetProperty("targetNPC", out var tn))
+        var nextDescription = args.TryGetProperty("description", out var d) ? d.GetString() ?? step.Description : step.Description;
+        var nextActionType = args.TryGetProperty("actionType", out var at) ? at.GetString() ?? step.ActionType : step.ActionType;
+        var nextTargetNpc = args.TryGetProperty("targetNPC", out var tn) ? tn.GetString() : step.TargetNPC;
+        var nextTargetScene = args.TryGetProperty("targetScene", out var ts) ? ts.GetString() : step.TargetScene;
+        var nextRequiredItems = new List<QuestItemRequirementConfig>(step.RequiredItems);
+        if (args.TryGetProperty("requiredItems", out _))
         {
-            var v = tn.GetString();
-            if (!string.IsNullOrEmpty(v) && !NpcExists(v)) return Err($"targetNPC不存在: {v}");
-            step.TargetNPC = v;
+            nextRequiredItems = ParseRequiredItems(args, out var itemError);
+            if (itemError != null) return Err(itemError);
         }
-        if (args.TryGetProperty("targetScene", out var ts))
-        {
-            var v = ts.GetString();
-            if (!string.IsNullOrEmpty(v) && !SceneExists(v)) return Err($"targetScene不存在: {v}");
-            step.TargetScene = v;
-        }
-        if (args.TryGetProperty("aiHint", out var ah)) step.AiHint = ah.GetString();
+        if (!SupportedActionTypes.Contains(nextActionType))
+            return Err("actionType只可为 talk/fight/spar/kill/spare/go/mine/submit");
+        if (!string.IsNullOrEmpty(nextTargetNpc) && !NpcExists(nextTargetNpc)) return Err($"targetNPC不存在: {nextTargetNpc}");
+        if (!string.IsNullOrEmpty(nextTargetScene) && !SceneExists(nextTargetScene)) return Err($"targetScene不存在: {nextTargetScene}");
+        var validationError = ValidateStep(nextActionType, nextTargetNpc, nextTargetScene, nextRequiredItems);
+        if (validationError != null) return Err(validationError);
         if (args.TryGetProperty("reward", out var rw) && rw.ValueKind == JsonValueKind.Object)
+        {
+            var rewardError = ValidateRewardReferences(rw);
+            if (rewardError != null) return Err(rewardError);
             step.Reward = ParseReward(rw);
+        }
+
+        step.Description = nextDescription;
+        step.ActionType = nextActionType;
+        step.TargetNPC = nextTargetNpc;
+        step.TargetScene = nextTargetScene;
+        step.RequiredItems = nextRequiredItems;
+        if (args.TryGetProperty("aiHint", out var ah)) step.AiHint = ah.GetString();
 
         return Json(new { questId, stepId, success = true, narration = $"「{cfg.Name}」的细节似乎在悄然改变..." });
     }
@@ -363,7 +425,7 @@ public class AnnualAgentTools
         return new ToolDefinition
         {
             Name = "finalize_story_quest",
-            Description = "将草稿任务定稿,注册到运行时可接取池。玩家与triggerNpc对话(满足好感度)即可接取。定稿前需至少1个步骤且有最终奖励。",
+            Description = "将草稿任务定稿，注册到运行时可接取池。定稿会强制校验：3-6个可达步骤、有效最终奖励、至少两段开场RPG对话、一段结局对话、至少一个带剧情对话的转折步骤，以及全部 NPC/场景/物品/武功引用。",
             Parameters = new
             {
                 type = "object",
@@ -383,27 +445,38 @@ public class AnnualAgentTools
         if (!_drafts.TryGetValue(questId, out var cfg))
             return Err($"任务草稿不存在: {questId}");
 
-        if (cfg.Steps.Count == 0)
-            return Err("任务至少需要1个步骤才能定稿(用add_quest_step添加)");
+        if (cfg.Steps.Count < 3 || cfg.Steps.Count > 6)
+            return Err("季度剧情任务必须有3-6个步骤，保证有起承转合且不会拖沓");
         if (string.IsNullOrEmpty(cfg.TriggerNpcId))
             return Err("任务缺少触发NPC");
         if (cfg.Reward == null)
             cfg.Reward = new QuestRewardConfig();
+        if (!HasMeaningfulReward(cfg.Reward))
+            return Err("任务缺少有效的最终奖励；请设置阅历/银两/声望/武功/物品之一");
+        if (cfg.IntroDialogue?.Lines.Count < 2)
+            return Err("请先用set_quest_dialogue为intro写至少两段RPG开场对话");
+        if (cfg.CompleteDialogue?.Lines.Count < 1)
+            return Err("请先用set_quest_dialogue为complete写结局对话");
+        if (!cfg.Steps.Skip(1).Take(cfg.Steps.Count - 2).Any(s => s.Dialogue?.Lines.Count > 0))
+            return Err("请至少为一个中间转折步骤设置RPG剧情对话");
 
         // 校验所有步骤的引用仍合法
         foreach (var s in cfg.Steps)
         {
+            var stepError = ValidateStep(s.ActionType, s.TargetNPC, s.TargetScene, s.RequiredItems);
+            if (stepError != null) return Err($"步骤{s.Id}无效: {stepError}");
             if (!string.IsNullOrEmpty(s.TargetNPC) && !NpcExists(s.TargetNPC))
-                return Err($"步骤{s.Id}的targetNPC不存在: {s.TargetNPC}");
+                return Err($"步骤{s.Id}的targetNPC不可互动: {s.TargetNPC}");
             if (!string.IsNullOrEmpty(s.TargetScene) && !SceneExists(s.TargetScene))
                 return Err($"步骤{s.Id}的targetScene不存在: {s.TargetScene}");
         }
 
         _drafts.Remove(questId);
         _state.RuntimeQuests.Add(cfg);
+        FinalizedQuestCount++;
 
         var triggerName = GetNpcName(cfg.TriggerNpcId);
-        GameLogger.AI($"[年度] 任务定稿: {cfg.Name}({questId}) {cfg.Steps.Count}步 触发={triggerName}");
+        GameLogger.AI($"[季度] 任务定稿: {cfg.Name}({questId}) {cfg.Steps.Count}步 触发={triggerName}");
 
         // 检查是否有武功/物品奖励,生成"现世"文案
         string treasureHint = "";
@@ -502,7 +575,7 @@ public class AnnualAgentTools
             step.Dialogue = script;
         }
 
-        GameLogger.AI($"[年度] {cfg.Name} 设置对话 target={target} 共{script.Lines.Count}段");
+        GameLogger.AI($"[季度] {cfg.Name} 设置对话 target={target} 共{script.Lines.Count}段");
         return Json(new
         {
             questId, target, success = true,
@@ -541,7 +614,7 @@ public class AnnualAgentTools
         if (type is "npc" or "all")
         {
             foreach (var (id, npc) in _state.AllNPCs)
-                if (npc.IsAlive) result.Add(new { id, name = npc.Name, type = "npc" });
+                if (npc.IsAlive && !npc.IsHidden) result.Add(new { id, name = npc.Name, type = "npc" });
         }
         if (type is "scene" or "all")
         {
@@ -597,7 +670,7 @@ public class AnnualAgentTools
     private static string Json(object obj) =>
         JsonSerializer.Serialize(obj, new JsonSerializerOptions { WriteIndented = false });
 
-    private bool NpcExists(string id) => _state.AllNPCs.ContainsKey(id) && _state.AllNPCs[id].IsAlive;
+    private bool NpcExists(string id) => _state.AllNPCs.TryGetValue(id, out var npc) && npc.IsAlive && !npc.IsHidden;
 
     /// <summary>在草稿和已定稿运行时任务中查找任务配置。</summary>
     private QuestConfig? FindQuest(string questId)
@@ -608,6 +681,87 @@ public class AnnualAgentTools
     private bool SceneExists(string id) => _state.AllScenes.ContainsKey(id);
     private bool ItemExists(string id) => _config.Items.ContainsKey(id);
     private bool ArtExists(string id) => _config.MartialArts.ContainsKey(id);
+
+    private bool QuestReferenceExists(string id) =>
+        _config.Quests.ContainsKey(id) || _state.RuntimeQuests.Any(q => q.Id == id) || _drafts.ContainsKey(id);
+
+    private static string? ValidateStep(string actionType, string? targetNpc, string? targetScene,
+        IReadOnlyCollection<QuestItemRequirementConfig> requiredItems)
+    {
+        if (!SupportedActionTypes.Contains(actionType))
+            return "actionType不受支持";
+        if (actionType is "talk" or "fight" or "spar" or "kill" or "spare")
+            return string.IsNullOrEmpty(targetNpc) ? $"{actionType}步骤必须指定targetNPC" : null;
+        if (actionType is "go" or "mine")
+            return string.IsNullOrEmpty(targetScene) ? $"{actionType}步骤必须指定targetScene" : null;
+        if (actionType == "submit")
+            return requiredItems.Count == 0 ? "submit步骤必须指定requiredItems" : null;
+        if (requiredItems.Count > 0)
+            return "只有submit步骤可以设置requiredItems";
+        return null;
+    }
+
+    private List<QuestItemRequirementConfig> ParseRequiredItems(JsonElement args, out string? error)
+    {
+        error = null;
+        if (!args.TryGetProperty("requiredItems", out var itemsEl)) return new List<QuestItemRequirementConfig>();
+        if (itemsEl.ValueKind != JsonValueKind.Array)
+        {
+            error = "requiredItems必须是数组";
+            return new List<QuestItemRequirementConfig>();
+        }
+
+        var result = new List<QuestItemRequirementConfig>();
+        foreach (var itemEl in itemsEl.EnumerateArray())
+        {
+            var itemId = itemEl.TryGetProperty("itemId", out var idEl) ? idEl.GetString() ?? "" : "";
+            var quantity = itemEl.TryGetProperty("quantity", out var qtyEl) && qtyEl.ValueKind == JsonValueKind.Number
+                ? qtyEl.GetInt32() : 1;
+            if (string.IsNullOrEmpty(itemId) || !ItemExists(itemId))
+            {
+                error = $"requiredItems含有不存在的物品: {itemId}";
+                return new List<QuestItemRequirementConfig>();
+            }
+            if (quantity is < 1 or > 20)
+            {
+                error = "requiredItems的quantity必须在1-20之间";
+                return new List<QuestItemRequirementConfig>();
+            }
+            if (!_state.Player.Inventory.HasItem(itemId, quantity))
+            {
+                error = $"季度任务的submit物品必须为玩家当前持有: {itemId} x{quantity}";
+                return new List<QuestItemRequirementConfig>();
+            }
+            result.Add(new QuestItemRequirementConfig { ItemId = itemId, Quantity = quantity });
+        }
+        return result;
+    }
+
+    private string? ValidateRewardReferences(JsonElement reward)
+    {
+        if (reward.TryGetProperty("martialArtId", out var artEl) && artEl.ValueKind == JsonValueKind.String)
+        {
+            var artId = artEl.GetString() ?? "";
+            if (!string.IsNullOrEmpty(artId) && !ArtExists(artId))
+                return $"奖励武功不存在: {artId}";
+        }
+        if (reward.TryGetProperty("items", out var itemsEl) && itemsEl.ValueKind == JsonValueKind.Array)
+        {
+            foreach (var itemEl in itemsEl.EnumerateArray())
+            {
+                var itemId = itemEl.TryGetProperty("itemId", out var idEl) ? idEl.GetString() ?? "" : "";
+                if (string.IsNullOrEmpty(itemId) || !ItemExists(itemId))
+                    return $"奖励物品不存在: {itemId}";
+            }
+        }
+        return null;
+    }
+
+    private static bool HasMeaningfulReward(QuestRewardConfig reward) =>
+        reward.GoldBonus != 0 || reward.ReputationBonus != 0 || reward.JianghuExp != 0 ||
+        reward.KarmaBonus != 0 || reward.HPBonus != 0 || reward.MPBonus != 0 ||
+        reward.AttackBonus != 0 || reward.DefenseBonus != 0 ||
+        !string.IsNullOrEmpty(reward.MartialArtId) || reward.Items.Count > 0;
 
     private string GetNpcName(string id) =>
         _state.AllNPCs.TryGetValue(id, out var n) ? n.Name : id;
@@ -623,14 +777,14 @@ public class AnnualAgentTools
     private QuestRewardConfig ParseReward(JsonElement rw)
     {
         var reward = new QuestRewardConfig();
-        if (rw.TryGetProperty("goldBonus", out var g) && g.ValueKind == JsonValueKind.Number) reward.GoldBonus = g.GetInt32();
-        if (rw.TryGetProperty("reputationBonus", out var rep) && rep.ValueKind == JsonValueKind.Number) reward.ReputationBonus = rep.GetInt32();
-        if (rw.TryGetProperty("jianghuExp", out var je) && je.ValueKind == JsonValueKind.Number) reward.JianghuExp = je.GetInt32();
-        if (rw.TryGetProperty("karmaBonus", out var kb) && kb.ValueKind == JsonValueKind.Number) reward.KarmaBonus = kb.GetInt32();
-        if (rw.TryGetProperty("hpBonus", out var hp) && hp.ValueKind == JsonValueKind.Number) reward.HPBonus = hp.GetInt32();
-        if (rw.TryGetProperty("mpBonus", out var mp) && mp.ValueKind == JsonValueKind.Number) reward.MPBonus = mp.GetInt32();
-        if (rw.TryGetProperty("attackBonus", out var ab) && ab.ValueKind == JsonValueKind.Number) reward.AttackBonus = ab.GetInt32();
-        if (rw.TryGetProperty("defenseBonus", out var db) && db.ValueKind == JsonValueKind.Number) reward.DefenseBonus = db.GetInt32();
+        if (rw.TryGetProperty("goldBonus", out var g) && g.ValueKind == JsonValueKind.Number) reward.GoldBonus = Math.Clamp(g.GetInt32(), 0, 5000);
+        if (rw.TryGetProperty("reputationBonus", out var rep) && rep.ValueKind == JsonValueKind.Number) reward.ReputationBonus = Math.Clamp(rep.GetInt32(), 0, 1000);
+        if (rw.TryGetProperty("jianghuExp", out var je) && je.ValueKind == JsonValueKind.Number) reward.JianghuExp = Math.Clamp(je.GetInt32(), 0, 10000);
+        if (rw.TryGetProperty("karmaBonus", out var kb) && kb.ValueKind == JsonValueKind.Number) reward.KarmaBonus = Math.Clamp(kb.GetInt32(), -20, 20);
+        if (rw.TryGetProperty("hpBonus", out var hp) && hp.ValueKind == JsonValueKind.Number) reward.HPBonus = Math.Clamp(hp.GetInt32(), 0, 1000);
+        if (rw.TryGetProperty("mpBonus", out var mp) && mp.ValueKind == JsonValueKind.Number) reward.MPBonus = Math.Clamp(mp.GetInt32(), 0, 1000);
+        if (rw.TryGetProperty("attackBonus", out var ab) && ab.ValueKind == JsonValueKind.Number) reward.AttackBonus = Math.Clamp(ab.GetInt32(), 0, 80);
+        if (rw.TryGetProperty("defenseBonus", out var db) && db.ValueKind == JsonValueKind.Number) reward.DefenseBonus = Math.Clamp(db.GetInt32(), 0, 80);
 
         if (rw.TryGetProperty("martialArtId", out var ma) && ma.ValueKind == JsonValueKind.String)
         {
@@ -645,7 +799,7 @@ public class AnnualAgentTools
             foreach (var it in its.EnumerateArray())
             {
                 var itemId = it.TryGetProperty("itemId", out var ii2) ? ii2.GetString() ?? "" : "";
-                var qty = it.TryGetProperty("quantity", out var q) ? q.GetInt32() : 1;
+                var qty = it.TryGetProperty("quantity", out var q) ? Math.Clamp(q.GetInt32(), 1, 20) : 1;
                 if (!string.IsNullOrEmpty(itemId) && ItemExists(itemId))
                     reward.Items.Add(new RewardItemConfig { ItemId = itemId, Quantity = qty });
             }

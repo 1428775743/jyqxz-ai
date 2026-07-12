@@ -167,6 +167,27 @@ public class StartForm : Form
         tooltip.SetToolTip(settingsBtn, "设置 AI 模型");
         Controls.Add(settingsBtn);
 
+        var achievementsBtn = new Button
+        {
+            Text = "成就",
+            Location = new Point(755, 18),
+            Size = new Size(76, 32),
+            BackColor = Color.FromArgb(58, 42, 30),
+            ForeColor = Color.FromArgb(230, 180, 90),
+            FlatStyle = FlatStyle.Flat,
+            Font = WuxiaTheme.UiFont(9f, FontStyle.Bold),
+            Cursor = Cursors.Hand,
+            UseVisualStyleBackColor = false
+        };
+        achievementsBtn.FlatAppearance.BorderColor = Color.FromArgb(200, 150, 70);
+        achievementsBtn.Click += (_, _) =>
+        {
+            using var form = new AchievementsForm();
+            form.ShowDialog(this);
+        };
+        tooltip.SetToolTip(achievementsBtn, "查看已解锁的江湖结局成就");
+        Controls.Add(achievementsBtn);
+
         WuxiaTheme.ApplyScaling(this);  // 应用界面缩放
     }
 

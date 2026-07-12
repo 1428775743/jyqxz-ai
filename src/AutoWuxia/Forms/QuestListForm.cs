@@ -3,6 +3,7 @@ using AutoWuxia.Core;
 using AutoWuxia.Forms.Controls;
 using AutoWuxia.Items;
 using AutoWuxia.Quests;
+using AutoWuxia.Systems;
 
 namespace AutoWuxia.Forms;
 
@@ -390,6 +391,8 @@ public class QuestListForm : Form
         if (string.IsNullOrEmpty(q.DungeonId)) return;
         var player = _engine.State.Player;
         var isHuashan = q.DungeonId == "huashan_lunjian";
+        var isTrueHuashan = q.DungeonId == "true_huashan_lunjian";
+        var isWulinConference = q.DungeonId == "wulin_conference";
 
         // 体力检查
         if (_engine.Config.Dungeons.TryGetValue(q.DungeonId, out var dCfg))
@@ -403,15 +406,32 @@ public class QuestListForm : Form
         }
 
         // 华山论剑为终章之战:败北即 Game Over,进入前确认(须在 CreateHuashanRunner 满血之前)
-        if (isHuashan)
+        if (isTrueHuashan)
+        {
+            var confirm = MessageBox.Show(this,
+                "乔峰、东方不败、张三丰与作者君将依次出手。此战为不间断车轮战，败北即游戏结束。\n\n是否登上真华山？",
+                "真·华山论剑", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm != DialogResult.Yes) return;
+        }
+        else if (isHuashan)
         {
             var confirm = MessageBox.Show(this,
                 "华山论剑乃江湖终章之战。\n十位绝顶高手车轮鏖战,中途不回血,败北即游戏结束。\n\n是否登顶华山?",
                 "华山论剑", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirm != DialogResult.Yes) return;
         }
+        else if (isWulinConference)
+        {
+            var confirm = MessageBox.Show(this,
+                "武林大会每战结束后会与对手论道，下一战开始前将恢复至满气血、满内力。\n\n是否赴会？",
+                "武林大会", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (confirm != DialogResult.Yes) return;
+        }
 
-        var runner = isHuashan ? _engine.CreateHuashanRunner() : _engine.CreateDungeonRunner(q.DungeonId);
+        var runner = isTrueHuashan ? _engine.CreateTrueHuashanRunner()
+            : isHuashan ? _engine.CreateHuashanRunner()
+            : isWulinConference ? _engine.CreateWulinConferenceRunner()
+            : _engine.CreateDungeonRunner(q.DungeonId);
         if (runner == null)
         {
             MessageBox.Show(this, "副本配置未找到: " + q.DungeonId, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -446,6 +466,45 @@ public class QuestListForm : Form
                     return;
                 }
             }
+            else if (isTrueHuashan)
+            {
+                EndgameSystem.CompleteEnding(_engine.State, EndingType.TrueHuashan);
+                using var ending = new EndingForm(_engine, runner.DefeatedOpponents, EndingType.TrueHuashan);
+                WuxiaTheme.ApplyScaling(ending);
+                ending.ShowDialog(this);
+                if (ending.ReturnToStart)
+                {
+                    ReturnToStart = true;
+                    DialogResult = DialogResult.OK;
+                    Close();
+                    return;
+                }
+            }
+            else if (isWulinConference)
+            {
+                var becomeLeader = WuxiaConfirmBox.Show(this, "群贤推举",
+                    "群雄拱手，请你执掌盟约。\n\n是否接下武林盟主之位？\n（拒绝后仍可继续游历江湖。）",
+                    "接任盟主", "婉拒", WuxiaConfirmStyle.Neutral);
+                if (becomeLeader)
+                {
+                    EndgameSystem.CompleteEnding(_engine.State, EndingType.WulinLeader);
+                    using var ending = new EndingForm(_engine, runner.DefeatedOpponents, EndingType.WulinLeader);
+                    WuxiaTheme.ApplyScaling(ending);
+                    ending.ShowDialog(this);
+                    if (ending.ReturnToStart)
+                    {
+                        ReturnToStart = true;
+                        DialogResult = DialogResult.OK;
+                        Close();
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(this, "你拱手谢绝盟主之位，群贤敬重你的选择。江湖路仍在脚下。",
+                        "武林大会", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
         else if (form.FinalOutcome == DungeonOutcome.Defeat)
         {
@@ -475,11 +534,33 @@ public class QuestListForm : Form
                 MessageBox.Show(this, $"{msg}\n\n获得: {summary}", "领取成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
             RefreshAll();
+            TryTriggerAllMainStoriesEnding();
         }
         else
         {
             MessageBox.Show(this, msg, "领取失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+    }
+
+    private void TryTriggerAllMainStoriesEnding()
+    {
+        if (!EndgameSystem.CanUnlockAllMainStoriesEnding(_engine.State.Player)
+            || EndgameSystem.IsEndingCompleted(_engine.State, EndingType.AllMainStories))
+            return;
+
+        if (!WuxiaConfirmBox.Show(this, "群书既毕",
+                "飞雪连天射白鹿，笑书神侠倚碧鸳。\n\n你已走完各部主线的最终篇章。是否为这一段圆满江湖落下结局？",
+                "写下结局", "再游一程", WuxiaConfirmStyle.Neutral))
+            return;
+
+        EndgameSystem.CompleteEnding(_engine.State, EndingType.AllMainStories);
+        using var ending = new EndingForm(_engine, Array.Empty<NPC>(), EndingType.AllMainStories);
+        WuxiaTheme.ApplyScaling(ending);
+        ending.ShowDialog(this);
+        if (!ending.ReturnToStart) return;
+        ReturnToStart = true;
+        DialogResult = DialogResult.OK;
+        Close();
     }
 
     private static string StatusText(QuestStatus s) => s switch
