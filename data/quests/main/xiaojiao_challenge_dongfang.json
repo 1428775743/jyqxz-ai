@@ -1,0 +1,51 @@
+{
+  "id": "xiaojiao_challenge_dongfang",
+  "name": "笑傲·黑木崖问剑",
+  "type": "chain",
+  "triggerNpcId": "linghu_chong",
+  "excludeFactionId": "riyue",
+  "minAnyArtLevel": 5,
+  "exclusiveWithQuestIds": ["riyue_dongfang_test", "xiaojiao_evil"],
+  "relatedNpcIds": ["dongfang_bubai", "ren_woxing", "xiang_wentian", "ren_yingying"],
+  "description": "你已加入其他门派或正云游四方，无法参与日月神教内部的黑木崖之变。令狐冲却告知你，东方不败近来现身黑木崖后山。若想印证武学，可前往挑战这位天下第一高手。",
+  "difficulty": "hard",
+  "introDialogue": {
+    "lines": [
+      { "speaker": "linghu_chong", "lines": ["东方不败武功诡谲，江湖中少有人敢直面其锋。", "你若真要去黑木崖问剑，令狐冲敬你这份胆气。"] }
+    ]
+  },
+  "steps": [
+    {
+      "id": "hear_challenge",
+      "actionType": "talk",
+      "targetNPC": "linghu_chong",
+      "description": "与令狐冲商议黑木崖问剑之事。",
+      "reward": { "jianghuExp": 120 }
+    },
+    {
+      "id": "go_heimuya",
+      "actionType": "go",
+      "targetScene": "heimuya_backhill",
+      "description": "前往黑木崖后山，寻找东方不败。",
+      "reward": { "jianghuExp": 180 }
+    },
+    {
+      "id": "fight_dongfang",
+      "actionType": "fight",
+      "targetNPC": "dongfang_bubai",
+      "description": "挑战东方不败，印证自身武学。",
+      "reward": { "jianghuExp": 600, "reputationBonus": 600 }
+    }
+  ],
+  "reward": {
+    "jianghuExp": 1000,
+    "goldBonus": 5000,
+    "reputationBonus": 1200,
+    "karmaBonus": 10
+  },
+  "completeDialogue": {
+    "lines": [
+      { "speaker": "旁白", "lines": ["黑木崖一战传遍江湖。无论你最后如何处置东方不败，敢向天下第一问剑，已足令群雄侧目。"] }
+    ]
+  }
+}

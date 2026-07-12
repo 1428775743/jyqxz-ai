@@ -1537,9 +1537,32 @@ public class MainForm : Form
 
         // 战斗胜利后尝试自动推进链式任务
         if (combat.Result.Outcome == CombatOutcome.PlayerWin)
+        {
             TryAutoAdvanceQuests("fight", npcId);
+            ShowPostCombatChoiceDialog();
+        }
 
         RefreshAll();
+    }
+
+    private void ShowPostCombatChoiceDialog()
+    {
+        if (_engine.PostCombat?.Phase != PostCombatPhase.PlayerWinChoice) return;
+        if (!_engine.State.AllNPCs.TryGetValue(_engine.PostCombat.DefeatedNPCId, out var npc)) return;
+
+        var choice = PostCombatChoiceBox.Show(this, npc.Name);
+        switch (choice)
+        {
+            case PostCombatChoice.Kill:
+                _engine.PostCombatKill();
+                break;
+            case PostCombatChoice.Humiliate:
+                _engine.PostCombatHumiliate();
+                break;
+            case PostCombatChoice.Spare:
+                _engine.PostCombatSpare();
+                break;
+        }
     }
 
     // ── 辅助控件 ──
@@ -2019,12 +2042,7 @@ public class MainForm : Form
         // 战后选择
         if (_engine.PostCombat?.Phase == PostCombatPhase.PlayerWinChoice)
         {
-            AddActionButton("杀死", () => { _engine.PostCombatKill(); RefreshAll(); },
-                WuxiaTheme.Danger);
-            AddActionButton("羞辱", () => { _engine.PostCombatHumiliate(); RefreshAll(); },
-                Color.FromArgb(246, 195, 119));
-            AddActionButton("放过", () => { _engine.PostCombatSpare(); RefreshAll(); },
-                WuxiaTheme.Success);
+            AddActionButton("战后处置待确认", null, Color.FromArgb(255, 226, 174));
             return;
         }
 
@@ -2808,6 +2826,8 @@ public class MainForm : Form
                 if (string.IsNullOrEmpty(npc.FactionId)) return false;
                 if (player.FactionId != npc.FactionId) return false;
             }
+            if (!string.IsNullOrEmpty(cfg.ExcludeFactionId) && player.FactionId == cfg.ExcludeFactionId)
+                return false;
             // 好感度门槛：未达到则不弹委托（剧情上"还不熟"，由玩家继续对话拉好感度）
             if (cfg.MinFavorabilityToOffer > 0)
             {
@@ -2873,6 +2893,11 @@ public class MainForm : Form
                 // 东方不败在黑木崖后山现身
                 RevealNpc("dongfang_bubai");
                 _logBox.AppendSuccess("（杨代教主低声道:东方教主就在崖后,前去拜见吧。）");
+                break;
+            case "xiaojiao_challenge_dongfang":
+                // 非日月神教路线：令狐冲引荐后，东方不败在黑木崖后山现身。
+                RevealNpc("dongfang_bubai");
+                _logBox.AppendSuccess("（令狐冲低声道:东方不败已现身黑木崖后山，若要一试天下第一的武功，便去吧。）");
                 break;
             case "tianlong_qiaofeng":
                 // 乔峰线:段延庆与萧远山现身少室山(供身世线交手)

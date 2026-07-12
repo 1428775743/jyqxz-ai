@@ -357,6 +357,9 @@ public class QuestConfig
     /// <summary>是否要求玩家与发布者同门派(用于门派内部委托,如华山师门考验)</summary>
     public bool RequireSameFaction { get; set; }
 
+    /// <summary>限制特定门派玩家不可接取；用于向其他门派开放的独立剧情线。</summary>
+    public string? ExcludeFactionId { get; set; }
+
     /// <summary>关联人NPC ID列表（这些NPC对话时知道"发布者委托玩家处理本任务"，但不知详情）</summary>
     public List<string> RelatedNpcIds { get; set; } = new();
 
