@@ -26,7 +26,7 @@ public static class EndgameSystem
     private static readonly IReadOnlyDictionary<EndingType, EndingDefinition> Definitions =
         new Dictionary<EndingType, EndingDefinition>
         {
-            [EndingType.HuashanChampion] = new("huashan_champion", "江湖终章", "华山之巅 · 力挫群雄 · 天下第一", ""),
+            [EndingType.HuashanChampion] = new("huashan_champion", "江湖终章", "华山之巅 · 力挫群雄 · 天下第一", "ending_huashan_champion"),
             [EndingType.TrueHuashan] = new("true_huashan", "真·华山论剑", "四绝问道 · 武学尽头 · 此心无挂", "ending_true_huashan"),
             [EndingType.WulinLeader] = new("wulin_leader", "武林盟主", "群贤推举 · 执掌盟约 · 侠义为先", "ending_wulin_leader"),
             [EndingType.WealthyRetirement] = new("wealthy_retirement", "富甲一方", "功名如寄 · 千金归隐 · 笑看江湖", "ending_wealthy_retirement"),

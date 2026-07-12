@@ -455,6 +455,7 @@ public class QuestListForm : Form
             if (isHuashan)
             {
                 _engine.State.HuashanCompleted = true;
+                EndgameSystem.CompleteEnding(_engine.State, EndingType.HuashanChampion);
                 using var ending = new EndingForm(_engine, runner.DefeatedOpponents);
                 WuxiaTheme.ApplyScaling(ending);
                 ending.ShowDialog(this);

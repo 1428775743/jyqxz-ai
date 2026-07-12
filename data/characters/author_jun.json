@@ -13,6 +13,7 @@
   "karma": 50,
   "gender": "男",
   "hiddenPower": true,
+  "portraitPath": "author_jun_masked.png",
   "defaultScene": "liujiacun_scene",
   "schedule": {
     "清晨": "liujiacun_scene",

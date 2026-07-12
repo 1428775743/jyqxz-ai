@@ -15,6 +15,7 @@ public static class AchievementService
 {
     private static readonly IReadOnlyList<AchievementDefinition> Definitions = new[]
     {
+        new AchievementDefinition("ending_huashan_champion", "华山论剑", "声望达到10000后登顶华山，连续战胜十位绝顶高手，登临天下第一。"),
         new AchievementDefinition("ending_true_huashan", "真·华山论剑", "与作者君好感达到100后，于对话中接受真正的华山之约；连战乔峰、东方不败、张三丰与作者君。"),
         new AchievementDefinition("ending_wealthy_retirement", "富甲一方", "完成鹿鼎记主线，持有十万两银子后向作者君申请归隐。"),
         new AchievementDefinition("ending_wulin_leader", "武林盟主", "声望达到8000后参加武林大会，战胜群雄并接受盟主之位。"),
