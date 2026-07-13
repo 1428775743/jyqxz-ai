@@ -3,12 +3,20 @@ using AutoWuxia.Config;
 using AutoWuxia.Core;
 using AutoWuxia.Items;
 using AutoWuxia.Quests;
+using AutoWuxia.Systems;
 using AutoWuxia.World;
 
 namespace AutoWuxia.AI;
 
 public class AIPromptBuilder
 {
+    private const string AuthorJunDialogueRules =
+        "【作者君最高优先级设定】\n" +
+        "- 你知道自己是这款游戏与这个江湖世界的作者，可以自然地说出这种自觉，不必假装只是普通江湖人。\n" +
+        "- 你绝不直接传授玩家任何武功，绝对不能返回 action=teach_art；玩家索求武功时，应让他自行探索江湖、寻找机缘。\n" +
+        "- 你可以提示玩家：在切磋中累计击败你10次会获得特殊奖励。该奖励由专门剧情发放，不是直接传授你现有的武功。\n" +
+        "- 不要编造玩家当前已经击败你的次数，也不要承诺规则之外的奖励。\n";
+
     public static string BuildMonthlySystemPrompt()
     {
         return "你是一个金庸武侠世界的江湖演化系统。你需要根据所有NPC的当前状态、经历和关系，合理安排每个NPC下个月的变化。\n" +
@@ -36,6 +44,7 @@ public class AIPromptBuilder
     {
         var factionDisplay = factionName ?? npc.FactionId ?? "无门无派";
         var desc = string.IsNullOrEmpty(npc.Description) ? "一位江湖中人" : npc.Description;
+        var specialRules = npc.Id == EndgameSystem.AuthorId ? "\n" + AuthorJunDialogueRules : "";
 
         return "你是一个金庸武侠世界的NPC扮演系统。你需要完全代入指定的NPC角色，根据其性格、经历、关系、当前状态来\"思考\"和\"说话\"。\n\n" +
                $"【你扮演的NPC】\n" +
@@ -92,7 +101,8 @@ public class AIPromptBuilder
                "- 行为要符合NPC性格，不能随意赠送贵重物品或传授高阶武功\n" +
                "- goldSpent: NPC请客/打赏的银两，不超过NPC拥有的银两\n" +
                "- musicFee: 仅 action=play_music 时填写,乐师向玩家收取的赏钱(玩家付给你)。默认10~30两;仅好感度很高时免费(0);知名乐师可收50~100两。须不超过玩家持有银两\n" +
-               "- craftFee: 仅 action=craft_medicine 时填写,药师炼药收取的工费(玩家付给你)。按配方feeRange区间定;好感越高收费越低;可免费(0)。须不超过玩家持有银两\n\n" +
+               "- craftFee: 仅 action=craft_medicine 时填写,药师炼药收取的工费(玩家付给你)。按配方feeRange区间定;好感越高收费越低;可免费(0)。须不超过玩家持有银两\n" +
+               specialRules + "\n" +
                "【JSON格式】\n" +
                "{\"thinking\": \"内心独白\", \"dialogue\": \"NPC说的话\", \"action\": \"none\", \"actionTarget\": null, \"favorChange\": 0, \"goldSpent\": 0, \"musicFee\": 0, \"craftFee\": 0, \"wantsToEnd\": false, \"endReason\": null}";
     }
@@ -124,15 +134,21 @@ public class AIPromptBuilder
 
         // 可传授的武功（NPC会且玩家不会）
         var playerArtIdSet = new HashSet<string>(player.LearnedArts.Select(a => a.Id));
+        var authorCannotTeach = npc.Id == EndgameSystem.AuthorId;
         var teachableArts = npc.LearnedArts
             .Where(a => !playerArtIdSet.Contains(a.Id) && player.CanLearnArt(a.Id, out _))
-            .Select(a => $"{a.Id}({a.Name})");
-        var teachableArtsText = teachableArts.Any() ? string.Join(", ", teachableArts) : "无（玩家已学会NPC所有武功）";
+            .Select(a => $"{a.Id}({a.Name})")
+            .ToList();
+        var teachableArtsText = authorCannotTeach
+            ? "禁止传授（作者君只让玩家自行寻找机缘）"
+            : teachableArts.Count > 0 ? string.Join(", ", teachableArts) : "无（玩家已学会NPC所有武功）";
 
         // 传授冷却状态
         int daysSinceLastTeach = gameTime.Day - npc.LastTeachArtDay;
         bool teachCooldownActive = daysSinceLastTeach < 5;
-        var teachCooldownText = teachCooldownActive ? $"是（距上次传授仅{daysSinceLastTeach}天，需等5天）" : "否（可传授）";
+        var teachCooldownText = authorCannotTeach
+            ? "永久禁止传授"
+            : teachCooldownActive ? $"是（距上次传授仅{daysSinceLastTeach}天，需等5天）" : "否（可传授）";
 
         // 玩家动态状态
         var playerArtsText = BuildArtsText(player);
@@ -177,6 +193,9 @@ public class AIPromptBuilder
         sb.Append($"背包：{playerInvText}\n\n");
         sb.Append($"【双方关系】{relation.GetRelationDescription()}（好感度：{relation.Favorability}）\n");
         sb.Append($"{historyText}\n");
+
+        if (authorCannotTeach)
+            sb.Append("\n" + AuthorJunDialogueRules);
 
         // 百晓阁门人:注入可查询的江湖人物列表
         if (npc.NpcRole == "baixiao_informer" && allNpcsForQuery != null)
@@ -511,6 +530,7 @@ public class AIPromptBuilder
         var sceneText = currentScene != null ? $"{currentScene.Name}" : "未知场景";
         var npcArtIds = string.Join(", ", npc.LearnedArts.Select(a => $"{a.Id}(Lv{a.Level})"));
         var npcItemIds = npc.Inventory.IsEmpty ? "无" : string.Join(", ", npc.Inventory.Items.Select(i => $"{i.Id}x{i.Quantity}"));
+        var authorRules = npc.Id == EndgameSystem.AuthorId ? "\n" + AuthorJunDialogueRules : "";
 
         return $"【当前时间】{gameTime.Display}\n" +
                $"【当前场景】{sceneText}\n\n" +
@@ -528,7 +548,7 @@ public class AIPromptBuilder
                $"- 描述：{item.Description}\n" +
                $"- 价值：{item.Value}银两\n" +
                $"- 偏好标签：{item.GiftPreference ?? "无"}\n\n" +
-               "请决定NPC是否接受这份礼物，返回JSON：\n" +
+               authorRules + "\n请决定NPC是否接受这份礼物，返回JSON：\n" +
                "{\"thinking\": \"内心独白\", \"accepted\": true/false, \"dialogue\": \"NPC的回应\", \"favorChange\": 0, \"returnAction\": \"none\", \"returnActionTarget\": null}";
     }
 

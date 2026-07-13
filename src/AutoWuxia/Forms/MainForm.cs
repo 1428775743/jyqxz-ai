@@ -72,8 +72,10 @@ public class RarityListItem
 
 public class MainForm : Form
 {
+    private readonly int _uiThreadId = Environment.CurrentManagedThreadId;
     private GameEngine _engine = null!;
     private ConfigManager _config = null!;
+    private bool _uiReady;
 
     private Panel _topPanel = null!;
     private Panel _leftPanel = null!;
@@ -138,6 +140,50 @@ public class MainForm : Form
             RefreshAll();
         }
         GameLogger.Info("MainForm 初始化完成");
+    }
+
+    protected override void OnShown(EventArgs e)
+    {
+        base.OnShown(e);
+        if (_uiReady) return;
+
+        // 构造函数里的首次 RefreshAll 发生在 Application.Run 建立 UI 消息循环之前。
+        // 月度/季度 Agent 必须延后到窗体真正显示后启动，否则 await 的后续代码可能落到工作线程。
+        _uiReady = true;
+        BeginInvoke(() =>
+        {
+            CheckMonthlyUpdate();
+            CheckQuarterlyUpdate();
+        });
+    }
+
+    /// <summary>
+    /// 若当前不在 MainForm 的创建线程，则把 continuation 投递回 UI 线程并返回 false。
+    /// 不只依赖 InvokeRequired，因为控件句柄尚未创建时它可能返回 false。
+    /// </summary>
+    private bool ContinueOnUiThread(Action continuation)
+    {
+        if (Environment.CurrentManagedThreadId == _uiThreadId)
+            return true;
+
+        if (IsDisposed || Disposing || !IsHandleCreated)
+            return false;
+
+        try
+        {
+            BeginInvoke(continuation);
+        }
+        catch (InvalidOperationException)
+        {
+            // 窗体正在退出，忽略迟到的后台回调。
+        }
+        return false;
+    }
+
+    private void RunOnUiThread(Action action)
+    {
+        if (ContinueOnUiThread(action))
+            action();
     }
 
     /// <summary>将角色创建结果(roll属性/技艺/天赋)应用到玩家,覆盖默认 player。</summary>
@@ -873,7 +919,10 @@ public class MainForm : Form
         TryAutoAdvanceQuests("talk", npc.Id);
 
         if (npc.Id == EndgameSystem.AuthorId)
+        {
+            TryGrantAuthorMythicReward();
             TryOfferTrueHuashanAfterDialogue();
+        }
 
         RefreshAll();
     }
@@ -1384,6 +1433,12 @@ public class MainForm : Form
         var player = _engine.State.Player;
         var gameTime = _engine.State.GameTime;
 
+        if (npc.Id == EndgameSystem.AuthorId)
+        {
+            _logBox.AppendText("作者君摇头道：武功不能由作者直接塞给你，自己去江湖里找机缘吧。");
+            return;
+        }
+
         // 检查传授冷却:师徒关系(玩家拜该NPC为师)CD 2天,普通 5天
         bool isMyMaster = player.GetRelation(npc.Id).Type == RelationType.Disciple;
         int teachCD = isMyMaster ? 2 : 5;
@@ -1705,15 +1760,20 @@ public class MainForm : Form
     private void HandleAuthorSparVictory()
     {
         _engine.State.AuthorSparWins++;
-        _logBox.AppendSuccess($"你在与作者君的切磋中取胜（{_engine.State.AuthorSparWins}/20）。");
-        if (_engine.State.AuthorSparWins < 20 || _engine.State.AuthorMythicRewardClaimed)
+        _logBox.AppendSuccess($"你在与作者君的切磋中取胜（{_engine.State.AuthorSparWins}/{AuthorJunSystem.MythicRewardWinRequirement}）。");
+        TryGrantAuthorMythicReward();
+    }
+
+    private void TryGrantAuthorMythicReward()
+    {
+        if (_engine.State.AuthorSparWins < AuthorJunSystem.MythicRewardWinRequirement || _engine.State.AuthorMythicRewardClaimed)
             return;
 
         var script = new Quests.DialogueScript
         {
             Lines =
             {
-                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "二十次了。你真没开挂？", "好吧，我信了。既然你能把许多道路走成一条路，便自己挑几笔，写两门只属于你的武功。" } },
+                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "十次了。你真没开挂？", "好吧，我信了。既然你能把许多道路走成一条路，便自己挑几笔，写两门只属于你的武功。" } },
                 new Quests.DialogueLine { Speaker = "旁白", Lines = { "作者君摊开一卷空白的书页，词条如星火般浮现。" } }
             }
         };
@@ -1801,6 +1861,8 @@ public class MainForm : Form
 
     private void RefreshAll()
     {
+        if (!ContinueOnUiThread(RefreshAll)) return;
+
         _timeLabel.Text = $"时间：{_engine.State.GameTime.YearDayShiChenDisplay}";
         _statusLabel.Text = _engine.State.Player.GetStatusSummary();
         RefreshSceneBackground();
@@ -1912,13 +1974,9 @@ public class MainForm : Form
 
     private async void CheckMonthlyUpdate()
     {
-        // AI 回调链可能从工作线程进入；进度窗体必须在主窗体 UI 线程创建。
-        if (InvokeRequired)
-        {
-            if (!IsDisposed && IsHandleCreated)
-                BeginInvoke((Action)CheckMonthlyUpdate);
-            return;
-        }
+        if (!ContinueOnUiThread(CheckMonthlyUpdate)) return;
+        if (!_uiReady) return;
+
         GameLogger.Info($"CheckMonthlyUpdate: inProgress={_monthlyUpdateInProgress}, needsUpdate={_engine.NeedsMonthlyUpdate()}, day={_engine.State.GameTime.Day}, inCombat={_engine.IsInCombat}, postCombat={_engine.HasPostCombatChoices}");
 
         if (_monthlyUpdateInProgress) return;
@@ -2007,7 +2065,7 @@ public class MainForm : Form
         catch (Exception ex)
         {
             GameLogger.Error("月度更新异常", ex);
-            _logBox.AppendText($"[月度更新出错: {ex.Message}]");
+            RunOnUiThread(() => _logBox.AppendText($"[月度更新出错: {ex.Message}]"));
         }
         finally
         {
@@ -2015,8 +2073,13 @@ public class MainForm : Form
             _engine.MonthlyUpdateSystem.OnToolResult -= OnToolResult;
             _engine.MonthlyUpdateSystem.OnAgentFinish -= OnAgentFinish;
             _engine.MonthlyUpdateSystem.OnAgentError -= OnAgentError;
-            if (!progressForm.IsDisposed) progressForm.Dispose();
-            _monthlyUpdateInProgress = false;
+            RunOnUiThread(() =>
+            {
+                if (!progressForm.IsDisposed) progressForm.Dispose();
+                _monthlyUpdateInProgress = false;
+                // 月度与季度可能在同一天到期；月度结束后立即重新检查季度剧情。
+                CheckQuarterlyUpdate();
+            });
         }
     }
 
@@ -2024,13 +2087,9 @@ public class MainForm : Form
 
     private async void CheckQuarterlyUpdate()
     {
-        // Show(owner) 要求子窗体与 MainForm 在同一线程创建，否则会出现跨线程父子控件异常。
-        if (InvokeRequired)
-        {
-            if (!IsDisposed && IsHandleCreated)
-                BeginInvoke((Action)CheckQuarterlyUpdate);
-            return;
-        }
+        if (!ContinueOnUiThread(CheckQuarterlyUpdate)) return;
+        if (!_uiReady) return;
+
         if (_quarterlyUpdateInProgress) return;
         if (!_engine.NeedsQuarterlyUpdate()) return;
         if (_engine.IsInCombat || _engine.HasPostCombatChoices || _monthlyUpdateInProgress)
@@ -2104,7 +2163,7 @@ public class MainForm : Form
         catch (Exception ex)
         {
             GameLogger.Error("季度剧情生成异常", ex);
-            _logBox.AppendText($"[季度剧情生成出错: {ex.Message}]");
+            RunOnUiThread(() => _logBox.AppendText($"[季度剧情生成出错: {ex.Message}]"));
         }
         finally
         {
@@ -2112,8 +2171,11 @@ public class MainForm : Form
             _engine.AnnualUpdateSystem.OnToolResult -= OnToolResult;
             _engine.AnnualUpdateSystem.OnAgentFinish -= OnAgentFinish;
             _engine.AnnualUpdateSystem.OnAgentError -= OnAgentError;
-            if (!progressForm.IsDisposed) progressForm.Dispose();
-            _quarterlyUpdateInProgress = false;
+            RunOnUiThread(() =>
+            {
+                if (!progressForm.IsDisposed) progressForm.Dispose();
+                _quarterlyUpdateInProgress = false;
+            });
         }
     }
 

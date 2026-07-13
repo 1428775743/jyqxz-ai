@@ -329,8 +329,8 @@ public class MonthlyUpdateSystem
 
         // 作者君首次与玩家相识后便云游四方。放在月度后处理阶段执行，
         // 即使 Agent 未安排到他，也不会长期停留在同一处。
-        if (state.AuthorIntroduced && AuthorJunSystem.Relocate(state))
-            OnToolResult?.Invoke("【江湖逸闻】作者君又收起稿纸，往别处寻故事去了。");
+        if (state.AuthorIntroduced)
+            AuthorJunSystem.Relocate(state);
 
         // 仇敌寻仇:与玩家为仇敌(Enemy)的NPC,本月主动寻仇至玩家当前场景
         var playerScene = state.CurrentSceneId;

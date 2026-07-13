@@ -221,10 +221,15 @@ public class DungeonRunner
         // 华山论剑无 Rounds 配置,默认每场触发战后对话
         if (!IsHuashanLunjian && (roundCfg == null || !roundCfg.TriggerDialogue)) return null;
 
-        // 复用对话 prompt: 模拟玩家"刚刚战胜"语境,让 NPC 自然反应
+        // 战果是系统事实，不能伪装成玩家说的话，否则 AI 可能反驳并误以为 NPC 获胜。
         var systemPrompt = AIPromptBuilder.BuildNPCIdentityPrompt(npc);
-        var userPrompt = AIPromptBuilder.BuildDialoguePrompt(npc, Player,
-            $"(刚刚在【{Dungeon.Name}】中败于你手)", new DialogueHistory(), _gameTime, _scene);
+        var context = AIPromptBuilder.BuildDynamicContext(npc, Player,
+            _gameTime, new DialogueHistory(), _scene);
+        var userPrompt = context +
+            $"\n【不可更改的战斗结果】你刚刚在【{Dungeon.Name}】中被玩家{Player.Name}正面击败。玩家是胜者，你是败者。\n" +
+            "请以战败者身份说一句符合自身性格的战后对白。可以不服、惊讶、敬佩或约定再战，但必须承认本场已经落败；" +
+            "不得声称自己击败了玩家，不得说玩家火候不到家，也不得摆出胜者姿态要传授玩家武功。\n" +
+            "只返回JSON：{\"thinking\":\"战败后的想法\",\"dialogue\":\"战败对白\",\"action\":\"none\",\"actionTarget\":null,\"favorChange\":0,\"goldSpent\":0,\"wantsToEnd\":false,\"endReason\":null}";
         var raw = await _ai.ChatAsync(systemPrompt, userPrompt);
         if (string.IsNullOrEmpty(raw) || raw.StartsWith("[")) return null;
 
@@ -238,11 +243,28 @@ public class DungeonRunner
                 var json = raw.Substring(s, e - s + 1);
                 using var doc = System.Text.Json.JsonDocument.Parse(json);
                 if (doc.RootElement.TryGetProperty("dialogue", out var d))
-                    return d.GetString();
+                {
+                    var dialogue = d.GetString();
+                    return IsWinnerTone(dialogue) ? BuildDefeatFallback() : dialogue;
+                }
             }
         }
         catch { }
-        return raw;
+        return IsWinnerTone(raw) ? BuildDefeatFallback() : raw;
+    }
+
+    private string BuildDefeatFallback()
+        => $"{Player.Name}，这一场是我输了。江湖后浪推前浪，待我重整旗鼓，再来领教。";
+
+    private static bool IsWinnerTone(string? dialogue)
+    {
+        if (string.IsNullOrWhiteSpace(dialogue)) return false;
+        string[] invalidPhrases =
+        {
+            "败在我手", "你败了", "我赢了", "老夫赢了", "承让了",
+            "火候不到家", "你可想学", "指点你几招", "教你几招"
+        };
+        return invalidPhrases.Any(dialogue.Contains);
     }
 
     /// <summary>全胜后将副本奖励应用到玩家</summary>

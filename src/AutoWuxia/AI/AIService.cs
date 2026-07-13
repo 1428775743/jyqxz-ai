@@ -253,15 +253,16 @@ public class AIService
             httpRequest.Content = new StringContent(json, Encoding.UTF8, "application/json");
             httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _config.ApiKey);
 
-            using var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, ct);
+            using var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, ct)
+                .ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
-                var errBody = await response.Content.ReadAsStringAsync(ct);
+                var errBody = await response.Content.ReadAsStringAsync(ct).ConfigureAwait(false);
                 GameLogger.AI($"[流式错误] {response.StatusCode}: {Truncate(errBody, 300)}");
                 return;
             }
 
-            using var stream = await response.Content.ReadAsStreamAsync(ct);
+            using var stream = await response.Content.ReadAsStreamAsync(ct).ConfigureAwait(false);
             using var reader = new StreamReader(stream);
 
             var reasoning = new StringBuilder();
@@ -269,7 +270,7 @@ public class AIService
             while (!reader.EndOfStream)
             {
                 ct.ThrowIfCancellationRequested();
-                var line = await reader.ReadLineAsync(ct);
+                var line = await reader.ReadLineAsync(ct).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(line)) continue;
                 if (!line.StartsWith("data:")) continue;
                 var data = line["data:".Length..].Trim();

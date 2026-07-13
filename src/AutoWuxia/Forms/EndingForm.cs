@@ -122,8 +122,8 @@ public class EndingForm : Form
             ScrollBars = RichTextBoxScrollBars.Vertical
         };
 
-        // AI 每次可能只返回一两个字。合并后再刷新 RichTextBox，避免高频重绘闪屏。
-        _streamFlushTimer = new System.Windows.Forms.Timer { Interval = 50 };
+        // 每帧只取少量字符，既保留逐字作传效果，也避免 RichTextBox 高频重绘闪屏。
+        _streamFlushTimer = new System.Windows.Forms.Timer { Interval = 40 };
         _streamFlushTimer.Tick += (_, _) => FlushStoryBuffer();
 
         var bottomPanel = new Panel
@@ -166,7 +166,7 @@ public class EndingForm : Form
         };
 
         // 结束曲(若文件存在)
-        var endingBgm = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "music", "沧海一声笑 (笛子) - 纯音乐.mp3");
+        var endingBgm = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "music", "竹苑情歌 - 蔡志展.mp3");
         if (File.Exists(endingBgm))
         {
             Shown += (_, _) => AudioManager.Instance.PlayMusic(endingBgm, true);
@@ -220,8 +220,16 @@ public class EndingForm : Form
             catch (Exception ex) { GameLogger.Error("[结束画面] 降级文案异常", ex); }
         }
 
-        // 确保最后一个不足 50ms 的文本块也立即显示。
-        FlushStoryBuffer();
+        // AI 返回完毕后仍让剩余内容按打字机节奏显示，避免最后整段突然出现。
+        try
+        {
+            while (HasQueuedStory() && !_cts.IsCancellationRequested)
+                await Task.Delay(_streamFlushTimer.Interval, _cts.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            return;
+        }
         _streamFlushTimer.Stop();
 
         // 收尾
@@ -346,10 +354,17 @@ public class EndingForm : Form
         lock (_streamBufferLock)
         {
             if (_streamBuffer.Length == 0) return;
-            text = _streamBuffer.ToString();
-            _streamBuffer.Clear();
+            var count = Math.Min(3, _streamBuffer.Length);
+            text = _streamBuffer.ToString(0, count);
+            _streamBuffer.Remove(0, count);
         }
         AppendStoryUi(text);
+    }
+
+    private bool HasQueuedStory()
+    {
+        lock (_streamBufferLock)
+            return _streamBuffer.Length > 0;
     }
 
     private void AppendStoryUi(string text)
