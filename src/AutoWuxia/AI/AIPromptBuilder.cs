@@ -14,7 +14,7 @@ public class AIPromptBuilder
         "【作者君最高优先级设定】\n" +
         "- 你知道自己是这款游戏与这个江湖世界的作者，可以自然地说出这种自觉，不必假装只是普通江湖人。\n" +
         "- 你绝不直接传授玩家任何武功，绝对不能返回 action=teach_art；玩家索求武功时，应让他自行探索江湖、寻找机缘。\n" +
-        "- 你可以提示玩家：在切磋中累计击败你10次会获得特殊奖励。该奖励由专门剧情发放，不是直接传授你现有的武功。\n" +
+        "- 你可以提示玩家：在切磋中累计击败你20次会获得特殊奖励。奖励只能在自创神话内功与自创神话外功中二选一，由专门剧情发放，不是直接传授你现有的武功。\n" +
         "- 不要编造玩家当前已经击败你的次数，也不要承诺规则之外的奖励。\n";
 
     public static string BuildMonthlySystemPrompt()
@@ -62,6 +62,9 @@ public class AIPromptBuilder
                "- \"attack\": NPC主动攻击。条件：仇敌关系，或被严重冒犯，或善恶值极低\n" +
                "- \"give_item\": NPC赠送物品给玩家。条件：好感度>30，且NPC背包中有该物品。actionTarget必须填【NPC背包】中列出的物品ID（如healing_pill_small），不可用中文名或拼音\n" +
                "- \"ask_item\": NPC向玩家索要物品。条件：NPC确实需要且好感度>20。actionTarget必须填【玩家背包】中列出的物品ID\n" +
+               "- \"marry\": 与玩家结为配偶。玩家明确求婚/提议成亲，且动态上下文的【与当前NPC婚配条件】显示满足时才能触发。NPC若在对话中同意成亲，本次必须返回marry，绝不能用teach_art代替。允许玩家拥有多位配偶，不因已有配偶拒绝\n" +
+               "- \"swear_brotherhood\": 与玩家义结金兰。条件：双方关系深厚且好感度>80，玩家明确提出或NPC主动提议结拜\n" +
+               "- \"take_disciple\": NPC收玩家为徒。条件：NPC是武学前辈、好感度>80，且玩家当前没有师父\n" +
                "- \"teach_art\": NPC传授武功。【非常严格】必须同时满足：\n" +
                "  1. 好感度>80（极高信任）\n" +
                "  2. 同门派，且NPC是掌门或资深前辈\n" +
@@ -114,12 +117,18 @@ public class AIPromptBuilder
     public static string BuildDynamicContext(NPC npc, Player player, GameTime gameTime, DialogueHistory history, Scene? currentScene = null, string? playerFactionName = null, IEnumerable<NPC>? allNpcsForQuery = null, ConfigManager? config = null, IDictionary<string, NPC>? allNpcs = null)
     {
         var relation = npc.GetRelation(player.Id);
-        bool playerHasSpouse = player.Relations.Values.Any(r => r.Type == RelationType.Spouse);
         bool playerHasMaster = player.Relations.Values.Any(r => r.Type == RelationType.Disciple);
         string npcGender = npc.Gender ?? "未知";
         string playerGender = player.Gender ?? "未知";
-        string marryStatus = playerHasSpouse ? "已婚" : "未婚";
+        var spouseNames = allNpcs?.Values
+            .Where(n => player.Relations.TryGetValue(n.Id, out var pr) && pr.Type == RelationType.Spouse
+                     || n.Relations.TryGetValue(player.Id, out var nr) && nr.Type == RelationType.Spouse)
+            .Select(n => n.Name)
+            .Distinct()
+            .ToList() ?? new List<string>();
+        string marryStatus = spouseNames.Count == 0 ? "无配偶" : $"配偶：{string.Join("、", spouseNames)}（允许多位）";
         string masterStatus = playerHasMaster ? "已拜师" : "无师父";
+        bool canMarryCurrentNpc = RelationshipSystem.CanBecomeSpouses(player, npc, out var marryReason);
         var playerFactionDisplay = playerFactionName ?? player.FactionId ?? "无";
 
         // NPC动态状态
@@ -184,6 +193,7 @@ public class AIPromptBuilder
         sb.Append($"【玩家当前状态】\n");
         sb.Append($"姓名：{player.Name} | 性别：{playerGender} | 门派：{playerFactionDisplay} | 善恶值：{player.Karma}\n");
         sb.Append($"婚姻/师徒：{marryStatus} | {masterStatus}\n");
+        sb.Append($"【与当前NPC婚配条件】{(canMarryCurrentNpc ? "满足；玩家明确求婚且NPC同意时必须action=marry" : $"不满足：{marryReason}")}\n");
         sb.Append($"健康度：{player.Health}/{player.MaxHealth}\n");
         sb.Append($"标签：{player.GetTagsSummary()}\n");
         sb.Append($"攻击：{player.GetTotalAttack()} | 防御：{player.GetTotalDefense()} | 速度：{player.GetTotalSpeed()}\n");

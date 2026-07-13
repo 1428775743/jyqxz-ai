@@ -35,6 +35,16 @@ public enum EffectType
     HPRecover,
     /// <summary>固定减伤：受到攻击时伤害减少固定值（被动永久生效）</summary>
     FlatDamageReduction,
+    /// <summary>受到致命伤害时复生（每场战斗最多触发一次）</summary>
+    Revive,
+    /// <summary>将吸取到的内力按比例转化为无视防御伤害</summary>
+    DrainedMPDamage,
+    /// <summary>目标内力过低时令其散功，暂时降低造成的伤害</summary>
+    MPExhaustion,
+    /// <summary>回合开始时净化流血、点穴等负面状态</summary>
+    Cleanse,
+    /// <summary>每次受伤后逐层提高后续减伤</summary>
+    AdaptiveDefense,
     /// <summary>每次出手时读条只归 50(永久,内功被动,如葵花宝典)</summary>
     PermanentExtraAction,
     /// <summary>使用后下一次出手时读条只归 50(一次性,外功使用后,如辟邪剑法)</summary>

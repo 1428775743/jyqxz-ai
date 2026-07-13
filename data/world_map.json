@@ -243,7 +243,7 @@
       "name": "紫禁城",
       "region": "直隶",
       "sceneIds": ["zijincheng"],
-      "mapX": 600, "mapY": 220
+      "mapX": 680, "mapY": 220
     },
     {
       "id": "wutai_shan",

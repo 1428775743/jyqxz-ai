@@ -152,6 +152,7 @@ public class MainForm : Form
         _uiReady = true;
         BeginInvoke(() =>
         {
+            ResolveLegacyMythicArtChoice();
             CheckMonthlyUpdate();
             CheckQuarterlyUpdate();
         });
@@ -1108,6 +1109,11 @@ public class MainForm : Form
                 break;
 
             case "marry":
+                if (!RelationshipSystem.CanBecomeSpouses(_engine.State.Player, npc, out var marryReason))
+                {
+                    _logBox.AppendWarning($"暂时无法与{npc.Name}结为配偶：{marryReason}。" );
+                    break;
+                }
                 RelationshipSystem.BecomeSpouses(_engine.State.Player, npc);
                 _engine.State.Player.AddHistory($"与{npc.Name}结为夫妻");
                 _logBox.AppendSuccess($"你与{npc.Name}喜结连理!");
@@ -1773,7 +1779,7 @@ public class MainForm : Form
         {
             Lines =
             {
-                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "十次了。你真没开挂？", "好吧，我信了。既然你能把许多道路走成一条路，便自己挑几笔，写两门只属于你的武功。" } },
+                new Quests.DialogueLine { Speaker = EndgameSystem.AuthorId, Lines = { "二十次了。你真没开挂？", "好吧，我信了。内功与外功，各有一条通天路。你只能选一条，自己挑三笔，写下一门只属于你的神话武功。" } },
                 new Quests.DialogueLine { Speaker = "旁白", Lines = { "作者君摊开一卷空白的书页，词条如星火般浮现。" } }
             }
         };
@@ -1784,17 +1790,48 @@ public class MainForm : Form
     private void ShowMythicArtForge()
     {
         using var forge = new MythicArtForgeForm();
-        if (forge.ShowDialog(this) != DialogResult.OK
-            || forge.ForgedInternalArt == null || forge.ForgedExternalArt == null)
+        if (forge.ShowDialog(this) != DialogResult.OK || forge.ForgedArt == null)
             return;
 
         var player = _engine.State.Player;
-        player.LearnArt(forge.ForgedInternalArt);
-        player.LearnArt(forge.ForgedExternalArt);
+        player.LearnArt(forge.ForgedArt);
         _engine.State.AuthorMythicRewardClaimed = true;
         player.AddLifeEvent(_engine.State.GameTime.Day, AutoWuxia.Characters.LifeEventType.Major,
-            $"在作者君见证下铸成神话武学《{forge.ForgedInternalArt.Name}》与《{forge.ForgedExternalArt.Name}》。" );
-        _logBox.AppendSuccess($"获得神话内功《{forge.ForgedInternalArt.Name}》与神话外功《{forge.ForgedExternalArt.Name}》！可在武学装备中配置。" );
+            $"在作者君见证下铸成神话{(forge.SelectedKind == MythicArtKind.Internal ? "内功" : "外功")}《{forge.ForgedArt.Name}》。" );
+        _logBox.AppendSuccess($"获得神话{(forge.SelectedKind == MythicArtKind.Internal ? "内功" : "外功")}《{forge.ForgedArt.Name}》！另一条自创路线已永久放弃。" );
+    }
+
+    /// <summary>旧版曾同时发放两门自创武功；首次进入新版时强制由玩家选择保留一门。</summary>
+    private void ResolveLegacyMythicArtChoice()
+    {
+        const string internalId = "author_mythic_internal";
+        const string externalId = "author_mythic_external";
+        var player = _engine.State.Player;
+        var internalArt = player.LearnedArts.FirstOrDefault(a => a.Id == internalId);
+        var externalArt = player.LearnedArts.FirstOrDefault(a => a.Id == externalId);
+        if (internalArt == null || externalArt == null) return;
+
+        var keep = MythicArtForgeForm.ChooseLegacyArt(this, internalArt.Name, externalArt.Name);
+        string removedName;
+        string keptName;
+        if (keep == MythicArtKind.Internal)
+        {
+            player.ForgetArt(externalId);
+            keptName = internalArt.Name;
+            removedName = externalArt.Name;
+        }
+        else
+        {
+            player.ForgetArt(internalId);
+            keptName = externalArt.Name;
+            removedName = internalArt.Name;
+        }
+
+        _engine.State.AuthorMythicRewardClaimed = true;
+        player.AddLifeEvent(_engine.State.GameTime.Day, AutoWuxia.Characters.LifeEventType.Major,
+            $"自创武学规则归一，保留《{keptName}》，舍去《{removedName}》。");
+        _logBox.AppendWarning($"自创武学已按二选一规则调整：保留《{keptName}》，移除《{removedName}》。");
+        RefreshAll();
     }
 
     private void ShowPostCombatChoiceDialog()
@@ -2664,7 +2701,7 @@ public class MainForm : Form
         };
         form.Controls.Add(contentPanel);
 
-        // 创建三个内容面板
+        // 创建四个内容面板
         var basicPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent };
         var artsPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
         var bagPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
@@ -3182,8 +3219,8 @@ public class MainForm : Form
     }
 
     /// <summary>
-    /// 查询该 NPC 当前可委派给玩家的链式任务(玩家未接取的)。
-    /// 供 DialogueForm 在聊天流中呈现。
+    /// 查询该 NPC 当前相关的链式任务(玩家未接取的)。
+    /// 可接任务正常弹出；被前置条件锁定的任务返回明确原因，避免静默无提示。
     /// </summary>
     private List<ChainQuestOffer> GetOfferableQuests(NPC npc)
     {
@@ -3198,17 +3235,43 @@ public class MainForm : Form
             // 仅供自动接取的任务(如失败后的惩罚任务)不出现在可委托列表
             if (cfg.AutoAcceptOnly) return false;
             if (player.QuestLog.Any(q => q.Id == cfg.Id)) return false;
+
+            var blockedReasons = new List<string>();
+
+            string GetQuestRouteHint(string questId)
+            {
+                Config.Models.QuestConfig? prerequisite = null;
+                if (!_engine.Config.Quests.TryGetValue(questId, out prerequisite))
+                    prerequisite = _engine.State.RuntimeQuests.FirstOrDefault(q => q.Id == questId);
+
+                if (prerequisite == null) return $"【{questId}】";
+
+                string route = "";
+                if (!string.IsNullOrEmpty(prerequisite.TriggerNpcId)
+                    && _engine.State.AllNPCs.TryGetValue(prerequisite.TriggerNpcId, out var triggerNpc))
+                {
+                    route = $"（找{triggerNpc.Name}接取）";
+                }
+                return $"【{prerequisite.Name}】{route}";
+            }
+
             // 前置任务：须全部完成(已完成/已领奖)方可接取(用于"多线汇聚"剧情,如少室山大战)
             if (cfg.PrerequisiteQuestIds.Count > 0)
             {
+                var unfinished = new List<string>();
+                var failed = new List<string>();
                 foreach (var preId in cfg.PrerequisiteQuestIds)
                 {
                     var pre = player.QuestLog.FirstOrDefault(q => q.Id == preId);
-                    if (pre == null
-                        || pre.Status == QuestStatus.InProgress
-                        || pre.Status == QuestStatus.Failed)
-                        return false;
+                    if (pre?.Status == QuestStatus.Failed)
+                        failed.Add(GetQuestRouteHint(preId));
+                    else if (pre == null || !pre.IsCompleted)
+                        unfinished.Add(GetQuestRouteHint(preId));
                 }
+                if (unfinished.Count > 0)
+                    blockedReasons.Add($"需先完成：{string.Join("、", unfinished)}");
+                if (failed.Count > 0)
+                    blockedReasons.Add($"前置任务已失败：{string.Join("、", failed)}");
             }
             // 互斥任务:玩家任务日志中已有任一互斥任务(任何状态)则不可接取(正/恶线互斥)
             if (cfg.ExclusiveWithQuestIds.Count > 0)
@@ -3216,30 +3279,36 @@ public class MainForm : Form
                 foreach (var exId in cfg.ExclusiveWithQuestIds)
                 {
                     if (player.QuestLog.Any(q => q.Id == exId))
-                        return false;
+                    {
+                        blockedReasons.Add($"已选择互斥路线：{GetQuestRouteHint(exId)}");
+                        break;
+                    }
                 }
             }
             // 门派归属:RequireSameFaction 时玩家必须与发布者同门派
             if (cfg.RequireSameFaction)
             {
-                if (string.IsNullOrEmpty(npc.FactionId)) return false;
-                if (player.FactionId != npc.FactionId) return false;
+                if (string.IsNullOrEmpty(npc.FactionId) || player.FactionId != npc.FactionId)
+                    blockedReasons.Add("需与发布者同门派");
             }
             if (!string.IsNullOrEmpty(cfg.ExcludeFactionId) && player.FactionId == cfg.ExcludeFactionId)
-                return false;
+                blockedReasons.Add("你当前的门派立场无法接取此任务");
             // 好感度门槛：未达到则不弹委托（剧情上"还不熟"，由玩家继续对话拉好感度）
             if (cfg.MinFavorabilityToOffer > 0)
             {
                 var relation = npc.GetRelation(player.Id);
-                if (relation.Favorability < cfg.MinFavorabilityToOffer) return false;
+                if (relation.Favorability < cfg.MinFavorabilityToOffer)
+                    blockedReasons.Add($"好感度需达到{cfg.MinFavorabilityToOffer}（当前{relation.Favorability}）");
             }
             // 武功等级门槛：玩家任一武功 Level 须≥要求(用于"武功学到中段才能触发"剧情)
-            if (cfg.MinAnyArtLevel > 0)
-            {
-                if (!player.LearnedArts.Any(a => a.Level >= cfg.MinAnyArtLevel)) return false;
-            }
-            offers.Add(new ChainQuestOffer(cfg.Id, cfg.Name, cfg.Description));
-            return true;
+            if (cfg.MinAnyArtLevel > 0 && !player.LearnedArts.Any(a => a.Level >= cfg.MinAnyArtLevel))
+                blockedReasons.Add($"需至少一门武功达到Lv.{cfg.MinAnyArtLevel}");
+
+            string? blockedReason = blockedReasons.Count > 0
+                ? string.Join("；", blockedReasons) + "。"
+                : null;
+            offers.Add(new ChainQuestOffer(cfg.Id, cfg.Name, cfg.Description, blockedReason));
+            return blockedReason == null;
         }
 
         // 1. 配置文件任务
@@ -3491,8 +3560,9 @@ public class MainForm : Form
         var basicPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent };
         var artsPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
         var bagPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
+        var relationsPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
         var expPanel = new Panel { Location = Point.Empty, Size = contentPanel.Size, BackColor = Color.Transparent, Visible = false };
-        contentPanel.Controls.AddRange(new Control[] { basicPanel, artsPanel, bagPanel, expPanel });
+        contentPanel.Controls.AddRange(new Control[] { basicPanel, artsPanel, bagPanel, relationsPanel, expPanel });
 
         // ── Tab 1: 基本信息 ──
         // 玩家创建时选择的头像
@@ -3749,7 +3819,149 @@ public class MainForm : Form
             if (item.IsManual) bagDetailBox.AppendText($"\n★ 武功秘籍 - 可在背包中修炼");
         };
 
-        // ── Tab 4: 经历 ──
+        // ── Tab 4: 关系查询 ──
+        var relationSearchBox = new TextBox
+        {
+            Location = new Point(5, 5),
+            Size = new Size(420, 30),
+            PlaceholderText = "输入人物姓名查询（留空显示已有关系）",
+            BackColor = WuxiaTheme.PanelBackAlt,
+            ForeColor = WuxiaTheme.Text,
+            Font = WuxiaTheme.UiFont(9.5f),
+            BorderStyle = BorderStyle.FixedSingle
+        };
+        relationsPanel.Controls.Add(relationSearchBox);
+
+        var relationsListBox = new ListBox
+        {
+            Location = new Point(5, 42),
+            Size = new Size(420, 210),
+            BackColor = WuxiaTheme.Surface,
+            ForeColor = WuxiaTheme.Text,
+            Font = WuxiaTheme.UiFont(9.5f),
+            IntegralHeight = false,
+            BorderStyle = BorderStyle.None
+        };
+        relationsPanel.Controls.Add(relationsListBox);
+
+        var relationDetailBox = new RichTextBox
+        {
+            Location = new Point(5, 260),
+            Size = new Size(420, 195),
+            BackColor = WuxiaTheme.PanelBackAlt,
+            ForeColor = WuxiaTheme.Text,
+            Font = WuxiaTheme.UiFont(9f),
+            ReadOnly = true,
+            BorderStyle = BorderStyle.None
+        };
+        relationsPanel.Controls.Add(relationDetailBox);
+
+        string RelationDisplayName(RelationType type) => type switch
+        {
+            RelationType.Stranger => "素不相识",
+            RelationType.Acquaintance => "点头之交",
+            RelationType.Friend => "朋友",
+            RelationType.CloseFriend => "至交好友",
+            RelationType.Master => "徒弟（你为师父）",
+            RelationType.Disciple => "师父（你为徒弟）",
+            RelationType.SwornBrother => "结拜",
+            RelationType.Spouse => "配偶",
+            RelationType.Enemy => "仇敌",
+            RelationType.Rival => "对手",
+            _ => "未知"
+        };
+
+        (RelationType Type, int Favorability) GetEffectiveRelation(NPC npc)
+        {
+            p.Relations.TryGetValue(npc.Id, out var playerRel);
+            npc.Relations.TryGetValue(p.Id, out var npcRel);
+            int playerFavor = playerRel?.Favorability ?? 0;
+            int npcFavor = npcRel?.Favorability ?? 0;
+            int favor = Math.Abs(playerFavor) >= Math.Abs(npcFavor) ? playerFavor : npcFavor;
+
+            if (playerRel?.Type == RelationType.Spouse || npcRel?.Type == RelationType.Spouse)
+                return (RelationType.Spouse, favor);
+            if (playerRel?.Type == RelationType.SwornBrother || npcRel?.Type == RelationType.SwornBrother)
+                return (RelationType.SwornBrother, favor);
+            if (playerRel?.Type == RelationType.Master || npcRel?.Type == RelationType.Disciple)
+                return (RelationType.Master, favor);
+            if (playerRel?.Type == RelationType.Disciple || npcRel?.Type == RelationType.Master)
+                return (RelationType.Disciple, favor);
+
+            var ordinaryType = favor switch
+            {
+                >= 80 => RelationType.CloseFriend,
+                >= 50 => RelationType.Friend,
+                >= 20 => RelationType.Acquaintance,
+                <= -50 => RelationType.Enemy,
+                <= -20 => RelationType.Rival,
+                _ => RelationType.Stranger
+            };
+            return (ordinaryType, favor);
+        }
+
+        var visibleRelations = new List<(NPC Npc, RelationType Type, int Favorability)>();
+
+        void RefreshRelations()
+        {
+            string query = relationSearchBox.Text.Trim();
+            visibleRelations.Clear();
+            relationsListBox.Items.Clear();
+            relationDetailBox.Clear();
+
+            foreach (var npc in _engine.State.AllNPCs.Values
+                         .OrderBy(n => n.Name, StringComparer.CurrentCulture))
+            {
+                var effective = GetEffectiveRelation(npc);
+                bool hasRelationship = effective.Type != RelationType.Stranger || effective.Favorability != 0;
+                bool nameMatches = query.Length > 0
+                    && npc.Name.Contains(query, StringComparison.CurrentCultureIgnoreCase);
+
+                // 默认只列出真正有交往的人；主动搜索时也可查询普通可见人物。
+                if (query.Length == 0 ? !hasRelationship : !nameMatches || (!hasRelationship && npc.IsHidden))
+                    continue;
+
+                visibleRelations.Add((npc, effective.Type, effective.Favorability));
+                string aliveMark = npc.IsAlive ? "" : "（已故）";
+                relationsListBox.Items.Add($"{npc.Name}{aliveMark}  [{RelationDisplayName(effective.Type)}]  好感 {effective.Favorability}");
+            }
+
+            if (relationsListBox.Items.Count == 0)
+            {
+                relationsListBox.Items.Add(query.Length == 0
+                    ? "（尚无交往记录，可输入姓名查询）"
+                    : "（未找到符合条件的人物）");
+                return;
+            }
+
+            relationsListBox.SelectedIndex = 0;
+        }
+
+        relationsListBox.SelectedIndexChanged += (_, _) =>
+        {
+            relationDetailBox.Clear();
+            int index = relationsListBox.SelectedIndex;
+            if (index < 0 || index >= visibleRelations.Count) return;
+
+            var entry = visibleRelations[index];
+            var npc = entry.Npc;
+            relationDetailBox.AppendText($"【{npc.Name}】{npc.Description}\n\n");
+            relationDetailBox.AppendText($"关系：{RelationDisplayName(entry.Type)}\n");
+            relationDetailBox.AppendText($"好感度：{entry.Favorability}/100\n");
+            relationDetailBox.AppendText($"性别：{npc.Gender ?? "未知"}  状态：{(npc.IsAlive ? "在世" : "已故")}\n");
+            relationDetailBox.AppendText($"门派：{_engine.State.GetFactionName(npc.FactionId)}\n");
+
+            if (p.Relations.TryGetValue(npc.Id, out var playerRecord)
+                && npc.Relations.TryGetValue(p.Id, out var npcRecord)
+                && playerRecord.Favorability != npcRecord.Favorability)
+            {
+                relationDetailBox.AppendText($"\n旧档关系记录已自动按较深一侧同步：{playerRecord.Favorability}/{npcRecord.Favorability}\n");
+            }
+        };
+        relationSearchBox.TextChanged += (_, _) => RefreshRelations();
+        RefreshRelations();
+
+        // ── Tab 5: 经历 ──
         var expBox = new RichTextBox
         {
             Location = new Point(5, 5),
@@ -3787,6 +3999,7 @@ public class MainForm : Form
                 basicPanel.Visible = false;
                 artsPanel.Visible = false;
                 bagPanel.Visible = false;
+                relationsPanel.Visible = false;
                 expPanel.Visible = false;
                 panel.Visible = true;
 
@@ -3803,7 +4016,8 @@ public class MainForm : Form
         var btn1 = MakeTabButton("基本信息", basicPanel);
         var btn2 = MakeTabButton("武功", artsPanel);
         var btn3 = MakeTabButton("背包", bagPanel);
-        var btn4 = MakeTabButton("经历", expPanel);
+        var btn4 = MakeTabButton("关系", relationsPanel);
+        var btn5 = MakeTabButton("经历", expPanel);
 
         // 默认显示基本信息并高亮
         WuxiaTheme.StyleButton(btn1, WuxiaTheme.Accent);

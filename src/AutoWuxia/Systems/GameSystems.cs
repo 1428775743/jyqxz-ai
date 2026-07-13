@@ -91,10 +91,92 @@ public static class RelationshipSystem
 {
     public static void Interact(CharacterBase a, CharacterBase b, int favorChange)
     {
+        SynchronizeRelationship(a, b);
         var relA = a.GetRelation(b.Id);
         var relB = b.GetRelation(a.Id);
         relA.ChangeFavorability(favorChange);
         relB.ChangeFavorability(favorChange);
+    }
+
+    /// <summary>
+    /// 修复旧存档或旧逻辑造成的单向关系：特殊关系按双方角色补齐，好感取绝对值较强的一侧。
+    /// </summary>
+    public static void SynchronizeRelationship(CharacterBase a, CharacterBase b)
+    {
+        var relA = a.GetRelation(b.Id);
+        var relB = b.GetRelation(a.Id);
+
+        int favor = Math.Abs(relA.Favorability) >= Math.Abs(relB.Favorability)
+            ? relA.Favorability
+            : relB.Favorability;
+        relA.Favorability = Math.Clamp(favor, -100, 100);
+        relB.Favorability = Math.Clamp(favor, -100, 100);
+
+        if (relA.Type == RelationType.Spouse || relB.Type == RelationType.Spouse)
+        {
+            relA.Type = RelationType.Spouse;
+            relB.Type = RelationType.Spouse;
+        }
+        else if (relA.Type == RelationType.SwornBrother || relB.Type == RelationType.SwornBrother)
+        {
+            relA.Type = RelationType.SwornBrother;
+            relB.Type = RelationType.SwornBrother;
+        }
+        else if (relA.Type == RelationType.Master || relB.Type == RelationType.Disciple)
+        {
+            relA.Type = RelationType.Master;
+            relB.Type = RelationType.Disciple;
+        }
+        else if (relA.Type == RelationType.Disciple || relB.Type == RelationType.Master)
+        {
+            relA.Type = RelationType.Disciple;
+            relB.Type = RelationType.Master;
+        }
+        else
+        {
+            // 普通关系按同步后的好感重新归类。
+            relA.ChangeFavorability(0);
+            relB.ChangeFavorability(0);
+        }
+    }
+
+    public static bool CanBecomeSpouses(CharacterBase a, CharacterBase b, out string reason)
+    {
+        reason = "";
+        if (ReferenceEquals(a, b) || a.Id == b.Id)
+        {
+            reason = "不能与自己结为配偶";
+            return false;
+        }
+
+        var relA = a.GetRelation(b.Id);
+        var relB = b.GetRelation(a.Id);
+        if (relA.Type == RelationType.Spouse || relB.Type == RelationType.Spouse)
+        {
+            reason = "你们已经是配偶";
+            return false;
+        }
+
+        int favor = Math.Max(relA.Favorability, relB.Favorability);
+        if (favor < 80)
+        {
+            reason = $"好感度需达到80（当前{favor}）";
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(a.Gender) || string.IsNullOrWhiteSpace(b.Gender))
+        {
+            reason = "角色性别信息不完整";
+            return false;
+        }
+
+        if (string.Equals(a.Gender.Trim(), b.Gender.Trim(), StringComparison.Ordinal))
+        {
+            reason = "当前婚配规则要求双方性别不同";
+            return false;
+        }
+
+        return true;
     }
 
     public static void BecomeMasterDisciple(CharacterBase master, CharacterBase disciple)

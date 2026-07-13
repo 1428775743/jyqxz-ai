@@ -1232,6 +1232,7 @@ public class GameEngine
                 {
                     Id = npc.Id,
                     Name = npc.Name,
+                    Gender = npc.Gender,
                     Description = npc.Description,
                     Personality = npc.Personality,
                     MaxHP = npc.MaxHP,
@@ -1402,6 +1403,55 @@ public class GameEngine
                     if (character.AuxiliaryInternalArts[i].Id == refreshed.Id)
                         character.AuxiliaryInternalArts[i] = refreshed;
             }
+        }
+
+        if (state.SaveVersion < 5)
+        {
+            // v5：旧版对话只在NPC一侧累计好感，且更早的存档没有性别字段，
+            // 会导致好感已满却无法触发婚配。补齐性别并同步已有的双向关系。
+            if (string.IsNullOrWhiteSpace(state.Player.Gender))
+                state.Player.Gender = "男";
+
+            int repairedGenders = 0;
+            int repairedRelations = 0;
+            foreach (var npc in state.AllNPCs.Values)
+            {
+                if (string.IsNullOrWhiteSpace(npc.Gender)
+                    && Config.Characters.TryGetValue(npc.Id, out var characterConfig)
+                    && !string.IsNullOrWhiteSpace(characterConfig.Gender))
+                {
+                    npc.Gender = characterConfig.Gender;
+                    repairedGenders++;
+                }
+
+                // 只迁移已有交往记录，避免给所有陌生人创建空关系记录。
+                if (!state.Player.Relations.ContainsKey(npc.Id)
+                    && !npc.Relations.ContainsKey(state.Player.Id))
+                    continue;
+
+                RelationshipSystem.SynchronizeRelationship(state.Player, npc);
+                repairedRelations++;
+            }
+
+            Log($"存档迁移 v5：补齐{repairedGenders}名NPC性别，同步{repairedRelations}组玩家关系。");
+        }
+
+        if (state.SaveVersion < 6)
+        {
+            // v6：旧版NPC在装载内功前按基础上限设置当前HP/MP，导致所有会内功的NPC
+            // 初始状态看起来都是残血残蓝。仅修复仍在世的NPC，死亡角色保持死亡。
+            int restoredVitals = 0;
+            foreach (var npc in state.AllNPCs.Values)
+            {
+                if (!npc.IsAlive) continue;
+                int totalMaxHP = npc.GetTotalMaxHP();
+                int totalMaxMP = npc.GetTotalMaxMP();
+                if (npc.CurrentHP != totalMaxHP || npc.CurrentMP != totalMaxMP)
+                    restoredVitals++;
+                npc.RestoreVitalsToFull();
+            }
+
+            Log($"存档迁移 v6：恢复{restoredVitals}名在世NPC的满气血与满内力。");
         }
 
         state.SaveVersion = GameState.CurrentSaveVersion;

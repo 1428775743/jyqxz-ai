@@ -71,11 +71,14 @@
     "jianghuExp": 1000,
     "goldBonus": 5000,
     "reputationBonus": 1200,
-    "karmaBonus": 10
+    "karmaBonus": 10,
+    "items": [
+      { "itemId": "kuihua_baodian_manual", "quantity": 1 }
+    ]
   },
   "completeDialogue": {
     "lines": [
-      { "speaker": "旁白", "lines": ["黑木崖一战传遍江湖。东方不败战败遁隐，任我行留在总坛坐镇。你救人、破局、决战一气呵成，群雄无不侧目。"] }
+      { "speaker": "旁白", "lines": ["黑木崖一战传遍江湖。东方不败战败遁隐，任我行留在总坛坐镇。你救人、破局、决战一气呵成，群雄无不侧目。", "你在东方不败遗落之处寻得一部绝世秘典——《葵花宝典》。"] }
     ]
   }
 }

@@ -20,19 +20,27 @@ public class DamageResult
     /// <summary>是否触发了反击</summary>
     public bool CounterAttackTriggered { get; set; }
 
+    /// <summary>实际触发反击的外功；内功反击时为空。</summary>
+    public ExternalArt? CounterAttackArt { get; set; }
+
+    /// <summary>反击伤害倍率，来自触发词条的 Value。</summary>
+    public double CounterAttackMultiplier { get; set; } = 0.6;
+
     /// <summary>是否触发了追击</summary>
     public bool ExtraAttackTriggered { get; set; }
+
+    /// <summary>追击伤害倍率，来自触发词条的 Value。</summary>
+    public double ExtraAttackMultiplier { get; set; } = 0.6;
 }
 
 public static class DamageCalculator
 {
     // K 越低，防御转化为减伤的效率越高。防御=K 时减伤 50%。
     private const double DefenseConstant = 700.0;
+    private const double MaxReduction = 0.70;
 
     public static DamageResult Calculate(CharacterBase attacker, CharacterBase defender, MartialArtBase? usedArt = null)
     {
-        const double MaxReduction = 0.70;    // 减伤buff叠加上限70%
-
         var result = new DamageResult();
         var externalArt = usedArt as ExternalArt;
         int attack = attacker.GetTotalAttack();
@@ -54,6 +62,14 @@ public static class DamageCalculator
             int boostPercent = attacker.GetTimedBuffValue("next_attack_boost");
             result.RawDamage = (int)(result.RawDamage * (1 + boostPercent / 100.0));
             result.TriggeredEffects.Add($"蓄力增伤 +{boostPercent}%");
+        }
+
+        // 散功压制：吸星大法将目标内力吸至低位后，暂时削弱其后续伤害。
+        if (attacker.HasTimedBuff("damage_dealt_reduction"))
+        {
+            int reduction = attacker.GetTimedBuffValue("damage_dealt_reduction");
+            result.RawDamage = Math.Max(1, (int)(result.RawDamage * (1 - reduction / 100.0)));
+            result.TriggeredEffects.Add($"散功压制 -{reduction}%伤害");
         }
 
         // 暴击(×1.5伤害)
@@ -104,76 +120,7 @@ public static class DamageCalculator
             }
         }
 
-        // ── 主伤害:百分比减伤 damage = Raw × K / (effDef + K) ──
-        // 无视防御降低有效防御值;防=K减伤50%,防=2K减伤67%,低防几乎不减
-        int defense = defender.GetTotalDefense();
-        int effDef = (int)(defense * (1 - Math.Min(ignoreDef, 1.0)));
-        double normalDamage = result.RawDamage * DefenseConstant / (effDef + DefenseConstant);
-
-        // ── 真实伤害:绕过防御与后续百分比减伤,按 Raw 的比例全额附加 ──
-        double trueDamage = result.RawDamage * Math.Min(trueDamageRate, 1.0);
-
-        // ── 固定减伤(百分比后扣减,如坐忘功Lv8 -10) ──
-        var defInternalArt = defender.ActiveInternalArt;
-        if (defInternalArt != null)
-        {
-            foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.FlatDamageReduction))
-            {
-                if (effect.IsUnlocked(defInternalArt.Level))
-                {
-                    int flatReduce = (int)effect.Value;
-                    normalDamage -= flatReduce;
-                    result.TriggeredEffects.Add($"固定减伤 (-{flatReduce})");
-                }
-            }
-        }
-
-        // ── 减伤buff(TimedBuff + 内功被动):百分比叠加,上限70% ──
-        double reductionPct = 0;
-        if (defender.HasTimedBuff("damage_reduction"))
-        {
-            int r = defender.GetTimedBuffValue("damage_reduction");
-            reductionPct += r / 100.0;
-            result.TriggeredEffects.Add($"减伤 {r}%");
-        }
-        if (defInternalArt != null)
-        {
-            foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.DamageReduction))
-            {
-                if (effect.TryActivate(defInternalArt.Level))
-                {
-                    reductionPct += effect.Value;
-                    result.TriggeredEffects.Add($"护体减伤 {(int)(effect.Value * 100)}%");
-                }
-            }
-        }
-        reductionPct = Math.Min(reductionPct, MaxReduction);
-        normalDamage = Math.Max(0, normalDamage) * (1 - reductionPct);
-        result.TrueDamage = Math.Max(0, (int)trueDamage);
-        result.ActualDamage = Math.Max(1, (int)normalDamage + result.TrueDamage);
-
-        // 反弹伤害 TimedBuff
-        if (defender.HasTimedBuff("reflect_damage") && result.ActualDamage > 0)
-        {
-            int reflectPercent = defender.GetTimedBuffValue("reflect_damage");
-            result.ReflectedDamage = (int)(result.ActualDamage * reflectPercent / 100.0);
-            if (result.ReflectedDamage > 0)
-                result.TriggeredEffects.Add($"反弹 {reflectPercent}% ({result.ReflectedDamage})");
-        }
-
-        // 反弹被动效果（内功等级解锁）
-        if (defInternalArt != null && result.ActualDamage > 0)
-        {
-            foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.ReflectDamage))
-            {
-                if (effect.TryActivate(defInternalArt.Level))
-                {
-                    int reflected = (int)(result.ActualDamage * effect.Value);
-                    result.ReflectedDamage += reflected;
-                    result.TriggeredEffects.Add($"反伤 {(int)(effect.Value * 100)}% (+{reflected})");
-                }
-            }
-        }
+        ApplyDefenderMitigation(result, defender, ignoreDef, trueDamageRate);
 
         // 防御方MPResist(抗吸内,如易筋经)
         double mpResist = 0;
@@ -181,6 +128,7 @@ public static class DamageCalculator
             mpResist = defender.ActiveInternalArt.Effects
                 .Where(e => e.Type == EffectType.MPResist && e.IsUnlocked(defender.ActiveInternalArt.Level))
                 .Sum(e => e.Value);
+        mpResist = Math.Clamp(mpResist, 0, 1);
 
         // 吸内力:外功(化骨大法) + 内功(吸星大法)
         if (externalArt != null)
@@ -204,29 +152,64 @@ public static class DamageCalculator
             {
                 if (effect.TryActivate(attacker.ActiveInternalArt.Level))
                 {
-                    int drainAmount = (int)(defender.CurrentMP * effect.Value * (1 - mpResist));
+                    double drainBoost = 1 + attacker.GetTimedBuffValue("drain_mp_boost") / 100.0;
+                    double drainRate = Math.Min(1.0, effect.Value * drainBoost);
+                    int drainAmount = (int)(defender.CurrentMP * drainRate * (1 - mpResist));
                     if (drainAmount > 0)
                     {
                         defender.CurrentMP = Math.Max(0, defender.CurrentMP - drainAmount);
-                        result.TriggeredEffects.Add($"消耗对方 {drainAmount} 内力(内功)" + (mpResist > 0 ? $"(被抗{mpResist:P0})" : ""));
+                        int beforeRecover = attacker.CurrentMP;
+                        attacker.RecoverMP(drainAmount);
+                        int recovered = attacker.CurrentMP - beforeRecover;
+                        result.TriggeredEffects.Add(
+                            $"{attacker.ActiveInternalArt.Name}吸取对方 {drainAmount} 内力" +
+                            (recovered > 0 ? $"(自身恢复{recovered})" : "") +
+                            (mpResist > 0 ? $"(被抗{mpResist:P0})" : ""));
+
+                        double drainedDamageRate = attacker.ActiveInternalArt.Effects
+                            .Where(e => e.Type == EffectType.DrainedMPDamage
+                                && e.IsUnlocked(attacker.ActiveInternalArt.Level))
+                            .Sum(e => e.Value);
+                        int drainedDamage = (int)(drainAmount * drainedDamageRate);
+                        if (drainedDamage > 0)
+                        {
+                            result.TrueDamage += drainedDamage;
+                            result.ActualDamage += drainedDamage;
+                            result.TriggeredEffects.Add($"异种真气反噬 +{drainedDamage}真实伤害");
+                        }
+
+                        foreach (var exhaustion in attacker.ActiveInternalArt.Effects
+                                     .Where(e => e.Type == EffectType.MPExhaustion))
+                        {
+                            if (!exhaustion.TryActivate(attacker.ActiveInternalArt.Level)) continue;
+                            if (defender.CurrentMP > defender.GetTotalMaxMP() * exhaustion.Value) continue;
+
+                            int weakenPercent = Math.Max(1, (int)(exhaustion.Value * 100));
+                            defender.AddTimedBuff("damage_dealt_reduction", weakenPercent, 2);
+                            result.TriggeredEffects.Add($"散功压制 -{weakenPercent}%伤害(2回合)");
+                            break;
+                        }
                     }
                 }
             }
         }
 
-        // 防御方反击检测（外功被动：被攻击时概率反击）
-        var defExternalArt = defender.ActiveExternalArt;
-        if (defExternalArt != null)
+        // 防御方反击检测（外功被动：被攻击时概率反击）。
+        // 多外功装备后必须记录真正触发反击的武功，否则会错误使用列表第一本的系数。
+        foreach (var defExternalArt in defender.ActiveExternalArts)
         {
             foreach (var effect in defExternalArt.Effects.Where(e => e.Type == EffectType.CounterAttack))
             {
                 if (effect.TryActivate(defExternalArt.Level))
                 {
                     result.CounterAttackTriggered = true;
+                    result.CounterAttackArt = defExternalArt;
+                    result.CounterAttackMultiplier = effect.Value;
                     result.TriggeredEffects.Add("触发反击！");
                     break; // 只触发一次
                 }
             }
+            if (result.CounterAttackTriggered) break;
         }
         // 内功反击(如蛤蟆功/玉女心经)
         if (!result.CounterAttackTriggered && defender.ActiveInternalArt != null)
@@ -236,6 +219,7 @@ public static class DamageCalculator
                 if (effect.TryActivate(defender.ActiveInternalArt.Level))
                 {
                     result.CounterAttackTriggered = true;
+                    result.CounterAttackMultiplier = effect.Value;
                     result.TriggeredEffects.Add("触发反击(内功)！");
                     break;
                 }
@@ -250,6 +234,7 @@ public static class DamageCalculator
                 if (effect.TryActivate(artLevel))
                 {
                     result.ExtraAttackTriggered = true;
+                    result.ExtraAttackMultiplier = effect.Value;
                     result.TriggeredEffects.Add("触发追击！");
                     break; // 只触发一次
                 }
@@ -260,17 +245,142 @@ public static class DamageCalculator
     }
 
     /// <summary>
-    /// 次要伤害(连击/反击/追击)的百分比减伤计算,与主伤害共用 dota 式减伤曲线。
-    /// 次要伤害只过防御力减伤,不再叠减伤buff/固定减伤,保持简洁。
+    /// 次要伤害（连击/反击/追击）完整结算防御层，但不再次触发连击、反击、追击、吸内等攻击效果。
     /// </summary>
+    /// <param name="attacker">次要攻击的发起者</param>
+    /// <param name="defender">次要攻击的承受者</param>
+    /// <param name="sourceArt">本次攻击沿用的外功，用于无视防御与真实伤害</param>
     /// <param name="rawBase">基础伤害(已含武功系数与等级倍率)</param>
-    /// <param name="defense">防御方总防御</param>
-    /// <param name="damageMultiplier">伤害倍率(连击0.85/反击0.6/追击0.6)</param>
+    /// <param name="damageMultiplier">对应连击/反击/追击词条的伤害倍率</param>
     /// <param name="defenseFactor">有效防御系数(默认1.0;反击0.5=只算一半防御)</param>
-    public static int ComputeSecondaryDamage(int rawBase, int defense, double damageMultiplier = 1.0, double defenseFactor = 1.0)
+    public static DamageResult CalculateSecondary(CharacterBase attacker, CharacterBase defender,
+        ExternalArt? sourceArt, int rawBase, double damageMultiplier = 1.0, double defenseFactor = 1.0)
     {
-        int effDef = Math.Max(0, (int)(defense * defenseFactor));
-        double dmg = rawBase * damageMultiplier * DefenseConstant / (effDef + DefenseConstant);
-        return Math.Max(1, (int)dmg);
+        var result = new DamageResult
+        {
+            RawDamage = Math.Max(1, (int)(rawBase * Math.Max(0, damageMultiplier)))
+        };
+
+        if (attacker.HasTimedBuff("damage_dealt_reduction"))
+        {
+            int reduction = attacker.GetTimedBuffValue("damage_dealt_reduction");
+            result.RawDamage = Math.Max(1, (int)(result.RawDamage * (1 - reduction / 100.0)));
+            result.TriggeredEffects.Add($"散功压制 -{reduction}%伤害");
+        }
+
+        double ignoreDef = 0;
+        double trueDamageRate = 0;
+        if (sourceArt != null)
+        {
+            foreach (var effect in sourceArt.Effects.Where(e => e.Type == EffectType.IgnoreDefense))
+            {
+                if (!effect.TryActivate(sourceArt.Level)) continue;
+                ignoreDef += effect.Value;
+                result.TriggeredEffects.Add($"无视防御 {effect.Value:P0}");
+            }
+            foreach (var effect in sourceArt.Effects.Where(e => e.Type == EffectType.TrueDamage))
+            {
+                if (!effect.TryActivate(sourceArt.Level)) continue;
+                trueDamageRate += effect.Value;
+                result.TriggeredEffects.Add($"真实伤害 {effect.Value:P0}");
+            }
+        }
+
+        var internalArt = attacker.ActiveInternalArt;
+        if (internalArt != null)
+        {
+            foreach (var effect in internalArt.Effects.Where(e => e.Type == EffectType.TrueDamage))
+            {
+                if (!effect.TryActivate(internalArt.Level)) continue;
+                trueDamageRate += effect.Value;
+                result.TriggeredEffects.Add($"真实伤害(内功) {effect.Value:P0}");
+            }
+        }
+
+        ApplyDefenderMitigation(result, defender, ignoreDef, trueDamageRate, defenseFactor);
+        return result;
+    }
+
+    private static void ApplyDefenderMitigation(DamageResult result, CharacterBase defender,
+        double ignoreDef, double trueDamageRate, double defenseFactor = 1.0)
+    {
+        int defense = defender.GetTotalDefense();
+        int effDef = Math.Max(0, (int)(defense * Math.Max(0, defenseFactor)
+            * (1 - Math.Min(ignoreDef, 1.0))));
+        double normalDamage = result.RawDamage * DefenseConstant / (effDef + DefenseConstant);
+        double trueDamage = result.RawDamage * Math.Min(trueDamageRate, 1.0);
+
+        var defInternalArt = defender.ActiveInternalArt;
+        if (defInternalArt != null)
+        {
+            foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.FlatDamageReduction))
+            {
+                if (!effect.IsUnlocked(defInternalArt.Level)) continue;
+                int flatReduce = (int)effect.Value;
+                normalDamage -= flatReduce;
+                result.TriggeredEffects.Add($"固定减伤 (-{flatReduce})");
+            }
+        }
+
+        double reductionPct = 0;
+        if (defender.HasTimedBuff("damage_reduction"))
+        {
+            int reduction = defender.GetTimedBuffValue("damage_reduction");
+            reductionPct += reduction / 100.0;
+            result.TriggeredEffects.Add($"减伤 {reduction}%");
+        }
+        if (defender.HasTimedBuff("adaptive_defense"))
+        {
+            int reduction = defender.GetTimedBuffValue("adaptive_defense");
+            reductionPct += reduction / 100.0;
+            result.TriggeredEffects.Add($"易筋护体 {reduction}%");
+        }
+        if (defInternalArt != null)
+        {
+            foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.DamageReduction))
+            {
+                if (!effect.TryActivate(defInternalArt.Level)) continue;
+                reductionPct += effect.Value;
+                result.TriggeredEffects.Add($"护体减伤 {(int)(effect.Value * 100)}%");
+            }
+        }
+        reductionPct = Math.Min(reductionPct, MaxReduction);
+        normalDamage = Math.Max(0, normalDamage) * (1 - reductionPct);
+        result.TrueDamage = Math.Max(0, (int)trueDamage);
+        result.ActualDamage = Math.Max(1, (int)normalDamage + result.TrueDamage);
+
+        if (defender.ActiveLightArt != null)
+        {
+            double lightReduction = defender.ActiveLightArt.GetPassiveDamageReduction();
+            if (lightReduction > 0)
+            {
+                int reducibleDamage = Math.Max(0, result.ActualDamage - result.TrueDamage);
+                result.ActualDamage = Math.Max(1,
+                    (int)(reducibleDamage * (1 - lightReduction)) + result.TrueDamage);
+                result.TriggeredEffects.Add($"轻功减伤 {(int)(lightReduction * 100)}%");
+            }
+        }
+    }
+
+    /// <summary>在轻功与内力护盾结算完成后，按最终实际伤害计算反弹。</summary>
+    public static void ApplyReflection(CharacterBase defender, DamageResult result)
+    {
+        var defInternalArt = defender.ActiveInternalArt;
+        if (defender.HasTimedBuff("reflect_damage") && result.ActualDamage > 0)
+        {
+            int reflectPercent = defender.GetTimedBuffValue("reflect_damage");
+            result.ReflectedDamage = (int)(result.ActualDamage * reflectPercent / 100.0);
+            if (result.ReflectedDamage > 0)
+                result.TriggeredEffects.Add($"反弹 {reflectPercent}% ({result.ReflectedDamage})");
+        }
+
+        if (defInternalArt == null || result.ActualDamage <= 0) return;
+        foreach (var effect in defInternalArt.Effects.Where(e => e.Type == EffectType.ReflectDamage))
+        {
+            if (!effect.TryActivate(defInternalArt.Level)) continue;
+            int reflected = (int)(result.ActualDamage * effect.Value);
+            result.ReflectedDamage += reflected;
+            result.TriggeredEffects.Add($"反伤 {(int)(effect.Value * 100)}% (+{reflected})");
+        }
     }
 }

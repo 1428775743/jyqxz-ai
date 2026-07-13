@@ -1,0 +1,11 @@
+{
+  "id": "kuihua_baodian_manual",
+  "name": "葵花宝典",
+  "description": "东方不败败退时遗落的绝世秘典，所载内功诡秘迅捷。修炼前必先自宫，否则无法参悟。",
+  "type": "Manual",
+  "value": 0,
+  "stackable": false,
+  "containedArtIds": ["kuihua_baodian"],
+  "prerequisite": {},
+  "rarity": "mythic"
+}

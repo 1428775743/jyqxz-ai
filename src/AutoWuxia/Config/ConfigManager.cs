@@ -280,6 +280,10 @@ public class ConfigManager
         // 初始化NPC背包
         GiveNPCItems(npc, config);
 
+        // 武功必须先装载完再回满；内功会提高总HP/MP上限。
+        // 旧逻辑在装载武功前按基础上限赋值，导致所有会内功的NPC初始就是残血残蓝。
+        npc.RestoreVitalsToFull();
+
         return npc;
     }
 

@@ -18,9 +18,13 @@ public class NPCActionEventArgs : EventArgs
 }
 
 /// <summary>
-/// 可接取的链式任务摘要(供 DialogueForm 在聊天流中呈现)
+/// NPC相关链式任务摘要(供 DialogueForm 在聊天流中呈现)。
+/// BlockedReason 为空时可接取；否则展示明确的解锁线索。
 /// </summary>
-public record ChainQuestOffer(string Id, string Name, string Description);
+public record ChainQuestOffer(string Id, string Name, string Description, string? BlockedReason = null)
+{
+    public bool CanAccept => string.IsNullOrEmpty(BlockedReason);
+}
 
 public class DialogueForm : Form
 {
@@ -46,8 +50,8 @@ public class DialogueForm : Form
     public event EventHandler<NPCActionEventArgs>? NPCActionTriggered;
 
     /// <summary>
-    /// 查询该 NPC 当前可委派给玩家的链式任务(MainForm 注入)。
-    /// 返回列表;空表示无可接任务。
+    /// 查询该 NPC 当前相关的链式任务(MainForm 注入)，包含可接任务与解锁线索。
+    /// 返回空列表表示没有相关任务。
     /// </summary>
     public Func<List<ChainQuestOffer>>? QueryOfferableQuests { get; set; }
 
@@ -239,7 +243,11 @@ public class DialogueForm : Form
         var offers = QueryOfferableQuests();
         if (offers.Count == 0) return;
 
-        var offer = offers[0];  // 与原 TryAutoAcceptChainQuest 一致,只处理第一个
+        foreach (var blocked in offers.Where(o => !o.CanAccept))
+            AppendSystem($"【任务线索·{blocked.Name}】{blocked.BlockedReason}");
+
+        var offer = offers.FirstOrDefault(o => o.CanAccept);
+        if (offer == null) return;
         AppendSystem($"【{_npc.Name}似乎有事相托】{offer.Description}");
 
         if (WuxiaConfirmBox.Show(this, "任务委托",
@@ -375,6 +383,11 @@ public class DialogueForm : Form
                 break;
 
             case "marry":
+                if (!RelationshipSystem.CanBecomeSpouses(_player, _npc, out var marryReason))
+                {
+                    AppendWarning($"（暂时无法与{_npc.Name}结为配偶：{marryReason}。）");
+                    break;
+                }
                 if (WuxiaConfirmBox.Show(this, "求亲", $"{_npc.Name}向你吐露心意,愿结连理,是否接受?", "接受", "婉拒", WuxiaConfirmStyle.Success))
                 {
                     AppendSystem($"你与{_npc.Name}喜结连理!");

@@ -236,7 +236,8 @@ public abstract class CharacterBase
         int bonus = ActiveInternalArt?.GetDefenseBonus() ?? 0;
         int aux = AuxiliaryBonus(a => a.GetDefenseBonus());
         int light = ActiveLightArt?.GetDefenseBonus() ?? 0;
-        int buff = TempBuffs.GetValueOrDefault("defense_boost", 0);
+        int buff = TempBuffs.GetValueOrDefault("defense_boost", 0)
+            + GetTimedBuffValue("internal_defense_boost");
         int equip = EquippedArmor?.DefenseBonus ?? 0;
         return ApplyBeatenDown((int)((BaseDefense + bonus + aux + light + buff + equip) * BuffMultiplier("def")));
     }
@@ -429,6 +430,13 @@ public abstract class CharacterBase
         CurrentMP = Math.Min(GetTotalMaxMP(), CurrentMP + amount);
     }
 
+    /// <summary>恢复到包含当前内功、辅助内功和装备加成后的满气血、满内力。</summary>
+    public void RestoreVitalsToFull()
+    {
+        CurrentHP = GetTotalMaxHP();
+        CurrentMP = GetTotalMaxMP();
+    }
+
     public bool IsAlive => CurrentHP > 0;
 
     public void LearnArt(MartialArtBase art)
@@ -448,6 +456,26 @@ public abstract class CharacterBase
                 && ActiveExternalArts.Count < MaxActiveExternalArts)
                 ActiveExternalArts.Add(externalArt);
         }
+    }
+
+    /// <summary>遗忘一门武功，并从所有装备槽中安全移除。</summary>
+    public bool ForgetArt(string artId)
+    {
+        var art = LearnedArts.FirstOrDefault(a => a.Id == artId);
+        if (art == null) return false;
+
+        LearnedArts.Remove(art);
+        ActiveExternalArts.RemoveAll(a => a.Id == artId);
+        AuxiliaryInternalArts.RemoveAll(a => a.Id == artId);
+
+        if (ActiveInternalArt?.Id == artId)
+            ActiveInternalArt = LearnedArts.OfType<InternalArt>().FirstOrDefault();
+        if (ActiveLightArt?.Id == artId)
+            ActiveLightArt = LearnedArts.OfType<LightArt>().FirstOrDefault();
+
+        CurrentHP = Math.Min(CurrentHP, GetTotalMaxHP());
+        CurrentMP = Math.Min(CurrentMP, GetTotalMaxMP());
+        return true;
     }
 
     public void AddHistory(string entry)

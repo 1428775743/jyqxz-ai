@@ -30,6 +30,13 @@
       "chance": 0.4,
       "requiredLevel": 8,
       "description": "Lv.8解锁:神照反震,40%概率反弹30%伤害"
+    },
+    {
+      "type": "Revive",
+      "value": 1.0,
+      "chance": 1.0,
+      "requiredLevel": 10,
+      "description": "Lv.10解锁:神照复生,每场战斗首次受到致命伤害时恢复全部气血"
     }
   ],
   "levelBonuses": {

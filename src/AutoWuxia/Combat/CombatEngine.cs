@@ -24,12 +24,16 @@ public class CombatEngine
     private const double ChargeFull = 1000.0;
     private const double HalfResetValue = 400.0;
     private const int ActionsPerRound = 4;   // 每个大回合产生 4 次出手(原 7-slot 节奏)
+    private const string InternalDefenseBuffId = "internal_defense_boost";
+    private const int InternalDefenseMaxStacks = 3;
+    private const int InternalDefenseDurationRounds = 10;
     private double _playerCharge;
     private double _opponentCharge;
     /// <summary>玩家上一次用辟邪类武功(ExtraActionNextRound),下次出手从 400 开始</summary>
     private bool _playerHalfReset;
     private bool _opponentHalfReset;
     private readonly Dictionary<CharacterBase, int> _mpSiphonedThisRound = new();
+    private readonly HashSet<CharacterBase> _reviveConsumed = new();
 
     /// <summary>对外暴露读条进度(0..1000),UI 用</summary>
     public double PlayerCharge => _playerCharge;
@@ -228,7 +232,10 @@ public class CombatEngine
         TickAllCooldowns(Player);
         TickAllCooldowns(Opponent);
 
-        // 递减所有TimedBuff
+        // 易筋洗髓先净化负面状态，成功净化的流血不会在本回合继续结算。
+        ProcessInternalCleanse(Player, logs);
+        ProcessInternalCleanse(Opponent, logs);
+
         // 回合开始:处理流血DoT(在Buff递减前结算,确保本回合仍生效)
         ProcessBleed(Player, logs);
         ProcessBleed(Opponent, logs);
@@ -302,8 +309,11 @@ public class CombatEngine
                     Player.CurrentMP -= mpCost;
                     intArt.UseSkill();
                     int defBoost = (int)(intArt.GetDefenseBonus() * intArt.GetProficiencyDamageMultiplier());
-                    Player.AddTempBuff("defense_boost", defBoost);
-                    var intLogs = new List<string> { $"{Player.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！(消耗{mpCost}内力)" };
+                    var (totalBoost, stacks) = AddInternalDefenseStack(Player, defBoost);
+                    var intLogs = new List<string>
+                    {
+                        $"{Player.Name}运起【{intArt.Name}】，护体防御提升{defBoost}（{stacks}/{InternalDefenseMaxStacks}层，共+{totalBoost}，持续{InternalDefenseDurationRounds}回合）！(消耗{mpCost}内力)"
+                    };
                     ApplyInternalSkillBuffs(Player, intArt, intLogs);
                     logs.AddRange(intLogs);
                     GainArtProficiencyForPlayer(intArt, 3);
@@ -391,26 +401,15 @@ public class CombatEngine
 
         var damageResult = DamageCalculator.Calculate(attacker, defender, usedArt);
 
-        // ── 轻功被动减伤(永久生效,例如一苇渡江-5%) ──
-        if (defender.ActiveLightArt != null)
-        {
-            double reduction = defender.ActiveLightArt.GetPassiveDamageReduction();
-            if (reduction > 0)
-            {
-                int reducibleDamage = Math.Max(0, damageResult.ActualDamage - damageResult.TrueDamage);
-                damageResult.ActualDamage = Math.Max(1,
-                    (int)(reducibleDamage * (1 - reduction)) + damageResult.TrueDamage);
-            }
-        }
-
         ApplyMPShield(defender, damageResult);
+        DamageCalculator.ApplyReflection(defender, damageResult);
 
-        int actualDmg = DealCombatDamage(defender, damageResult.ActualDamage);
+        int actualDmg = DealCombatDamage(defender, damageResult.ActualDamage, out var reviveLog);
 
         // 北冥类吸功只在攻击真正命中后结算。攻击吸功要求造成伤害；受击吸功即使护盾全挡也能触发。
         if (actualDmg > 0)
-            ApplyMPSiphon(attacker, defender, EffectType.SiphonMPOnHit, 0.02, damageResult);
-        ApplyMPSiphon(defender, attacker, EffectType.SiphonMPOnHurt, 0.01, damageResult);
+            ApplyMPSiphon(attacker, defender, EffectType.SiphonMPOnHit, 0.03, damageResult);
+        ApplyMPSiphon(defender, attacker, EffectType.SiphonMPOnHurt, 0.015, damageResult);
 
         if (attacker == Player)
             Result.PlayerDamageDealt += actualDmg;
@@ -427,6 +426,9 @@ public class CombatEngine
             log += $" [{string.Join("，", damageResult.TriggeredEffects)}]";
 
         log += $" | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
+
+        if (!string.IsNullOrEmpty(reviveLog))
+            log += $"\n  ↳ {reviveLog}";
 
         if (IsSpar && defender.CurrentHP <= 1)
             log += " （切磋点到为止）";
@@ -503,11 +505,8 @@ public class CombatEngine
                         if (defender.IsAlive && attacker.IsAlive)
                         {
                             int baseDmg2 = GetScaledAttackBase(attacker, usedArt);
-                            int actualDouble = DamageCalculator.ComputeSecondaryDamage(baseDmg2, defender.GetTotalDefense(), 0.85);
-                            int dealt = DealCombatDamage(defender, actualDouble);
-                            log += $"\n  ↳ {attacker.Name}连击!对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
-                            if (attacker == Player) Result.PlayerDamageDealt += dealt;
-                            else Result.PlayerDamageReceived += dealt;
+                            log += ResolveSecondaryAttack(attacker, defender, usedArt, baseDmg2,
+                                effect.Value, 1.0, "连击！");
                         }
                         break;
                     }
@@ -523,11 +522,8 @@ public class CombatEngine
                 if (effect.Type == EffectType.DoubleStrike && effect.TryActivate(attacker.ActiveInternalArt.Level))
                 {
                     int baseDmg2 = GetScaledAttackBase(attacker, usedArt);
-                    int actualDouble = DamageCalculator.ComputeSecondaryDamage(baseDmg2, defender.GetTotalDefense(), 0.85);
-                    int dealt = DealCombatDamage(defender, actualDouble);
-                    log += $"\n  ↳ {attacker.Name}连击(内功)!对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
-                    if (attacker == Player) Result.PlayerDamageDealt += dealt;
-                    else Result.PlayerDamageReceived += dealt;
+                    log += ResolveSecondaryAttack(attacker, defender, usedArt, baseDmg2,
+                        effect.Value, 1.0, "连击(内功)！");
                     break;
                 }
             }
@@ -540,8 +536,10 @@ public class CombatEngine
         // 反弹伤害
         if (damageResult.ReflectedDamage > 0 && attacker.IsAlive)
         {
-            int reflected = DealCombatDamage(attacker, damageResult.ReflectedDamage);
+            int reflected = DealCombatDamage(attacker, damageResult.ReflectedDamage, out var reflectReviveLog);
             log += $"\n  ↳ 反弹伤害！{attacker.Name}受到 {reflected} 点反伤 | HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
+            if (!string.IsNullOrEmpty(reflectReviveLog))
+                log += $"\n  ↳ {reflectReviveLog}";
             if (attacker == Player)
                 Result.PlayerDamageReceived += reflected;
             else
@@ -551,15 +549,10 @@ public class CombatEngine
         // 反击（防御方自动攻击攻击者）
         if (damageResult.CounterAttackTriggered && defender.IsAlive && attacker.IsAlive)
         {
-            var counterArt = defender.ActiveExternalArt;
+            var counterArt = damageResult.CounterAttackArt ?? defender.ActiveExternalArt;
             int counterBase = GetScaledAttackBase(defender, counterArt);
-            int actualCounter = DamageCalculator.ComputeSecondaryDamage(counterBase, attacker.GetTotalDefense(), 0.6, 0.5);
-            int dealt = DealCombatDamage(attacker, actualCounter);
-            log += $"\n  ↳ {defender.Name}反击！对{attacker.Name}造成 {dealt} 点伤害 | {attacker.Name} HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
-            if (defender == Player)
-                Result.PlayerDamageDealt += dealt;
-            else
-                Result.PlayerDamageReceived += dealt;
+            log += ResolveSecondaryAttack(defender, attacker, counterArt, counterBase,
+                damageResult.CounterAttackMultiplier, 0.5, "反击！");
         }
 
         // 追击（攻击方额外攻击一次，伤害60%）
@@ -567,13 +560,8 @@ public class CombatEngine
         {
             var extraArt = usedArt ?? attacker.ActiveExternalArt;
             int extraBase = GetScaledAttackBase(attacker, extraArt);
-            int actualExtra = DamageCalculator.ComputeSecondaryDamage(extraBase, defender.GetTotalDefense(), 0.6);
-            int dealt = DealCombatDamage(defender, actualExtra);
-            log += $"\n  ↳ {attacker.Name}追击！对{defender.Name}造成 {dealt} 点伤害 | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
-            if (attacker == Player)
-                Result.PlayerDamageDealt += dealt;
-            else
-                Result.PlayerDamageReceived += dealt;
+            log += ResolveSecondaryAttack(attacker, defender, extraArt, extraBase,
+                damageResult.ExtraAttackMultiplier, 1.0, "追击！");
         }
 
         return log;
@@ -605,11 +593,13 @@ public class CombatEngine
         // NPC AI：低血量时运功防御；拥有内力护盾/吸功强化的内功会更积极地主动运功。
         bool hasTacticalInternal = npc.ActiveInternalArt?.Effects.Any(e =>
             e.IsUnlocked(npc.ActiveInternalArt.Level) &&
-            e.Type is EffectType.MPShield or EffectType.SiphonMPOnHit or EffectType.SiphonMPOnHurt) == true;
+            e.Type is EffectType.MPShield or EffectType.SiphonMPOnHit
+                or EffectType.SiphonMPOnHurt or EffectType.DrainMP) == true;
         bool shouldUseInternal = npc.CurrentHP < npc.GetTotalMaxHP() * 0.4
             || (hasTacticalInternal
                 && !npc.HasTimedBuff("mp_shield_boost")
                 && !npc.HasTimedBuff("mp_siphon_boost")
+                && !npc.HasTimedBuff("drain_mp_boost")
                 && Random.Shared.NextDouble() < 0.35);
         if (npc.ActiveInternalArt != null && npc.ActiveInternalArt.IsReady
             && npc.CurrentMP >= npc.ActiveInternalArt.GetMPCost(npc.GetTotalMaxMP())
@@ -621,9 +611,12 @@ public class CombatEngine
             npc.CurrentMP -= mpCost;
             intArt.UseSkill();
             int defBoost = (int)(intArt.GetDefenseBonus() * intArt.GetProficiencyDamageMultiplier());
-            npc.AddTempBuff("defense_boost", defBoost);
+            var (totalBoost, stacks) = AddInternalDefenseStack(npc, defBoost);
             intArt.GainProficiency(5);
-            var npcLogs = new List<string> { $"{npc.Name}运起【{intArt.Name}】，防御临时提升{defBoost}！(消耗{mpCost}内力)" };
+            var npcLogs = new List<string>
+            {
+                $"{npc.Name}运起【{intArt.Name}】，护体防御提升{defBoost}（{stacks}/{InternalDefenseMaxStacks}层，共+{totalBoost}，持续{InternalDefenseDurationRounds}回合）！(消耗{mpCost}内力)"
+            };
             ApplyInternalSkillBuffs(npc, intArt, npcLogs);
             return string.Join("\n  ↳ ", npcLogs);
         }
@@ -639,6 +632,23 @@ public class CombatEngine
         }
 
         return ExecuteAttack(npc, Player, null);
+    }
+
+    /// <summary>
+    /// 主动运功的防御层数最多三层；重复运功增加一层并把整组层数刷新为十回合。
+    /// </summary>
+    private static (int TotalBoost, int Stacks) AddInternalDefenseStack(CharacterBase character, int perStackBoost)
+    {
+        perStackBoost = Math.Max(0, perStackBoost);
+        int maxBoost = perStackBoost * InternalDefenseMaxStacks;
+        int currentBoost = character.GetTimedBuffValue(InternalDefenseBuffId);
+        int totalBoost = Math.Min(maxBoost, currentBoost + perStackBoost);
+        character.AddTimedBuff(InternalDefenseBuffId, totalBoost, InternalDefenseDurationRounds);
+
+        int stacks = perStackBoost <= 0
+            ? 0
+            : Math.Min(InternalDefenseMaxStacks, (int)Math.Ceiling(totalBoost / (double)perStackBoost));
+        return (totalBoost, stacks);
     }
 
     /// <summary>
@@ -718,6 +728,10 @@ public class CombatEngine
                         logs.Add($"{character.Name}运转海纳百川，吸取内力效率提高50%(2回合)");
                     }
                     break;
+                case EffectType.DrainMP:
+                    character.AddTimedBuff("drain_mp_boost", 50, 2);
+                    logs.Add($"{character.Name}运转吸星气旋，吸取内力效率提高50%(2回合)");
+                    break;
             }
         }
     }
@@ -762,7 +776,7 @@ public class CombatEngine
 
         int maxMP = siphoner.GetTotalMaxMP();
         int singleCap = Math.Max(1, (int)(maxMP * singleCapRate));
-        int roundCap = Math.Max(1, (int)(maxMP * 0.08));
+        int roundCap = Math.Max(1, (int)(maxMP * 0.10));
         int alreadySiphoned = _mpSiphonedThisRound.GetValueOrDefault(siphoner, 0);
         int storage = Math.Max(0, maxMP - siphoner.CurrentMP);
         int amount = (int)(target.CurrentMP * rate * (1 - mpResist));
@@ -786,10 +800,39 @@ public class CombatEngine
         if (!character.HasTimedBuff("bleed")) return;
         int dmg = character.GetTimedBuffValue("bleed");
         if (dmg <= 0) return;
-        int dealt = DealCombatDamage(character, dmg);
+        int dealt = DealCombatDamage(character, dmg, out var reviveLog);
         logs.Add($"  ↳ {character.Name}流血不止,损失 {dealt} HP | HP:{character.CurrentHP}/{character.GetTotalMaxHP()}");
+        if (!string.IsNullOrEmpty(reviveLog))
+            logs.Add($"  ↳ {reviveLog}");
         if (character == Player) Result.PlayerDamageReceived += dealt;
         else Result.PlayerDamageDealt += dealt;
+    }
+
+    /// <summary>易筋经回合开始净化流血、点穴与吸星散功。</summary>
+    private static void ProcessInternalCleanse(CharacterBase character, List<string> logs)
+    {
+        if (!character.IsAlive) return;
+
+        var art = character.ActiveInternalArt;
+        if (art == null) return;
+        var effect = art.Effects.FirstOrDefault(e =>
+            e.Type == EffectType.Cleanse && e.IsUnlocked(art.Level));
+        if (effect == null || !effect.TryActivate(art.Level)) return;
+
+        var removed = new List<string>();
+        foreach (var (buffId, displayName) in new[]
+                 {
+                     ("bleed", "流血"),
+                     ("stun", "点穴"),
+                     ("damage_dealt_reduction", "散功")
+                 })
+        {
+            if (!character.TimedBuffs.Remove(buffId)) continue;
+            removed.Add(displayName);
+        }
+
+        if (removed.Count > 0)
+            logs.Add($"  ↳ {character.Name}运转【{art.Name}】易筋洗髓，化去{string.Join("、", removed)}！");
     }
 
     /// <summary>外功基础伤害同时计入武功等级倍率，供连击/反击/追击等次要伤害使用。</summary>
@@ -799,13 +842,96 @@ public class CombatEngine
         return (int)(art.CalculateBaseDamage(attacker.GetTotalAttack()) * art.GetProficiencyDamageMultiplier());
     }
 
-    /// <summary>统一结算战斗伤害；切磋时任何伤害来源都只能将气血降至1。</summary>
-    private int DealCombatDamage(CharacterBase target, int damage)
+    /// <summary>结算连击、反击、追击；完整应用防御层，但不触发新的攻击链。</summary>
+    private string ResolveSecondaryAttack(CharacterBase attacker, CharacterBase defender, ExternalArt? sourceArt,
+        int rawBase, double damageMultiplier, double defenseFactor, string actionName)
     {
+        var result = DamageCalculator.CalculateSecondary(
+            attacker, defender, sourceArt, rawBase, damageMultiplier, defenseFactor);
+        ApplyMPShield(defender, result);
+        DamageCalculator.ApplyReflection(defender, result);
+
+        int dealt = DealCombatDamage(defender, result.ActualDamage, out var followUpLog);
+        if (attacker == Player) Result.PlayerDamageDealt += dealt;
+        else Result.PlayerDamageReceived += dealt;
+
+        string log = $"\n  ↳ {attacker.Name}{actionName}对{defender.Name}造成 {dealt} 点伤害";
+        if (result.TriggeredEffects.Count > 0)
+            log += $" [{string.Join("，", result.TriggeredEffects)}]";
+        log += $" | {defender.Name} HP:{defender.CurrentHP}/{defender.GetTotalMaxHP()}";
+        if (!string.IsNullOrEmpty(followUpLog))
+            log += $"\n  ↳ {followUpLog}";
+
+        if (result.ReflectedDamage > 0 && attacker.IsAlive)
+        {
+            int reflected = DealCombatDamage(attacker, result.ReflectedDamage, out var reflectFollowUpLog);
+            log += $"\n  ↳ {defender.Name}反伤！{attacker.Name}受到 {reflected} 点伤害 | {attacker.Name} HP:{attacker.CurrentHP}/{attacker.GetTotalMaxHP()}";
+            if (!string.IsNullOrEmpty(reflectFollowUpLog))
+                log += $"\n  ↳ {reflectFollowUpLog}";
+            if (defender == Player) Result.PlayerDamageDealt += reflected;
+            else Result.PlayerDamageReceived += reflected;
+        }
+
+        return log;
+    }
+
+    /// <summary>统一结算战斗伤害；切磋时任何伤害来源都只能将气血降至1。</summary>
+    private int DealCombatDamage(CharacterBase target, int damage, out string? followUpLog)
+    {
+        var followUps = new List<string>();
         int capped = Math.Max(0, damage);
         if (IsSpar)
             capped = Math.Min(capped, Math.Max(0, target.CurrentHP - 1));
-        return target.TakeDamage(capped);
+        int dealt = target.TakeDamage(capped);
+
+        if (!IsSpar && target.CurrentHP <= 0 && TryActivateRevive(target, out var reviveArt))
+        {
+            target.CurrentHP = target.GetTotalMaxHP();
+            followUps.Add($"{target.Name}体内【{reviveArt.Name}】真气护住心脉，神照复生，气血尽复！");
+        }
+
+        if (dealt > 0 && target.IsAlive && TryStackAdaptiveDefense(target, out var defenseArt, out int reduction))
+            followUps.Add($"{target.Name}运转【{defenseArt.Name}】重塑筋骨，后续减伤提升至{reduction}%！");
+
+        followUpLog = followUps.Count == 0 ? null : string.Join("\n  ↳ ", followUps);
+        return dealt;
+    }
+
+    private static bool TryStackAdaptiveDefense(CharacterBase target, out InternalArt art, out int reduction)
+    {
+        art = null!;
+        reduction = 0;
+        var internalArt = target.ActiveInternalArt;
+        if (internalArt == null) return false;
+
+        var effect = internalArt.Effects.FirstOrDefault(e =>
+            e.Type == EffectType.AdaptiveDefense && e.IsUnlocked(internalArt.Level));
+        if (effect == null || !effect.TryActivate(internalArt.Level)) return false;
+
+        int step = Math.Max(1, (int)Math.Round(effect.Value * 100));
+        int maximum = step * 4;
+        int current = target.GetTimedBuffValue("adaptive_defense");
+        reduction = Math.Min(maximum, current + step);
+        target.AddTimedBuff("adaptive_defense", reduction, 2);
+        art = internalArt;
+        return reduction > current;
+    }
+
+    private bool TryActivateRevive(CharacterBase target, out InternalArt reviveArt)
+    {
+        reviveArt = null!;
+        if (_reviveConsumed.Contains(target)) return false;
+
+        var internalArt = target.ActiveInternalArt;
+        if (internalArt == null) return false;
+
+        var effect = internalArt.Effects.FirstOrDefault(e =>
+            e.Type == EffectType.Revive && e.IsUnlocked(internalArt.Level));
+        if (effect == null || !effect.TryActivate(internalArt.Level)) return false;
+
+        _reviveConsumed.Add(target);
+        reviveArt = internalArt;
+        return true;
     }
 
     private void TickAllCooldowns(CharacterBase character)

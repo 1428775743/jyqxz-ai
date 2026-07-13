@@ -7,30 +7,51 @@
   "rarity": "legendary",
   "cooldown": 3,
   "mpCost": 80,
-  "hpBonusPerLevel": 250,
-  "mpBonusPerLevel": 400,
+  "hpBonusPerLevel": 280,
+  "mpBonusPerLevel": 480,
   "attackBonusPerLevel": 30,
-  "defenseBonusPerLevel": 50,
+  "defenseBonusPerLevel": 55,
   "effects": [
     {
       "type": "HPRecover",
-      "value": 0.05,
+      "value": 0.08,
       "chance": 1.0,
       "requiredLevel": 5,
-      "description": "Lv.5解锁：易筋洗髓，每回合恢复5%最大气血"
+      "description": "Lv.5解锁：易筋洗髓，每回合恢复8%最大气血"
     },
     {
       "type": "MPResist",
-      "value": 0.3,
+      "value": 0.6,
       "chance": 1.0,
-      "description": "佛门内功，内力系数减半"
+      "description": "佛门正宗内力，抵抗60%吸内效果"
     },
     {
       "type": "DamageReduction",
-      "value": 0.20,
+      "value": 0.25,
       "chance": 1.0,
       "requiredLevel": 7,
-      "description": "Lv.7解锁：被动受到伤害降低20%"
+      "description": "Lv.7解锁：金刚护体，被动受到伤害降低25%"
+    },
+    {
+      "type": "FlatDamageReduction",
+      "value": 80,
+      "chance": 1.0,
+      "requiredLevel": 9,
+      "description": "Lv.9解锁：易筋大成，受到攻击时固定减伤80"
+    },
+    {
+      "type": "Cleanse",
+      "value": 1.0,
+      "chance": 1.0,
+      "requiredLevel": 6,
+      "description": "Lv.6解锁：易筋洗髓，每回合开始清除流血、点穴与散功状态"
+    },
+    {
+      "type": "AdaptiveDefense",
+      "value": 0.05,
+      "chance": 1.0,
+      "requiredLevel": 8,
+      "description": "Lv.8解锁：筋骨自适应，每次受伤后续减伤+5%，最多叠加20%"
     }
   ],
   "levelBonuses": {}

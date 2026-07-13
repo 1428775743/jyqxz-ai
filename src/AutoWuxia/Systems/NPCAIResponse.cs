@@ -19,6 +19,9 @@ public class NPCAIResponse
     /// attack - NPC主动攻击（仇敌/被冒犯）
     /// give_item - NPC赠送物品给玩家（actionTarget为物品ID）
     /// ask_item - NPC向玩家索要物品（actionTarget为物品ID）
+    /// marry - 与玩家结为配偶
+    /// swear_brotherhood - 与玩家义结金兰
+    /// take_disciple - 收玩家为徒
     /// teach_art - NPC传授武功给玩家（actionTarget为武功ID）
     /// end_dialogue - NPC想结束对话
     /// </summary>

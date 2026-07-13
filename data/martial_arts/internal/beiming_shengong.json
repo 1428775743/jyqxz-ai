@@ -15,21 +15,21 @@
   "effects": [
     {
       "type": "SiphonMPOnHit",
-      "value": 0.03,
+      "value": 0.04,
       "chance": 1.0,
-      "description": "北冥纳气：攻击命中时吸取目标当前内力的3%（单次最多恢复自身最大内力的2%）"
+      "description": "北冥纳气：攻击命中时吸取目标当前内力的4%（单次最多恢复自身最大内力的3%）"
     },
     {
       "type": "SiphonMPOnHurt",
-      "value": 0.015,
+      "value": 0.02,
       "chance": 1.0,
-      "description": "海纳百川：受到攻击时吸取攻击者当前内力的1.5%（单次最多恢复自身最大内力的1%）"
+      "description": "海纳百川：受到攻击时吸取攻击者当前内力的2%（单次最多恢复自身最大内力的1.5%）"
     },
     {
       "type": "MPShield",
-      "value": 0.30,
+      "value": 0.50,
       "chance": 1.0,
-      "description": "北冥真气护体：消耗内力抵消30%非真实伤害（1点内力抵消1点伤害）"
+      "description": "北冥真气护体：消耗内力抵消50%非真实伤害（1点内力抵消1点伤害）"
     },
     {
       "type": "ReflectDamage",

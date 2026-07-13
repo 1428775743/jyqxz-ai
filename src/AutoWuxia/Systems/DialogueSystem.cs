@@ -216,9 +216,20 @@ public class DialogueSystem
         // 应用好感度变化
         if (favorChange != 0)
         {
+            RelationshipSystem.Interact(player, npc, favorChange);
             var rel = npc.GetRelation(player.Id);
-            rel.ChangeFavorability(favorChange);
             GameLogger.Dialogue($"好感度变化: {(favorChange > 0 ? "+" : "")}{favorChange}, 当前: {rel.Favorability}");
+        }
+
+        // 模型偶尔会把明确的求婚误判为传授武功。先结算本次好感，再按婚配条件纠正动作，
+        // 避免出现NPC口头答应成亲，界面却显示“似乎想传授武功”的情况。
+        if (action == "teach_art"
+            && IsMarriageRequest(message)
+            && RelationshipSystem.CanBecomeSpouses(player, npc, out _))
+        {
+            GameLogger.Dialogue($"修正AI动作: 明确婚配请求被误判为teach_art，改为marry（{npc.Name}）");
+            action = "marry";
+            actionTarget = null;
         }
 
         // NPC想结束对话 → 设置12时辰拒绝冷却
@@ -322,6 +333,16 @@ public class DialogueSystem
             CraftFee = craftFee,
             MusicPlayed = (action == "play_music") ? actionTarget : null
         };
+    }
+
+    private static bool IsMarriageRequest(string message)
+    {
+        if (string.IsNullOrWhiteSpace(message)) return false;
+        string[] keywords =
+        {
+            "结成配偶", "结为配偶", "结为夫妻", "结成夫妻", "成亲", "结婚", "嫁给我", "嫁给你", "娶我", "娶你"
+        };
+        return keywords.Any(message.Contains);
     }
 
     public bool CanContinueDialogue(Player player)
